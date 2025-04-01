@@ -1,24 +1,23 @@
-# 脚本名称: merge_adblock.py
-# 功能: 从 GOODBYEADS 的 adblock.txt 中移除 dns.txt 和 allow.txt 的规则，并与 217heidai 的规则2合并去重（忽略大小写）
-
 import requests
+from datetime import datetime
 
 def load_rules(url):
-    """从 URL 获取规则，返回规则集合（忽略大小写）"""
+    """从 URL 获取规则，返回规则集合和注释行"""
     response = requests.get(url)
     response.raise_for_status()
     lines = response.text.splitlines()
-    # 去除空行和注释行（以 # 或 ! 开头），忽略大小写
+    # 分离注释行和规则行
+    comments = [line.strip() for line in lines if line.strip() and line.strip()[0] in ['#', '!']]
     rules = {line.strip().lower() for line in lines if line.strip() and line.strip()[0] not in ['#', '!']}
-    return rules
+    return rules, comments
 
 def filter_and_merge(goodbye_adblock_url, dns_url, allow_url, heidai_url, output_file):
     """过滤 GOODBYEADS 的 adblock.txt，并与 217heidai 的规则2合并"""
-    # 加载所有规则
-    goodbye_rules = load_rules(goodbye_adblock_url)
-    dns_rules = load_rules(dns_url)
-    allow_rules = load_rules(allow_url)
-    heidai_rules = load_rules(heidai_url)
+    # 加载所有规则和注释
+    goodbye_rules, goodbye_comments = load_rules(goodbye_adblock_url)
+    dns_rules, dns_comments = load_rules(dns_url)
+    allow_rules, allow_comments = load_rules(allow_url)
+    heidai_rules, heidai_comments = load_rules(heidai_url)
 
     # 从 GOODBYEADS 规则中移除 DNS 和白名单
     filtered_goodbye_rules = goodbye_rules - dns_rules - allow_rules
@@ -26,19 +25,39 @@ def filter_and_merge(goodbye_adblock_url, dns_url, allow_url, heidai_url, output
     # 合并 GOODBYEADS 和 217heidai 的规则并去重
     merged_rules = filtered_goodbye_rules.union(heidai_rules)
 
-    # 写入新文件（保持原始大小写，需从原始数据中恢复）
+    # 收集所有原始规则和注释，保留大小写
     all_rules_with_case = {}
+    all_comments = []
     for url in [goodbye_adblock_url, dns_url, allow_url, heidai_url]:
         response = requests.get(url)
         response.raise_for_status()
         for line in response.text.splitlines():
             stripped = line.strip()
-            if stripped and stripped[0] not in ['#', '!']:
-                all_rules_with_case[stripped.lower()] = stripped
+            if stripped:
+                if stripped[0] in ['#', '!']:
+                    all_comments.append(stripped)  # 保留注释行
+                else:
+                    all_rules_with_case[stripped.lower()] = stripped
 
-    # 只保留合并后的规则并写入
+    # 生成头部信息
+    current_time = datetime.utcnow().strftime('%Y/%m/%d %H:%M:%S')
+    header = [
+        '! Title: Adguard Filter',
+        '! Expires: 12 Hours',
+        f'! Last modified: {current_time}',
+        f'! Total count: {len(merged_rules)}'
+    ]
+
+    # 写入新文件
     with open(output_file, 'w', encoding='utf-8') as f:
-        f.write('[Adblock Plus]\n')  # 添加 Adblock 文件头
+        # 写入头部信息
+        f.write('[Adblock Plus]\n')
+        for line in header:
+            f.write(line + '\n')
+        # 写入所有注释行（去重）
+        for comment in sorted(set(all_comments)):
+            f.write(comment + '\n')
+        # 写入合并后的规则
         for rule_lower in sorted(merged_rules):
             f.write(all_rules_with_case[rule_lower] + '\n')
 
@@ -49,6 +68,7 @@ def filter_and_merge(goodbye_adblock_url, dns_url, allow_url, heidai_url, output
     print(f"GOODBYEADS 过滤后规则数: {len(filtered_goodbye_rules)}")
     print(f"217heidai 规则2 规则数: {len(heidai_rules)}")
     print(f"合并后规则数: {len(merged_rules)}")
+    print(f"总注释行数: {len(set(all_comments))}")
 
 # 执行合并
 if __name__ == "__main__":
