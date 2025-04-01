@@ -1,0 +1,36 @@
+name: Update AdGuard DNS Rules
+
+on:
+  schedule:
+    - cron: '0 */12 * * *'  # 每12小时运行一次（UTC时间）
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  update-dns:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run merge script
+        run: python merge_adguard_dns.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add merged_adguard_dns.txt
+          git commit -m "Update merged AdGuard DNS rules - $(date '+%Y-%m-%d %H:%M:%S UTC')"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
