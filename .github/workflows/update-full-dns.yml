@@ -35,6 +35,7 @@ jobs:
           git config --global user.email "action@github.com"
           git add full_adguard_dns.txt
           git commit -m "Update merged AdGuard DNS rules - $(date '+%Y-%m-%d %H:%M:%S UTC')"
+          git pull --rebase
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
