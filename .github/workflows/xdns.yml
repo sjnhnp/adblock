@@ -1,4 +1,4 @@
-name: Update AdGuard FullDns
+name:  X DNS
 
 on:
   schedule:
@@ -27,13 +27,13 @@ jobs:
           pip install requests
 
       - name: Run merge script
-        run: python full_adguard_dns.py
+        run: xdns.py
 
       - name: Commit and push changes
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          git add full_adguard_dns.txt
+          git add xdns.txt
           git commit -m "Update merged AdGuard DNS rules - $(date '+%Y-%m-%d %H:%M:%S UTC')"
           git pull --rebase
           git push
