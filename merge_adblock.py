@@ -2,7 +2,7 @@ import requests
 from datetime import datetime
 
 def load_rules(url):
-    """从 URL 获取规则，返回规则集合和注释行"""
+
     response = requests.get(url)
     response.raise_for_status()
     lines = response.text.splitlines()
@@ -12,17 +12,15 @@ def load_rules(url):
     return rules, comments
 
 def filter_and_merge(goodbye_adblock_url, dns_url, allow_url, heidai_url, output_file):
-    """过滤 GOODBYEADS 的 adblock.txt，并与 217heidai 的规则2合并"""
+
     # 加载所有规则和注释
     goodbye_rules, goodbye_comments = load_rules(goodbye_adblock_url)
     dns_rules, dns_comments = load_rules(dns_url)
     allow_rules, allow_comments = load_rules(allow_url)
     heidai_rules, heidai_comments = load_rules(heidai_url)
 
-    # 从 GOODBYEADS 规则中移除 DNS 和白名单
     filtered_goodbye_rules = goodbye_rules - dns_rules - allow_rules
 
-    # 合并 GOODBYEADS 和 217heidai 的规则并去重
     merged_rules = filtered_goodbye_rules.union(heidai_rules)
 
     # 收集所有原始规则和注释，保留大小写
@@ -35,7 +33,9 @@ def filter_and_merge(goodbye_adblock_url, dns_url, allow_url, heidai_url, output
             stripped = line.strip()
             if stripped:
                 if stripped[0] in ['#', '!']:
-                    all_comments.append(stripped)  # 保留注释行
+                    # 只保留非头部信息的注释行（排除以特定头部关键字开头的行）
+                    if not any(stripped.startswith(prefix) for prefix in ['! Title:', '! Expires:', '! Last modified:', '! Total count:', '! Description:', '! Homepage:', '! Source:', '! Version:', '! Blocked Filters:']):
+                        all_comments.append(stripped)
                 else:
                     all_rules_with_case[stripped.lower()] = stripped
 
