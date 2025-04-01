@@ -37,7 +37,7 @@ header = [
 output = '\n'.join(header + [''] + rules)
 
 # 保存到文件，文件名改为 merged_adguard_dns.txt
-with open('merged_adguard_dns.txt', 'w', encoding='utf-8') as f:
+with open('full_adguard_dns.txt', 'w', encoding='utf-8') as f:
     f.write(output)
 
 print(f"Generated merged rules with {len(rules)} entries.")
