@@ -27,7 +27,7 @@ for url in urls:
 current_time = (datetime.utcnow() + timedelta(hours=8)).strftime('%Y/%m/%d %H:%M:%S')
 header = [
     '[Adblock Plus]',
-    '! Title: Adguard DNS',
+    '! Title: X dns',
     '! Expires: 12 Hours',
     f'! Last modified: {current_time}',
     f'! Total count: {len(rules)}'
@@ -36,8 +36,7 @@ header = [
 # 合并头部和规则
 output = '\n'.join(header + [''] + rules)
 
-# 保存到文件，文件名改为 merged_adguard_dns.txt
-with open('full_adguard_dns.txt', 'w', encoding='utf-8') as f:
+with open('xdns.txt', 'w', encoding='utf-8') as f:
     f.write(output)
 
 print(f"Generated merged rules with {len(rules)} entries.")
