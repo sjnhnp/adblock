@@ -61,7 +61,7 @@ def filter_and_merge(goodbye_adblock_url, dns_url, allow_url, heidai_url, output
     current_time = (datetime.utcnow() + timedelta(hours=8)).strftime('%Y/%m/%d %H:%M:%S')
     header = [
         '[Adblock Plus]',
-        '! Title: Adguard Filter',
+        '! Title: X Filter',
         '! Expires: 12 Hours',
         f'! Last modified: {current_time}',
         f'! Total count: {len(merged_rules_set)}'
@@ -99,5 +99,5 @@ if __name__ == "__main__":
         dns_url=dns_url,
         allow_url=allow_url,
         heidai_url=heidai_rule2_url,
-        output_file='merged_adblock.txt'
+        output_file='xfilter.txt'
     )
