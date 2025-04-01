@@ -1,0 +1,24 @@
+name: Update Merged Adblock Rules
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 每天 UTC 00:00 更新
+  workflow_dispatch:  # 手动触发
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with: { python-version: '3.x' }
+      - name: Install dependencies
+        run: pip install requests
+      - name: Run merge script
+        run: python merge_adblock.py
+      - name: Commit changes
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add merged_adblock.txt
+          git commit -m "Update merged adblock rules" || echo "No changes"
+          git push
