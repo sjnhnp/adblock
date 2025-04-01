@@ -27,7 +27,7 @@ for url in urls:
 current_time = (datetime.utcnow() + timedelta(hours=8)).strftime('%Y/%m/%d %H:%M:%S')
 header = [
     '[Adblock Plus]',
-    '! Title: Adguard Filter',
+    '! Title: Adguard DNS',
     '! Expires: 12 Hours',
     f'! Last modified: {current_time}',
     f'! Total count: {len(rules)}'
