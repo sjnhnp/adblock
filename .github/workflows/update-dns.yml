@@ -1,4 +1,4 @@
-name: Update AdGuard DNS Rules
+name: X DNS Lite
 
 on:
   schedule:
@@ -27,13 +27,13 @@ jobs:
           pip install requests
 
       - name: Run merge script
-        run: python merge_adguard_dns.py
+        run: python xdnslite.py
 
       - name: Commit and push changes
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          git add merged_adguard_dns.txt
+          git add xdnslite.txt
           git commit -m "Update merged AdGuard DNS rules - $(date '+%Y-%m-%d %H:%M:%S UTC')"
           git push
         env:
