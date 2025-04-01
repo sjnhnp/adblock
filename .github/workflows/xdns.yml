@@ -27,7 +27,7 @@ jobs:
           pip install requests
 
       - name: Run merge script
-        run: xdns.py
+        run: python xdns.py
 
       - name: Commit and push changes
         run: |
