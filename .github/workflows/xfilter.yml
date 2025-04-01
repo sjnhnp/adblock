@@ -1,4 +1,4 @@
-name: Update Merged Adblock Rules
+name: X Filter
 on:
   schedule:
     - cron: '0 */12 * * *'
@@ -16,11 +16,11 @@ jobs:
       - name: Install dependencies
         run: pip install requests
       - name: Run merge script
-        run: python merge_adblock.py
+        run: python xfilter.py
       - name: Commit changes
         run: |
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
-          git add merged_adblock.txt
+          git add xfilter.txt
           git commit -m "Update merged adblock rules" || echo "No changes"
           git push
