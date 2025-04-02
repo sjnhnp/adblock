@@ -34,9 +34,15 @@ header = [
 ]
 
 # 合并头部和规则
-output = '\n'.join(header + [''] + rules)
 
-with open('xdns.txt', 'w', encoding='utf-8') as f:
-    f.write(output)
+whitelist = ["@@||example.com^$important", "@@||test.com^"]
+blacklist = ["||blocked.com^", "||spam.com^"]
+with open("xdns.txt", "w") as f:
+    f.write("\n".join(whitelist + blacklist))
+
+# output = '\n'.join(header + [''] + rules)
+
+#with open('xdns.txt', 'w', encoding='utf-8') as f:
+#    f.write(output)
 
 print(f"Generated merged rules with {len(rules)} entries.")
