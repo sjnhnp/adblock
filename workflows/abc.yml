@@ -1,0 +1,38 @@
+name: abc dns
+
+on:
+  schedule:
+    - cron: '0 */12 * * *'  # 每12小时运行一次
+  workflow_dispatch:  # 支持手动触发
+  
+permissions:
+  contents: write  # 授予写入权限
+  
+jobs:
+  update-rules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run script
+        run: python abc.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add a1.txt b1.txt a1b1.txt
+          git commit -m "abc dns - $(date '+%Y-%m-%d %H:%M:%S')"
+          git pull --rebase
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
