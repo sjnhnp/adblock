@@ -44,7 +44,7 @@ header = [
 # 合并头部和规则
 output = '\n'.join(header + [''] + rules)
 
-with open('xdns.txt', 'w', encoding='utf-8') as f:
+with open('xdnsbig.txt', 'w', encoding='utf-8') as f:
     f.write(output)
 
 print(f"Generated merged rules with {len(rules)} entries (Whitelist: {len(whitelist_rules)}, Blacklist: {len(blacklist_rules)}).")
