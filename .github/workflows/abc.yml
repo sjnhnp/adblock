@@ -1,10 +1,11 @@
-name: abc dns
+name: Update AdGuard DNS Rules
 
 on:
   schedule:
     - cron: '0 */12 * * *'  # 每12小时运行一次
   workflow_dispatch:  # 支持手动触发
-  
+
+# 添加权限配置
 permissions:
   contents: write  # 授予写入权限
   
@@ -31,7 +32,7 @@ jobs:
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           git add a1.txt b1.txt a1b1.txt
-          git commit -m "abc dns - $(date '+%Y-%m-%d %H:%M:%S')"
+          git commit -m "Update DNS rules - $(date '+%Y-%m-%d %H:%M:%S')"
           git pull --rebase
           git push
         env:
