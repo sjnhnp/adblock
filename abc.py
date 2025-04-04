@@ -12,10 +12,12 @@ def fetch_rules(url):
 # 去重并生成新规则，保持原始顺序
 def generate_unique_rules(source, *others):
     source_list = source.copy()  # 复制原始列表以保持顺序
-    other_set = set().union(*others)  # 合并其他规则为集合用于快速查找
-    common = set(source).intersection(other_set)  # 找到共有规则
-    # 按原始顺序过滤掉共有规则
-    return [rule for rule in source_list if rule not in common]
+    result = source_list
+    for other in others:
+        common = set(source).intersection(set(other))  # 找到与每个 other 的共有规则
+        # 按原始顺序过滤掉共有规则
+        result = [rule for rule in result if rule not in common]
+    return result
 
 # 生成头部信息
 def generate_header(title, rule_count):
@@ -53,11 +55,11 @@ def main():
     rules_b = fetch_rules(b_url)
     rules_c = fetch_rules(c_url)
 
-    # 生成 a1.txt（a 去掉 b 和 c 的共有规则）
+    # 生成 a1.txt（从 rules_a 中移除与 rules_b 的共有规则，再移除与 rules_c 的共有规则）
     a1_rules = generate_unique_rules(rules_a, rules_b, rules_c)
     write_rules_file('a1.txt', 'X dns - A1 Unique Rules', a1_rules)
 
-    # 生成 b1.txt（b 去掉 a 和 c 的共有规则）
+    # 生成 b1.txt（从 rules_b 中移除与 rules_a 的共有规则，再移除与 rules_c 的共有规则）
     b1_rules = generate_unique_rules(rules_b, rules_a, rules_c)
     write_rules_file('b1.txt', 'X dns - B1 Unique Rules', b1_rules)
 
