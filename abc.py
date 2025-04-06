@@ -154,8 +154,8 @@ def main():
     a1_rules = asyncio.run(filter_valid_rules_async(a1_rules_raw))
     write_rules_file('a1.txt', 'X dns - A1 Unique Rules (Validated)', a1_rules)
 
-    # 生成 b1.txt
-    b1_rules_raw = generate_unique_rules(rules_b, rules_a, rules_c)
+    # 生成 b1.txt（修改为只去除 rules_b 与 rules_c 的交集）
+    b1_rules_raw = generate_unique_rules(rules_b, rules_c)
     b1_rules = asyncio.run(filter_valid_rules_async(b1_rules_raw))
     write_rules_file('b1.txt', 'X dns - B1 Unique Rules (Validated)', b1_rules)
 
