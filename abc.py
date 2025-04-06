@@ -25,9 +25,9 @@ CUSTOM_DNS_SERVERS = [
     '223.5.5.5',      # AliDNS
     '223.6.6.6',      # AliDNS Backup
     '119.29.29.29',   # DNSPod
-    '180.76.76.76',   # BaiduDNS
-    '8.8.8.8',        # Google Public DNS
-    '8.8.4.4',        # Google Public DNS Backup
+    '208.67.222.2',   # BaiduDNS
+    '8.8.4.4',        # Google Public DNS
+    '9.9.9.10',        # Google Public DNS Backup
     '1.1.1.1',        # Cloudflare DNS
     '1.0.0.1'         # Cloudflare DNS Backup
 ]
