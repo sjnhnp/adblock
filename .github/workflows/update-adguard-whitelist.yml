@@ -36,5 +36,5 @@ jobs:
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Update AdGuard whitelist with Cloudflare Top 100 CN domains (${{ github.run_number }})"
-          file_pattern: 100cn.txt
+          commit_message: "Update AdGuard whitelist with Cloudflare Top 100 CN and World domains (${{ github.run_number }})"
+          file_pattern: "100cn.txt worldcn.txt"  # 提交两个文件
