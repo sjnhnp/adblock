@@ -19,7 +19,7 @@ jobs:
       - name: Set up Python # 步骤2：设置 Python 环境
         uses: actions/setup-python@v5
         with:
-          python-version: '3.9' # 指定 Python 版本
+          python-version: '3.11' # 指定 Python 版本
 
       - name: Install dependencies # 步骤3：安装依赖
         run: |
@@ -27,7 +27,7 @@ jobs:
           pip install cloudscraper
 
       - name: Run script to generate whitelist # 步骤4：运行 Python 脚本
-        run: python fetch-domains.py
+        run: python fetch_domains.py
 
       - name: Commit and push if changed # 步骤5：提交并推送更改 (如果文件有变动)
         uses: stefanzweifel/git-auto-commit-action@v5 # 使用自动提交 action
