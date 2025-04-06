@@ -11,12 +11,11 @@ if not api_token:
 # 设置 API 请求
 url = "https://api.cloudflare.com/client/v4/radar/ranking/top"
 headers = {"Authorization": f"Bearer {api_token}"}
-# 使用昨天的日期以确保数据可用性
 yesterday = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
 params = {
     "location": "CN",
     "limit": 100,
-    "date": yesterday  # 可选：如果 API 支持最新数据，可移除此参数
+    "date": yesterday
 }
 
 # 发送请求并调试输出
@@ -33,8 +32,17 @@ if not data.get("success"):
     print(f"错误: API 返回失败: {data}")
     exit(1)
 
-# 提取域名列表
-domains = [item["domain"] for item in data["result"]["top"]]
+# 调试：打印完整的响应数据
+print("API 响应数据:", data)
+
+# 提取域名列表（根据实际结构调整）
+try:
+    domains = [item["domain"] for item in data["result"]["top"]]
+except KeyError:
+    print("错误: 'top' 键不存在于 data['result'] 中")
+    print("data['result'] 内容:", data["result"])
+    exit(1)
+
 print(f"成功获取 {len(domains)} 个域名")
 
 # 写入文件
