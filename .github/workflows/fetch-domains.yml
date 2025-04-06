@@ -1,43 +1,39 @@
 name: Fetch Cloudflare Top 100 Domains CN
 
-# 每天中午 12 点 (UTC 时间需调整为你的时区)
 on:
   schedule:
     - cron: "0 4 * * *"  # UTC 04:00 = 北京时间 12:00 (UTC+8)
-  workflow_dispatch:     # 允许手动触发
-
-permissions:
-  contents: write  # 允许推送更改
+  workflow_dispatch:
 
 jobs:
   fetch-and-convert:
     runs-on: ubuntu-latest
     steps:
-      # 检出代码
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 设置 Python 环境
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      # 安装依赖
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests
+          pip install requests python-2captcha
 
-      # 运行 Python 脚本
       - name: Run fetch script
+        env:
+          TWOCAPTCHA_API_KEY: ${{ secrets.TWOCAPTCHA_API_KEY }}
         run: python fetch_domains.py
 
-      # 提交生成的 100cn.txt 文件
+      - name: List files for debugging
+        run: ls -la
+
       - name: Commit and push changes
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          git add 100cn.txt
+          git add 100cn.txt || echo "No 100cn.txt file to add"
           git commit -m "Update 100cn.txt with latest Cloudflare Top 100 CN domains (${{ github.run_number }})" || echo "No changes to commit"
           git push
