@@ -99,7 +99,7 @@ async def filter_valid_rules_async(rules, force_refresh=False):
     # 默认保留所有规则，除非缓存明确标记为失效
     valid_rules = [rule for rule in rules if (
         extract_domain(rule) is None or  # 非域名规则直接保留
-       _extract_domain(rule) not in cache or  # 未验证的保留
+        extract_domain(rule) not in cache or  # 未验证的保留
         cache.get(extract_domain(rule), True)  # 缓存中标记为 True 或未标记的保留
     )]
     save_cache(cache)
