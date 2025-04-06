@@ -2,7 +2,7 @@ name: X DNS Lite
 
 on:
   schedule:
-    - cron: '0 */12 * * *'  # 每12小时运行一次（UTC时间）
+    - cron: '0 0 1 * *'  # 每12小时运行一次（UTC时间）
   workflow_dispatch:  # 允许手动触发
 
 # 添加权限配置
