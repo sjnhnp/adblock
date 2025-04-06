@@ -67,7 +67,7 @@ DNS_RETRIES = 2 # Number of retries for DNS queries (total attempts = 1 + retrie
 CONCURRENT_CHECK_LIMIT = 200 # Max number of domains to check concurrently
 
 # GitHub Repo URL (Replace with your actual repo URL)
-HOMEPAGE_URL = 'https://github.com/your-username/your-repo-name' 
+HOMEPAGE_URL = 'https://github.com/sjnhnp/adblock' 
 
 # --- Core Functions ---
 
@@ -383,7 +383,7 @@ def generate_header(title, rule_count):
     current_time_str = utc8_now.strftime('%Y/%m/%d %H:%M:%S %Z') 
 
     return [
-        '[Adblock Plus 2.0]', # Common header format
+        '[X Adguard Dns]', # Common header format
         f'! Title: {title}',
         f'! Expires: 1 day', # Standard expiry suggestion
         f'! Last modified: {current_time_str}',
