@@ -6,7 +6,8 @@ from datetime import datetime, timedelta
 # 配置
 LOCATION_CODE = "CN"  # 中国地区
 LIMIT = 100          # 前 100 个域名
-OUTPUT_FILENAME = "100cn.txt"
+OUTPUT_FILENAME_CN = "100cn.txt"  # 中国域名输出文件
+OUTPUT_FILENAME_WORLD = "worldcn.txt"  # 合并后的输出文件
 ADGUARD_PREFIX = "@@||"  # AdGuard 白名单前缀
 ADGUARD_SUFFIX = "^"
 BASE_URL = "https://api.cloudflare.com/client/v4"
@@ -21,16 +22,16 @@ def get_api_headers():
         "Content-Type": "application/json"
     }
 
-def fetch_top_domains():
-    url = f"{BASE_URL}/radar/ranking/top"  # 使用正确的端点
+def fetch_top_domains(location=None):
+    url = f"{BASE_URL}/radar/ranking/top"
     headers = get_api_headers()
-    # 使用昨天的日期以确保数据可用性
     yesterday = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
     params = {
-        "location": LOCATION_CODE,
         "limit": LIMIT,
         "date": yesterday
     }
+    if location:
+        params["location"] = location
     print(f"请求 API: {url}, 参数: {params}")
     
     try:
@@ -55,23 +56,48 @@ def process_to_adguard_rules(api_data):
     print(f"生成 {len(rules)} 条 AdGuard 白名单规则")
     return rules
 
-def write_rules_to_file(rules):
+def write_rules_to_file(rules, filename):
     try:
-        with open(OUTPUT_FILENAME, "w", encoding="utf-8") as f:
+        with open(filename, "w", encoding="utf-8") as f:
             f.write("\n".join(rules))
-        print(f"已写入 {len(rules)} 条规则到 {OUTPUT_FILENAME}")
+        print(f"已写入 {len(rules)} 条规则到 {filename}")
         return True
     except IOError as e:
         print(f"错误: 写入文件失败: {e}", file=sys.stderr)
         return False
 
+def merge_and_deduplicate(cn_rules, world_rules):
+    # 去重并合并，使用集合保持唯一性，同时保留原始顺序
+    combined = list(dict.fromkeys(cn_rules + world_rules))
+    print(f"合并后去重，共 {len(combined)} 条规则")
+    return combined
+
 if __name__ == "__main__":
     print("--- Cloudflare Top Domains to AdGuard Whitelist ---")
-    top_domains = fetch_top_domains()
-    if top_domains:
-        rules = process_to_adguard_rules(top_domains)
-        if rules and write_rules_to_file(rules):
-            print("--- 任务成功完成 ---")
-            sys.exit(0)
+    
+    # 获取中国前 100 名域名
+    print("获取中国前 100 名域名...")
+    cn_domains = fetch_top_domains(location=LOCATION_CODE)
+    if not cn_domains:
+        print("获取中国域名失败", file=sys.stderr)
+        sys.exit(1)
+    cn_rules = process_to_adguard_rules(cn_domains)
+    write_rules_to_file(cn_rules, OUTPUT_FILENAME_CN)
+    
+    # 获取全球前 100 名域名
+    print("获取全球前 100 名域名...")
+    world_domains = fetch_top_domains(location=None)  # 不指定 location 获取全球数据
+    if not world_domains:
+        print("获取全球域名失败", file=sys.stderr)
+        sys.exit(1)
+    world_rules = process_to_adguard_rules(world_domains)
+    
+    # 合并并去重
+    print("合并中国和全球域名并去重...")
+    combined_rules = merge_and_deduplicate(cn_rules, world_rules)
+    if combined_rules and write_rules_to_file(combined_rules, OUTPUT_FILENAME_WORLD):
+        print("--- 任务成功完成 ---")
+        sys.exit(0)
+    
     print("任务失败", file=sys.stderr)
     sys.exit(1)
