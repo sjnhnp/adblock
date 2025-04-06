@@ -9,7 +9,7 @@ import socket
 
 # 自定义 DNS 服务器列表（Google 和 Cloudflare）
 CUSTOM_DNS_SERVERS = [
-    '8.8.8.8',  # Google Public DNS
+    '223.6.6.6',  # Google Public DNS
     '1.1.1.1'   # Cloudflare DNS
 ]
 
