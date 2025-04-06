@@ -1,0 +1,40 @@
+name: Update AdGuard Whitelist
+
+on:
+  schedule:
+    - cron: "0 4 * * *"  # 北京时间每天中午 12:00 (UTC 04:00)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run script
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: python fetch_domains.py
+
+      - name: List files for debugging
+        run: ls -la
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update AdGuard whitelist with Cloudflare Top 100 CN domains (${{ github.run_number }})"
+          file_pattern: 100cn.txt
