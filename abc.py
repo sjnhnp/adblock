@@ -145,7 +145,7 @@ def main():
         if rule not in combined_rules_dict:
             combined_rules_dict[rule] = None
     combined_rules = list(combined_rules_dict.keys())
-    write_rules_file('combined_rules.txt', 'X dns (Validated)', combined_rules)
+    write_rules_file('a1b1.txt', 'X dns (Validated)', combined_rules)
 
 if __name__ == '__main__':
     main()
