@@ -5,6 +5,12 @@ on:
     - cron: "0 4 * * *"  # UTC 04:00 = 北京时间 12:00 (UTC+8)
   workflow_dispatch:
 
+
+# 添加权限配置
+permissions:
+  contents: write  # 授予写入权限
+
+
 jobs:
   fetch-and-convert:
     runs-on: ubuntu-latest
