@@ -7,7 +7,13 @@ import json
 import os
 import socket
 
-# 缓存文件路径
+# 自定义 DNS 服务器列表（Google 和 Cloudflare）
+CUSTOM_DNS_SERVERS = [
+    '8.8.8.8',  # Google Public DNS
+    '1.1.1.1'   # Cloudflare DNS
+]
+
+# 缓存文件路径和过期时间
 CACHE_FILE = "domain_cache.json"
 CACHE_EXPIRY_HOURS = 24  # 缓存过期时间设为24小时
 
@@ -26,13 +32,27 @@ def extract_domain(rule):
         return rule
     return None
 
-# 异步检查域名有效性
-async def check_domain(domain, resolver):
-    try:
-        await resolver.gethostbyname(domain, socket.AF_INET)
-        return True
-    except Exception:
-        return False
+# 异步检查域名是否明确失效
+async def check_domain(domain, resolver, retries=2):
+    for attempt in range(retries):
+        try:
+            # 检查 A、AAAA、CNAME 记录
+            for qtype in ('A', 'AAAA', 'CNAME'):
+                try:
+                    result = await resolver.query(domain, qtype)
+                    if result:  # 存在任何记录则认为有效
+                        return True
+                except aiodns.error.DNSError as e:
+                    if e.args[0] == 1:  # NXDOMAIN (域名不存在)
+                        return False
+                    # 其他错误（超时等）继续尝试其他记录类型
+            # 如果没有任何记录，返回 False
+            return False
+        except Exception as e:
+            if attempt == retries - 1:  # 最后一次尝试仍失败
+                return False  # 多次超时且无记录，认为是明确失效
+            await asyncio.sleep(1)  # 重试前等待1秒
+    return False
 
 # 加载缓存并检查过期
 def load_cache():
@@ -40,7 +60,6 @@ def load_cache():
         with open(CACHE_FILE, 'r') as f:
             cache = json.load(f)
             now = datetime.now()
-            # 过滤掉过期的数据
             valid_cache = {}
             for domain, data in cache.items():
                 timestamp = datetime.fromisoformat(data['timestamp'])
@@ -55,32 +74,34 @@ def save_cache(cache):
     updated_cache = {domain: {"result": result, "timestamp": now} 
                      for domain, result in cache.items()}
     with open(CACHE_FILE, 'w') as f:
-        json.dump(updated_cache, f, indent=2)  # 添加 indent 以便阅读
+        json.dump(updated_cache, f, indent=2)
 
-# 异步批量验证域名并过滤无效规则，支持失效检测
+# 异步过滤规则，只移除明确失效的域名
 async def filter_valid_rules_async(rules, force_refresh=False):
-    cache = load_cache()
-    resolver = aiodns.DNSResolver(timeout=5)  # 设置 5 秒超时
+    cache = load_cache()  # 缓存中记录的是“明确失效”的域名（result=False）
+    # 使用自定义 DNS 服务器初始化 resolver
+    resolver = aiodns.DNSResolver(nameservers=CUSTOM_DNS_SERVERS, timeout=10)
     domains_to_check = {extract_domain(rule): rule for rule in rules if extract_domain(rule)}
     
-    # 如果 force_refresh 为 True，强制重新验证所有域名
-    if force_refresh:
-        domains_to_validate = domains_to_check.keys()
-    else:
-        # 只验证不在缓存中或已过期的域名
-        domains_to_validate = [domain for domain in domains_to_check.keys() if domain not in cache]
+    # 只验证不在缓存中或需要刷新的域名
+    domains_to_validate = [d for d in domains_to_check.keys() if d not in cache or force_refresh]
     
     if domains_to_validate:
         tasks = [check_domain(domain, resolver) for domain in domains_to_validate]
         results = await asyncio.gather(*tasks, return_exceptions=True)
         
-        # 更新缓存
+        # 更新缓存，只记录明确失效的域名
         for domain, is_valid in zip(domains_to_validate, results):
-            if not isinstance(is_valid, Exception):
-                cache[domain] = is_valid
+            if not isinstance(is_valid, Exception):  # 避免异常影响判断
+                if not is_valid:  # 明确失效
+                    cache[domain] = False
     
-    # 过滤有效规则
-    valid_rules = [domains_to_check[domain] for domain in domains_to_check if cache.get(domain, False)]
+    # 默认保留所有规则，除非缓存明确标记为失效
+    valid_rules = [rule for rule in rules if (
+        extract_domain(rule) is None or  # 非域名规则直接保留
+       _extract_domain(rule) not in cache or  # 未验证的保留
+        cache.get(extract_domain(rule), True)  # 缓存中标记为 True 或未标记的保留
+    )]
     save_cache(cache)
     return valid_rules
 
@@ -89,7 +110,7 @@ def generate_unique_rules(source, *others):
     source_list = source.copy()
     result = source_list
     for other in others:
-        common = set(source).intersection(set(other))  # 分别移除与每个规则集的共有规则
+        common = set(source).intersection(set(other))
         result = [rule for rule in result if rule not in common]
     return result
 
@@ -99,7 +120,7 @@ def generate_header(title, rule_count):
     return [
         '[X adguard dns]',
         f'! Title: {title}',
-        '! Expires: 24 Hours',  # 更新头部信息，与缓存一致
+        '! Expires: 24 Hours',
         f'! Last modified: {current_time}',
         f'! Total count: {rule_count}'
     ]
@@ -120,7 +141,6 @@ def write_rules_file(filename, title, rules):
 
 # 主逻辑
 def main():
-    # 获取规则
     a_url = 'https://raw.githubusercontent.com/8680/GOODBYEADS/master/data/rules/dns.txt'
     b_url = 'https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/pro.mini.txt'
     c_url = 'https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockdnslite.txt'
@@ -129,17 +149,17 @@ def main():
     rules_b = fetch_rules(b_url)
     rules_c = fetch_rules(c_url)
 
-    # 生成 a1.txt（从 rules_a 中移除 rules_a ∩ rules_b 和 rules_a ∩ rules_c，并验证域名）
+    # 生成 a1.txt
     a1_rules_raw = generate_unique_rules(rules_a, rules_b, rules_c)
     a1_rules = asyncio.run(filter_valid_rules_async(a1_rules_raw))
     write_rules_file('a1.txt', 'X dns - A1 Unique Rules (Validated)', a1_rules)
 
-    # 生成 b1.txt（从 rules_b 中移除 rules_b ∩ rules_a 和 rules_b ∩ rules_c，并验证域名）
+    # 生成 b1.txt
     b1_rules_raw = generate_unique_rules(rules_b, rules_a, rules_c)
     b1_rules = asyncio.run(filter_valid_rules_async(b1_rules_raw))
     write_rules_file('b1.txt', 'X dns - B1 Unique Rules (Validated)', b1_rules)
 
-    # 合并 a1.txt 和 b1.txt 的规则，保持首次出现的顺序
+    # 合并 a1 和 b1
     combined_rules_dict = {}
     for rule in a1_rules + b1_rules:
         if rule not in combined_rules_dict:
