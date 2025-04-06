@@ -1,8 +1,9 @@
 [X adguard dns]
 ! Title: X dns - B1 Unique Rules (Validated)
 ! Expires: 24 Hours
-! Last modified: 2025/04/06 14:57:22
-! Total count: 4226
+! Last modified: 2025/04/06 15:38:31
+! Total count: 4230
+[Adblock Plus]
 ||0-architecture.com^
 ||000space.com^
 ||000webhost.info^
@@ -4224,6 +4225,9 @@
 ||matomo.webloupe.com^
 ||wildtangent.com^
 ||pushlog.wsoft.ru^
+||xn--80afden1bnch4a.xn--p1ai^
+||xn--80affa3aj0al.xn--80asehdb^
+||xn--g1aclgn5a.xn--p1ai^
 ||xtgfujmknprb.ru^
 ||yeself.com^
 ||ygto.com^
