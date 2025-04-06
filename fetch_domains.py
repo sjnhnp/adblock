@@ -32,17 +32,8 @@ if not data.get("success"):
     print(f"错误: API 返回失败: {data}")
     exit(1)
 
-# 调试：打印完整的响应数据
-print("API 响应数据:", data)
-
-# 提取域名列表（根据实际结构调整）
-try:
-    domains = [item["domain"] for item in data["result"]["top"]]
-except KeyError:
-    print("错误: 'top' 键不存在于 data['result'] 中")
-    print("data['result'] 内容:", data["result"])
-    exit(1)
-
+# 提取域名列表
+domains = [item["domain"] for item in data["result"]["top_0"]]
 print(f"成功获取 {len(domains)} 个域名")
 
 # 写入文件
