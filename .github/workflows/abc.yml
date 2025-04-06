@@ -27,7 +27,7 @@ jobs:
 
       - name: Run script
         run: |
-          python generate_rules.py
+          python abc.py
         continue-on-error: false  # 如果脚本失败，工作流停止
 
      # - name: Run script
