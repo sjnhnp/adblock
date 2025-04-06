@@ -1,8 +1,8 @@
-name: x adguard dns
+name: x abc dns
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # 每天 UTC 00:00 运行（对应 UTC+8 的 08:00）
+    - cron: '0 12 * * *'  # 每天 UTC 00:00 运行（对应 UTC+8 的 08:00）
   workflow_dispatch:     # 支持手动触发
 
 permissions:
@@ -29,15 +29,22 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests aiodns
 
-      # Step 4: Cache domain_cache.json
+# 只需修改 3=259200（秒数）即可，例如 2 天 = 172800，5 天 = 432000
+      - name: Get 5-Day Cycle Key
+        id: cycle
+        run: |
+          timestamp=$(date -u +%s)
+          cycle_index=$((timestamp / 432000))
+          echo "cycle=2025-3day-${cycle_index}" >> $GITHUB_OUTPUT
+          
       - name: Cache Domain Cache File
         uses: actions/cache@v3
         with:
           path: domain_cache.json
-          key: ${{ runner.os }}-domain-cache-${{ github.run_id }}
+          key: ${{ runner.os }}-domain-cache-${{ steps.cycle.outputs.cycle }}
           restore-keys: |
             ${{ runner.os }}-domain-cache-
-
+            
       # Step 5: Run the Python filtering script
       - name: Run x adguard dns
         run: python abc.py  # 确认文件名与脚本一致
@@ -58,7 +65,7 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          
+          git pull --rebase origin ${{ github.ref_name }}
           # 添加生成的文件
           git add a1.txt b1.txt a1b1.txt domain_cache.json
           
