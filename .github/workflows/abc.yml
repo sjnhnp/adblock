@@ -53,7 +53,7 @@ jobs:
       # Step 6: Upload log file as artifact
       - name: Upload Log File
         if: always()  # 即使失败也运行
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: filter-script-logs  # artifact 名称
           path: filter_script.log  # 日志文件路径
