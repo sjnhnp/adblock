@@ -17,14 +17,13 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install dependencies
+      - name: Install Playwright and dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests python-2captcha
+          pip install playwright
+          playwright install
 
       - name: Run fetch script
-        env:
-          TWOCAPTCHA_API_KEY: ${{ secrets.TWOCAPTCHA_API_KEY }}
         run: python fetch_domains.py
 
       - name: List files for debugging
