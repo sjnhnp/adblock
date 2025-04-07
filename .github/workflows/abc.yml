@@ -65,7 +65,7 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git pull --rebase origin ${{ github.ref_name }}
+  
           # 添加生成的文件
           git add a1.txt b1.txt a1b1.txt domain_cache.json
           
