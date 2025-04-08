@@ -16,8 +16,14 @@
 - c 1'lite
 - b1
 - a1
+- [oisd nsfw small](https://nsfw-small.oisd.nl) 去色情NSFW domains found in the top 1 million domains (Using Tranco List)
 
 #### adguard 内容过滤器，用合并即可，因为是历遍所有规则，所以白名单不需要刻意排前
 - xfilter
 
+#### adguard home 或 adguard 有相关功能
+- 建议开启安全搜索
+  - home里没有提供一些其他搜索，比如baidu，那么可以透过hagezi安全搜索黑名单禁用home之外的搜索。
+- 如果中国大陆服务器开启家庭保护和安全浏览，可能会影响访问网站，因为大陆服务器不能顺利访问adguard的数据库服务器进行比对
+- 如果不开启以上两者，可以透过过滤黑名单，比如nsfw去色情，其他相关可以去[hagezi](https://github.com/hagezi/dns-blocklists)寻找相关
 
