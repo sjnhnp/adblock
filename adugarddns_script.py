@@ -29,7 +29,7 @@ CUSTOM_DNS_SERVERS = [
     '8.8.4.4', '9.9.9.10', '1.1.1.1', '1.0.0.1'
 ]
 
-CACHE_FILE = "domain_cache.json"
+CACHE_FILE = "domain_cache1.json"
 CACHE_EXPIRY_DAYS = 7
 
 SOURCES = {
