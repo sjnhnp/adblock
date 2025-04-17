@@ -34,7 +34,7 @@ jobs:
         id: cycle
         run: |
           timestamp=$(date -u +%s)
-          cycle_index=$((timestamp / 432000))
+          cycle_index=$((timestamp / 172800))
           echo "cycle=2025-3day-${cycle_index}" >> $GITHUB_OUTPUT
           
       - name: Cache Domain Cache File
