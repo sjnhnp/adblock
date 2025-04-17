@@ -30,12 +30,12 @@ jobs:
           pip install aiohttp aiodns
 
       # 只需修改 3=259200（秒数）即可，例如 2 天 = 172800，5 天 = 432000
-      - name: Get 5-Day Cycle Key
+      - name: Get 7-Day Cycle Key
         id: cycle
         run: |
           timestamp=$(date -u +%s)
-          cycle_index=$((timestamp / 172800))
-          echo "cycle=2025-3day-${cycle_index}" >> $GITHUB_OUTPUT
+          cycle_index=$((timestamp / 604800))
+          echo "cycle=7day-${cycle_index}" >> $GITHUB_OUTPUT
           
       - name: Cache Domain Cache File
         uses: actions/cache@v3
