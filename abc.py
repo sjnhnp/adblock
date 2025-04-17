@@ -1,11 +1,17 @@
-import requests
-from datetime import datetime, timedelta, timezone
-import re
 import asyncio
-import aiodns
 import json
-import os
 import logging
+import os
+import re
+from datetime import datetime, timedelta, timezone
+from typing import Dict, List, Optional, Set, Tuple, Any
+
+import aiodns
+import aiohttp
+
+# --- Compiled Regular Expressions ---
+DOMAIN_REGEX = re.compile(r'^[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$')
+IP_REGEX = re.compile(r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$')
 
 # --- Configuration ---
 LOG_FILE = "filter_script.log"
@@ -23,7 +29,7 @@ CUSTOM_DNS_SERVERS = [
     '8.8.4.4', '9.9.9.10', '1.1.1.1', '1.0.0.1'
 ]
 
-CACHE_FILE = "domain_cache.json"
+CACHE_FILE = "domain_cache1.json"
 CACHE_EXPIRY_DAYS = 7
 
 SOURCES = {
@@ -33,48 +39,56 @@ SOURCES = {
 }
 
 OUTPUT_FILES = {
-    'a1': {'title': 'X dns - A1 Unique Rules (Validated)', 'source': 'a', 'exclude': ['b', 'c']},
-    'b1': {'title': 'X dns - B1 Unique Rules (Validated)', 'source': 'b', 'exclude': ['c']},
-    'a1b1': {'title': 'X dns - Combined A1+B1 (Validated)', 'combine': ['a1', 'b1']}
+    'a11': {'title': 'X dns - A1 Unique Rules (Validated)', 'source': 'a', 'exclude': ['b', 'c']},
+    'b11': {'title': 'X dns - B1 Unique Rules (Validated)', 'source': 'b', 'exclude': ['c']},
+    'a11b11': {'title': 'X dns - Combined A1+B1 (Validated)', 'combine': ['a11', 'b11']}
 }
 
 DNS_TIMEOUT = 5
 DNS_RETRIES = 2
 CONCURRENT_CHECK_LIMIT = 200
 HOMEPAGE_URL = 'https://github.com/sjnhnp/adblock'
+HTTP_TIMEOUT = 60  # seconds
 
 # --- Core Functions ---
 
-def fetch_rules(url):
+async def fetch_rules(url: str, session: aiohttp.ClientSession) -> List[str]:
+    """Fetch rules from a URL asynchronously using aiohttp."""
     logging.info(f"Fetching rules from: {url}")
     try:
-        response = requests.get(url, timeout=60)
-        response.raise_for_status()
-        lines = [line.strip() for line in response.text.splitlines() if line.strip() and not line.startswith('!')]
-        logging.info(f"Fetched {len(lines)} rules from {url}")
-        return lines
-    except requests.RequestException as e:
+        async with session.get(url, timeout=HTTP_TIMEOUT) as response:
+            if response.status != 200:
+                logging.error(f"Error fetching {url}: HTTP {response.status}")
+                return []
+            
+            text = await response.text()
+            lines = [line.strip() for line in text.splitlines() if line.strip() and not line.startswith('!')]
+            logging.info(f"Fetched {len(lines)} rules from {url}")
+            return lines
+    except (aiohttp.ClientError, asyncio.TimeoutError) as e:
         logging.error(f"Error fetching {url}: {e}")
         return []
 
-def extract_domain(rule):
+def extract_domain(rule: str) -> Optional[str]:
+    """Extract and validate domain from a rule."""
     if rule.startswith('@@||'): rule = rule[4:]
     elif rule.startswith('||'): rule = rule[2:]
     elif rule.startswith('@@|'): rule = rule[3:]
     elif rule.startswith('|'): rule = rule[1:]
     
     rule = rule.split('^')[0].split('$')[0].split('/')[0].split(':')[0].strip('*')
-    if re.match(r'^[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$', rule):
-        if not re.match(r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$', rule):
+    if DOMAIN_REGEX.match(rule):
+        if not IP_REGEX.match(rule):
             return rule.lower()
     return None
 
-async def check_domain_is_nxdomain(domain, resolver, retries=DNS_RETRIES):
+async def check_domain_is_nxdomain(domain: str, resolver: aiodns.DNSResolver, retries: int = DNS_RETRIES) -> bool:
+    """Check if a domain returns NXDOMAIN for both A and AAAA records."""
     nxdomain_code = aiodns.error.ARES_ENOTFOUND
     a_is_nxdomain = False
     aaaa_is_nxdomain = False
 
-    async def perform_query(qtype):
+    async def perform_query(qtype: str) -> bool:
         nonlocal a_is_nxdomain, aaaa_is_nxdomain
         try:
             await resolver.query(domain, qtype)
@@ -102,7 +116,8 @@ async def check_domain_is_nxdomain(domain, resolver, retries=DNS_RETRIES):
             return False
     return False
 
-def load_invalid_domain_cache():
+def load_invalid_domain_cache() -> Dict[str, bool]:
+    """Load and filter the invalid domain cache, removing expired entries."""
     if not os.path.exists(CACHE_FILE):
         logging.info("Cache file not found. Starting with an empty cache.")
         return {}
@@ -145,7 +160,8 @@ def load_invalid_domain_cache():
     logging.info(f"Loaded {len(valid_cache)} non-expired invalid domains from cache ({loaded_count} total entries, {expired_count} expired or ignored).")
     return valid_cache
 
-def save_invalid_domain_cache(invalid_domains):
+def save_invalid_domain_cache(invalid_domains: Set[str]) -> None:
+    """Save the set of invalid domains to cache with timestamps."""
     cache_data = {}
     utc8_tz = timezone(timedelta(hours=8))
     now_iso = datetime.now(utc8_tz).isoformat()
@@ -159,66 +175,62 @@ def save_invalid_domain_cache(invalid_domains):
     except IOError as e:
         logging.error(f"Error writing cache file {CACHE_FILE}: {e}")
 
-async def filter_rules_async(rules, force_refresh=False):
+async def validate_domains_async(domains: Set[str], force_refresh: bool = False) -> Set[str]:
+    """Validate domains by checking if they return NXDOMAIN."""
     invalid_domain_cache = load_invalid_domain_cache()
     resolver = aiodns.DNSResolver(nameservers=CUSTOM_DNS_SERVERS, timeout=DNS_TIMEOUT, tries=(1 + DNS_RETRIES))
 
-    domains_map = {}
-    rules_without_domain = []
-    original_rule_order = {}
-    rule_index = 0
-    for rule in rules:
-        if rule not in original_rule_order:
-            original_rule_order[rule] = rule_index
-            rule_index += 1
-        domain = extract_domain(rule)
-        if domain:
-            domains_map.setdefault(domain, []).append(rule)
-        else:
-            rules_without_domain.append(rule)
-
-    domains_to_check = list(domains_map.keys()) if force_refresh else [d for d in domains_map if d not in invalid_domain_cache]
+    domains_to_check = list(domains) if force_refresh else [d for d in domains if d not in invalid_domain_cache]
     confirmed_invalid_domains = set(invalid_domain_cache.keys())
     newly_confirmed_invalid = set()
     domains_resolved_valid = set()
 
     if domains_to_check:
+        logging.info(f"Validating {len(domains_to_check)} domains (skipping {len(domains) - len(domains_to_check)} cached domains)")
         semaphore = asyncio.Semaphore(CONCURRENT_CHECK_LIMIT)
-        async def check_and_update(domain):
+        
+        async def check_and_update(domain: str) -> None:
             async with semaphore:
                 if await check_domain_is_nxdomain(domain, resolver):
+                    logging.debug(f"Domain {domain} confirmed NXDOMAIN")
                     newly_confirmed_invalid.add(domain)
                 else:
+                    logging.debug(f"Domain {domain} resolved successfully")
                     domains_resolved_valid.add(domain)
 
-        await asyncio.gather(*[asyncio.create_task(check_and_update(d)) for d in domains_to_check], return_exceptions=True)
+        tasks = [asyncio.create_task(check_and_update(d)) for d in domains_to_check]
+        await asyncio.gather(*tasks, return_exceptions=True)
+        logging.info(f"Found {len(newly_confirmed_invalid)} newly invalid domains")
 
+    # Update the set of confirmed invalid domains
     confirmed_invalid_domains.update(newly_confirmed_invalid)
-    confirmed_invalid_domains.difference_update(confirmed_invalid_domains.intersection(domains_resolved_valid))
-    save_invalid_domain_cache(confirmed_invalid_domains)
-
-    final_valid_rules = [(rule, original_rule_order.get(rule, float('inf'))) for rule in rules_without_domain]
-    processed_rules = set(rules_without_domain)
-    for domain, rules_list in domains_map.items():
-        if domain not in confirmed_invalid_domains:
-            for rule in rules_list:
-                if rule not in processed_rules:
-                    final_valid_rules.append((rule, original_rule_order.get(rule, float('inf'))))
-                    processed_rules.add(rule)
+    # Remove any domains that were previously thought invalid but now resolve
+    confirmed_invalid_domains.difference_update(domains_resolved_valid)
     
-    final_valid_rules.sort(key=lambda x: x[1])
-    result_rules = [rule for rule, _ in final_valid_rules]
-    logging.info(f"Original rules: {len(rules)}, Filtered rules: {len(result_rules)}. Removed {len(rules) - len(result_rules)} rules.")
-    return result_rules
+    save_invalid_domain_cache(confirmed_invalid_domains)
+    return confirmed_invalid_domains
 
-def generate_unique_rules(source_rules, *other_rule_lists):
+def filter_rules_by_invalid_domains(rules: List[str], invalid_domains: Set[str]) -> List[str]:
+    """Filter out rules that point to invalid domains."""
+    valid_rules = []
+    for rule in rules:
+        domain = extract_domain(rule)
+        if domain is None or domain not in invalid_domains:
+            valid_rules.append(rule)
+    
+    logging.info(f"Filtered {len(rules) - len(valid_rules)} rules with invalid domains from {len(rules)} total rules")
+    return valid_rules
+
+def generate_unique_rules(source_rules: List[str], *other_rule_lists: List[str]) -> List[str]:
+    """Generate a list of rules unique to the source list."""
     source_set = set(source_rules)
     exclude_set = set().union(*other_rule_lists)
     unique = [rule for rule in source_rules if rule in source_set and rule not in exclude_set]
     logging.info(f"Generated {len(unique)} unique rules from {len(source_rules)} initial rules.")
     return unique
 
-def generate_header(title, rule_count):
+def generate_header(title: str, rule_count: int) -> List[str]:
+    """Generate the header for the output file."""
     utc8_tz = timezone(timedelta(hours=8))
     current_time_str = datetime.now(utc8_tz).strftime('%Y/%m/%d %H:%M:%S %Z')
     return [
@@ -227,10 +239,12 @@ def generate_header(title, rule_count):
         f'! Total count: {rule_count}'
     ]
 
-def split_rules(rules):
+def split_rules(rules: List[str]) -> List[str]:
+    """Split rules into allow and block lists, with allow rules first."""
     return [rule for rule in rules if rule.startswith('@@')] + [rule for rule in rules if not rule.startswith('@@')]
 
-def write_rules_file(filename, title, rules):
+def write_rules_file(filename: str, title: str, rules: List[str]) -> None:
+    """Write rules to a file with proper header and formatting."""
     processed_rules = split_rules(rules)
     header = generate_header(title, len(processed_rules))
     try:
@@ -240,30 +254,74 @@ def write_rules_file(filename, title, rules):
     except IOError as e:
         logging.error(f"Error writing file {filename}: {e}")
 
-async def main_async():
+async def main_async() -> None:
+    """Main async function to process adblock lists."""
     logging.info("Starting adblock list processing...")
-    fetched_rules = {key: fetch_rules(url) for key, url in SOURCES.items()}
     
+    fetched_rules: Dict[str, List[str]] = {}  # Initialize with type hint
+    
+    # Fetch all rules concurrently
+    async with aiohttp.ClientSession() as session:
+        # Create tasks
+        fetch_tasks = {key: asyncio.create_task(fetch_rules(url, session), name=f"fetch_{key}") 
+                       for key, url in SOURCES.items()}
+        
+        # Gather results concurrently
+        results = await asyncio.gather(*fetch_tasks.values(), return_exceptions=True)
+        
+        # Process results, mapping back to keys and handling potential errors
+        source_keys = list(fetch_tasks.keys())
+        for i, result in enumerate(results):
+            key = source_keys[i]
+            if isinstance(result, Exception):
+                logging.error(f"Task {fetch_tasks[key].get_name()} failed: {result}")
+                fetched_rules[key] = []  # Assign empty list on fetch failure
+            elif result is not None:  # fetch_rules returns List[str] or None on error handled internally
+                 fetched_rules[key] = result
+            else:
+                 # Should not happen if fetch_rules handles errors, but defensively:
+                 logging.warning(f"Task {fetch_tasks[key].get_name()} returned None unexpectedly.")
+                 fetched_rules[key] = []
+
+    # Extract all unique domains from all rules for validation
+    all_domains = set()
+    for rules_list in fetched_rules.values():
+        for rule in rules_list:
+            domain = extract_domain(rule)
+            if domain:
+                all_domains.add(domain)
+    
+    logging.info(f"Extracted {len(all_domains)} unique domains from all rules")
+    
+    # Validate all domains at once
+    invalid_domains = await validate_domains_async(all_domains)
+    
+    # Filter each rule list to remove rules with invalid domains
+    filtered_rules = {
+        key: filter_rules_by_invalid_domains(rules, invalid_domains)
+        for key, rules in fetched_rules.items()
+    }
+    
+    # Generate intermediate rule lists
     intermediate_rules = {
-        'a1': generate_unique_rules(fetched_rules['a'], fetched_rules['b'], fetched_rules['c']),
-        'b1': generate_unique_rules(fetched_rules['b'], fetched_rules['c'])
+        'a11': generate_unique_rules(filtered_rules['a'], filtered_rules['b'], filtered_rules['c']),
+        'b11': generate_unique_rules(filtered_rules['b'], filtered_rules['c'])
     }
     
-    all_rules_to_validate = list(dict.fromkeys(intermediate_rules['a1'] + intermediate_rules['b1']))
-    valid_rules_after_filter = await filter_rules_async(all_rules_to_validate, force_refresh=False)
-    valid_rules_set = set(valid_rules_after_filter)
-    
+    # Combine rules for the final output
     final_rules = {
-        'a1': [r for r in intermediate_rules['a1'] if r in valid_rules_set],
-        'b1': [r for r in intermediate_rules['b1'] if r in valid_rules_set]
+        'a11': intermediate_rules['a11'],
+        'b11': intermediate_rules['b11'],
+        'a11b11': list(dict.fromkeys(intermediate_rules['a11'] + intermediate_rules['b11']))
     }
-    final_rules['a1b1'] = list(dict.fromkeys(final_rules['a1'] + final_rules['b1']))
     
+    # Write output files
     for key, definition in OUTPUT_FILES.items():
-        rules = final_rules[key] if 'combine' in definition else final_rules[key]
+        rules = final_rules[key]
         write_rules_file(f"{key}.txt", definition['title'], rules)
     
     logging.info("Adblock list processing finished successfully.")
+
 
 if __name__ == '__main__':
     try:
