@@ -39,9 +39,9 @@ SOURCES = {
 }
 
 OUTPUT_FILES = {
-    'a1': {'title': 'X dns - A1 Unique Rules (Validated)', 'source': 'a', 'exclude': ['b', 'c']},
-    'b1': {'title': 'X dns - B1 Unique Rules (Validated)', 'source': 'b', 'exclude': ['c']},
-    'a1b1': {'title': 'X dns - Combined A1+B1 (Validated)', 'combine': ['a1', 'b1']}
+    'a11': {'title': 'X dns - A1 Unique Rules (Validated)', 'source': 'a', 'exclude': ['b', 'c']},
+    'b11': {'title': 'X dns - B1 Unique Rules (Validated)', 'source': 'b', 'exclude': ['c']},
+    'a11b11': {'title': 'X dns - Combined A1+B1 (Validated)', 'combine': ['a11', 'b11']}
 }
 
 DNS_TIMEOUT = 5
@@ -258,13 +258,31 @@ async def main_async() -> None:
     """Main async function to process adblock lists."""
     logging.info("Starting adblock list processing...")
     
+    fetched_rules: Dict[str, List[str]] = {}  # Initialize with type hint
+    
     # Fetch all rules concurrently
     async with aiohttp.ClientSession() as session:
-        fetch_tasks = {key: fetch_rules(url, session) for key, url in SOURCES.items()}
-        fetched_rules = {}
-        for key, task in fetch_tasks.items():
-            fetched_rules[key] = await task
-    
+        # Create tasks
+        fetch_tasks = {key: asyncio.create_task(fetch_rules(url, session), name=f"fetch_{key}") 
+                       for key, url in SOURCES.items()}
+        
+        # Gather results concurrently
+        results = await asyncio.gather(*fetch_tasks.values(), return_exceptions=True)
+        
+        # Process results, mapping back to keys and handling potential errors
+        source_keys = list(fetch_tasks.keys())
+        for i, result in enumerate(results):
+            key = source_keys[i]
+            if isinstance(result, Exception):
+                logging.error(f"Task {fetch_tasks[key].get_name()} failed: {result}")
+                fetched_rules[key] = []  # Assign empty list on fetch failure
+            elif result is not None:  # fetch_rules returns List[str] or None on error handled internally
+                 fetched_rules[key] = result
+            else:
+                 # Should not happen if fetch_rules handles errors, but defensively:
+                 logging.warning(f"Task {fetch_tasks[key].get_name()} returned None unexpectedly.")
+                 fetched_rules[key] = []
+
     # Extract all unique domains from all rules for validation
     all_domains = set()
     for rules_list in fetched_rules.values():
@@ -286,15 +304,15 @@ async def main_async() -> None:
     
     # Generate intermediate rule lists
     intermediate_rules = {
-        'a1': generate_unique_rules(filtered_rules['a'], filtered_rules['b'], filtered_rules['c']),
-        'b1': generate_unique_rules(filtered_rules['b'], filtered_rules['c'])
+        'a11': generate_unique_rules(filtered_rules['a'], filtered_rules['b'], filtered_rules['c']),
+        'b11': generate_unique_rules(filtered_rules['b'], filtered_rules['c'])
     }
     
     # Combine rules for the final output
     final_rules = {
-        'a1': intermediate_rules['a1'],
-        'b1': intermediate_rules['b1'],
-        'a1b1': list(dict.fromkeys(intermediate_rules['a1'] + intermediate_rules['b1']))
+        'a11': intermediate_rules['a11'],
+        'b11': intermediate_rules['b11'],
+        'a11b11': list(dict.fromkeys(intermediate_rules['a11'] + intermediate_rules['b11']))
     }
     
     # Write output files
@@ -303,6 +321,7 @@ async def main_async() -> None:
         write_rules_file(f"{key}.txt", definition['title'], rules)
     
     logging.info("Adblock list processing finished successfully.")
+
 
 if __name__ == '__main__':
     try:
