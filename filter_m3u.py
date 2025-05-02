@@ -2,6 +2,7 @@
 import requests
 import re
 import os
+import sys # 导入sys模块以便使用sys.exit
 
 # 输入M3U直播源的URL
 M3U_URL = "https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.m3u"
@@ -25,7 +26,7 @@ def filter_m3u(url, output_file):
         # 捕获下载过程中的异常，并打印错误信息
         print(f"获取M3U文件时发生错误: {e}")
         # 返回非零状态码，指示脚本执行失败，这对GitHub Actions很重要
-        exit(1)
+        sys.exit(1) # 使用sys.exit(1)
 
     # 按行分割内容
     lines = content.splitlines()
@@ -33,14 +34,15 @@ def filter_m3u(url, output_file):
     i = 0
 
     print("开始处理M3U内容...")
+    # 保留M3U文件头（通常是第一行 #EXTM3U）
+    if lines and lines[0].strip().startswith("#EXTM3U"):
+         filtered_lines.append(lines[0].strip())
+         i = 1 # 从第二行开始处理
+
     while i < len(lines):
         line = lines[i].strip() # 移除行首尾的空白字符
 
-        if line.startswith("#EXTM3U"):
-            # 保留M3U文件头
-            filtered_lines.append(line)
-            i += 1
-        elif line.startswith("#EXTINF"):
+        if line.startswith("#EXTINF"):
             # 这是一个频道信息行 (#EXTINF)，期待下一行是对应的直播源URL
             # 检查是否还有下一行
             if i + 1 < len(lines):
@@ -51,6 +53,7 @@ def filter_m3u(url, output_file):
                     # 这是一个符合条件的HTTPS频道
                     # 在 #EXTINF 行中移除或清空 tvg-logo 属性
                     # 使用正则表达式找到 tvg-logo="..." 并替换为 tvg-logo=""
+                    # 注意：group-title="..." 和 tvg-name="..." 等其他属性保持不变
                     modified_extinf = re.sub(r'tvg-logo="[^"]*"', 'tvg-logo=""', line)
 
                     # 添加修改后的 #EXTINF 行和对应的HTTPS URL行到结果列表
@@ -61,25 +64,22 @@ def filter_m3u(url, output_file):
                 else:
                     # 下一行不是有效的HTTPS URL行（可能是HTTP URL，或者是另一个#EXTINF等）
                     # 丢弃当前的 #EXTINF 行及其下一行（如果下一行是URL）
-                    # 或者更简单的处理方式是：只丢弃当前的 #EXTINF 行，让循环自然处理下一行
-                    # 例如：#EXTINF...\n#EXTINF...
-                    # i在第一个#EXTINF，next_line是第二个#EXTINF。不以https://开头。
-                    # 进入此else块，i += 1。循环下一轮，i在第二个#EXTINF，它会被再次处理。
-                    # 这样处理确保即使格式略有偏差也能尽可能正确地处理。
                     print(f"丢弃非HTTPS频道或格式异常行 (EXTINF: {line}, Next: {lines[i+1].strip() if i+1 < len(lines) else 'EOF'})")
-                    i += 1 # 丢弃当前的 #EXTINF 行
+                    i += 2 # 丢弃 #EXTINF 行和下一行（无论是URL还是其他）
             else:
                 # #EXTINF 是文件的最后一行，没有对应的URL行，丢弃
                 print(f"丢弃没有对应URL行的 #EXTINF: {line}")
                 i += 1
+        elif line.startswith("#"):
+             # 保留其他可能的注释行，如 #EXT-X-等，如果需要的话
+             # filtered_lines.append(line) # 如果需要保留所有注释，取消注释此行
+             i += 1 # 目前按需求只保留EXTM3U头和过滤后的频道对
         else:
-            # 其他类型的行（如注释 #EXT-X- 或空白行等），如果不是M3U头，则丢弃
-            # 如果需要保留所有注释行，可以将此处的pass改为 filtered_lines.append(line)
-            # 但根据需求，我们只关心过滤频道，所以只保留M3U头和过滤后的频道对
-            # pass
-            i += 1 # 丢弃当前不相关的行
+            # 既不是#EXTM3U, #EXTINF, 也不是其他#开头的注释，可能是空行或者格式错误行，丢弃
+            i += 1
 
-    print(f"内容处理完成。保留了 {len(filtered_lines)} 行频道信息。")
+
+    print(f"内容处理完成。保留了 {len([l for l in filtered_lines if not l.startswith('#')])} 个频道信息。") # 修正统计频道数量的方式
 
     # 将处理后的内容写入文件
     print(f"正在保存处理后的M3U文件到: {output_file}")
@@ -91,9 +91,14 @@ def filter_m3u(url, output_file):
     except IOError as e:
         # 捕获文件写入异常
         print(f"写入输出文件时发生错误: {e}")
-        exit(1)
+        sys.exit(1) # 使用sys.exit(1)
 
 if __name__ == "__main__":
     # 当脚本直接运行时，执行过滤函数
+    # filter_m3u函数内部会在失败时调用sys.exit(1)
     filter_m3u(M3U_URL, OUTPUT_FILENAME)
-v
+
+    # 如果filter_m3u函数成功完成（没有调用sys.exit(1)），
+    # 脚本会执行到这里。明确调用sys.exit(0)表示成功。
+    print("脚本已成功完成所有操作。")
+    sys.exit(0) # 明确以成功状态码退出
