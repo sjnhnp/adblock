@@ -36,7 +36,7 @@ jobs:
           pip install aiohttp # 只需要 aiohttp (内置 asyncio)
 
       - name: Create default config file (if not present) or ensure required keys
-        run: |
+        run: | # 多行脚本开始
           # 检查 config.json 是否存在，如果不存在则创建
           if [ ! -f config.json ]; then
             echo "config.json not found, creating default."
@@ -50,15 +50,13 @@ jobs:
               "max_retries": 2,
               "retry_delay": 2
           }
-EOF
+EOF # 确保 EOF 顶格
           else
             echo "config.json found, ensuring required keys."
-            # Optional: Add logic here to check/add missing keys if needed using tools like 'jq'
-            # Example using jq (needs installation: sudo apt-get update && sudo apt-get install -y jq):
-            # jq '. + {"m3u_url": "default_url", "output_https": "default_https", ...}' config.json > temp_config.json && mv temp_config.json config.json
-            # Simpler approach: just let the python script handle defaults if keys are missing.
           fi
-        shell: bash
+          # 多行脚本内容在这里结束，因为下一行的缩进不再增加了
+        shell: bash # <--- 修正：与 run: 对齐，指定 shell
+
 
       - name: Run M3U filtering script
         # 将脚本名改为 filter_m3u.py
