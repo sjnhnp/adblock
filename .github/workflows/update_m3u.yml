@@ -16,6 +16,10 @@ jobs:
     # 作业的名称
     name: Filter and Update M3U
 
+    # **添加这个权限配置**
+    permissions:
+      contents: write # 授予写入仓库内容的权限
+
     # 作业运行的环境，这里使用最新版的Ubuntu Linux
     runs-on: ubuntu-latest
 
@@ -41,7 +45,6 @@ jobs:
         run: |
           # 升级pip工具
           python -m pip install --upgrade pip
-          # 安装requests库，用于下载M3U文件
           pip install requests
 
       # 步骤4: 运行Python过滤脚本
@@ -49,20 +52,9 @@ jobs:
         run: python filter_m3u.py
 
       # 步骤5: 检查并自动提交更改
-      # 如果filter_m3u.py脚本修改了文件 (例如生成了 filtered_iptv.m3u)，
-      # 这个action会自动提交这些更改并推送到仓库
       - name: Commit and push changes
-        # 使用一个第三方action来简化提交和推送过程
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          # 提交使用的用户名和邮箱，这里的默认值通常是GitHub Actions Bot
-          # committer_user_name: GitHub Actions Bot
-          # committer_email: github-actions[bot]@users.noreply.github.com
-          # author_user_name: {{github_actor}}
-          # author_email: {{github_actor}}@users.noreply.github.com
-          # 提交信息
           commit_message: "chore: Auto update filtered_iptv.m3u"
-          # 指定需要提交的文件，如果省略，则提交所有改动的文件
+          # 如果你的脚本可能产生其他需要提交的文件，可以不指定files，让它提交所有改动
           # files: filtered_iptv.m3u
-          # 如果你的脚本可能产生其他需要提交的文件，可以不指定files
-
