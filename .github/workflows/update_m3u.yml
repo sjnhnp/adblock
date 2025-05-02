@@ -54,7 +54,7 @@ EOF # 确保 EOF 顶格
           else
             echo "config.json found, ensuring required keys."
           fi
-          # 多行脚本内容在这里结束，因为下一行的缩进不再增加了
+
         shell: bash # <--- 修正：与 run: 对齐，指定 shell
 
 
