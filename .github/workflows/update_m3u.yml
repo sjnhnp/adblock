@@ -47,7 +47,7 @@ jobs:
               "max_retries": 2,
               "retry_delay": 2
           }
-EOF
+ EOF
           else
             echo "config.json found. Script will use existing configuration."
           fi
