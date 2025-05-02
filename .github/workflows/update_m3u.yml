@@ -67,7 +67,5 @@ jobs:
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: chore: Auto update filtered M3U files # 提交信息
-          # 使用通配符匹配两个文件
+          commit_message: chore: Auto update filtered M3U files
           file_pattern: '*.m3u'
-
