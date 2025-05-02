@@ -44,7 +44,7 @@ jobs:
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-
+          commit_message: 'chore: Auto update filtered M3U files'
           file_pattern: '*.m3u config.json'
           commit_user_name: GitHub Actions Bot
           commit_user_email: actions@github.com
