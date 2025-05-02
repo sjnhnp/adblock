@@ -27,12 +27,13 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install requests aiohttp
+          pip list
 
       - name: Create default config file
         run: |
           cat << EOF > config.json
           {
-              "m3u_url": "https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.m3u",
+              "m3u_url": "https://iptv-org.github.io/iptv/index.m3u",
               "output_https": "filtered_https_only.m3u",
               "output_http_valid": "filtered_http_only_valid.m3u",
               "attributes_to_remove": ["tvg-logo"],
@@ -44,7 +45,20 @@ jobs:
           EOF
 
       - name: Run M3U filtering script
-        run: python filter_m3u_two_files.py --config config.json
+        run: python filter_m3u_two_files.py --config config.json > m3u_filter.log 2>&1 || { cat m3u_filter.log; exit 1; }
+
+      - name: Check generated files
+        run: |
+          ls -l filtered_https_only.m3u filtered_http_only_valid.m3u || echo "Files not found"
+          cat filtered_https_only.m3u || echo "filtered_https_only.m3u is empty or missing"
+          cat filtered_http_only_valid.m3u || echo "filtered_http_only_valid.m3u is empty or missing"
+
+      - name: Upload script log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m3u-filter-log
+          path: m3u_filter.log
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
