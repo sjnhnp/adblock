@@ -41,8 +41,6 @@ http://dsj.motem.top:8880/bptv/10000100000000050000000003887433.m3u8
 http://dsj.motem.top:8880/bptv/10000100000000050000000003887430.m3u8
 #EXTINF:-1 tvg-name="三沙卫视" group-title="卫视频道", 三沙卫视
 http://dsj.motem.top:8880/bptv/10000100000000050000000003887452.m3u8
-#EXTINF:-1 tvg-name="厦门卫视" group-title="卫视频道", 厦门卫视
-http://dsj.motem.top:8880/bptv/10000100000000050000000003887454.m3u8
 #EXTINF:-1 tvg-name="山西卫视" group-title="卫视频道", 山西卫视
 http://dsj.motem.top:8880/bptv/10000100000000050000000003887413.m3u8
 #EXTINF:-1 tvg-name="陕西卫视" group-title="卫视频道", 陕西卫视
@@ -571,6 +569,8 @@ http://live.ynurl.com/video/s10032-lhtv/index.m3u8?zyund
 http://stream3.jlntv.cn:80/aac_mhkgb/playlist.m3u8
 #EXTINF:-1 tvg-name="武义新闻综合" group-title="地方频道", 武义新闻综合
 http://l.cztvcloud.com/channels/lantian/SXwuyi1/720p.m3u8
+#EXTINF:-1 tvg-name="武威凉州" group-title="地方频道", 武威凉州
+http://lishiwan.xicp.net:8563/udp/239.255.36.106:8231
 #EXTINF:-1 tvg-name="武胜综合" group-title="地方频道", 武胜综合
 http://live2.gatv.com.cn:86/live/WS.m3u8
 #EXTINF:-1 tvg-name="武进生活" group-title="地方频道", 武进生活
