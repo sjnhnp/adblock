@@ -14,14 +14,15 @@ jobs:
 
     steps:
       # 第一步：签出代码库
+      # Checkout 需要获取仓库中的所有文件，包括你手动添加的 config.json
       - name: Check out repository
-        uses: actions/checkout@v4 # 使用较新版本的 checkout action
+        uses: actions/checkout@v4
 
       # 第二步：设置 Python 环境
       - name: Set up Python
-        uses: actions/setup-python@v5 # 使用较新版本的 setup-python action
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.x' # 使用 Python 3 的最新稳定版，或指定具体版本如 '3.11'
+          python-version: '3.x' # 或指定 '3.11' 等
 
       # 第三步：安装 Python 依赖
       - name: Install dependencies
@@ -29,51 +30,24 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests # 安装 filter_m3u.py 需要的库
 
-      # 第四步：检查并可能创建 config.json
-      # 修复了之前的 EOF 和缩进问题
-      - name: Create default config.json if not present
-        run: | # 注意 run: | 下面的脚本需要比 run: | 本身缩进更深
-          if [ ! -f config.json ]; then
-            echo "config.json not found, creating default."
-            # 使用 heredoc 创建 JSON 文件
-            # 注意：结束的 EOF 必须顶格（绝对不能有任何前导空格或制表符）并且单独一行
-            cat << EOF > config.json
-          {
-              "m3u_url": "https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.m3u",
-              "output_https": "filtered_https_only.m3u",
-              "output_http_valid": "filtered_http_only_valid.m3u",
-              "attributes_to_remove": ["tvg-logo", "tvg-id"],
-              "request_timeout": 5,
-              "max_retries": 2,
-              "retry_delay": 2
-          }
- EOF
-          else
-            echo "config.json found. Script will use existing configuration."
-          fi
-        # shell: bash 必须与 run: | 对齐
-        shell: bash
-
-      # 第五步：运行 Python 脚本来过滤 M3U 文件
+      # 第四步：运行 Python 脚本来过滤 M3U 文件
+      # 脚本现在会直接读取仓库根目录下的 config.json 文件
       - name: Run M3U filter script
         run: python filter_m3u.py
+        # 确保 filter_m3u.py 知道从当前目录读取 config.json
 
-      # 第六步：提交更改的文件
-      # 修复了之前的 commit action 参数缩进问题
+      # 第五步：提交更改的文件
+      # 注意：这里的 file_pattern 仍然包含 config.json
+      # 如果你的脚本不会修改 config.json，且你只想提交 m3u 文件的更改，
+      # 可以将 file_pattern 改为 '*.m3u'
+      # 如果你偶尔会手动修改 config.json 并希望 workflow 自动提交，则保持不变
       - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5 # 使用较新版本
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          # 提交信息
-          commit_message: chore: Auto update filtered M3U files and config
-          # 要提交的文件模式，包括所有 .m3u 文件和可能创建的 config.json
-          # 如果你只想提交 m3u 文件，可以改为 '*.m3u'
+          commit_message: chore: Auto update filtered M3U files
+          # 提交所有 .m3u 文件 和 config.json (如果它有变动或你手动改了它)
           file_pattern: '*.m3u config.json'
-          # 可选但推荐：设置提交者信息，否则可能使用默认的 action runner 信息
           commit_user_name: GitHub Actions Bot
           commit_user_email: actions@github.com
-          # 可选：如果你想提交到非默认分支，可以在这里指定
-          # branch: main
-          # 可选：添加其他 git commit 选项
-          # commit_options: '--no-verify'
-          # 可选：添加 git push 选项 (通常不需要)
-          # push_options: '--force'
+          # 可选: branch: main
+
