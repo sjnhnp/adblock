@@ -1,23 +1,15 @@
-# workflow名称
-name: Update M3U # 修改名称
+name: Update Filtered M3U Playlists
 
-# 触发工作流的事件
 on:
-  # 定时触发：每小时执行一次
   schedule:
     - cron: '0 * * * *'
-  # 允许手动从GitHub页面触发工作流
   workflow_dispatch:
 
-# 定义工作流中的一个或多个作业 (jobs)
 jobs:
   build:
-    name: Filter and Update M3U Files # 修改作业名称
-
-    # 授予写入仓库内容的权限
+    name: Filter and Update M3U Files
     permissions:
       contents: write
-
     runs-on: ubuntu-latest
 
     steps:
@@ -34,19 +26,30 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests
+          pip install requests aiohttp
 
-      # 步骤4: 运行Python过滤脚本 (使用新的脚本文件名)
+      - name: Create default config file
+        run: |
+          cat << EOF > config.json
+          {
+              "m3u_url": "https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.m3u",
+              "output_https": "filtered_https_only.m3u",
+              "output_http_valid": "filtered_http_only_valid.m3u",
+              "attributes_to_remove": ["tvg-logo"],
+              "request_timeout": 5,
+              "max_retries": 2,
+              "retry_delay": 2,
+              "max_workers": 10
+          }
+          EOF
+
       - name: Run M3U filtering script
-        run: python filter_m3u_two_files.py # 修改脚本文件名
+        run: python filter_m3u_two_files.py --config config.json
 
-      # 步骤5: 检查并自动提交更改
-      # 这个action会自动提交 filter_m3u_two_files.py 生成的两个文件
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: Auto update filtered m3u files" # 修改提交信息
-          # 如果需要，可以明确指定提交的文件列表
-          # files: |
-          #   filtered_https_only.m3u
-          #   filtered_http_only_valid.m3u
+          commit_message: "chore: Auto update filtered M3U files"
+          file_pattern: |
+            filtered_https_only.m3u
+            filtered_http_only_valid.m3u
