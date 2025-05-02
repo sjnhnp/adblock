@@ -1,186 +1,255 @@
 #!/usr/bin/env python3
-import requests
-import re
+import aiohttp
+import asyncio
+import argparse
+import json
+import logging
 import os
+import re
 import sys
-import time # 导入time模块用于添加延迟，避免请求过快
+import urllib.parse
+from typing import List, Dict, Optional
 
-# 输入M3U直播源的URL
-M3U_URL = "https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.m3u"
-# 输出处理后的只包含HTTPS的M3U文件名
-OUTPUT_FILENAME_HTTPS = "filtered_https_only.m3u"
-# 输出处理后的只包含有效HTTP的M3U文件名
-OUTPUT_FILENAME_HTTP_VALID = "filtered_http_only_valid.m3u"
+# 配置日志
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(threadName)s] %(message)s",
+    handlers=[logging.StreamHandler()]
+)
+logger = logging.getLogger()
 
-# 设置请求超时时间和重试次数
-REQUEST_TIMEOUT = 5 # 秒
-MAX_RETRIES = 2
-RETRY_DELAY = 2 # 秒
+class Config:
+    """全局配置常量"""
+    REQUEST_TIMEOUT = 5  # 秒
+    MAX_RETRIES = 2
+    RETRY_DELAY = 2  # 秒
+    MAX_WORKERS = 10  # 线程池最大工作线程数
+    ATTRIBUTES_TO_REMOVE = ["tvg-logo"]  # 默认移除的M3U属性
+    DEFAULT_M3U_URL = "https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.m3u"
+    DEFAULT_OUTPUT_HTTPS = "filtered_https_only.m3u"
+    DEFAULT_OUTPUT_HTTP_VALID = "filtered_http_only_valid.m3u"
 
-def is_url_accessible(url):
-    """
-    检查URL是否可访问（返回2xx状态码）。
-    使用HEAD请求以减少数据传输，如果HEAD不支持则尝试GET。
-    """
-    for attempt in range(MAX_RETRIES):
+def load_config(config_file: str = "config.json") -> Dict:
+    """从JSON配置文件加载配置，失败时返回默认配置"""
+    default_config = {
+        "m3u_url": Config.DEFAULT_M3U_URL,
+        "output_https": Config.DEFAULT_OUTPUT_HTTPS,
+        "output_http_valid": Config.DEFAULT_OUTPUT_HTTP_VALID,
+        "attributes_to_remove": Config.ATTRIBUTES_TO_REMOVE,
+        "request_timeout": Config.REQUEST_TIMEOUT,
+        "max_retries": Config.MAX_RETRIES,
+        "retry_delay": Config.RETRY_DELAY,
+        "max_workers": Config.MAX_WORKERS
+    }
+    if os.path.exists(config_file):
         try:
-            # 尝试使用HEAD请求
-            response = requests.head(url, timeout=REQUEST_TIMEOUT, allow_redirects=True)
-            print(f"  检查 {url} (HEAD): Status {response.status_code}")
-            # 检查状态码是否是成功的 (2xx)
-            if 200 <= response.status_code < 300:
-                return True
-        except (requests.exceptions.RequestException, requests.exceptions.Timeout) as e:
-            # HEAD请求失败，尝试使用GET请求头
-            print(f"  HEAD请求失败或超时 {url}: {e}. 尝试GET请求头...")
+            with open(config_file, "r", encoding="utf-8") as f:
+                config = json.load(f)
+            default_config.update(config)
+            logger.info(f"已加载配置文件: {config_file}")
+        except (IOError, json.JSONDecodeError) as e:
+            logger.warning(f"加载配置文件 {config_file} 失败，使用默认配置: {e}")
+    return default_config
+
+async def is_url_accessible_async(url: str, session: aiohttp.ClientSession, cache: Dict[str, bool] = None) -> bool:
+    """
+    异步检查URL是否可访问（返回2xx状态码）。
+
+    Args:
+        url: 要检查的URL地址。
+        session: aiohttp ClientSession 对象。
+        cache: 用于存储URL检查结果的缓存字典。
+
+    Returns:
+        bool: 如果URL可访问返回True，否则返回False。
+    """
+    if cache and url in cache:
+        logger.debug(f"使用缓存结果 for {url}: {cache[url]}")
+        return cache[url]
+
+    for attempt in range(Config.MAX_RETRIES):
+        try:
+            async with session.head(url, timeout=Config.REQUEST_TIMEOUT, allow_redirects=True) as response:
+                logger.debug(f"检查 {url} (HEAD): Status {response.status}")
+                if 200 <= response.status < 300:
+                    if cache is not None:
+                        cache[url] = True
+                    return True
+        except (aiohttp.ClientError, asyncio.TimeoutError) as e:
+            logger.debug(f"HEAD请求失败 {url}: {e}. 尝试GET...")
             try:
-                response = requests.get(url, timeout=REQUEST_TIMEOUT, stream=True, allow_redirects=True)
-                # 即使是GET，也只读取响应头，不下载内容
-                response.close() # 立即关闭连接，不下载响应体
-                print(f"  检查 {url} (GET header): Status {response.status_code}")
-                if 200 <= response.status_code < 300:
-                     return True
-            except (requests.exceptions.RequestException, requests.exceptions.Timeout) as e_get:
-                 print(f"  GET请求头失败或超时 {url}: {e_get}. 尝试次数 {attempt + 1}/{MAX_RETRIES}")
+                async with session.get(url, timeout=Config.REQUEST_TIMEOUT, allow_redirects=True) as response:
+                    logger.debug(f"检查 {url} (GET): Status {response.status}")
+                    if 200 <= response.status < 300:
+                        if cache is not None:
+                            cache[url] = True
+                        return True
+            except (aiohttp.ClientError, asyncio.TimeoutError) as e_get:
+                logger.debug(f"GET请求失败 {url}: {e_get}. 尝试次数 {attempt + 1}/{Config.MAX_RETRIES}")
+        if attempt < Config.MAX_RETRIES - 1:
+            await asyncio.sleep(Config.RETRY_DELAY)
 
-        # 如果不是最后一次尝试，等待一段时间后重试
-        if attempt < MAX_RETRIES - 1:
-            time.sleep(RETRY_DELAY)
-
-    # 所有尝试都失败
-    print(f"  URL {url} 无法访问或超时 after {MAX_RETRIES} attempts.")
+    logger.info(f"URL {url} 无法访问 after {Config.MAX_RETRIES} attempts.")
+    if cache is not None:
+        cache[url] = False
     return False
 
-def filter_m3u_two_files(url, output_https, output_http_valid):
+async def check_urls_async(urls: List[str], cache: Dict[str, bool]) -> List[bool]:
+    """批量异步检查URL列表的可访问性"""
+    async with aiohttp.ClientSession() as session:
+        tasks = [is_url_accessible_async(url, session, cache) for url in urls]
+        return await asyncio.gather(*tasks)
+
+def remove_attributes(extinf_line: str, attributes: List[str]) -> str:
+    """移除EXTINF行中的指定属性"""
+    for attr in attributes:
+        extinf_line = re.sub(rf'{attr}="[^"]*"', f'{attr}=""', extinf_line)
+    return extinf_line
+
+def is_ip_address(host: str) -> bool:
     """
-    从指定的URL获取M3U播放列表，生成两个文件：
-    一个只保留HTTPS频道，另一个只保留可访问的HTTP频道。
-    同时移除所有频道的tvg-logo属性。
+    检查主机名是否为IP地址（IPv4或IPv6）。
+
+    Args:
+        host: URL的主机名部分。
+
+    Returns:
+        bool: 如果是IP地址返回True，否则返回False。
     """
-    print(f"尝试从URL获取M3U文件: {url}")
+    # IPv4 正则表达式
+    ipv4_pattern = r"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+    # IPv6 正则表达式（简化的，包含压缩格式）
+    ipv6_pattern = r"^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$|^::(?:[0-9a-fA-F]{1,4}:)*[0-9a-fA-F]{1,4}$|^[0-9a-fA-F]{1,4}::(?:[0-9a-fA-F]{1,4}:)*[0-9a-fA-F]{1,4}$"
+
+    # 去掉IPv6地址的方括号（例如 [2001:db8::1]）
+    host = host.strip("[]")
+
+    return bool(re.match(ipv4_pattern, host) or re.match(ipv6_pattern, host))
+
+async def filter_m3u_two_files(url: str, output_https: str, output_http_valid: str, attributes_to_remove: List[str]) -> None:
+    """
+    从指定URL获取M3U播放列表，生成两个文件：一个只保留HTTPS频道，另一个只保留可访问的HTTP频道。
+    HTTP地址如果是IP形式，直接丢弃。
+
+    Args:
+        url: M3U文件的URL。
+        output_https: HTTPS频道的输出文件名。
+        output_http_valid: 有效HTTP频道的输出文件名。
+        attributes_to_remove: 要移除的M3U属性列表。
+    """
+    logger.info(f"尝试从URL获取M3U文件: {url}")
     try:
-        response = requests.get(url)
-        response.raise_for_status()
-        content = response.text
-        print("M3U文件获取成功。")
-    except requests.exceptions.RequestException as e:
-        print(f"获取M3U文件时发生错误: {e}")
+        async with aiohttp.ClientSession() as session:
+            async with session.get(url, timeout=Config.REQUEST_TIMEOUT) as response:
+                response.raise_for_status()
+                content = await response.text()
+        logger.info("M3U文件获取成功。")
+    except (aiohttp.ClientError, asyncio.TimeoutError) as e:
+        logger.error(f"获取M3U文件时发生错误: {e}")
         sys.exit(1)
 
     lines = content.splitlines()
-    https_lines = []
-    http_valid_lines = []
+    https_lines: List[str] = []
+    http_valid_lines: List[str] = []
+    http_urls: List[str] = []
+    url_cache: Dict[str, bool] = {}
     i = 0
+    processed_count = https_count = http_valid_count = 0
 
-    print("开始处理M3U内容...")
-
-    # 保留M3U文件头 (#EXTM3U) 并添加到两个列表中
-    header_line = ""
+    # 处理M3U文件头
+    header_line = "#EXTM3U"
     if lines and lines[0].strip().startswith("#EXTM3U"):
-         header_line = lines[0].strip()
-         https_lines.append(header_line)
-         http_valid_lines.append(header_line)
-         i = 1 # 从第二行开始处理
+        header_line = lines[0].strip()
+        i = 1
     else:
-         # 如果没有#EXTM3U头，也需要手动添加一个基本的，否则播放器可能无法识别
-         header_line = "#EXTM3U"
-         https_lines.append(header_line)
-         http_valid_lines.append(header_line)
+        logger.warning("M3U文件缺少标准 #EXTM3U 头，已添加默认头。")
+    https_lines.append(header_line)
+    http_valid_lines.append(header_line)
 
-
-    processed_count = 0
-    https_count = 0
-    http_valid_count = 0
-
+    logger.info("开始处理M3U内容...")
     while i < len(lines):
         line = lines[i].strip()
-
         if line.startswith("#EXTINF"):
-            # 这是一个频道信息行 (#EXTINF)，期待下一行是对应的直播源URL
             processed_count += 1
-            # 检查是否还有下一行
             if i + 1 < len(lines):
-                next_line = lines[i+1].strip()
+                next_line = lines[i + 1].strip()
+                modified_extinf = remove_attributes(line, attributes_to_remove)
 
-                # 使用正则表达式移除或清空 tvg-logo 属性
-                modified_extinf = re.sub(r'tvg-logo="[^"]*"', 'tvg-logo=""', line)
-
-                # 检查下一行是否是一个有效的URL行 (不以#开头)
                 if not next_line.startswith("#"):
-                     url_candidate = next_line.lower()
-
-                     if url_candidate.startswith("https://"):
-                         # 这是一个HTTPS频道，添加到HTTPS列表中
-                         https_lines.append(modified_extinf)
-                         https_lines.append(next_line)
-                         https_count += 1
-                         # print(f"  找到HTTPS频道: {line} -> {next_line}")
-
-                     elif url_candidate.startswith("http://"):
-                         # 这是一个HTTP频道，检查其可访问性
-                         print(f"  发现HTTP频道，检查可访问性: {line} -> {next_line}")
-                         if is_url_accessible(next_line):
-                             # 如果可访问，添加到HTTP有效列表中
-                             http_valid_lines.append(modified_extinf)
-                             http_valid_lines.append(next_line)
-                             http_valid_count += 1
-                             print(f"  HTTP频道有效并保留。")
-                         else:
-                             print(f"  HTTP频道无法访问，丢弃。")
-                     else:
-                          # URL格式不识别，丢弃这对行
-                          print(f"  丢弃格式异常频道 (Unknown URL format): {line}, Next: {next_line}")
+                    url_candidate = next_line.lower()
+                    if url_candidate.startswith("https://"):
+                        https_lines.extend([modified_extinf, next_line])
+                        https_count += 1
+                    elif url_candidate.startswith("http://"):
+                        # 解析URL，提取主机名
+                        parsed_url = urllib.parse.urlparse(next_line)
+                        host = parsed_url.hostname
+                        if host and is_ip_address(host):
+                            logger.info(f"丢弃HTTP频道（IP地址形式）: {next_line}")
+                        else:
+                            http_urls.append(next_line)
+                            http_valid_lines.append((modified_extinf, next_line))  # 临时存储，待检查
+                    else:
+                        logger.warning(f"丢弃格式异常频道 (Unknown URL format): {next_line}")
                 else:
-                    # 下一行不是URL行，丢弃这对行
-                    print(f"  丢弃格式异常频道 (Next line not URL): {line}, Next: {next_line}")
-
-                # 无论是否保留，都跳过当前的 #EXTINF 行和下一行 (URL 或其他)
+                    logger.warning(f"丢弃格式异常频道 (Next line not URL): {next_line}")
                 i += 2
             else:
-                # #EXTINF 是文件的最后一行，没有对应的URL行，丢弃
-                print(f"  丢弃没有对应URL行的 #EXTINF: {line}")
+                logger.warning(f"丢弃没有对应URL行的 #EXTINF: {line}")
                 i += 1
-        elif line.startswith("#"):
-             # 保留其他可能的注释行，如 #EXT-X-等，如果需要的话
-             # filtered_lines.append(line) # 如果需要保留所有注释，取消注释此行
-             i += 1 # 目前按需求只保留EXTM3U头和过滤后的频道对
         else:
-            # 既不是#EXTM3U, #EXTINF, 也不是其他#开头的注释，可能是空行或者格式错误行，丢弃
             i += 1
 
-    print(f"内容处理完成。")
-    print(f"总处理频道对: {processed_count}")
-    print(f"保留HTTPS频道: {https_count} 个")
-    print(f"保留有效HTTP频道: {http_valid_count} 个")
+    # 批量检查HTTP URL
+    if http_urls:
+        logger.info(f"发现 {len(http_urls)} 个非IP地址的HTTP频道，开始批量检查可访问性...")
+        results = await check_urls_async(http_urls, url_cache)
+        http_valid_lines_final = [header_line]
+        for (extinf, url), is_valid in zip(http_valid_lines[1:], results):
+            if is_valid:
+                http_valid_lines_final.extend([extinf, url])
+                http_valid_count += 1
+                logger.info(f"HTTP频道有效并保留: {url}")
+            else:
+                logger.info(f"HTTP频道无法访问，丢弃: {url}")
+        http_valid_lines = http_valid_lines_final
 
+    logger.info(f"内容处理完成。总处理频道对: {processed_count}, 保留HTTPS频道: {https_count}, 保留有效HTTP频道: {http_valid_count}")
 
-    # 将处理后的HTTPS内容写入文件
-    print(f"正在保存处理后的HTTPS文件到: {output_https}")
-    try:
-        with open(output_https, "w", encoding="utf-8") as f:
-            f.write("\n".join(https_lines))
-        print(f"文件 {output_https} 保存成功！")
-    except IOError as e:
-        print(f"写入文件 {output_https} 时发生错误: {e}")
-        sys.exit(1)
+    # 写入文件
+    for lines, filename in [(https_lines, output_https), (http_valid_lines, output_http_valid)]:
+        logger.info(f"正在保存文件到: {filename}")
+        try:
+            if os.path.exists(filename):
+                logger.warning(f"文件 {filename} 已存在，将被覆盖。")
+            with open(filename, "w", encoding="utf-8") as f:
+                f.write("\n".join(lines))
+            logger.info(f"文件 {filename} 保存成功！")
+        except IOError as e:
+            logger.error(f"写入文件 {filename} 时发生错误: {e}")
+            sys.exit(1)
 
-    # 将处理后的有效HTTP内容写入文件
-    print(f"正在保存处理后的有效HTTP文件到: {output_http_valid}")
-    try:
-        with open(output_http_valid, "w", encoding="utf-8") as f:
-            f.write("\n".join(http_valid_lines))
-        print(f"文件 {output_http_valid} 保存成功！")
-    except IOError as e:
-        print(f"写入文件 {output_http_valid} 时发生错误: {e}")
-        sys.exit(1)
+def parse_args() -> argparse.Namespace:
+    """解析命令行参数"""
+    parser = argparse.ArgumentParser(description="Filter M3U playlist into HTTPS and valid HTTP files.")
+    parser.add_argument("--url", default=Config.DEFAULT_M3U_URL, help="URL of the M3U playlist")
+    parser.add_argument("--https-output", default=Config.DEFAULT_OUTPUT_HTTPS, help="Output file for HTTPS channels")
+    parser.add_argument("--http-output", default=Config.DEFAULT_OUTPUT_HTTP_VALID, help="Output file for valid HTTP channels")
+    parser.add_argument("--config", default="config.json", help="Path to configuration file")
+    return parser.parse_args()
 
+async def main():
+    """主函数"""
+    args = parse_args()
+    config = load_config(args.config)
+    await filter_m3u_two_files(
+        args.url if args.url != Config.DEFAULT_M3U_URL else config["m3u_url"],
+        args.https_output if args.https_output != Config.DEFAULT_OUTPUT_HTTPS else config["output_https"],
+        args.http_output if args.http_output != Config.DEFAULT_OUTPUT_HTTP_VALID else config["output_http_valid"],
+        config["attributes_to_remove"]
+    )
+    logger.info("脚本已成功完成所有操作并生成两个文件。")
 
 if __name__ == "__main__":
-    # 当脚本直接运行时，执行过滤函数
-    # filter_m3u_two_files函数内部会在失败时调用sys.exit(1)
-    filter_m3u_two_files(M3U_URL, OUTPUT_FILENAME_HTTPS, OUTPUT_FILENAME_HTTP_VALID)
-
-    # 如果filter_m3u_two_files函数成功完成（没有调用sys.exit(1)），
-    # 脚本会执行到这里。明确调用sys.exit(0)表示成功。
-    print("脚本已成功完成所有操作并生成两个文件。")
-    sys.exit(0) # 明确以成功状态码退出
+    asyncio.run(main())
+    sys.exit(0)
