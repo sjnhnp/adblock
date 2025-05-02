@@ -44,10 +44,9 @@ jobs:
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: chore: Auto update filtered M3U files
+          commit_message: chore: Auto update filtered M3U files # <-- Alleged Line 47
           # 提交所有 .m3u 文件 和 config.json (如果它有变动或你手动改了它)
           file_pattern: '*.m3u config.json'
           commit_user_name: GitHub Actions Bot
           commit_user_email: actions@github.com
-          # 可选: branch: main
 
