@@ -2,68 +2,80 @@ name: Update Filtered M3U Playlists
 
 on:
   schedule:
+    # 每小时的第 0 分钟运行 (0 * * * *)
+    # 如果需要调整频率，例如每 6 小时运行一次: '0 */6 * * *'
     - cron: '0 * * * *'
-  workflow_dispatch:
+  workflow_dispatch: # 允许手动触发
+
+# 防止同一分支上的工作流因执行时间过长而重叠运行
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
     name: Filter and Update M3U Files
     permissions:
-      contents: write
+      contents: write # 需要写入权限来推送更改
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+        # fetch-depth: 0 # 可能不需要获取完整历史记录，除非 auto-commit action 需要
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: '3.11' # 使用一个较新的稳定版本
+          cache: 'pip' # 缓存 pip 依赖
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests aiohttp
-          pip list
+          pip install aiohttp # 只需要 aiohttp (内置 asyncio)
 
-      - name: Create default config file
+      - name: Create default config file (if not present) or ensure required keys
         run: |
-          cat << EOF > config.json
+          # 检查 config.json 是否存在，如果不存在则创建
+          if [ ! -f config.json ]; then
+            echo "config.json not found, creating default."
+            cat << EOF > config.json
           {
-              "m3u_url": "https://iptv-org.github.io/iptv/index.m3u",
+              "m3u_url": "https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.m3u",
               "output_https": "filtered_https_only.m3u",
               "output_http_valid": "filtered_http_only_valid.m3u",
-              "attributes_to_remove": ["tvg-logo"],
+              "attributes_to_remove": ["tvg-logo", "tvg-id"],
               "request_timeout": 5,
               "max_retries": 2,
-              "retry_delay": 2,
-              "max_workers": 10
+              "retry_delay": 2
           }
           EOF
+          else
+            echo "config.json found, ensuring required keys."
+            # Optional: Add logic here to check/add missing keys if needed using tools like 'jq'
+            # Example using jq (needs installation: sudo apt-get update && sudo apt-get install -y jq):
+            # jq '. + {"m3u_url": "default_url", "output_https": "default_https", ...}' config.json > temp_config.json && mv temp_config.json config.json
+            # Simpler approach: just let the python script handle defaults if keys are missing.
+          fi
+        shell: bash
 
       - name: Run M3U filtering script
-        run: python filter_m3u_two_files.py --config config.json > m3u_filter.log 2>&1 || { cat m3u_filter.log; exit 1; }
-
-      - name: Check generated files
-        run: |
-          ls -l filtered_https_only.m3u filtered_http_only_valid.m3u || echo "Files not found"
-          cat filtered_https_only.m3u || echo "filtered_https_only.m3u is empty or missing"
-          cat filtered_http_only_valid.m3u || echo "filtered_http_only_valid.m3u is empty or missing"
-
-      - name: Upload script log
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: m3u-filter-log
-          path: m3u_filter.log
+        # 将脚本名改为 filter_m3u.py
+        run: python filter_m3u.py --config config.json
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: Auto update filtered M3U files"
+          # 确保 file_pattern 与 config.json 中的输出文件名一致
+          # 如果你在 config.json 中更改了输出文件名，这里也要同步修改
           file_pattern: |
             filtered_https_only.m3u
             filtered_http_only_valid.m3u
+          # 可选：指定推送的分支，默认为当前触发工作流的分支
+          # push_options: '--force' # 谨慎使用强制推送
+          # commit_user_name: GitHub Actions Bot # 自定义提交者名称
+          # commit_user_email: actions@github.com # 自定义提交者邮箱
+          # commit_author: Author Name <author@example.com> # 自定义作者信息
+
