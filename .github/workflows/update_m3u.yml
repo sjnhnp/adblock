@@ -1,45 +1,42 @@
-name: Update Filtered M3U
+# .github/workflows/update_m3u.yml
+
+name: Update M3U Files # 工作流名称
 
 on:
-  schedule:
-    # 每小时的第 0 分钟运行 (0 * * * *)
-    # 如果需要调整频率，例如每 6 小时运行一次: '0 */6 * * *'
-    - cron: '0 * * * *'
   workflow_dispatch: # 允许手动触发
-
-# 防止同一分支上的工作流因执行时间过长而重叠运行
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  schedule:
+    # CRON 表达式，例如：每 6 小时运行一次 (在 00:00, 06:00, 12:00, 18:00 UTC)
+    - cron: '0 */6 * * *'
 
 jobs:
-  build:
-    name: Filter and Update M3U Files
-    permissions:
-      contents: write # 需要写入权限来推送更改
-    runs-on: ubuntu-latest
+  update_and_commit:
+    runs-on: ubuntu-latest # 使用最新的 Ubuntu Runner
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        # fetch-depth: 0 # 可能不需要获取完整历史记录，除非 auto-commit action 需要
+      # 第一步：签出代码库
+      - name: Check out repository
+        uses: actions/checkout@v4 # 使用较新版本的 checkout action
 
+      # 第二步：设置 Python 环境
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v5 # 使用较新版本的 setup-python action
         with:
-          python-version: '3.11' # 使用一个较新的稳定版本
-          cache: 'pip' # 缓存 pip 依赖
+          python-version: '3.x' # 使用 Python 3 的最新稳定版，或指定具体版本如 '3.11'
 
+      # 第三步：安装 Python 依赖
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install aiohttp # 只需要 aiohttp (内置 asyncio)
+          pip install requests # 安装 filter_m3u.py 需要的库
 
-      - name: Create default config file (if not present) or ensure required keys
-        run: | # 多行脚本开始
-          # 检查 config.json 是否存在，如果不存在则创建
+      # 第四步：检查并可能创建 config.json
+      # 修复了之前的 EOF 和缩进问题
+      - name: Create default config.json if not present
+        run: | # 注意 run: | 下面的脚本需要比 run: | 本身缩进更深
           if [ ! -f config.json ]; then
             echo "config.json not found, creating default."
+            # 使用 heredoc 创建 JSON 文件
+            # 注意：结束的 EOF 必须顶格（绝对不能有任何前导空格或制表符）并且单独一行
             cat << EOF > config.json
           {
               "m3u_url": "https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.m3u",
@@ -50,22 +47,33 @@ jobs:
               "max_retries": 2,
               "retry_delay": 2
           }
-EOF # 确保 EOF 顶格
+EOF
           else
-            echo "config.json found, ensuring required keys."
+            echo "config.json found. Script will use existing configuration."
           fi
+        # shell: bash 必须与 run: | 对齐
+        shell: bash
 
-        shell: bash # <--- 修正：与 run: 对齐，指定 shell
+      # 第五步：运行 Python 脚本来过滤 M3U 文件
+      - name: Run M3U filter script
+        run: python filter_m3u.py
 
-
-      - name: Run M3U filtering script
-        # 将脚本名改为 filter_m3u.py
-        run: python filter_m3u.py --config config.json
-
-      - name: Commit changes # 步骤名称：提交更改
-        uses: stefanzweifel/git-auto-commit-action@v5
+      # 第六步：提交更改的文件
+      # 修复了之前的 commit action 参数缩进问题
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5 # 使用较新版本
         with:
-          commit_message: chore: Auto update filtered M3U files # 提交信息
-          # 使用通配符匹配两个文件
-          file_pattern: '*.m3u'
-
+          # 提交信息
+          commit_message: chore: Auto update filtered M3U files and config
+          # 要提交的文件模式，包括所有 .m3u 文件和可能创建的 config.json
+          # 如果你只想提交 m3u 文件，可以改为 '*.m3u'
+          file_pattern: '*.m3u config.json'
+          # 可选但推荐：设置提交者信息，否则可能使用默认的 action runner 信息
+          commit_user_name: GitHub Actions Bot
+          commit_user_email: actions@github.com
+          # 可选：如果你想提交到非默认分支，可以在这里指定
+          # branch: main
+          # 可选：添加其他 git commit 选项
+          # commit_options: '--no-verify'
+          # 可选：添加 git push 选项 (通常不需要)
+          # push_options: '--force'
