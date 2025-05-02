@@ -1,0 +1,68 @@
+# workflow名称，会显示在GitHub Actions页面
+name: Update Filtered M3U Playlist
+
+# 触发工作流的事件
+on:
+  # 定时触发：每小时执行一次（例如，每小时的第0分钟）
+  # 你可以根据需要调整cron表达式
+  schedule:
+    - cron: '0 * * * *'
+  # 允许手动从GitHub页面触发工作流
+  workflow_dispatch:
+
+# 定义工作流中的一个或多个作业 (jobs)
+jobs:
+  build:
+    # 作业的名称
+    name: Filter and Update M3U
+
+    # 作业运行的环境，这里使用最新版的Ubuntu Linux
+    runs-on: ubuntu-latest
+
+    # 作业执行的步骤
+    steps:
+      # 步骤1: 拉取仓库代码
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        # 必须获取完整的历史记录，以便stefanzweifel/git-auto-commit-action可以正确工作
+        with:
+          fetch-depth: 0
+
+      # 步骤2: 设置Python环境
+      - name: Set up Python
+        # 使用官方提供的Python安装action
+        uses: actions/setup-python@v5
+        with:
+          # 指定Python版本，'3.x' 会使用最新的3.x版本
+          python-version: '3.x'
+
+      # 步骤3: 安装Python依赖库
+      - name: Install dependencies
+        run: |
+          # 升级pip工具
+          python -m pip install --upgrade pip
+          # 安装requests库，用于下载M3U文件
+          pip install requests
+
+      # 步骤4: 运行Python过滤脚本
+      - name: Run M3U filtering script
+        run: python filter_m3u.py
+
+      # 步骤5: 检查并自动提交更改
+      # 如果filter_m3u.py脚本修改了文件 (例如生成了 filtered_iptv.m3u)，
+      # 这个action会自动提交这些更改并推送到仓库
+      - name: Commit and push changes
+        # 使用一个第三方action来简化提交和推送过程
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          # 提交使用的用户名和邮箱，这里的默认值通常是GitHub Actions Bot
+          # committer_user_name: GitHub Actions Bot
+          # committer_email: github-actions[bot]@users.noreply.github.com
+          # author_user_name: {{github_actor}}
+          # author_email: {{github_actor}}@users.noreply.github.com
+          # 提交信息
+          commit_message: "chore: Auto update filtered_iptv.m3u"
+          # 指定需要提交的文件，如果省略，则提交所有改动的文件
+          # files: filtered_iptv.m3u
+          # 如果你的脚本可能产生其他需要提交的文件，可以不指定files
+
