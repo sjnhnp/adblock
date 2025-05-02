@@ -50,7 +50,7 @@ jobs:
               "max_retries": 2,
               "retry_delay": 2
           }
-          EOF
+EOF
           else
             echo "config.json found, ensuring required keys."
             # Optional: Add logic here to check/add missing keys if needed using tools like 'jq'
