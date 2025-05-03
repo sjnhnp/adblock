@@ -141,8 +141,6 @@ http://www.douzhicloud.site:35455/douyu/3811092
 http://b.zgjok.com:35455/douyu/315457
 #EXTINF:-1 tvg-name="斗鱼喜剧电影" group-title="电影频道", 斗鱼喜剧电影
 http://www.douzhicloud.site:35455/douyu/323876
-#EXTINF:-1 tvg-name="斗鱼国产电影" group-title="电影频道", 斗鱼国产电影
-http://www.douzhicloud.site:35455/douyu/122402
 #EXTINF:-1 tvg-name="斗鱼漫威电影" group-title="电影频道", 斗鱼漫威电影
 http://www.douzhicloud.site:35455/douyu/6140589
 #EXTINF:-1 tvg-name="斗鱼电影" group-title="电影频道", 斗鱼电影
@@ -523,6 +521,8 @@ http://stream3.jlntv.cn:80/aac_mhkgb/playlist.m3u8
 http://gcalic.v.myalicdn.com/gc/ahhs01_1/index.m3u8
 #EXTINF:-1 tvg-name="武义新闻综合" group-title="地方频道", 武义新闻综合
 http://l.cztvcloud.com/channels/lantian/SXwuyi1/720p.m3u8
+#EXTINF:-1 tvg-name="武威凉州" group-title="地方频道", 武威凉州
+http://lishiwan.xicp.net:8563/udp/239.255.36.106:8231
 #EXTINF:-1 tvg-name="武胜综合" group-title="地方频道", 武胜综合
 http://live2.gatv.com.cn:86/live/WS.m3u8
 #EXTINF:-1 tvg-name="武进生活" group-title="地方频道", 武进生活
@@ -621,6 +621,12 @@ http://traffic.jbh.tjbh.com/live/bhtv10/playlist.m3u8
 http://live.dxhmt.cn:9081/tv/11526-1.m3u8#http://tvpull.dxhmt.cn:9081/tv/11526-1.m3u8
 #EXTINF:-1 tvg-name="灵宝新闻综合" group-title="地方频道", 灵宝新闻综合
 http://live.dxhmt.cn:9081/tv/11282-1.m3u8
+#EXTINF:-1 tvg-name="烟台公共" group-title="地方频道", 烟台公共
+http://live.yantaitv.cn/live/e50f104a4ffe4a41b2217cbda534146f/d86092e69df94668b33390278b061700-1.m3u8
+#EXTINF:-1 tvg-name="烟台新闻综合" group-title="地方频道", 烟台新闻综合
+http://live.yantaitv.cn/live/3e81a8879da44c5dadf3bd9c10468e1c/9b776d420ee4438199b7657c8eb88f07-1.m3u8
+#EXTINF:-1 tvg-name="烟台经济科技" group-title="地方频道", 烟台经济科技
+http://live.yantaitv.cn/live/27f84144e95a4652ae9e5c211b2a6b55/405f3e33ba384aa0a16014d0becd1261-1.m3u8
 #EXTINF:-1 tvg-name="珲春新闻综合" group-title="地方频道", 珲春新闻综合
 http://stream8.jlntv.cn/hctv/sd/live.m3u8
 #EXTINF:-1 tvg-name="瑞丽综合" group-title="地方频道", 瑞丽综合
@@ -821,8 +827,6 @@ http://l.cztvcloud.com/channels/lantian/SXlongyou1/720p.m3u8
 http://wouu.net:9977/udp/239.93.0.151:5140
 #EXTINF:-1 tvg-name="人与自然" group-title="纪录频道", 人与自然
 http://newcntv.qcloudcdn.com/asp/hls/1200/0303000a/3/default/1425e1d505654cb48ba82b807b221193/1200.m3u8
-#EXTINF:-1 tvg-name="咪咕4K" group-title="体育频道", 咪咕4K
-http://dsj.motem.top:8880/itv/3000000010000005180.m3u8
 #EXTINF:-1 tvg-name="咪咕直播" group-title="体育频道", 咪咕直播
 http://dsj.motem.top:8880/itv/3000000001000005969.m3u8
 #EXTINF:-1 tvg-name="冷漠不要再说你还爱我" group-title="解说频道", 冷漠不要再说你还爱我
