@@ -157,6 +157,8 @@ http://www.douzhicloud.site:35455/huya/23903123
 http://dsj.motem.top:8880/bptv/10000100000000050000000003887498.m3u8
 #EXTINF:-1 tvg-name="王晶电影" group-title="电影频道", 王晶电影
 http://www.douzhicloud.site:35455/huya/11602058
+#EXTINF:-1 tvg-name="电影变形金刚" group-title="电影频道", 电影变形金刚
+http://www.douzhicloud.site:35455/huya/21059596
 #EXTINF:-1 tvg-name="电影喜乐影院" group-title="电影频道", 电影喜乐影院
 http://www.douzhicloud.site:35455/huya/21059580
 #EXTINF:-1 tvg-name="电影喜剧专场" group-title="电影频道", 电影喜剧专场
@@ -627,6 +629,12 @@ http://traffic.jbh.tjbh.com/live/bhtv10/playlist.m3u8
 http://live.dxhmt.cn:9081/tv/11526-1.m3u8#http://tvpull.dxhmt.cn:9081/tv/11526-1.m3u8
 #EXTINF:-1 tvg-name="灵宝新闻综合" group-title="地方频道", 灵宝新闻综合
 http://live.dxhmt.cn:9081/tv/11282-1.m3u8
+#EXTINF:-1 tvg-name="烟台公共" group-title="地方频道", 烟台公共
+http://live.yantaitv.cn/live/e50f104a4ffe4a41b2217cbda534146f/d86092e69df94668b33390278b061700-1.m3u8
+#EXTINF:-1 tvg-name="烟台新闻综合" group-title="地方频道", 烟台新闻综合
+http://live.yantaitv.cn/live/3e81a8879da44c5dadf3bd9c10468e1c/9b776d420ee4438199b7657c8eb88f07-1.m3u8
+#EXTINF:-1 tvg-name="烟台经济科技" group-title="地方频道", 烟台经济科技
+http://live.yantaitv.cn/live/27f84144e95a4652ae9e5c211b2a6b55/405f3e33ba384aa0a16014d0becd1261-1.m3u8
 #EXTINF:-1 tvg-name="珲春新闻综合" group-title="地方频道", 珲春新闻综合
 http://stream8.jlntv.cn/hctv/sd/live.m3u8
 #EXTINF:-1 tvg-name="瑞丽综合" group-title="地方频道", 瑞丽综合
@@ -641,6 +649,8 @@ http://live.dxhmt.cn:9081/tv/10185-1.m3u8#http://tvpull.dxhmt.cn:9081/tv/10185-1
 http://play.kankanlive.com/live/1720408089419110.m3u8
 #EXTINF:-1 tvg-name="盈江综合" group-title="地方频道", 盈江综合
 http://live.ynurl.com/video/s10016-YJTV-2/index.m3u8?zyund
+#EXTINF:-1 tvg-name="睢宁三农" group-title="地方频道", 睢宁三农
+http://3739115337.cloudvdn.com/a.m3u8?domain=suining-tv-hls.cm.jstv.com&player=nwEAAJApyIx-AKAX&secondToken=secondToken%3AfyPrvACXUQ_VSZUu3Rxm-2py1fo&streamid=suining-tv%3Asuining-tv%2Fsuiningsn&v3=1
 #EXTINF:-1 tvg-name="石屏综合" group-title="地方频道", 石屏综合
 http://live.ynurl.com/video/s10059-SPTV/index.m3u8?zyund
 #EXTINF:-1 tvg-name="砚山电视台" group-title="地方频道", 砚山电视台
