@@ -197,6 +197,8 @@ http://www.xzbn.site:35455/itv/3000000020000011524.m3u8?cdn=FifastbLive
 http://www.xzbn.site:35455/itv/3000000020000011525.m3u8?cdn=FifastbLive
 #EXTINF:-1 tvg-name="萌宠TV" group-title="数字频道", 萌宠TV
 http://dsj.motem.top:8880/bptv/10000100000000050000000003887495.m3u8
+#EXTINF:-1 tvg-name="名侦探柯南" group-title="儿童频道", 名侦探柯南
+http://www.douzhicloud.site:35455/huya/30080236
 #EXTINF:-1 tvg-name="宝宝动画" group-title="儿童频道", 宝宝动画
 http://wouu.net:9977/udp/239.93.0.147:5140
 #EXTINF:-1 tvg-name="武汉少儿频道" group-title="儿童频道", 武汉少儿频道
@@ -623,8 +625,6 @@ http://live.dxhmt.cn:9081/tv/10185-1.m3u8#http://tvpull.dxhmt.cn:9081/tv/10185-1
 http://play.kankanlive.com/live/1720408089419110.m3u8
 #EXTINF:-1 tvg-name="盈江综合" group-title="地方频道", 盈江综合
 http://live.ynurl.com/video/s10016-YJTV-2/index.m3u8?zyund
-#EXTINF:-1 tvg-name="睢宁三农" group-title="地方频道", 睢宁三农
-http://3739115337.cloudvdn.com/a.m3u8?domain=suining-tv-hls.cm.jstv.com&player=nwEAAJApyIx-AKAX&secondToken=secondToken%3AfyPrvACXUQ_VSZUu3Rxm-2py1fo&streamid=suining-tv%3Asuining-tv%2Fsuiningsn&v3=1
 #EXTINF:-1 tvg-name="石屏综合" group-title="地方频道", 石屏综合
 http://live.ynurl.com/video/s10059-SPTV/index.m3u8?zyund
 #EXTINF:-1 tvg-name="砚山电视台" group-title="地方频道", 砚山电视台
@@ -701,8 +701,6 @@ http://api3.52tb.xyz/info?id=782&token=20221127jxwhhemby
 http://ls.qingting.fm/live/2810.m3u8
 #EXTINF:-1 tvg-name="衢江新闻" group-title="地方频道", 衢江新闻
 http://l.cztvcloud.com/channels/lantian/SXqujiang1/720p.m3u8
-#EXTINF:-1 tvg-name="衢江新闻综合" group-title="地方频道", 衢江新闻综合
-http://l.cztvcloud.com/channels/lantian/SXqujiang1/720p.m3u8?zzhed;http://l.cztvcloud.com/channels/lantian/SXqujiang1/720p.m3u8zzhed;http://l.cztvcloud.com/channels/lantian/SXqujiang1/720p.m3u8
 #EXTINF:-1 tvg-name="西双版纳综合" group-title="地方频道", 西双版纳综合
 http://m3u8channel.xsbnrtv.cn/nmip-media/channellive/channel106885/playlist.m3u8
 #EXTINF:-1 tvg-name="西峰综合" group-title="地方频道", 西峰综合
@@ -813,8 +811,6 @@ http://wouu.net:9977/udp/239.93.0.151:5140
 http://newcntv.qcloudcdn.com/asp/hls/1200/0303000a/3/default/1425e1d505654cb48ba82b807b221193/1200.m3u8
 #EXTINF:-1 tvg-name="咪咕4K" group-title="体育频道", 咪咕4K
 http://dsj.motem.top:8880/itv/3000000010000005180.m3u8
-#EXTINF:-1 tvg-name="咪咕直播" group-title="体育频道", 咪咕直播
-http://dsj.motem.top:8880/itv/3000000001000005308.m3u8
 #EXTINF:-1 tvg-name="冷漠不要再说你还爱我" group-title="解说频道", 冷漠不要再说你还爱我
 http://antiserver.kuwo.cn/anti.s?rid=MUSIC_911272&response=res&format=mp4&type=convert_url
 #EXTINF:-1 tvg-name="冷漠谁都不要说分手" group-title="解说频道", 冷漠谁都不要说分手
