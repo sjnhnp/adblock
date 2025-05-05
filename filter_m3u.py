@@ -8,409 +8,517 @@ import os
 import re
 import sys
 import urllib.parse
-from typing import List, Dict, Optional, Tuple
+from typing import List, Dict, Optional, Tuple, Any, Set
 
 # 配置日志
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
+    format="%(asctime)s [%(levelname)s] [%(task_name)s] %(message)s",
     handlers=[logging.StreamHandler()]
 )
-logger = logging.getLogger()
+# Add a custom adapter to inject task_name into logs
+class TaskLogAdapter(logging.LoggerAdapter):
+    def process(self, msg, kwargs):
+        task_name = self.extra.get('task_name', 'Main')
+        # Ensure task_name doesn't accidentally overwrite existing format args
+        if 'task_name' not in kwargs:
+             kwargs['extra'] = {'task_name': task_name}
+        else: # Avoid conflict if logger format string uses %(task_name)s
+             kwargs['extra'] = kwargs.get('extra', {})
+             kwargs['extra']['task_name'] = task_name
+        return f"[{task_name}] {msg}", kwargs
 
-class Config:
-    """全局默认配置常量"""
-    REQUEST_TIMEOUT = 5  # 秒
+logger = TaskLogAdapter(logging.getLogger(__name__), {'task_name': 'Main'})
+
+
+# --- Default Configuration ---
+class ConfigDefaults:
+    REQUEST_TIMEOUT = 5
     MAX_RETRIES = 2
-    RETRY_DELAY = 2  # 秒
-    # ATTRIBUTES_TO_REMOVE: 从 #EXTINF 行移除的属性列表
+    RETRY_DELAY = 2
     ATTRIBUTES_TO_REMOVE = ["tvg-logo", "tvg-id"]
-    DEFAULT_M3U_URL = "https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.m3u"
-    DEFAULT_OUTPUT_HTTPS = "filtered_https_only.m3u"
-    DEFAULT_OUTPUT_HTTP_VALID = "filtered_http_only_valid.m3u"
-
-def load_config(config_file: str = "config.json") -> Dict:
-    """从JSON配置文件加载配置，失败时使用默认值"""
-    default_config = {
-        "m3u_url": Config.DEFAULT_M3U_URL,
-        "output_https": Config.DEFAULT_OUTPUT_HTTPS,
-        "output_http_valid": Config.DEFAULT_OUTPUT_HTTP_VALID,
-        "attributes_to_remove": Config.ATTRIBUTES_TO_REMOVE,
-        "request_timeout": Config.REQUEST_TIMEOUT,
-        "max_retries": Config.MAX_RETRIES,
-        "retry_delay": Config.RETRY_DELAY,
+    DEFAULT_CONFIG_STRUCTURE = {
+        "global_settings": {
+            "request_timeout": REQUEST_TIMEOUT,
+            "max_retries": MAX_RETRIES,
+            "retry_delay": RETRY_DELAY
+        },
+        "tasks": [
+            {
+                "name": "Default Merge Filter Task",
+                "enabled": True,
+                "urls": ["https://raw.githubusercontent.com/vbskycn/iptv/refs/heads/master/tv/iptv4.m3u"],
+                "processing_mode": "merge_filter",
+                "attributes_to_remove": ATTRIBUTES_TO_REMOVE,
+                "output_files": {
+                    "https_output": "filtered_https_only.m3u",
+                    "http_valid_output": "filtered_http_only_valid.m3u"
+                },
+                "filter_rules": {
+                     "https_exclude_tvgname_contains": []
+                }
+            }
+        ]
     }
+
+# --- Configuration Loading ---
+def load_config(config_file: str = "config.json") -> Dict:
+    """从JSON配置文件加载配置，失败时使用默认结构"""
+    config_data = ConfigDefaults.DEFAULT_CONFIG_STRUCTURE.copy() # Start with default structure
     if os.path.exists(config_file):
         try:
             with open(config_file, "r", encoding="utf-8") as f:
                 user_config = json.load(f)
-            # 合并配置，用户配置优先
-            merged_config = default_config.copy()
-            merged_config.update(user_config)
-            # 确保关键配置项存在（如果用户删除了某个键）
-            for key in default_config:
-                 if key not in merged_config:
-                     merged_config[key] = default_config[key]
+
+            # Merge global settings (user settings override defaults)
+            if "global_settings" in user_config and isinstance(user_config["global_settings"], dict):
+                 config_data["global_settings"].update(user_config["global_settings"])
+
+            # Replace or append tasks (here we replace default task list if user provides any)
+            if "tasks" in user_config and isinstance(user_config["tasks"], list):
+                 config_data["tasks"] = user_config["tasks"]
+                 # Optional: Add validation/default filling for each task here if needed
+
             logger.info(f"已加载配置文件: {config_file}")
-            return merged_config
+            return config_data
         except (IOError, json.JSONDecodeError) as e:
-            logger.warning(f"加载配置文件 {config_file} 失败，使用默认配置: {e}")
-            return default_config
+            logger.warning(f"加载配置文件 {config_file} 失败，将使用默认配置: {e}")
+            return ConfigDefaults.DEFAULT_CONFIG_STRUCTURE # Return default structure on error
     else:
         logger.info("未找到配置文件，使用默认配置。")
-        return default_config
+        return ConfigDefaults.DEFAULT_CONFIG_STRUCTURE
+
+# --- Network Operations ---
+async def fetch_m3u_content_async(url: str, session: aiohttp.ClientSession, timeout: int) -> Optional[str]:
+    """异步获取单个 M3U URL 的内容"""
+    try:
+        # logger.debug(f"Fetching URL: {url}")
+        async with session.get(url, timeout=timeout * 2) as response: # Give more time for initial download
+            response.raise_for_status()
+            content = await response.text(encoding='utf-8', errors='ignore')
+            # logger.debug(f"Successfully fetched: {url}")
+            return content
+    except (aiohttp.ClientError, asyncio.TimeoutError) as e:
+        logger.error(f"获取 M3U 文件时发生错误 {url}: {e}")
+        return None
+    except Exception as e:
+        logger.error(f"获取 M3U 文件时发生未知错误 {url}: {e}")
+        return None
 
 async def is_url_accessible_async(url: str, session: aiohttp.ClientSession, config: Dict, cache: Dict[str, bool]) -> bool:
     """
     异步检查URL是否可访问（返回2xx状态码）。
-    使用配置中的超时、重试次数和延迟。
+    使用 *全局配置* 中的超时、重试次数和延迟。
+    (Function unchanged, uses global settings from loaded config)
     """
     if url in cache:
-        # logger.debug(f"使用缓存结果 for {url}: {cache[url]}")
         return cache[url]
 
-    max_retries = config.get("max_retries", Config.MAX_RETRIES)
-    request_timeout = config.get("request_timeout", Config.REQUEST_TIMEOUT)
-    retry_delay = config.get("retry_delay", Config.RETRY_DELAY)
-    is_accessible = False # 默认不可访问
+    global_settings = config.get("global_settings", {})
+    max_retries = global_settings.get("max_retries", ConfigDefaults.MAX_RETRIES)
+    request_timeout = global_settings.get("request_timeout", ConfigDefaults.REQUEST_TIMEOUT)
+    retry_delay = global_settings.get("retry_delay", ConfigDefaults.RETRY_DELAY)
+    is_accessible = False
 
     for attempt in range(max_retries):
         current_try = attempt + 1
-        # 优先尝试 HEAD 请求
+        # HEAD first
         try:
-            # logger.debug(f"尝试 HEAD {url} (Attempt {current_try}/{max_retries})...")
-            async with session.head(url, timeout=request_timeout, allow_redirects=True) as response:
-                # logger.debug(f"检查 {url} (HEAD Attempt {current_try}/{max_retries}): Status {response.status}")
+            async with session.head(url, timeout=request_timeout, allow_redirects=True, ssl=False) as response:
                 is_accessible = 200 <= response.status < 300
-                if is_accessible: break # 成功则跳出重试循环
-                # 对于 4xx/5xx 错误，如果不是 405，可能无需尝试GET，直接进入下次重试或结束
-                if response.status != 405: # 405 Method Not Allowed 需要尝试GET
-                    logger.debug(f"HEAD 请求失败 (非405) {url}: Status {response.status}. Attempt {current_try}/{max_retries}")
-                    # if 400 <= response.status < 500 and response.status != 405: break # 可选：如果是客户端错误，直接判定失败
+                if is_accessible: break
+                if response.status != 405:
+                    # logger.debug(f"HEAD failed (non-405) {url}: Status {response.status}. Try {current_try}/{max_retries}")
+                    pass # Continue to GET try or retry delay
 
         except (aiohttp.ClientResponseError) as e_head:
-            logger.debug(f"HEAD 请求 HTTP 错误 {url}: Status {e_head.status}. Attempt {current_try}/{max_retries}")
-            if e_head.status != 405: # 非405，直接准备下次重试或结束
-                 pass # 继续到重试延迟或尝试GET
-            # 如果是 405，则必须尝试 GET
-        except (aiohttp.ClientConnectorError, aiohttp.ClientPayloadError, asyncio.TimeoutError) as e_head:
-            logger.debug(f"HEAD 请求连接/超时/载荷失败 {url}: {type(e_head).__name__}. Attempt {current_try}/{max_retries}. 尝试GET...")
-        except Exception as e_head: # 捕获其他潜在 aiohttp 异常
-            logger.warning(f"HEAD 请求时发生意外错误 {url}: {e_head}. Attempt {current_try}/{max_retries}. 尝试GET...")
+            # logger.debug(f"HEAD HTTP Error {url}: Status {e_head.status}. Try {current_try}/{max_retries}")
+            if e_head.status != 405: pass
+        except (aiohttp.ClientConnectionError, aiohttp.ClientPayloadError, asyncio.TimeoutError) as e_head:
+            # logger.debug(f"HEAD Connect/Timeout/Payload Error {url}: {type(e_head).__name__}. Try {current_try}/{max_retries}. Try GET...")
+            pass
+        except Exception as e_head:
+            logger.warning(f"HEAD Unexpected Error {url}: {e_head}. Try {current_try}/{max_retries}. Try GET...")
 
-        # 如果HEAD失败 或 状态码指示需要尝试GET (e.g. 405), 尝试GET请求
+        # GET if HEAD failed or was 405
         if not is_accessible:
             try:
-                # logger.debug(f"尝试 GET {url} (Attempt {current_try}/{max_retries})...")
-                async with session.get(url, timeout=request_timeout, allow_redirects=True) as response:
-                    # 读取少量数据确保连接有效，但不下载整个流
+                async with session.get(url, timeout=request_timeout, allow_redirects=True, ssl=False) as response:
                     try:
-                        await asyncio.wait_for(response.content.readany(), timeout=request_timeout/2) # 尝试快速读取少量数据
-                    except asyncio.TimeoutError:
-                        logger.debug(f"GET {url} 读取初始数据超时，但连接可能已建立，检查状态码。")
-                    except Exception as read_err:
-                         logger.debug(f"GET {url} 读取初始数据时出错: {read_err}，检查状态码。")
-
-                    # logger.debug(f"检查 {url} (GET Attempt {current_try}/{max_retries}): Status {response.status}")
+                        await asyncio.wait_for(response.content.readany(), timeout=request_timeout / 2)
+                    except (asyncio.TimeoutError, Exception):
+                        pass # Ignore read errors for validation, just check status
                     is_accessible = 200 <= response.status < 300
-                    if is_accessible: break # 成功则跳出重试循环
+                    if is_accessible: break
             except (aiohttp.ClientError, asyncio.TimeoutError) as e_get:
-                logger.debug(f"GET 请求失败 {url}: {type(e_get).__name__}. Attempt {current_try}/{max_retries}")
+                # logger.debug(f"GET Request Error {url}: {type(e_get).__name__}. Try {current_try}/{max_retries}")
+                pass
             except Exception as e_get:
-                 logger.warning(f"GET 请求时发生意外错误 {url}: {e_get}. Attempt {current_try}/{max_retries}")
+                 logger.warning(f"GET Unexpected Error {url}: {e_get}. Try {current_try}/{max_retries}")
 
-
-        # 如果未成功且还有重试次数，则等待后重试
         if not is_accessible and attempt < max_retries - 1:
-            # logger.debug(f"URL {url} 第 {current_try} 次尝试失败，等待 {retry_delay} 秒后重试...")
+            # logger.debug(f"URL {url} attempt {current_try} failed, retrying in {retry_delay}s...")
             await asyncio.sleep(retry_delay)
 
-    # 记录最终结果到缓存
     cache[url] = is_accessible
     if not is_accessible:
-        logger.info(f"URL {url} 最终判定为无法访问 after {max_retries} attempts.")
-    # else: logger.debug(f"URL {url} 最终判定为可访问。")
+        logger.info(f"URL {url}最终判定为无法访问 after {max_retries} attempts.")
     return is_accessible
-
 
 async def check_urls_async(urls: List[str], config: Dict, cache: Dict[str, bool]) -> List[bool]:
     """批量异步检查URL列表的可访问性"""
-    # 增加连接器设置以提高并发性，但要小心系统资源和目标服务器限制
-    conn = aiohttp.TCPConnector(limit_per_host=20, limit=100, ssl=False) # ssl=False 忽略证书验证错误
-    timeout = aiohttp.ClientTimeout(total=config.get("request_timeout", Config.REQUEST_TIMEOUT) * 1.5) # 设置总超时
+    global_settings = config.get("global_settings", {})
+    request_timeout = global_settings.get("request_timeout", ConfigDefaults.REQUEST_TIMEOUT)
+    # Increase limits cautiously
+    conn = aiohttp.TCPConnector(limit_per_host=20, limit=100, ssl=False)
+    timeout = aiohttp.ClientTimeout(total=request_timeout * 1.5) # Overall timeout slightly larger
     async with aiohttp.ClientSession(connector=conn, timeout=timeout) as session:
         tasks = [is_url_accessible_async(url, session, config, cache) for url in urls]
         results = await asyncio.gather(*tasks)
         return results
 
+# --- M3U Processing Helpers ---
 def remove_attributes(extinf_line: str, attributes_to_remove: List[str]) -> str:
-    """从EXTINF行中完全移除指定的属性及其值"""
+    """从EXTINF行中完全移除指定的属性及其值 (case-insensitive attribute match)"""
     modified_line = extinf_line
     for attr in attributes_to_remove:
-        # 正则表达式查找 key="value" 或 key=value (无引号) 并移除，包括前面的空格
-        # 模式解释:
-        # \s+                  匹配属性名前的一个或多个空格
-        # {re.escape(attr)}    匹配属性名 (转义特殊字符)
-        # =                    匹配等号
-        # (?:                  非捕获组，匹配值的两种形式
-        #   "[^"]*"            匹配双引号括起来的值 (非贪婪)
-        #   |                  或者
-        #   '[^']*'            匹配单引号括起来的值 (非贪婪)
-        #   |                  或者
-        #   [^\s,]+            匹配不含空格或逗号的无引号值 (直到下一个空格或逗号停止)
-        # )
+        # Regex: space(s) + attribute_name + = + (quoted_value | unquoted_value)
         pattern = rf'\s+{re.escape(attr)}=(?:"[^"]*"|\'[^\']*\'|[^\s,]+)'
-        modified_line = re.sub(pattern, '', modified_line, flags=re.IGNORECASE) # 忽略大小写匹配属性名
-    return modified_line.strip() # 移除处理后可能产生的首尾多余空格
+        modified_line = re.sub(pattern, '', modified_line, flags=re.IGNORECASE)
+    return modified_line.strip()
+
+def parse_extinf_attributes(extinf_line: str) -> Dict[str, str]:
+    """从EXTINF行解析键值对属性"""
+    attributes = {}
+    # Regex: Find key="value" or key=value patterns
+    # (\S+?)=        Capture key (non-greedy, non-space) followed by =
+    # (              Capture value group
+    #  "(.*?)"      Capture content within double quotes (non-greedy)
+    #  |            OR
+    #  '(.*?)'      Capture content within single quotes (non-greedy)
+    #  |            OR
+    #  ([^\s",]+)   Capture unquoted value (until space, comma, or quote)
+    # )
+    pattern = re.compile(r'(\S+?)=(?:"(.*?)"|\'(.*?)\'|([^\s",]+))')
+    matches = pattern.findall(extinf_line)
+    for key, val_double, val_single, val_unquoted in matches:
+        # The value is the captured group that is not empty
+        value = val_double or val_single or val_unquoted
+        attributes[key.lower()] = value # Store keys in lower case for consistency
+    # Also capture the channel name after the last comma
+    name_match = re.search(r',\s*(.*)$', extinf_line)
+    if name_match:
+        # Use a standard key like 'channel_name' for the part after comma
+        attributes['channel_name'] = name_match.group(1).strip()
+    return attributes
 
 def is_ip_address(host: Optional[str]) -> bool:
-    """
-    检查主机名是否为IP地址（IPv4或IPv6）。
-    更健壮的IPv6检查。
-    """
-    if not host:
-        return False
-
-    # 去掉IPv6地址可能的方括号和端口号
-    if ':' in host and not host.startswith('['): # 可能是 IPv4:port
+    """检查主机名是否为IP地址（IPv4或IPv6）- Robust check"""
+    if not host: return False
+    # Remove port for IPv4 if present
+    if ':' in host and '.' in host: # Potential IPv4:port
         host = host.split(':', 1)[0]
-    elif host.startswith('['): # 可能是 [IPv6]:port 或 [IPv6]
+    # Remove brackets and port for IPv6 if present
+    elif host.startswith('['):
         host = host.strip('[]')
-        if ']:' in host: # 理论上解析后 hostname 不会包含这个，但以防万一
+        if ']:' in host: # Should not happen with urlparse hostname, but be safe
              host = host.split(']:', 1)[0]
 
-    # IPv4 正则表达式
-    ipv4_pattern = r"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
-    if re.fullmatch(ipv4_pattern, host):
-        return True
-
-    # IPv6 正则表达式 (更通用)
-    # Source: https://stackoverflow.com/a/17871737 combined with common sense checks
-    # Checks for valid components and structure, including :: compression.
+    # Use ipaddress module if available (most reliable)
     try:
-        # Python's ipaddress module is the most reliable way
         import ipaddress
         ipaddress.ip_address(host)
         return True
-    except ValueError:
-        # Fallback regex (less comprehensive than ipaddress but decent)
-        # This regex is complex and might have edge cases, ipaddress is preferred.
-        ipv6_pattern = r"^(?:(?:[0-9a-fA-F]{1,4}:){6}|::(?:[0-9a-fA-F]{1,4}:){5}|(?:[0-9a-fA-F]{1,4})?::(?:[0-9a-fA-F]{1,4}:){4}|(?:(?:[0-9a-fA-F]{1,4}:){0,1}[0-9a-fA-F]{1,4})?::(?:[0-9a-fA-F]{1,4}:){3}|(?:(?:[0-9a-fA-F]{1,4}:){0,2}[0-9a-fA-F]{1,4})?::(?:[0-9a-fA-F]{1,4}:){2}|(?:(?:[0-9a-fA-F]{1,4}:){0,3}[0-9a-fA-F]{1,4})?::[0-9a-fA-F]{1,4}:|(?:(?:[0-9a-fA-F]{1,4}:){0,4}[0-9a-fA-F]{1,4})?::)(?:[0-9a-fA-F]{1,4}:[0-9a-fA-F]{1,4}|(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.){3}(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d))|(?:(?:[0-9a-fA-F]{1,4}:){0,5}[0-9a-fA-F]{1,4})?::[0-9a-fA-F]{1,4}|(?:(?:[0-9a-fA-F]{1,4}:){0,6}[0-9a-fA-F]{1,4})?::$"
-        return bool(re.fullmatch(ipv6_pattern, host, re.IGNORECASE))
-    except ImportError:
-        logger.warning("ipaddress module not found. IPv6 validation might be less reliable.")
-        # Use basic check if module not available (very rough)
-        return ':' in host and host.count(':') >= 2
+    except ValueError: # Not a valid IP address according to the module
+        return False
+    except ImportError: # Fallback if ipaddress module is not present
+        logger.warning("ipaddress module not found. Using regex for IP validation (less reliable).")
+        # Basic Regex Check (less comprehensive)
+        ipv4_pattern = r"^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$"
+        ipv6_pattern = r".*[:].*" # Very basic check for IPv6 presence
+        return bool(re.fullmatch(ipv4_pattern, host) or re.match(ipv6_pattern, host))
 
-
-async def filter_m3u(config: Dict) -> None:
-    """
-    从指定URL获取M3U播放列表，过滤并生成两个文件：
-    1. 只包含HTTPS频道的M3U。
-    2. 只包含经检测有效的、非IP地址的HTTP频道的M3U。
-    移除指定的#EXTINF属性。
-    """
-    m3u_url = config["m3u_url"]
-    output_https = config["output_https"]
-    output_http_valid = config["output_http_valid"]
-    attributes_to_remove = config["attributes_to_remove"]
-    request_timeout = config.get("request_timeout", Config.REQUEST_TIMEOUT)
-
-    logger.info(f"开始处理 M3U: {m3u_url}")
-    logger.info(f"HTTPS 输出文件: {output_https}")
-    logger.info(f"有效HTTP 输出文件: {output_http_valid}")
-    logger.info(f"将移除的属性: {attributes_to_remove}")
-
-    content = ""
+def write_m3u_file(filename: str, header: str, lines: List[str], task_name: str = "Unknown Task") -> None:
+    """Writes M3U content to a file."""
+    task_logger = TaskLogAdapter(logger.logger, {'task_name': task_name})
+    channel_count = (len(lines)) // 2 if lines else 0
+    task_logger.info(f"正在写入文件: {filename} (共 {channel_count} 个频道)")
     try:
-        async with aiohttp.ClientSession() as session:
-            async with session.get(m3u_url, timeout=request_timeout*2) as response: # Give more time for initial download
-                response.raise_for_status() # Raise exception for bad status codes
-                content = await response.text(encoding='utf-8', errors='ignore') # Specify encoding
-        logger.info("M3U文件获取成功。")
-    except (aiohttp.ClientError, asyncio.TimeoutError) as e:
-        logger.error(f"获取M3U文件时发生错误: {e}")
-        sys.exit(1)
+        output_dir = os.path.dirname(filename)
+        if output_dir and not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+            task_logger.info(f"创建目录: {output_dir}")
+
+        full_content = [header] + lines
+        with open(filename, "w", encoding="utf-8") as f:
+            f.write("\n".join(full_content) + "\n") # Ensure trailing newline
+        task_logger.info(f"文件 {filename} 保存成功！")
+    except IOError as e:
+        task_logger.error(f"写入文件 {filename} 时发生 IO 错误: {e}")
     except Exception as e:
-        logger.error(f"获取M3U文件时发生未知错误: {e}")
-        sys.exit(1)
+        task_logger.error(f"写入文件 {filename} 时发生未知错误: {e}")
 
-    lines = content.splitlines()
-    https_output_lines: List[str] = []
-    http_to_check: List[Tuple[str, str]] = [] # Store (modified_extinf, url) for checking
-    http_urls_to_check_set = set() # Use set for faster lookup during check phase
-    url_cache: Dict[str, bool] = {} # Cache for URL accessibility checks
 
-    m3u_header = ""
+# --- Processing Tasks ---
+
+async def process_merge_filter_task(task_config: Dict, global_settings: Dict, session: aiohttp.ClientSession, url_cache: Dict[str, bool]) -> None:
+    """Processes tasks requiring merge, deduplication, filtering, and validation."""
+    task_name = task_config.get("name", "Unnamed MergeFilter Task")
+    task_logger = TaskLogAdapter(logger.logger, {'task_name': task_name})
+    task_logger.info("任务开始执行...")
+
+    urls_to_fetch = task_config.get("urls", [])
+    if not urls_to_fetch:
+        task_logger.warning("任务未配置任何 URL，跳过。")
+        return
+
+    attributes_to_remove = task_config.get("attributes_to_remove", ConfigDefaults.ATTRIBUTES_TO_REMOVE)
+    output_files = task_config.get("output_files", {})
+    https_output_file = output_files.get("https_output")
+    http_valid_output_file = output_files.get("http_valid_output")
+    filter_rules = task_config.get("filter_rules", {})
+    https_exclude_cgtn = filter_rules.get("https_exclude_tvgname_contains", [])
+
+    if not https_output_file or not http_valid_output_file:
+        task_logger.error("任务配置缺少 'https_output' 或 'http_valid_output' 文件名，跳过。")
+        return
+
+    # 1. Fetch all source contents concurrently
+    request_timeout = global_settings.get("request_timeout", ConfigDefaults.REQUEST_TIMEOUT)
+    fetch_tasks = [fetch_m3u_content_async(url, session, request_timeout) for url in urls_to_fetch]
+    results = await asyncio.gather(*fetch_tasks)
+    combined_content = "\n".join(filter(None, results)) # Combine non-None results
+
+    if not combined_content:
+        task_logger.error("未能从任何指定的 URL 获取内容，任务终止。")
+        return
+
+    # 2. Parse, Deduplicate (by URL), and Preliminarily Filter
+    task_logger.info("开始解析、去重和初步过滤...")
+    lines = combined_content.splitlines()
+    unique_channels: Dict[str, str] = {} # Key: stream_url, Value: original_extinf_line
+    m3u_header = "#EXTM3U" # Default header
     if lines and lines[0].strip().startswith("#EXTM3U"):
         m3u_header = lines[0].strip()
-        lines = lines[1:] # Process remaining lines
-    else:
-        logger.warning("M3U文件缺少标准 #EXTM3U 头，将添加默认头。")
-        m3u_header = "#EXTM3U"
+        lines = lines[1:]
 
-    https_output_lines.append(m3u_header)
-    # http_valid_output_lines will be built after checking
-
-    logger.info("开始解析和初步过滤M3U内容...")
+    current_extinf: Optional[str] = None
     processed_count = 0
-    https_count = 0
-    http_ip_discarded_count = 0
-    http_candidate_count = 0
-    current_extinf = None
+    duplicate_count = 0
 
     for line in lines:
         line = line.strip()
-        if not line: # Skip empty lines
-            continue
+        if not line: continue
 
         if line.startswith("#EXTINF"):
-            current_extinf = remove_attributes(line, attributes_to_remove)
-        elif current_extinf and not line.startswith("#"): # This should be the URL
+            current_extinf = line
+        elif current_extinf and not line.startswith("#"):
+            stream_url = line
             processed_count += 1
-            url_candidate = line
-            scheme = urllib.parse.urlparse(url_candidate.lower()).scheme
-
-            if scheme == "https":
-                https_output_lines.extend([current_extinf, url_candidate])
-                https_count += 1
-                # logger.debug(f"保留 HTTPS: {url_candidate}")
-            elif scheme == "http":
-                try:
-                    parsed_url = urllib.parse.urlparse(url_candidate)
-                    host = parsed_url.hostname
-                except ValueError: # Handle potential invalid URLs early
-                     logger.warning(f"无法解析的URL，丢弃: {url_candidate}")
-                     current_extinf = None # Reset for next entry
-                     continue
-
-                if host and is_ip_address(host):
-                    # logger.debug(f"丢弃 HTTP (IP地址): {url_candidate}")
-                    http_ip_discarded_count += 1
-                else:
-                    # logger.debug(f"候选 HTTP (非IP): {url_candidate}")
-                    # Avoid adding duplicate URLs to the check list
-                    if url_candidate not in http_urls_to_check_set:
-                         http_to_check.append((current_extinf, url_candidate))
-                         http_urls_to_check_set.add(url_candidate)
-                         http_candidate_count += 1
-                    else:
-                         # If URL is duplicate, still need EXTINF if it's different,
-                         # but only check the URL once. For simplicity here, we add it
-                         # and rely on check_urls_async's cache.
-                         # More optimal: Store dict[url] -> list[extinf]
-                         http_to_check.append((current_extinf, url_candidate)) # Add pair anyway
-                         http_candidate_count += 1 # Count this instance
-
-
+            if stream_url not in unique_channels:
+                unique_channels[stream_url] = current_extinf
             else:
-                logger.warning(f"丢弃未知协议或格式错误的频道: {url_candidate}")
+                duplicate_count += 1
+            current_extinf = None # Reset for next pair
+        # Ignore other lines for now (#EXTVLCOPT etc.) or handle if needed
 
-            current_extinf = None # Reset after processing URL
-        elif line.startswith("#"): # Keep other M3U tags (like #EXTVLCOPT) with HTTPS streams if needed?
-            # Decide if other # lines should be kept. Currently only keeping #EXTM3U and #EXTINF/URL pairs.
-            # If you want to keep other # lines associated with HTTPS:
-            # if https_output_lines and https_output_lines[-1].startswith("https://"):
-            #     https_output_lines.append(line)
-            pass # Ignore other comment lines for now
-        else: # Line is not #EXTINF, not URL, not # comment - likely malformed M3U entry part
-             logger.warning(f"发现非标准行，忽略: {line}")
-             current_extinf = None # Reset if sequence broken
+    task_logger.info(f"初步解析完成。总处理条目: {processed_count}, 唯一频道URL: {len(unique_channels)}, 发现重复条目: {duplicate_count}")
 
+    # 3. Process Unique Channels: Remove attributes, filter, classify
+    https_output_lines: List[str] = []
+    http_to_check: List[Tuple[str, str]] = [] # Store (modified_extinf, url)
+    http_urls_to_check_set: Set[str] = set() # Unique URLs needing check
+    http_ip_discarded_count = 0
+    https_cgtn_discarded_count = 0
+    https_kept_count = 0
+    http_candidate_count = 0
 
-    logger.info(f"初步解析完成。总处理频道条目: {processed_count}, HTTPS频道: {https_count}, HTTP IP频道(已丢弃): {http_ip_discarded_count}, HTTP候选频道(待检查): {http_candidate_count}")
+    for stream_url, original_extinf in unique_channels.items():
+        # Remove attributes first
+        modified_extinf = remove_attributes(original_extinf, attributes_to_remove)
 
-    # 批量检查HTTP URL
-    http_valid_output_lines: List[str] = [m3u_header]
+        try:
+            parsed_url = urllib.parse.urlparse(stream_url)
+            scheme = parsed_url.scheme.lower() if parsed_url.scheme else ''
+            host = parsed_url.hostname
+        except ValueError:
+             task_logger.warning(f"无法解析的URL，丢弃: {stream_url}")
+             continue
+
+        if scheme == "https":
+            # Apply CGTN filter
+            extinf_attrs = parse_extinf_attributes(original_extinf) # Parse original for tvg-name
+            tvg_name = extinf_attrs.get("tvg-name", "").lower()
+            excluded = False
+            if https_exclude_cgtn:
+                for keyword in https_exclude_cgtn:
+                    if keyword.lower() in tvg_name:
+                        # task_logger.debug(f"丢弃 HTTPS (tvg-name filter '{keyword}'): {stream_url}")
+                        https_cgtn_discarded_count += 1
+                        excluded = True
+                        break
+            if not excluded:
+                https_output_lines.extend([modified_extinf, stream_url])
+                https_kept_count += 1
+        elif scheme == "http":
+            if host and is_ip_address(host):
+                # task_logger.debug(f"丢弃 HTTP (IP地址): {stream_url}")
+                http_ip_discarded_count += 1
+            else:
+                # task_logger.debug(f"候选 HTTP (非IP): {stream_url}")
+                http_to_check.append((modified_extinf, stream_url))
+                http_urls_to_check_set.add(stream_url)
+                http_candidate_count += 1
+        # else: log warning for other schemes if necessary
+
+    task_logger.info(f"分类完成。HTTPS频道: {https_kept_count} (已移除含 CGTN 等: {https_cgtn_discarded_count}), HTTP IP频道(已丢弃): {http_ip_discarded_count}, HTTP候选频道(待检查): {http_candidate_count}")
+
+    # 4. Check HTTP URL Accessibility
+    http_valid_output_lines: List[str] = []
     http_valid_count = 0
     if http_to_check:
-        logger.info(f"开始批量检查 {len(http_urls_to_check_set)} 个唯一的 HTTP URL 的可访问性...")
-        # Extract unique URLs for checking
+        task_logger.info(f"开始批量检查 {len(http_urls_to_check_set)} 个唯一的 HTTP URL 的可访问性...")
         unique_http_urls = list(http_urls_to_check_set)
-        results = await check_urls_async(unique_http_urls, config, url_cache)
-        # Create a map from URL to its validity result
+        # Pass global_settings dict to check_urls_async for timeout/retry config
+        results = await check_urls_async(unique_http_urls, {"global_settings": global_settings}, url_cache)
         validity_map = dict(zip(unique_http_urls, results))
-        logger.info("HTTP URL 检查完成。")
+        task_logger.info("HTTP URL 检查完成。")
 
-        logger.info("构建有效的 HTTP 频道列表...")
+        task_logger.info("构建有效的 HTTP 频道列表...")
         for extinf, url in http_to_check:
-            if validity_map.get(url, False): # Get validity from map, default to False if somehow missing
+            if validity_map.get(url, False):
                 http_valid_output_lines.extend([extinf, url])
                 http_valid_count += 1
-                # logger.debug(f"保留有效 HTTP: {url}")
-            # else: logger.debug(f"丢弃无效 HTTP: {url}")
+            # else: task_logger.debug(f"丢弃无效 HTTP: {url}")
 
-    logger.info(f"HTTP 检查和过滤完成。保留有效HTTP频道: {http_valid_count}")
+    task_logger.info(f"HTTP 检查和过滤完成。保留有效HTTP频道: {http_valid_count}")
 
-    # 写入文件
-    output_files = {
-        output_https: https_output_lines,
-        output_http_valid: http_valid_output_lines
-    }
+    # 5. Write Output Files
+    write_m3u_file(https_output_file, m3u_header, https_output_lines, task_name)
+    write_m3u_file(http_valid_output_file, m3u_header, http_valid_output_lines, task_name)
 
-    for filename, lines_to_write in output_files.items():
-        logger.info(f"正在写入文件: {filename} (共 { (len(lines_to_write) -1) // 2 if len(lines_to_write) > 0 else 0 } 个频道)")
-        try:
-            # Ensure directory exists if path contains folders
-            output_dir = os.path.dirname(filename)
-            if output_dir and not os.path.exists(output_dir):
-                os.makedirs(output_dir)
-                logger.info(f"创建目录: {output_dir}")
-
-            with open(filename, "w", encoding="utf-8") as f:
-                # Add a newline character between lines for proper M3U format
-                f.write("\n".join(lines_to_write) + "\n") # Ensure trailing newline
-            logger.info(f"文件 {filename} 保存成功！")
-        except IOError as e:
-            logger.error(f"写入文件 {filename} 时发生错误: {e}")
-            # Continue to next file instead of exiting? Decide based on requirement.
-            # sys.exit(1) # Exit if any write fails
-        except Exception as e:
-            logger.error(f"写入文件 {filename} 时发生未知错误: {e}")
+    task_logger.info("任务执行完毕。")
 
 
+async def process_attributes_only_task(task_config: Dict, global_settings: Dict, session: aiohttp.ClientSession) -> None:
+    """Processes tasks requiring only attribute removal."""
+    task_name = task_config.get("name", "Unnamed AttributesOnly Task")
+    task_logger = TaskLogAdapter(logger.logger, {'task_name': task_name})
+    task_logger.info("任务开始执行...")
+
+    urls_to_fetch = task_config.get("urls", [])
+    if not urls_to_fetch:
+        task_logger.warning("任务未配置任何 URL，跳过。")
+        return
+    if len(urls_to_fetch) > 1:
+        task_logger.warning("此模式仅处理第一个 URL，忽略额外的 URL。")
+
+    source_url = urls_to_fetch[0]
+    attributes_to_remove = task_config.get("attributes_to_remove", ConfigDefaults.ATTRIBUTES_TO_REMOVE)
+    output_files = task_config.get("output_files", {})
+    processed_output_file = output_files.get("processed_output")
+
+    if not processed_output_file:
+        task_logger.error("任务配置缺少 'processed_output' 文件名，跳过。")
+        return
+
+    # 1. Fetch source content
+    request_timeout = global_settings.get("request_timeout", ConfigDefaults.REQUEST_TIMEOUT)
+    content = await fetch_m3u_content_async(source_url, session, request_timeout)
+
+    if not content:
+        task_logger.error(f"未能获取内容: {source_url}，任务终止。")
+        return
+
+    # 2. Parse and Remove Attributes
+    task_logger.info("开始解析并移除属性...")
+    lines = content.splitlines()
+    output_lines: List[str] = []
+    m3u_header = "#EXTM3U" # Default header
+    if lines and lines[0].strip().startswith("#EXTM3U"):
+        m3u_header = lines[0].strip()
+        lines = lines[1:]
+
+    current_extinf: Optional[str] = None
+    processed_count = 0
+
+    for line in lines:
+        line = line.strip()
+        if not line: continue
+
+        if line.startswith("#EXTINF"):
+            # Remove attributes from this line
+            current_extinf = remove_attributes(line, attributes_to_remove)
+        elif current_extinf and not line.startswith("#"):
+            stream_url = line
+            # Add the modified extinf and original url to output
+            output_lines.extend([current_extinf, stream_url])
+            processed_count += 1
+            current_extinf = None # Reset for next pair
+        elif line.startswith("#"): # Keep other M3U tags?
+             # Decide if other # lines should be kept. Add here if needed.
+             # output_lines.append(line) # Example: keep all comment lines
+             pass # Ignore other comment/directive lines for now
+        else: # Handle non-standard lines if needed
+             task_logger.warning(f"发现非标准行，忽略: {line}")
+             current_extinf = None
+
+
+    task_logger.info(f"处理完成。总共处理频道条目: {processed_count}")
+
+    # 3. Write Output File
+    write_m3u_file(processed_output_file, m3u_header, output_lines, task_name)
+
+    task_logger.info("任务执行完毕。")
+
+
+# --- Main Execution ---
 def parse_args() -> argparse.Namespace:
     """解析命令行参数"""
-    parser = argparse.ArgumentParser(description="Filter M3U playlist into HTTPS and valid non-IP HTTP files, removing specified attributes.")
-    # Allow overriding config values via CLI arguments
-    parser.add_argument("--url", help=f"URL of the source M3U playlist (overrides config value). Default: {Config.DEFAULT_M3U_URL}")
-    parser.add_argument("--https-output", help=f"Output file for HTTPS channels (overrides config value). Default: {Config.DEFAULT_OUTPUT_HTTPS}")
-    parser.add_argument("--http-output", help=f"Output file for valid HTTP channels (overrides config value). Default: {Config.DEFAULT_OUTPUT_HTTP_VALID}")
+    parser = argparse.ArgumentParser(description="Filter and process M3U playlists based on config.")
     parser.add_argument("--config", default="config.json", help="Path to JSON configuration file.")
-    # Add arguments for other config options if needed, e.g.:
-    # parser.add_argument("--timeout", type=int, help="Request timeout in seconds (overrides config value)")
     return parser.parse_args()
 
 async def main():
     """主函数入口"""
+    global logger # Allow main to update the logger adapter context if needed
     args = parse_args()
     config = load_config(args.config)
 
-    # Override config with CLI arguments if provided
-    if args.url:
-        config["m3u_url"] = args.url
-    if args.https_output:
-        config["output_https"] = args.https_output
-    if args.http_output:
-        config["output_http_valid"] = args.http_output
-    # Example for overriding timeout:
-    # if args.timeout is not None:
-    #    config["request_timeout"] = args.timeout
+    global_settings = config.get("global_settings", {})
+    tasks_to_run = [task for task in config.get("tasks", []) if task.get("enabled", False)]
 
-    # Set global constants from final config (mainly for is_url_accessible_async if it doesn't receive config dict)
-    # This part is less critical now as config dict is passed down
-    Config.REQUEST_TIMEOUT = config["request_timeout"]
-    Config.MAX_RETRIES = config["max_retries"]
-    Config.RETRY_DELAY = config["retry_delay"]
-    Config.ATTRIBUTES_TO_REMOVE = config["attributes_to_remove"]
+    if not tasks_to_run:
+        logger.warning("配置文件中没有找到启用的任务。")
+        return
 
+    # Shared cache for URL accessibility checks across tasks
+    url_accessibility_cache: Dict[str, bool] = {}
 
-    await filter_m3u(config)
-    logger.info("脚本执行完毕。")
+    # Shared session for efficiency
+    conn = aiohttp.TCPConnector(limit_per_host=25, limit=150, ssl=False) # Slightly increased limits
+    request_timeout = global_settings.get("request_timeout", ConfigDefaults.REQUEST_TIMEOUT)
+    timeout = aiohttp.ClientTimeout(total=request_timeout * 2) # Generous total timeout for session
+
+    async with aiohttp.ClientSession(connector=conn, timeout=timeout) as session:
+        for task_config in tasks_to_run:
+            task_name = task_config.get("name", "Unnamed Task")
+            processing_mode = task_config.get("processing_mode")
+            # Update logger context for the current task
+            logger = TaskLogAdapter(logging.getLogger(__name__), {'task_name': task_name})
+
+            if processing_mode == "merge_filter":
+                await process_merge_filter_task(task_config, global_settings, session, url_accessibility_cache)
+            elif processing_mode == "attributes_only":
+                await process_attributes_only_task(task_config, global_settings, session)
+            else:
+                logger.error(f"未知的处理模式 '{processing_mode}'，跳过任务。")
+
+    logger = TaskLogAdapter(logging.getLogger(__name__), {'task_name': 'Main'}) # Reset logger context
+    logger.info("所有任务执行完毕。")
 
 if __name__ == "__main__":
-    # On Windows, the default event loop policy might cause issues with aiohttp.
-    # Using the ProactorEventLoop can sometimes help, but SelectorEventLoop is often fine.
+    # Setup asyncio loop policy for Windows if needed (optional)
     # if sys.platform == "win32":
     #     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     try:
