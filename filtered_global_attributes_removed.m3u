@@ -1,0 +1,273 @@
+#EXTM3U url-tvg="https://raw.githubusercontent.com/pigzillaaaaa/iptv-scraper/refs/heads/main/epgs/tvpass-epg.xml"
+#EXTINF:-1 group-title="国际",BBC
+https://vs-hls-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/t=3840/v=pv14/b=5070016/main.m3u8
+#EXTINF:-1 group-title="国际",CNN
+https://v15.thetvapp.to/hls/CNN/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",CNA
+https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8
+#EXTINF:-1 tvg-name="CGTN" group-title="国际",CGTN
+https://english-livebkws.cgtn.com/live/encgtn.m3u8
+#EXTINF:-1 tvg-name="CGTN纪录" group-title="国际",CGTN Documentary
+https://english-livebkali.cgtn.com/live/doccgtn.m3u8
+#EXTINF:-1 tvg-name="ABC News Live" group-title="国际",ABC News Live
+https://content.uplynk.com/channel/3324f2467c414329b3b0cc5cd987b6be.m3u8
+#EXTINF:-1 group-title="国际",GB News
+https://live-gbnews.simplestreamcdn.com/live5/gbnews/bitrate1.isml/manifest.m3u8
+#EXTINF:-1 group-title="国际",Al Jazerra
+https://live-hls-web-aje.getaj.net/AJE/01.m3u8
+#EXTINF:-1 group-title="国际",CBN News
+https://bcovlive-a.akamaihd.net/re8d9f611ee4a490a9bb59e52db91414d/us-east-1/734546207001/playlist.m3u8
+#EXTINF:-1 group-title="国际",Wion News
+https://d7x8z4yuq42qn.cloudfront.net/index_7.m3u8
+#EXTINF:-1 group-title="国际",RT News
+https://rt-glb.rttv.com/dvr/rtnews/playlist_4500Kb.m3u8
+#EXTINF:-1 tvg-name="Comedy Dynamics" group-title="国际",Comedy Dynamics
+https://aegis-cloudfront-1.tubi.video/427cd05d-a47b-4b16-a2fe-5e739da93966/playlist.m3u8
+#EXTINF:-1 group-title="国际",One American News
+http://oneamericanews-roku-us.amagi.tv/playlist.m3u8
+#EXTINF:-1 group-title="国际",Fashion TV
+http://91.247.68.229:8000/play/Fashion/index.m3u8
+#EXTINF:-1 group-title="国际",Kids TV
+https://jansonmedia-kidstv-1-us.xiaomi.wurl.tv/playlist.m3u8
+#EXTINF:-1 group-title="国际",RT Documentary
+https://rt-rtd.rttv.com/live/rtdoc/playlist_4500Kb.m3u8
+#EXTINF:-1 group-title="国际",Taiwan Plus
+https://bcovlive-a.akamaihd.net/rce33d845cb9e42dfa302c7ac345f7858/ap-northeast-1/6282251407001/playlist.m3u8
+#EXTINF:-1 group-title="国际",Mytime
+https://appletree-mytimeau-samsung.amagi.tv/playlist.m3u8
+#EXTINF:-1 group-title="国际",ION Plus
+https://dbrb49pjoymg4.cloudfront.net/10001/9999614/hls/playlist.m3u8?ads.xumo_channelId=9999614
+#EXTINF:-1 group-title="国际",LoveStories
+https://lovestoriestv-lovestoriestv-1-eu.xiaomi.wurl.tv/playlist.m3u8
+#EXTINF:-1 group-title="国际",Travel XP
+https://travelxp-travelxp-1-eu.xiaomi.wurl.tv/playlist.m3u8
+#EXTINF:-1 group-title="国际",Food
+https://food-eu.xiaomi.wurl.tv/playlist.m3u8
+#EXTINF:-1 group-title="国际",Tastemade
+https://cdn-apse1-prod.tsv2.amagi.tv/linear/amg00047-tastemade-tmintlaus-samsungnz/playlist.m3u8?checkedby:alliptvlinks.com
+#EXTINF:-1 group-title="国际",Rakuten VIKI
+https://dce1408e0efa4bc4b6ca1366c56911fb.mediatailor.us-east-1.amazonaws.com/v1/master/04fd913bb278d8775298c26fdca9d9841f37601f/Plex_RakutenViki/playlist.m3u8?ads.wurl_channel=843&ads.wurl_name=RakutenViki&ads.coppa=0&ads.us_privacy=1---&ads.psid=62274240-07e7-5d94-8dc8-ef68cf19e175&ads.targetopt=0&ads.plex_token=tzFRBf5UEBHD_vbznsUx&ads.plex_id=60d4edd8b2fdec002c14112f&ads.ua=okhttp/4.9.0&ads.app_bundle=com.plexapp.android&ads.app_store_url=https://play.google.com/store/apps/details?id=com.plexapp.android&ads.gdpr=0&ads.consent=0&ads.device_type=handset&ads.device_id_type=&checkedby:alliptvlinks.com
+#EXTINF:-1 group-title="国际",Sky Sports F1
+http://cord-cutter.net:8080/25464931/30585186/35244?checkedby:alliptvlinks.com
+#EXTINF:-1 tvg-name="AMC" group-title="国际",AMC
+http://fl5.moveonjoy.com/AMC_NETWORK/index.m3u8
+#EXTINF:-1 tvg-name="COOKING" group-title="国际",Cooking Channel
+http://fl3.moveonjoy.com/COOKING_CHANNEL/index.m3u8
+#EXTINF:-1 group-title="国际",Love Nature
+https://d18dyiwu97wm6q.cloudfront.net/playlist2160p.m3u8
+#EXTINF:-1 group-title="国际",California Music Channel
+https://cmc-ono.amagi.tv/playlist.m3u8
+#EXTINF:-1 group-title="国际",Xplore TV
+https://aegis-cloudfront-1.tubi.video/8d2bf7b1-0e93-405f-8c15-ac0756d05f66/playlist.m3u8
+#EXTINF:-1 group-title="国际",MovieSphere
+https://moviesphereuk-samsunguk.amagi.tv/playlist.m3u8
+#EXTINF:-1 tvg-name="Kevin Hart's LOL! Network" group-title="国际",Kevin Hart's LOL! Network
+https://lol-lolnetwork-2-nl.samsung.wurl.tv/playlist.m3u8
+#EXTINF:-1 group-title="国际",A&E
+https://v5.thetvapp.to/hls/AEEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",AMC - Eastern Feed
+https://v16.thetvapp.to/hls/AMCEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Altitude Sports Denver
+https://v2.thetvapp.to/hls/altitude-sports-denver/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Animal Planet US - East
+https://v4.thetvapp.to/hls/AnimalPlanetEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",BBC News - North America HD
+https://v14.thetvapp.to/hls/BBCWorldNewsNorthAmerica/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Big Ten Network
+https://v14.thetvapp.to/hls/BTN/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",BRAVO USA
+https://v4.thetvapp.to/hls/BravoEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",C-SPAN
+https://v14.thetvapp.to/hls/CSPAN/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",C-SPAN 2
+https://v13.thetvapp.to/hls/CSPAN2/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",CBSLA (KCBS) Los Angeles
+https://v18.thetvapp.to/hls/cbs-kcbs-los-angeles-ca/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",CBSNY (WCBS) New York
+https://v3.thetvapp.to/hls/WCBSDT1/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",CMT US - Eastern Feed
+https://v3.thetvapp.to/hls/CMTEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",CNBC USA
+https://v16.thetvapp.to/hls/CNBC/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",CW (WDCW) District of Columbia
+https://v4.thetvapp.to/hls/cw-wdcw-district-of-columbia/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",CARTOON NETWORK USA - Eastern Feed
+https://v5.thetvapp.to/hls/CartoonNetworkEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Chicago Sports Network
+https://v2.thetvapp.to/hls/chicago-sports-network/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",CINEMAX - Eastern Feed
+https://v14.thetvapp.to/hls/CinemaxEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",COMEDY CENTRAL (US) - Eastern Feed
+https://v14.thetvapp.to/hls/ComedyCentralEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Crime + Investigation USA HD
+https://v5.thetvapp.to/hls/CrimePlusInvestigation/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",DISCOVERY FAMILY CHANNEL
+https://v13.thetvapp.to/hls/DiscoveryFamily/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",DISNEY CHANNEL - Eastern Feed
+https://v15.thetvapp.to/hls/DisneyChannelEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Disney JR USA - East
+https://v14.thetvapp.to/hls/DisneyJuniorEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Disney XD USA - Eastern Feed
+https://v3.thetvapp.to/hls/DisneyXDEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",E! Entertainment Television USA - Eastern Feed
+https://v13.thetvapp.to/hls/EEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",ESPN
+https://v3.thetvapp.to/hls/ESPN/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",FOX (KTTV) Los Angeles
+https://v13.thetvapp.to/hls/fox-kttv-los-angeles-ca/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",FOXNY
+https://v3.thetvapp.to/hls/WNYWDT1/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",FX Movie Channel
+https://v15.thetvapp.to/hls/FXMovieChannel/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",FX Networks East Coast
+https://v12.thetvapp.to/hls/FXEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",FXX USA - Eastern
+https://v15.thetvapp.to/hls/FXXEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",FYI USA - Eastern
+https://v15.thetvapp.to/hls/FYIEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",FanDuel SN Indiana
+https://v8.thetvapp.to/hls/fanduel-sports-indiana/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",FanDuel SN Detroit
+https://v18.thetvapp.to/hls/fanduel-sports-network-detroit-hd/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",FanDuel SN Florida
+https://v5.thetvapp.to/hls/fanduel-sports-network-florida/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",FanDuel SN Great Lakes
+https://v5.thetvapp.to/hls/fanduel-sports-network-great-lakes/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",FanDuel SN North
+https://v17.thetvapp.to/hls/fanduel-sports-network-north/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",FanDuel SN Ohio
+https://v13.thetvapp.to/hls/fanduel-sports-network-ohio-cleveland/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",FanDuel SN Oklahoma
+https://v5.thetvapp.to/hls/fanduel-sports-network-oklahoma/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",FanDuel SN SoCal
+https://v3.thetvapp.to/hls/fanduel-sports-network-socal/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Fanduel Sports Network South Carolinas
+https://v14.thetvapp.to/hls/fanduel-sports-network-south-carolinas/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Fanduel Sports Network South Tennessee
+https://v13.thetvapp.to/hls/fanduel-sports-network-south-tennessee-usa/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",FanDuel SN West
+https://v14.thetvapp.to/hls/fanduel-sports-network-west/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-name="Fox Business Network" group-title="business",Fox Business Network
+https://v1.thetvapp.to/hls/FoxBusiness/index.m3u8
+#EXTINF:-1 group-title="国际",FanDuel SN Wisconsin
+https://v12.thetvapp.to/hls/fanduel-sports-network-wisconsin/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Fanduel Sports Southeast North Carolina
+https://v8.thetvapp.to/hls/fanduel-sports-southeast-north-carolina/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Fanduel Sports Southeast South Carolina
+https://v17.thetvapp.to/hls/fanduel-sports-southeast-south-carolina/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Fanduel Sports Southeast Tennessee Nashville
+https://v17.thetvapp.to/hls/fanduel-sports-southeast-tennessee-nashville/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Fanduel Sports Tennessee East
+https://v3.thetvapp.to/hls/fanduel-sports-tennessee-east/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",FOOD NETWORK USA - Eastern Feed
+https://v14.thetvapp.to/hls/FoodNetworkEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Fox Sports 2
+https://v3.thetvapp.to/hls/FoxSports2/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",GAME SHOW NETWORK East
+https://v3.thetvapp.to/hls/game-show-network-east/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",HBO - Eastern Feed
+https://v18.thetvapp.to/hls/HBOEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",HBO 2 - Eastern Feed
+https://v16.thetvapp.to/hls/HBO2East/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",HBO Family - Eastern Feed
+https://v13.thetvapp.to/hls/HBOFamilyEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",HBO Signature (HBO 3) - Eastern
+https://v15.thetvapp.to/hls/HBOSignatureEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",HBO Zone HD - East
+https://v4.thetvapp.to/hls/HBOZoneEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",HGTV USA - Eastern Feed
+https://v14.thetvapp.to/hls/HGTVEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",HLN
+https://v3.thetvapp.to/hls/HLN/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Hallmark Mystery - HD
+https://v14.thetvapp.to/hls/HallmarkMoviesMysteriesEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",ION - Eastern Feed
+https://v8.thetvapp.to/hls/IONTVEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",IFC Independent Film Channel US
+https://v14.thetvapp.to/hls/IFCEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",LOGO - East
+https://v8.thetvapp.to/hls/LogoEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Lifetime Movies Network - East
+https://v12.thetvapp.to/hls/LifetimeMoviesEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Lifetime Network US - Eastern Feed
+https://v3.thetvapp.to/hls/LifetimeEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",MLB Network
+https://v14.thetvapp.to/hls/MLBNetwork/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",MSG Madison Square Gardens
+https://v16.thetvapp.to/hls/msg-madison-square-gardens/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",MTV 2 East
+https://v14.thetvapp.to/hls/MTVEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Marquee Sports Network
+https://v8.thetvapp.to/hls/marquee-sports-network/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",MeTV Toons (WJLP2) New Jersey
+https://v2.thetvapp.to/hls/metv-toons/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Midatlantic Sports Network
+https://v13.thetvapp.to/hls/midatlantic-sports-network/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Monumental Sports Network
+https://v5.thetvapp.to/hls/monumental-sports-network/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",CINEMAX MOREMAX Eastern
+https://v18.thetvapp.to/hls/MoreMaxEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Motor Trend HD
+https://v3.thetvapp.to/hls/Motortrend/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",MovieMax (Max 6) - East
+https://v16.thetvapp.to/hls/MovieMaxEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",NBA TV USA
+https://v3.thetvapp.to/hls/NBATV/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",NBC (KNBC) Los Angeles
+https://v13.thetvapp.to/hls/nbc-knbc-los-angeles-ca/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",NY
+https://v12.thetvapp.to/hls/WNBCDT1/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",NBC Sports Bay Area
+https://v13.thetvapp.to/hls/nbc-sports-bay-area/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",NBC Sports Boston
+https://v12.thetvapp.to/hls/nbc-sports-boston/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",NBC Sports California
+https://v16.thetvapp.to/hls/nbc-sports-california/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",NBC Sports Philadelphia
+https://v3.thetvapp.to/hls/nbc-sports-philadelphia/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",NFL RedZone
+https://v13.thetvapp.to/hls/NFLRedZone/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",NHL Network USA
+https://v17.thetvapp.to/hls/NHLNetwork/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",National Geographic US - Eastern
+https://v14.thetvapp.to/hls/NationalGeographicEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",National Geographic Wild
+https://v5.thetvapp.to/hls/NationalGeographicWildEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",New England Sports Network
+https://v8.thetvapp.to/hls/new-england-sports-network/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Newsmax TV
+https://v8.thetvapp.to/hls/NewsmaxTV/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",NICK JR. - East
+https://v4.thetvapp.to/hls/NickJrEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Nickelodeon USA - East Feed
+https://v15.thetvapp.to/hls/NickelodeonEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Outdoor Channel US
+https://v3.thetvapp.to/hls/OutdoorChannel/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Oxygen - Eastern Feed
+https://v3.thetvapp.to/hls/OxygenEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Showtime - Eastern Feed
+https://v3.thetvapp.to/hls/ShowtimeEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",Starz - Eastern
+https://v8.thetvapp.to/hls/StarzEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",SYFY - Eastern Feed
+https://v14.thetvapp.to/hls/SyfyEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",TBS - East
+https://v13.thetvapp.to/hls/TBSEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",TLC USA - Eastern
+https://v16.thetvapp.to/hls/TLCEast/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",TSN 2
+https://v4.thetvapp.to/hls/tsn2/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",TSN 3
+https://v3.thetvapp.to/hls/tsn3/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",TSN 4
+https://v2.thetvapp.to/hls/tsn4/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",TSN 5
+https://v14.thetvapp.to/hls/tsn5/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",The Cooking Channel
+https://v18.thetvapp.to/hls/CookingChannel/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",VH1 - Eastern Feed
+https://v17.thetvapp.to/hls/VH1East/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",VICE
+https://v12.thetvapp.to/hls/VICETV/tracks-v1a1/mono.m3u8
+#EXTINF:-1 group-title="国际",WETV (Women's Entertainment) - Eastern
+https://v14.thetvapp.to/hls/WeTVEast/tracks-v1a1/mono.m3u8
