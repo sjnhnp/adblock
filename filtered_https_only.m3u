@@ -1,6 +1,8 @@
 #EXTM3U x-tvg-url="http://epg.51zmt.top:8000/e.xml"
 #EXTINF:-1 tvg-name="CCTV风云足球" group-title="央视频道", CCTV风云足球
 https://epg.pw/stream/ac8062ec9484078061d3bef507c15a423ac57ae4144e3fcc4b0a198dd420f911.m3u8
+#EXTINF:-1 tvg-name="湖南卫视" group-title="卫视频道", 湖南卫视
+https://txmov2.a.kwimgs.com/bs3/video-hls/5199687338554291078_hlsb.m3u8
 #EXTINF:-1 tvg-name="安多卫视" group-title="地方频道", 安多卫视
 https://liveout.xntv.tv/a65jur/96iln2.m3u8
 #EXTINF:-1 tvg-name="山东教育" group-title="卫视频道", 山东教育
@@ -57,8 +59,6 @@ https://stream.ads.ottera.tv/playlist.m3u8?network_id=743
 https://stream.ads.ottera.tv/playlist.m3u8?network_id=742
 #EXTINF:-1 tvg-name="北京纪实科教8K" group-title="数字频道", 北京纪实科教8K
 https://gdcucc.v1.mk/gdcucc/brtv8k.m3u8
-#EXTINF:-1 tvg-name="南国都市" group-title="数字频道", 南国都市
-https://tencentplay.gztv.com/live/nanguodushi.m3u8?txSecret=550af55c0ea34ce492748481415b6dfa&txTime=1903e7b17de
 #EXTINF:-1 tvg-name="内蒙古少儿" group-title="儿童频道", 内蒙古少儿
 https://livestream-bt.nmtv.cn/nmtv/2318general.m3u8?txSecret=a2c948908728a0733cecbe1fadea23dc&txTime=771E8800
 #EXTINF:-1 tvg-name="火影忍者" group-title="儿童频道", 火影忍者
@@ -69,6 +69,10 @@ https://ls.qingting.fm/live/4972/64k.m3u8
 https://p8.vzan.com:443/slowlive/147077707554082780/live.m3u8
 #EXTINF:-1 tvg-name="上海第一财经" group-title="地方频道", 上海第一财经
 https://satellitepull.cnr.cn/live/wx32dycjgb/playlist.m3u8
+#EXTINF:-1 tvg-name="东莞新闻综合" group-title="地方频道", 东莞新闻综合
+https://stream.sun0769.com/dgrtv1/mp4tv1_800/index.m3u8
+#EXTINF:-1 tvg-name="东莞生活资讯" group-title="地方频道", 东莞生活资讯
+https://stream.sun0769.com/dgrtv1/mp4tv2_800/index.m3u8
 #EXTINF:-1 tvg-name="临沂农科" group-title="地方频道", 临沂农科
 https://m3u8-channel.lytv.tv/nmip-media/channellive/channel115062/playlist.m3u8
 #EXTINF:-1 tvg-name="之江纪录" group-title="地方频道", 之江纪录
@@ -221,8 +225,8 @@ https://jwcdnqx.hebyun.com.cn/live/qinghe/1500k/tzwj_video.m3u8
 https://jwcdnqx.hebyun.com.cn/live/qinghe1/1500k/tzwj_video.m3u8
 #EXTINF:-1 tvg-name="渭源新闻" group-title="地方频道", 渭源新闻
 https://play.kankanlive.com/live/1711955176432990.m3u8
-#EXTINF:-1 tvg-name="湖州新闻综合" group-title="地方频道", 湖州新闻综合
-https://hzcm-live.media.hugd.com/3f5fa7d64c7c46a38c6bd8ad35e836cc/65128273761b4731ae53729ea6dcf932.m3u8?auth_key=2277598215-9d21c15111244bea8d298c361d31a72e-0-d031198f58d44b0e91ba2e3f3b188865
+#EXTINF:-1 tvg-name="湖州文化娱乐" group-title="地方频道", 湖州文化娱乐
+https://hzcm-live.media.hugd.com/613c47f0ab0d4eaa98b21378d0db6ded/0051d31c9dd543a7825eea4e49675b2a.m3u8?auth_key=2277598059-0a5ebfa1c0dc4671b42a60810fc37039-0-fa625b7d1feab612062453c12e3c8887
 #EXTINF:-1 tvg-name="灌阳新闻综合" group-title="地方频道", 灌阳新闻综合
 https://ls.qingting.fm/live/5043/64k.m3u8
 #EXTINF:-1 tvg-name="甘肃经济" group-title="地方频道", 甘肃经济
@@ -341,6 +345,8 @@ https://txmov2.a.kwimgs.com/bs3/video-hls/5258234133675308186_hlshd15.m3u8
 https://txmov2.a.kwimgs.com/bs3/video-hls/5210946337266019890_hlshd15.m3u8
 #EXTINF:-1 tvg-name="2011年春晚" group-title="春晚频道", 2011年春晚
 https://txmov2.a.kwimgs.com/bs3/video-hls/5243597434070590481_hlshd15.m3u8
+#EXTINF:-1 tvg-name="2012年春晚" group-title="春晚频道", 2012年春晚
+https://txmov2.a.kwimgs.com/bs3/video-hls/5219953534755647343_hlshd15.m3u8
 #EXTINF:-1 tvg-name="2015年春晚" group-title="春晚频道", 2015年春晚
 https://txmov2.a.kwimgs.com/bs3/video-hls/5248101009010430183_hlshd15.m3u8
 #EXTINF:-1 tvg-name="2017年春晚" group-title="春晚频道", 2017年春晚
@@ -356,29 +362,31 @@ https://txmov2.a.kwimgs.com/bs3/video-hls/5251197255879398624_hlshd15.m3u8
 #EXTINF:-1 tvg-name="2024年春晚" group-title="春晚频道", 2024年春晚
 https://p2.bdstatic.com/rtmp.liveshow.lss-user.baidubce.com/live/stream_bduid_6488563992_8982723413/merged_1707497046297_88536_25144_41936.m3u8
 #EXTINF:-1 tvg-name="2025年春晚" group-title="春晚频道", 2025年春晚
-https://svipsvip.ffzyread1.com/20250129/35458_c988286f/index.m3u8
-#EXTINF:-1 tvg-name="云南丽江玉龙雪山" group-title="直播中国", 云南丽江玉龙雪山
-https://gcalic.v.myalicdn.com/gc/ylxs11_1/index.m3u8
-#EXTINF:-1 tvg-name="云南丽江蓝月谷" group-title="直播中国", 云南丽江蓝月谷
-https://gcalic.v.myalicdn.com/gc/ylxs12_1/index.m3u8
-#EXTINF:-1 tvg-name="云南白沙远眺玉龙雪山" group-title="直播中国", 云南白沙远眺玉龙雪山
-https://gcalic.v.myalicdn.com/gc/hkylxs03_1/index.m3u8
-#EXTINF:-1 tvg-name="四川峨眉山云海日出" group-title="直播中国", 四川峨眉山云海日出
-https://gcalic.v.myalicdn.com/gc/emsarm_1/index.m3u8
-#EXTINF:-1 tvg-name="四川峨眉山远眺贡嘎雪山" group-title="直播中国", 四川峨眉山远眺贡嘎雪山
-https://gcalic.v.myalicdn.com/gc/emsyh_1/index.m3u8
-#EXTINF:-1 tvg-name="江苏徐州云龙湖风景区云龙山观景台西" group-title="直播中国", 江苏徐州云龙湖风景区云龙山观景台西
-https://gcalic.v.myalicdn.com/gc/ylh04_1/index.m3u8
-#EXTINF:-1 tvg-name="贵州省兴义市万峰林" group-title="直播中国", 贵州省兴义市万峰林
-https://gcalic.v.myalicdn.com/gc/xywfl_1/index.m3u8
-#EXTINF:-1 tvg-name="黄山飞来石" group-title="直播中国", 黄山飞来石
-https://gcalic.v.myalicdn.com/gc/hsptgy_1/index.m3u8
-#EXTINF:-1 tvg-name="2025-05-30 12:38:46" group-title="更新时间", 2025-05-30 12:38:46
+https://svip.high24-playback.com/20250129/17159_7bca93c4/2000k/hls/mixed.m3u8
+#EXTINF:-1 tvg-name="云南丽江印象实景" group-title="直播中国", 云南丽江印象实景
+https://gcalic.v.myalicdn.com/gc/hkylxs01_1/index.m3u8
+#EXTINF:-1 tvg-name="八里沟风景区天界山玻璃栈道" group-title="直播中国", 八里沟风景区天界山玻璃栈道
+https://gcalic.v.myalicdn.com/gc/blg03_1/index.m3u8
+#EXTINF:-1 tvg-name="安徽黟县芦村远眺" group-title="直播中国", 安徽黟县芦村远眺
+https://gcalic.v.myalicdn.com/gc/yxlcyt_1/index.m3u8
+#EXTINF:-1 tvg-name="江苏南京牛首山" group-title="直播中国", 江苏南京牛首山
+https://gcalic.v.myalicdn.com/gc/nss01_1/index.m3u8
+#EXTINF:-1 tvg-name="泰山太平岭" group-title="直播中国", 泰山太平岭
+https://gcalic.v.myalicdn.com/gc/hkts09_1/index.m3u8
+#EXTINF:-1 tvg-name="泰山白云亭悬崖" group-title="直播中国", 泰山白云亭悬崖
+https://gcalic.v.myalicdn.com/gc/hkts02_1/index.m3u8
+#EXTINF:-1 tvg-name="都江堰鱼嘴" group-title="直播中国", 都江堰鱼嘴
+https://gcalic.v.myalicdn.com/gc/djyqyl1_1/index.m3u8
+#EXTINF:-1 tvg-name="2025-05-30 18:41:39" group-title="更新时间", 2025-05-30 18:41:39
 https://vd3.bdstatic.com/mda-ren0u3qx5hknf8wb/1080p/cae_h264/1747960722207612951/mda-ren0u3qx5hknf8wb.mp4
 #EXTINF:-1 tvg-name="直播中国" group-title="央视频道",直播中国
 https://gcalic.v.myalicdn.com/gc/wgw05_1/index.m3u8?contentid=2820180516001
-#EXTINF:-1 tvg-name="兵团卫视" group-title="卫视频道",兵团卫视
+#EXTINF:-1 tvg-name="三沙卫视" group-title="卫视频道",三沙卫视
+https://livessws.hnntv.cn/live/ssws_02hnntv.m3u8?_upt=c509d0ea1747156492
+#EXTINF:-1 tvg-name="兵团卫视" group-title="APTV专享",兵团卫视
 https://liveout.btzx.com.cn/62ds9e/yil08g.m3u8
+#EXTINF:-1 tvg-name="南国都市" group-title="数字频道",南国都市
+https://tencentplay.gztv.com/live/nanguodushi.m3u8?txSecret=550af55c0ea34ce492748481415b6dfa&txTime=1903e7b17de
 #EXTINF:-1 tvg-name="澳亚卫视" group-title="港澳台频道",澳亚卫视
 https://stream1.freetv.fun/ao-ya-wei-shi-1.ctv
 #EXTINF:-1 tvg-name="TVBJ1" group-title="港澳台频道",TVB J1
@@ -473,8 +481,6 @@ https://txmov2.a.kwimgs.com/bs3/video-hls/5194902262344826321_hlshd15.m3u8
 https://txmov2.a.kwimgs.com/bs3/video-hls/5214042558858339330_hlshd15.m3u8
 #EXTINF:-1 tvg-name="2010年春晚" group-title="春晚频道",2010年春晚
 https://txmov2.a.kwimgs.com/bs3/video-hls/5210664862006975841_hlshd15.m3u8
-#EXTINF:-1 tvg-name="2012年春晚" group-title="春晚频道",2012年春晚
-https://txmov2.a.kwimgs.com/bs3/video-hls/5219953534755647343_hlshd15.m3u8
 #EXTINF:-1 tvg-name="2013年春晚" group-title="春晚频道",2013年春晚
 https://txmov2.a.kwimgs.com/bs3/video-hls/5241627109089548390_hlshd15.m3u8
 #EXTINF:-1 tvg-name="2014年春晚" group-title="春晚频道",2014年春晚
@@ -485,8 +491,8 @@ https://txmov2.a.kwimgs.com/bs3/video-hls/5238530884094441260_hlshd15.m3u8
 https://txmov2.a.kwimgs.com/bs3/video-hls/5212635188105848764_hlshd15.m3u8
 #EXTINF:-1 tvg-name="2019年春晚" group-title="春晚频道",2019年春晚
 https://txmov2.a.kwimgs.com/bs3/video-hls/5239093835831655107_hlshd15.m3u8
-#EXTINF:-1 tvg-name="2025年春晚" group-title="春晚频道",2025年春晚 4K
-https://svip.high24-playback.com/20250129/17159_7bca93c4/2000k/hls/mixed.m3u8
+#EXTINF:-1 tvg-name="2025年春晚" group-title="春晚频道",2025年春晚
+https://svipsvip.ffzyread1.com/20250129/35458_c988286f/index.m3u8
 #EXTINF:-1 tvg-name="CNA" group-title="国际频道",CNA
 https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8
 #EXTINF:-1 tvg-name="CNN" group-title="国际频道",CNN
