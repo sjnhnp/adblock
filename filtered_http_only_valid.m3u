@@ -363,6 +363,8 @@ http://video.epaper.pybtv.cn:8080/live/rtmp_live_demo.flv
 http://play.kankanlive.com/live/1720408089419110.m3u8
 #EXTINF:-1 tvg-name="盈江综合" group-title="地方频道", 盈江综合
 http://live.ynurl.com/video/s10016-YJTV-2/index.m3u8?zyund
+#EXTINF:-1 tvg-name="睢宁三农" group-title="地方频道", 睢宁三农
+http://3739115337.cloudvdn.com/a.m3u8?domain=suining-tv-hls.cm.jstv.com&player=nwEAAJApyIx-AKAX&secondToken=secondToken%3AfyPrvACXUQ_VSZUu3Rxm-2py1fo&streamid=suining-tv%3Asuining-tv%2Fsuiningsn&v3=1
 #EXTINF:-1 tvg-name="砚山电视台" group-title="地方频道", 砚山电视台
 http://live.ynurl.com/video/s10020-ystv/index.m3u8?zyund
 #EXTINF:-1 tvg-name="磐石综合" group-title="地方频道", 磐石综合
@@ -571,8 +573,6 @@ http://php.jdshipin.com:8880/smt.php?id=Xinhe
 http://ali.hlspull.yximgs.com/live/6425965d63a08c85ca806bfcc8c75cf4.flv
 #EXTINF:-1 tvg-name="翡翠台" group-title="港澳台频道",TVB翡翠台
 http://ali.hlspull.yximgs.com/live/qwt_feicui.flv
-#EXTINF:-1 tvg-name="翡翠台" group-title="港澳台频道",TVB翡翠台（备用）
-http://php.jdshipin.com:8880/TVOD/iptv.php?id=fct3
 #EXTINF:-1 tvg-name="明珠台" group-title="港澳台频道",TVB明珠台
 http://php.jdshipin.com/TVOD/iptv.php?id=mzt
 #EXTINF:-1 tvg-name="星光影视" group-title="港澳台频道",星光影视
@@ -603,6 +603,8 @@ http://vip.lqcc.xyz:35455/itv/3000000010000005180.m3u8?cdn=FifastbLive
 http://vip.lqcc.xyz:35455/itv/3000000010000015686.m3u8?cdn=FifastbLive
 #EXTINF:-1 tvg-name="咪咕赛事播01" group-title="咪咕赛事",咪咕赛事播01
 http://vip.lqcc.xyz:35455/itv/3000000001000005308.m3u8?cdn=FifastbLive
+#EXTINF:-1 tvg-name="咪咕赛事播02" group-title="咪咕赛事",咪咕赛事播02
+http://vip.lqcc.xyz:35455/itv/3000000001000005969.m3u8?cdn=FifastbLive
 #EXTINF:-1 tvg-name="咪咕赛事播03" group-title="咪咕赛事",咪咕赛事播03
 http://vip.lqcc.xyz:35455/itv/3000000001000007218.m3u8?cdn=FifastbLive
 #EXTINF:-1 tvg-name="咪咕赛事播04" group-title="咪咕赛事",咪咕赛事播04
@@ -613,12 +615,16 @@ http://vip.lqcc.xyz:35455/itv/3000000001000008176.m3u8?cdn=FifastbLive
 http://vip.lqcc.xyz:35455/itv/3000000001000008379.m3u8?cdn=FifastbLive
 #EXTINF:-1 tvg-name="咪咕赛事播07" group-title="咪咕赛事",咪咕赛事播07
 http://vip.lqcc.xyz:35455/itv/3000000001000010129.m3u8?cdn=FifastbLive
+#EXTINF:-1 tvg-name="咪咕赛事播08" group-title="咪咕赛事",咪咕赛事播08
+http://vip.lqcc.xyz:35455/itv/3000000001000010948.m3u8?cdn=FifastbLive
 #EXTINF:-1 tvg-name="咪咕赛事播10" group-title="咪咕赛事",咪咕赛事播10
 http://vip.lqcc.xyz:35455/itv/3000000001000028638.m3u8?cdn=FifastbLive
 #EXTINF:-1 tvg-name="咪咕赛事播11" group-title="咪咕赛事",咪咕赛事播11
 http://vip.lqcc.xyz:35455/itv/3000000001000031494.m3u8?cdn=FifastbLive
 #EXTINF:-1 tvg-name="咪咕赛事播12" group-title="咪咕赛事",咪咕赛事播12
 http://vip.lqcc.xyz:35455/itv/3000000010000000097.m3u8?cdn=FifastbLive
+#EXTINF:-1 tvg-name="咪咕赛事播13" group-title="咪咕赛事",咪咕赛事播13
+http://vip.lqcc.xyz:35455/itv/3000000010000002019.m3u8?cdn=FifastbLive
 #EXTINF:-1 tvg-name="咪咕赛事播15" group-title="咪咕赛事",咪咕赛事播15
 http://vip.lqcc.xyz:35455/itv/3000000010000002809.m3u8?cdn=FifastbLive
 #EXTINF:-1 tvg-name="咪咕赛事播16" group-title="咪咕赛事",咪咕赛事播16
@@ -653,10 +659,14 @@ http://vip.lqcc.xyz:35455/itv/3000000010000017678.m3u8?cdn=FifastbLive
 http://vip.lqcc.xyz:35455/itv/3000000010000019839.m3u8?cdn=FifastbLive
 #EXTINF:-1 tvg-name="咪咕赛事播43" group-title="咪咕赛事",咪咕赛事播43
 http://vip.lqcc.xyz:35455/itv/3000000010000021904.m3u8?cdn=FifastbLive
+#EXTINF:-1 tvg-name="咪咕赛事播44" group-title="咪咕赛事",咪咕赛事播44
+http://vip.lqcc.xyz:35455/itv/3000000010000023434.m3u8?cdn=FifastbLive
 #EXTINF:-1 tvg-name="咪咕赛事播47" group-title="咪咕赛事",咪咕赛事播47
 http://vip.lqcc.xyz:35455/itv/3000000010000025380.m3u8?cdn=FifastbLive
 #EXTINF:-1 tvg-name="咪咕赛事播51" group-title="咪咕赛事",咪咕赛事播51
 http://vip.lqcc.xyz:35455/itv/3000000010000027691.m3u8?cdn=FifastbLive
+#EXTINF:-1 tvg-name="咪咕赛事播52" group-title="咪咕赛事",咪咕赛事播52
+http://vip.lqcc.xyz:35455/itv/3000000010000031669.m3u8?cdn=FifastbLive
 #EXTINF:-1 group-title="动画频道",蜡笔小新
 http://home.kuaidi521.com:35455/bilibili/30837590
 #EXTINF:-1 group-title="电影频道",米虫影院
@@ -723,8 +733,6 @@ http://nn.7x9d.cn/石家庄.php?id=6
 http://nn.7x9d.cn/地方台8563/海南.php?id=ssws
 #EXTINF:-1 tvg-name="海南自贸" group-title="☘️海南频道",海南自贸
 http://nn.7x9d.cn/地方台8563/海南.php?id=jjpd
-#EXTINF:-1 tvg-name="海南新闻" group-title="☘️海南频道",海南新闻
-http://nn.7x9d.cn/地方台8563/海南.php?id=xwpd
 #EXTINF:-1 tvg-name="海南公共" group-title="☘️海南频道",海南公共
 http://nn.7x9d.cn/地方台8563/海南.php?id=ggpd
 #EXTINF:-1 tvg-name="海南文旅" group-title="☘️海南频道",海南文旅
