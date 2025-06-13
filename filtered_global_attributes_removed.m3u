@@ -1,4 +1,8 @@
 #EXTM3U
+#EXTINF:-1 group-title="国际",Phoenix Chinese
+http://cdn.132.us.kg/live/fhzw/stream.m3u8
+#EXTINF:-1 group-title="国际",Phoenix InfoNews
+http://cdn3.132.us.kg/live/fhzx/stream.m3u8
 #EXTINF:-1 group-title="国际",BBC
 https://vs-hls-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/t=3840/v=pv14/b=5070016/main.m3u8
 #EXTINF:-1 group-title="国际",CNN
@@ -255,3 +259,7 @@ https://jmp2.uk/sam-CABD1200008JG.m3u8
 https://x4new.newkso.ru/x4/skymix/mono.m3u8
 #EXTINF:-1 group-title="国际",Tennis Channel
 http://fl3.moveonjoy.com/TENNIS_CHANNEL/index.m3u8
+#EXTINF:-1 group-title="国际",Crave 2
+http://fl3.moveonjoy.com/CRAVE_2/index.m3u8
+#EXTINF:-1 group-title="国际",Crave 4
+http://fl3.moveonjoy.com/CRAVE_4/index.m3u8
