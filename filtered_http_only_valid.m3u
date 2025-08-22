@@ -369,8 +369,6 @@ http://tmpstream.hyrtv.cn/hygg/sd/live.m3u8
 http://tmpstream.hyrtv.cn/xwzh/sd/live.m3u8
 #EXTINF:-1 tvg-name="泌阳新闻综合" group-title="地方频道", 泌阳新闻综合
 http://live.dxhmt.cn:9081/tv/11726-1.m3u8
-#EXTINF:-1 tvg-name="泗阳综合" group-title="地方频道", 泗阳综合
-http://3739115337.cloudvdn.com/a.m3u8?domain=siyang-tv-hls.cm.jstv.com&player=nwEAAKHdjSKP_58X&secondToken=secondToken%3A5FUijZmDyNMxtCDdne0YzSAwjuw&streamid=siyang-tv%3Asiyang-tv%2Fsiyangzh&v3=1
 #EXTINF:-1 tvg-name="泰州一套新闻综合" group-title="地方频道", 泰州一套新闻综合
 http://stream1.mytaizhou.net/xwzh/playlist.m3u8?_upt=2f3c2e461725409415
 #EXTINF:-1 tvg-name="洞头综合" group-title="地方频道", 洞头综合
@@ -819,6 +817,8 @@ http://iptv.jxpan.vip:18888/aio/huya/23749096
 http://iptv.jxpan.vip:18888/aio/huya/30080236
 #EXTINF:-1 group-title="动画频道",中华小当家
 http://iptv.jxpan.vip:18888/aio/huya/11342413
+#EXTINF:-1 group-title="电影频道",古天乐电影
+http://iptv.jxpan.vip:18888/aio/huya/29982675
 #EXTINF:-1 group-title="电影频道",罪犯电影
 http://iptv.jxpan.vip:18888/aio/huya/11352962
 #EXTINF:-1 group-title="电影频道",枪战电影
@@ -839,6 +839,8 @@ http://iptv.jxpan.vip:18888/aio/huya/11352958
 http://iptv.jxpan.vip:18888/aio/huya/11342425
 #EXTINF:-1 group-title="电视剧频道",爱情公寓
 http://iptv.jxpan.vip:18888/aio/huya/11336726
+#EXTINF:-1 group-title="电视剧频道",亮剑
+http://iptv.jxpan.vip:18888/aio/huya/30080238
 #EXTINF:-1 group-title="电视剧频道",雪豹
 http://iptv.jxpan.vip:18888/aio/huya/29580970
 #EXTINF:-1 group-title="电视剧频道",特种兵之火凤凰
@@ -965,7 +967,5 @@ http://stream.hrbtv.net/yspd/sd/live.m3u8?zheild
 http://stream.hrbtv.net/shpd/sd/live.m3u8?zheild
 #EXTINF:-1 tvg-name="哈尔滨娱乐" group-title="☘️黑龙江频道",哈尔滨娱乐
 http://stream.hrbtv.net/ylpd/sd/live.m3u8?zheild
-#EXTINF:-1 tvg-name="赣州新闻" group-title="地方频道",赣州新闻综合
-http://play-live-hls.jxtvcn.com.cn/live/tv_ganzhou.m3u8
 #EXTINF:-1 group-title="国际频道",Newsmax
 http://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8
