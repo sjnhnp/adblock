@@ -115,6 +115,8 @@ http://iptv.jxpan.vip:18888/aio/huya/21059585
 http://iptv.jxpan.vip:18888/aio/huya/11601986
 #EXTINF:-1 tvg-name="邵氏影院" group-title="电影频道", 邵氏影院
 http://iptv.jxpan.vip:18888/aio/douyu/4246519
+#EXTINF:-1 tvg-name="野蛮亲家" group-title="电影频道", 野蛮亲家
+http://iptv.jxpan.vip:18888/aio/huya/23863796
 #EXTINF:-1 tvg-name="金庸武侠" group-title="电影频道", 金庸武侠
 http://iptv.jxpan.vip:18888/aio/huya/11342435
 #EXTINF:-1 tvg-name="金枝欲孽" group-title="电影频道", 金枝欲孽
@@ -433,8 +435,6 @@ http://video.epaper.pybtv.cn:8080/live/rtmp_live_demo.flv
 http://play.kankanlive.com/live/1720408089419110.m3u8
 #EXTINF:-1 tvg-name="盈江综合" group-title="地方频道", 盈江综合
 http://live.ynurl.com/video/s10016-YJTV-2/index.m3u8?zyund
-#EXTINF:-1 tvg-name="睢宁三农" group-title="地方频道", 睢宁三农
-http://3739115337.cloudvdn.com/a.m3u8?domain=suining-tv-hls.cm.jstv.com&player=nwEAAJApyIx-AKAX&secondToken=secondToken%3AfyPrvACXUQ_VSZUu3Rxm-2py1fo&streamid=suining-tv%3Asuining-tv%2Fsuiningsn&v3=1
 #EXTINF:-1 tvg-name="石屏综合" group-title="地方频道", 石屏综合
 http://live.ynurl.com/video/s10059-SPTV/index.m3u8?zyund
 #EXTINF:-1 tvg-name="砚山电视台" group-title="地方频道", 砚山电视台
@@ -819,8 +819,6 @@ http://iptv.jxpan.vip:18888/aio/huya/23749096
 http://iptv.jxpan.vip:18888/aio/huya/30080236
 #EXTINF:-1 group-title="动画频道",中华小当家
 http://iptv.jxpan.vip:18888/aio/huya/11342413
-#EXTINF:-1 group-title="电影频道",古天乐电影
-http://iptv.jxpan.vip:18888/aio/huya/29982675
 #EXTINF:-1 group-title="电影频道",罪犯电影
 http://iptv.jxpan.vip:18888/aio/huya/11352962
 #EXTINF:-1 group-title="电影频道",枪战电影
@@ -841,8 +839,6 @@ http://iptv.jxpan.vip:18888/aio/huya/11352958
 http://iptv.jxpan.vip:18888/aio/huya/11342425
 #EXTINF:-1 group-title="电视剧频道",爱情公寓
 http://iptv.jxpan.vip:18888/aio/huya/11336726
-#EXTINF:-1 group-title="电视剧频道",亮剑
-http://iptv.jxpan.vip:18888/aio/huya/30080238
 #EXTINF:-1 group-title="电视剧频道",雪豹
 http://iptv.jxpan.vip:18888/aio/huya/29580970
 #EXTINF:-1 group-title="电视剧频道",特种兵之火凤凰
@@ -969,5 +965,7 @@ http://stream.hrbtv.net/yspd/sd/live.m3u8?zheild
 http://stream.hrbtv.net/shpd/sd/live.m3u8?zheild
 #EXTINF:-1 tvg-name="哈尔滨娱乐" group-title="☘️黑龙江频道",哈尔滨娱乐
 http://stream.hrbtv.net/ylpd/sd/live.m3u8?zheild
+#EXTINF:-1 tvg-name="赣州新闻" group-title="地方频道",赣州新闻综合
+http://play-live-hls.jxtvcn.com.cn/live/tv_ganzhou.m3u8
 #EXTINF:-1 group-title="国际频道",Newsmax
 http://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8
