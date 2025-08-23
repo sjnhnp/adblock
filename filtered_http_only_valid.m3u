@@ -33,8 +33,6 @@ http://jsmov2.a.yximgs.com/bs3/video-hls/5216294367991385255_hlsb.m3u8
 http://iptv.jxpan.vip:18888/aio/douyu/74374
 #EXTINF:-1 tvg-name="刑事侦缉档案" group-title="电影频道", 刑事侦缉档案
 http://iptv.jxpan.vip:18888/aio/huya/29465856
-#EXTINF:-1 tvg-name="刘德华电影" group-title="电影频道", 刘德华电影
-http://iptv.jxpan.vip:18888/aio/huya/11342424
 #EXTINF:-1 tvg-name="创世纪" group-title="电影频道", 创世纪
 http://iptv.jxpan.vip:18888/aio/huya/29465852
 #EXTINF:-1 tvg-name="功夫电影" group-title="电影频道", 功夫电影
@@ -433,6 +431,8 @@ http://video.epaper.pybtv.cn:8080/live/rtmp_live_demo.flv
 http://play.kankanlive.com/live/1720408089419110.m3u8
 #EXTINF:-1 tvg-name="盈江综合" group-title="地方频道", 盈江综合
 http://live.ynurl.com/video/s10016-YJTV-2/index.m3u8?zyund
+#EXTINF:-1 tvg-name="睢宁三农" group-title="地方频道", 睢宁三农
+http://3739115337.cloudvdn.com/a.m3u8?domain=suining-tv-hls.cm.jstv.com&player=nwEAAJApyIx-AKAX&secondToken=secondToken%3AfyPrvACXUQ_VSZUu3Rxm-2py1fo&streamid=suining-tv%3Asuining-tv%2Fsuiningsn&v3=1
 #EXTINF:-1 tvg-name="石屏综合" group-title="地方频道", 石屏综合
 http://live.ynurl.com/video/s10059-SPTV/index.m3u8?zyund
 #EXTINF:-1 tvg-name="砚山电视台" group-title="地方频道", 砚山电视台
@@ -851,8 +851,6 @@ http://iptv.jxpan.vip:18888/aio/huya/11342430
 http://iptv.jxpan.vip:18888/aio/huya/26355790
 #EXTINF:-1 group-title="电视剧频道",神雕侠侣
 http://iptv.jxpan.vip:18888/aio/huya/11352964
-#EXTINF:-1 group-title="电视剧频道",天龙八部
-http://iptv.jxpan.vip:18888/aio/huya/20985816
 #EXTINF:-1 group-title="电视剧频道",倚天屠龙记
 http://iptv.jxpan.vip:18888/aio/huya/11342403
 #EXTINF:-1 group-title="电视剧频道",铁齿铜牙纪晓岚
