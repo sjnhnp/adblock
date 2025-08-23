@@ -33,6 +33,8 @@ http://jsmov2.a.yximgs.com/bs3/video-hls/5216294367991385255_hlsb.m3u8
 http://iptv.jxpan.vip:18888/aio/douyu/74374
 #EXTINF:-1 tvg-name="刑事侦缉档案" group-title="电影频道", 刑事侦缉档案
 http://iptv.jxpan.vip:18888/aio/huya/29465856
+#EXTINF:-1 tvg-name="刘德华电影" group-title="电影频道", 刘德华电影
+http://iptv.jxpan.vip:18888/aio/huya/11342424
 #EXTINF:-1 tvg-name="创世纪" group-title="电影频道", 创世纪
 http://iptv.jxpan.vip:18888/aio/huya/29465852
 #EXTINF:-1 tvg-name="功夫电影" group-title="电影频道", 功夫电影
@@ -367,6 +369,8 @@ http://tmpstream.hyrtv.cn/hygg/sd/live.m3u8
 http://tmpstream.hyrtv.cn/xwzh/sd/live.m3u8
 #EXTINF:-1 tvg-name="泌阳新闻综合" group-title="地方频道", 泌阳新闻综合
 http://live.dxhmt.cn:9081/tv/11726-1.m3u8
+#EXTINF:-1 tvg-name="泗阳综合" group-title="地方频道", 泗阳综合
+http://3739115337.cloudvdn.com/a.m3u8?domain=siyang-tv-hls.cm.jstv.com&player=nwEAAKHdjSKP_58X&secondToken=secondToken%3A5FUijZmDyNMxtCDdne0YzSAwjuw&streamid=siyang-tv%3Asiyang-tv%2Fsiyangzh&v3=1
 #EXTINF:-1 tvg-name="泰州一套新闻综合" group-title="地方频道", 泰州一套新闻综合
 http://stream1.mytaizhou.net/xwzh/playlist.m3u8?_upt=2f3c2e461725409415
 #EXTINF:-1 tvg-name="洞头综合" group-title="地方频道", 洞头综合
@@ -851,6 +855,8 @@ http://iptv.jxpan.vip:18888/aio/huya/11342430
 http://iptv.jxpan.vip:18888/aio/huya/26355790
 #EXTINF:-1 group-title="电视剧频道",神雕侠侣
 http://iptv.jxpan.vip:18888/aio/huya/11352964
+#EXTINF:-1 group-title="电视剧频道",天龙八部
+http://iptv.jxpan.vip:18888/aio/huya/20985816
 #EXTINF:-1 group-title="电视剧频道",倚天屠龙记
 http://iptv.jxpan.vip:18888/aio/huya/11342403
 #EXTINF:-1 group-title="电视剧频道",铁齿铜牙纪晓岚
@@ -883,8 +889,6 @@ http://iptv.jxpan.vip:18888/aio/huya/26355866
 http://iptv.jxpan.vip:18888/aio/huya/23903130
 #EXTINF:-1 group-title="电视剧频道",永夜星河
 http://iptv.jxpan.vip:18888/aio/huya/23734169
-#EXTINF:-1 group-title="电视剧频道",流水迢迢
-http://iptv.jxpan.vip:18888/aio/huya/23865036
 #EXTINF:-1 group-title="电视剧频道",唐诡之西行
 http://iptv.jxpan.vip:18888/aio/huya/26355763
 #EXTINF:-1 group-title="电视剧频道",玫瑰的故事
