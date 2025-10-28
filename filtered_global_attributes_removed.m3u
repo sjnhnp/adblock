@@ -55,8 +55,6 @@ https://fl30.moveonjoy.com/CNBC/index.m3u8
 https://lightning-tracesport-samsungau.amagi.tv/playlist.m3u8
 #EXTINF:-1 group-title="国际",SportsGrid
 https://jmp2.uk/rok-62f1cd0d4c395a2a8ab72cff688666a0.m3u8
-#EXTINF:-1 group-title="国际",Sportsnet 360
-http://38.143.48.212:9981/stream/channelid/1618628267?profile=pass
 #EXTINF:-1 group-title="国际",Eurosport 4K
 http://nvsoo4tx.megogo.xyz/iptv/UWA8DBPMZFQ9PX9ZLSBM7FFX/31475/index.m3u8
 #EXTINF:-1 group-title="国际",BEIN Sports Xtra
@@ -199,3 +197,45 @@ https://fl30.moveonjoy.com/HBO_FAMILY/index.m3u8
 https://fl30.moveonjoy.com/HGTV/index.m3u8
 #EXTINF:-1 tvg-name="MLB Network" group-title="国际",MLB Network
 https://fl30.moveonjoy.com/MLB_NETWORK/index.m3u8
+#EXTINF:-1 tvg-name="NBA TV" group-title="国际",NBA TV
+https://fl30.moveonjoy.com/NBA_TV/index.m3u8
+#EXTINF:-1 tvg-name="TNT" group-title="国际",TNT
+https://fl30.moveonjoy.com/TNT/index.m3u8
+#EXTINF:-1 tvg-name="MTV2" group-title="国际",MTV2
+https://fl30.moveonjoy.com/MTV_2/index.m3u8
+#EXTINF:-1 tvg-name="National Geographic" group-title="国际",National Geographic
+https://fl30.moveonjoy.com/National_Geographic/index.m3u8
+#EXTINF:-1 tvg-name="National Geographic Wild" group-title="国际",National Geographic Wild
+https://fl30.moveonjoy.com/Nat_Geo_Wild/index.m3u8
+#EXTINF:-1 tvg-name="Oprah Winfrey Network" group-title="国际",Oprah Winfrey Network
+https://fl30.moveonjoy.com/OWN/index.m3u8
+#EXTINF:-1 tvg-name="Paramount Network" group-title="国际",Paramount Network
+https://fl30.moveonjoy.com/PARAMOUNT_NETWORK/index.m3u8
+#EXTINF:-1 tvg-name="Showtime" group-title="国际",Showtime
+https://fl30.moveonjoy.com/SHOWTIME/index.m3u8
+#EXTINF:-1 tvg-name="SEC Network" group-title="国际",SEC Network
+http://23.237.104.106:8080/USA_SEC_NETWORK/index.m3u8
+#EXTINF:-1 tvg-name="Showtime 2" group-title="国际",Showtime 2
+https://fl30.moveonjoy.com/SHOWTIME_2/index.m3u8
+#EXTINF:-1 tvg-name="Showtime Extreme" group-title="国际",Showtime Extreme
+https://fl30.moveonjoy.com/SHOWTIME_EXTREME/index.m3u8
+#EXTINF:-1 tvg-name="BET" group-title="国际",BET
+https://fl30.moveonjoy.com/BET_EAST/index.m3u8
+#EXTINF:-1 tvg-name="BET HER" group-title="国际",BET HER
+https://fl30.moveonjoy.com/BET_HER/index.m3u8
+#EXTINF:-1 tvg-name="BRAVO" group-title="国际",BRAVO
+https://fl30.moveonjoy.com/BRAVO/index.m3u8
+#EXTINF:-1 tvg-name="CARTOON NETWORK" group-title="国际",CARTOON NETWORK
+https://fl30.moveonjoy.com/CARTOON_NETWORK/index.m3u8
+#EXTINF:-1 tvg-name="Buzzr" group-title="国际",Buzzr
+https://fl30.moveonjoy.com/Buzzr/index.m3u8
+#EXTINF:-1 tvg-name="CINEMAX MOREMAX" group-title="国际",CINEMAX MOREMAX
+http://23.237.104.106:8080/USA_MOREMAX/index.m3u8
+#EXTINF:-1 tvg-name="CMT" group-title="国际",CMT
+https://fl30.moveonjoy.com/CMT/index.m3u8
+#EXTINF:-1 tvg-name="COOKING" group-title="国际",COOKING
+https://fl30.moveonjoy.com/COOKING_CHANNEL/index.m3u8
+#EXTINF:-1 tvg-name="FOOD NETWORK" group-title="国际",FOOD NETWORK
+https://fl30.moveonjoy.com/FOOD_NETWORK/index.m3u8
+#EXTINF:-1 tvg-name="ESPN NEWS" group-title="国际",ESPN NEWS
+https://fl30.moveonjoy.com/ESPN_NEWS/index.m3u8
