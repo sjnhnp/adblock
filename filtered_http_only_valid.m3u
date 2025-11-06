@@ -9,8 +9,6 @@ http://play1-qk.nmtv.cn/live/1686560387346365.m3u8
 http://iot-mqqt.111yao.cn:8080/live/diyp_fhdy.m3u8
 #EXTINF:-1 tvg-name="东森电影" group-title="电影频道", 东森电影
 http://live4play.uk/livehttpplay?channel_id=20104
-#EXTINF:-1 tvg-name="靖天电影" group-title="电影频道", 靖天电影
-http://live4play.uk/livehttpplay?channel_id=12037
 #EXTINF:-1 tvg-name="靖天戏剧" group-title="电影频道", 靖天戏剧
 http://breezy-audrie-zspace-7524863c.koyeb.app/vipsir?token=leifeng&id=4gtv-4gtv058
 #EXTINF:-1 tvg-name="靖天映画" group-title="电影频道", 靖天映画
@@ -23,8 +21,6 @@ http://jsmov2.a.yximgs.com/bs3/video-hls/5250634317044855747_hlsb.m3u8
 http://jsmov2.a.yximgs.com/bs3/video-hls/5232901391302199073_hlsb.m3u8
 #EXTINF:-1 tvg-name="倩女幽魂道道道" group-title="电影频道", 倩女幽魂道道道
 http://jsmov2.a.yximgs.com/bs3/video-hls/5216294367991385255_hlsb.m3u8
-#EXTINF:-1 tvg-name="周星驰电影" group-title="电影频道", 周星驰电影
-http://cfss.cc/cdn/hy/11342412.m3u8
 #EXTINF:-1 tvg-name="嘉兴文化影视" group-title="电影频道", 嘉兴文化影视
 http://play-sh13.quklive.com/live/1675149625220101.m3u8?auth_key=2028730374-3a60eb8e324f416aa3b26dda7679d920-0-22dc7efa8452d0b0665c15eeed83609d
 #EXTINF:-1 tvg-name="林正英电影" group-title="电影频道", 林正英电影
@@ -33,24 +29,20 @@ http://cfss.cc/cdn/hy/11342421.m3u8
 http://live.metshop.top/huya/21059578?cdn=alicdn
 #EXTINF:-1 tvg-name="电影八点档" group-title="电影频道", 电影八点档
 http://live.metshop.top/huya/880261?cdn=alicdn
+#EXTINF:-1 tvg-name="电影刘德华" group-title="电影频道", 电影刘德华
+http://live.metshop.top/huya/11342424?cdn=alicdn
 #EXTINF:-1 tvg-name="电影功夫片" group-title="电影频道", 电影功夫片
 http://live.metshop.top/huya/11352941?cdn=alicdn
-#EXTINF:-1 tvg-name="电影动作电影" group-title="电影频道", 电影动作电影
-http://live.metshop.top/huya/11602077?cdn=alicdn
+#EXTINF:-1 tvg-name="电影周星星" group-title="电影频道", 电影周星星
+http://live.metshop.top/huya/11336587?cdn=alicdn
 #EXTINF:-1 tvg-name="电影嫣然影厅" group-title="电影频道", 电影嫣然影厅
 http://live.metshop.top/huya/11601977?cdn=alicdn
-#EXTINF:-1 tvg-name="电影搞笑喜剧" group-title="电影频道", 电影搞笑喜剧
-http://live.metshop.top/huya/11342423?cdn=alicdn
-#EXTINF:-1 tvg-name="电影梁家辉" group-title="电影频道", 电影梁家辉
-http://live.metshop.top/huya/11342429?cdn=alicdn
+#EXTINF:-1 tvg-name="电影犯罪片" group-title="电影频道", 电影犯罪片
+http://live.metshop.top/huya/11352974?cdn=alicdn
 #EXTINF:-1 tvg-name="电影蜘蛛侠" group-title="电影频道", 电影蜘蛛侠
 http://live.metshop.top/huya/21059599?cdn=alicdn
 #EXTINF:-1 tvg-name="电影谍战" group-title="电影频道", 电影谍战
 http://live.metshop.top/huya/21059585?cdn=alicdn
-#EXTINF:-1 tvg-name="电影谍战片" group-title="电影频道", 电影谍战片
-http://live.metshop.top/huya/21059587?cdn=alicdn
-#EXTINF:-1 tvg-name="电影贺岁" group-title="电影频道", 电影贺岁
-http://live.metshop.top/huya/11601971?cdn=alicdn
 #EXTINF:-1 tvg-name="龙门飞甲" group-title="电影频道", 龙门飞甲
 http://jsmov2.a.yximgs.com/bs3/video-hls/5203346449046555193_hlsb.m3u8
 #EXTINF:-1 tvg-name="广东少儿" group-title="儿童频道", 广东少儿
@@ -336,7 +328,7 @@ http://hzcm-live.media.hugd.com/1e6b554b9ab74513958c0e1ffe664d22/9acaa7634309494
 #EXTINF:-1 tvg-name="湖州文化娱乐" group-title="地方频道", 湖州文化娱乐
 http://hzcm-live.media.hugd.com/613c47f0ab0d4eaa98b21378d0db6ded/0051d31c9dd543a7825eea4e49675b2a.m3u8?auth_key=2277598059-0a5ebfa1c0dc4671b42a60810fc37039-0-fa625b7d1feab612062453c12e3c8887
 #EXTINF:-1 tvg-name="湖州新闻综合" group-title="地方频道", 湖州新闻综合
-http://hzcm-live.media.hugd.com/3f5fa7d64c7c46a38c6bd8ad35e836cc/65128273761b4731ae53729ea6dcf932.m3u8?auth_key=2277598215-9d21c15111244bea8d298c361d31a72e-0-d031198f58d44b0e91ba2e3f3b188865
+http://hzcm-live.media.hugd.com/3f5fa7d64c7c46a38c6bd8ad35e836cc/65128273761b4731ae53729ea6dcf932.m3u8?auth_key=2277598215-9d21c15111244bea8d298c361d31a72e-0-d031198f58d44b0e91ba2e3f3b188865&amp;fbl=
 #EXTINF:-1 tvg-name="滦平新闻" group-title="地方频道", 滦平新闻
 http://jwplay.hebyun.com.cn/live/LPTV001/1500k/tzwj_video.m3u8
 #EXTINF:-1 tvg-name="烟台公共" group-title="地方频道", 烟台公共
@@ -353,6 +345,8 @@ http://video.epaper.pybtv.cn:8080/live/rtmp_live_demo.flv
 http://play.kankanlive.com/live/1720408089419110.m3u8
 #EXTINF:-1 tvg-name="盈江综合" group-title="地方频道", 盈江综合
 http://live.ynurl.com/video/s10016-YJTV-2/index.m3u8?zyund
+#EXTINF:-1 tvg-name="睢宁三农" group-title="地方频道", 睢宁三农
+http://3739115337.cloudvdn.com/a.m3u8?domain=suining-tv-hls.cm.jstv.com&player=nwEAAJApyIx-AKAX&secondToken=secondToken%3AfyPrvACXUQ_VSZUu3Rxm-2py1fo&streamid=suining-tv%3Asuining-tv%2Fsuiningsn&v3=1
 #EXTINF:-1 tvg-name="石屏综合" group-title="地方频道", 石屏综合
 http://live.ynurl.com/video/s10059-SPTV/index.m3u8?zyund
 #EXTINF:-1 tvg-name="砚山电视台" group-title="地方频道", 砚山电视台
@@ -391,14 +385,10 @@ http://drive.mxmy.net:8888/udp/239.3.1.165:8001
 http://stream.jmtv.com.cn/xwzh/sd/live.m3u8
 #EXTINF:-1 tvg-name="营山电视台" group-title="地方频道", 营山电视台
 http://file.ysxtv.cn/cms/videos/nmip-media/channellive/channel4/playlist.m3u8?zsicd#http://file.ysxtv.cn/cms/videos/nmip-media/channellive/channel4/playlist.m3u8
-#EXTINF:-1 tvg-name="萧山综合" group-title="地方频道", 萧山综合
-http://l.cztvcloud.com/channels/lantian/SXxiaoshan1/720p.m3u8
 #EXTINF:-1 tvg-name="蒙自综合" group-title="地方频道", 蒙自综合
 http://live.ynurl.com/video/s10019-mzdst/index.m3u8
 #EXTINF:-1 tvg-name="衡水公共" group-title="地方频道", 衡水公共
 http://ls.qingting.fm/live/2810.m3u8
-#EXTINF:-1 tvg-name="衢江新闻综合" group-title="地方频道", 衢江新闻综合
-http://l.cztvcloud.com/channels/lantian/SXqujiang1/720p.m3u8?zzhed
 #EXTINF:-1 tvg-name="象山新闻综合" group-title="地方频道", 象山新闻综合
 http://l.cztvcloud.com/channels/lantian/SXxiangshan1/720p.m3u8
 #EXTINF:-1 tvg-name="象山综合" group-title="地方频道", 象山综合
@@ -457,8 +447,6 @@ http://hslive.hsnewsnet.com/lsdream/iY92ady/1000/live.m3u8?zanhd
 http://hslive.hsnewsnet.com/lsdream/hve9Wjs/1000/live.m3u8
 #EXTINF:-1 tvg-name="龙井综合" group-title="地方频道", 龙井综合
 http://stream9.jlntv.cn:80/aac_longjinggb/playlist.m3u8
-#EXTINF:-1 tvg-name="龙泉新闻综合" group-title="地方频道", 龙泉新闻综合
-http://l.cztvcloud.com/channels/lantian/SXlongquan1/720p.m3u8
 #EXTINF:-1 tvg-name="航拍中国第二季" group-title="纪录频道", 航拍中国第二季
 http://newcntv.qcloudcdn.com/asp/hls/4000/0303000a/3/default/2bdfdad540b342f592f9817cb7f3b79a/4000.m3u8
 #EXTINF:-1 tvg-name="东丰" group-title="纪录频道", 东丰
@@ -519,110 +507,48 @@ http://english-livetx.cgtn.com/hls/yypdyyctzb_hd.m3u8
 http://russian-livews.cgtn.com/hls/LSvexABhNipibK5KRuUkvHZ7220802LSTeze9o8tdFXMHsb1VosgoT220802cd.m3u8
 #EXTINF:-1 tvg-name="CGTN法语" group-title="央视频道",CGTN法语
 http://espanol-liveali.cgtn.com/hls/LSveOGBaBw41Ea7ukkVAUdKQ220802LSTexu6xAuFH8VZNBLE1ZNEa220802cd.m3u8
-#EXTINF:-1 tvg-name="CCTV1" group-title="央视高清备用",CCTV1
-http://ygbh.site/php/bfgd.php?id=488
 #EXTINF:-1 tvg-name="CCTV2" group-title="央视高清备用",CCTV2
 http://ygbh.site/php/bfgd.php?id=061
-#EXTINF:-1 tvg-name="CCTV3" group-title="央视高清备用",CCTV3
-http://ygbh.site/php/bfgd.php?id=062
-#EXTINF:-1 tvg-name="CCTV4" group-title="央视高清备用",CCTV4
-http://ygbh.site/php/bfgd.php?id=063
-#EXTINF:-1 tvg-name="CCTV5" group-title="央视高清备用",CCTV5
-http://ygbh.site/php/bfgd.php?id=064
 #EXTINF:-1 tvg-name="CCTV5+" group-title="央视高清备用",CCTV5+
 http://ygbh.site/php/bfgd.php?id=246
-#EXTINF:-1 tvg-name="CCTV6" group-title="央视高清备用",CCTV6
-http://ygbh.site/php/bfgd.php?id=065
-#EXTINF:-1 tvg-name="CCTV7" group-title="央视高清备用",CCTV7
-http://ygbh.site/php/bfgd.php?id=127
 #EXTINF:-1 tvg-name="CCTV8" group-title="央视高清备用",CCTV8
 http://ygbh.site/php/bfgd.php?id=066
-#EXTINF:-1 tvg-name="CCTV9" group-title="央视高清备用",CCTV9
-http://ygbh.site/php/bfgd.php?id=128
-#EXTINF:-1 tvg-name="CCTV10" group-title="央视高清备用",CCTV10
-http://ygbh.site/php/bfgd.php?id=129
-#EXTINF:-1 tvg-name="CCTV12" group-title="央视高清备用",CCTV12
-http://ygbh.site/php/bfgd.php?id=131
 #EXTINF:-1 tvg-name="CCTV13" group-title="央视高清备用",CCTV13
 http://ygbh.site/php/bfgd.php?id=067
 #EXTINF:-1 tvg-name="CCTV14" group-title="央视高清备用",CCTV14
 http://ygbh.site/php/bfgd.php?id=132
-#EXTINF:-1 tvg-name="CCTV15" group-title="央视高清备用",CCTV15
-http://ygbh.site/php/bfgd.php?id=133
 #EXTINF:-1 tvg-name="CCTV17" group-title="央视高清备用",CCTV17
 http://ygbh.site/php/bfgd.php?id=204
-#EXTINF:-1 tvg-name="求索科学" group-title="央视高清备用",求索科学
-http://ygbh.site/php/bfgd.php?id=286
 #EXTINF:-1 tvg-name="世界地理" group-title="央视高清备用",世界地理
 http://ygbh.site/php/bfgd.php?id=177
-#EXTINF:-1 tvg-name="求索动物" group-title="央视高清备用",求索动物
-http://ygbh.site/php/bfgd.php?id=287
 #EXTINF:-1 tvg-name="求索生活" group-title="央视高清备用",求索生活
 http://ygbh.site/php/bfgd.php?id=288
 #EXTINF:-1 tvg-name="家庭影院" group-title="央视高清备用",家庭影院
 http://ygbh.site/php/bfgd.php?id=289
-#EXTINF:-1 tvg-name="卡酷少儿" group-title="央视高清备用",卡酷少儿
-http://ygbh.site/php/bfgd.php?id=106
-#EXTINF:-1 tvg-name="金鹰卡通" group-title="央视高清备用",金鹰卡通
-http://ygbh.site/php/bfgd.php?id=105
 #EXTINF:-1 tvg-name="北京卫视" group-title="央视高清备用",北京卫视
 http://ygbh.site/php/bfgd.php?id=083
-#EXTINF:-1 tvg-name="天津卫视" group-title="央视高清备用",天津卫视
-http://ygbh.site/php/bfgd.php?id=084
-#EXTINF:-1 tvg-name="江苏卫视" group-title="央视高清备用",江苏卫视
-http://ygbh.site/php/bfgd.php?id=085
 #EXTINF:-1 tvg-name="湖南卫视" group-title="央视高清备用",湖南卫视
 http://ygbh.site/php/bfgd.php?id=086
-#EXTINF:-1 tvg-name="东方卫视" group-title="央视高清备用",东方卫视
-http://ygbh.site/php/bfgd.php?id=093
-#EXTINF:-1 tvg-name="浙江卫视" group-title="央视高清备用",浙江卫视
-http://ygbh.site/php/bfgd.php?id=094
-#EXTINF:-1 tvg-name="广东卫视" group-title="央视高清备用",广东卫视
-http://ygbh.site/php/bfgd.php?id=092
 #EXTINF:-1 tvg-name="深圳卫视" group-title="央视高清备用",深圳卫视
 http://ygbh.site/php/bfgd.php?id=100
-#EXTINF:-1 tvg-name="安徽卫视" group-title="央视高清备用",安徽卫视
-http://ygbh.site/php/bfgd.php?id=096
 #EXTINF:-1 tvg-name="吉林卫视" group-title="央视高清备用",吉林卫视
 http://ygbh.site/php/bfgd.php?id=097
 #EXTINF:-1 tvg-name="江西卫视" group-title="央视高清备用",江西卫视
 http://ygbh.site/php/bfgd.php?id=098
 #EXTINF:-1 tvg-name="山东卫视" group-title="央视高清备用",山东卫视
 http://ygbh.site/php/bfgd.php?id=099
-#EXTINF:-1 tvg-name="辽宁卫视" group-title="央视高清备用",辽宁卫视
-http://ygbh.site/php/bfgd.php?id=058
-#EXTINF:-1 tvg-name="湖北卫视" group-title="央视高清备用",湖北卫视
-http://ygbh.site/php/bfgd.php?id=102
 #EXTINF:-1 tvg-name="东南卫视" group-title="央视高清备用",东南卫视
 http://ygbh.site/php/bfgd.php?id=483
 #EXTINF:-1 tvg-name="海南卫视" group-title="央视高清备用",海南卫视
 http://ygbh.site/php/bfgd.php?id=473
-#EXTINF:-1 tvg-name="河南卫视" group-title="央视高清备用",河南卫视
-http://ygbh.site/php/bfgd.php?id=104
 #EXTINF:-1 tvg-name="河北卫视" group-title="央视高清备用",河北卫视
 http://ygbh.site/php/bfgd.php?id=108
-#EXTINF:-1 tvg-name="四川卫视" group-title="央视高清备用",四川卫视
-http://ygbh.site/php/bfgd.php?id=103
-#EXTINF:-1 tvg-name="重庆卫视" group-title="央视高清备用",重庆卫视
-http://ygbh.site/php/bfgd.php?id=107
-#EXTINF:-1 tvg-name="广西卫视" group-title="央视高清备用",广西卫视
-http://ygbh.site/php/bfgd.php?id=116
-#EXTINF:-1 tvg-name="云南卫视" group-title="央视高清备用",云南卫视
-http://ygbh.site/php/bfgd.php?id=115
-#EXTINF:-1 tvg-name="贵州卫视" group-title="央视高清备用",贵州卫视
-http://ygbh.site/php/bfgd.php?id=101
 #EXTINF:-1 tvg-name="陕西卫视" group-title="央视高清备用",陕西卫视
 http://ygbh.site/php/bfgd.php?id=114
-#EXTINF:-1 tvg-name="山西卫视" group-title="央视高清备用",山西卫视
-http://ygbh.site/php/bfgd.php?id=109
 #EXTINF:-1 tvg-name="青海卫视" group-title="央视高清备用",青海卫视
 http://ygbh.site/php/bfgd.php?id=111
 #EXTINF:-1 tvg-name="延边卫视" group-title="央视高清备用",延边卫视
 http://ygbh.site/php/bfgd.php?id=117
-#EXTINF:-1 tvg-name="宁夏卫视" group-title="央视高清备用",宁夏卫视
-http://ygbh.site/php/bfgd.php?id=118
-#EXTINF:-1 tvg-name="甘肃卫视" group-title="央视高清备用",甘肃卫视
-http://ygbh.site/php/bfgd.php?id=119
 #EXTINF:-1 tvg-name="农林卫视" group-title="央视高清备用",农林卫视
 http://ygbh.site/php/bfgd.php?id=122
 #EXTINF:-1 tvg-name="兵团卫视" group-title="央视高清备用",兵团卫视
@@ -637,8 +563,6 @@ http://ygbh.site/php/bfgd.php?id=095
 http://ygbh.site/php/bfgd.php?id=110
 #EXTINF:-1 tvg-name="山东教育卫视" group-title="央视高清备用",山东教育卫视
 http://ygbh.site/php/bfgd.php?id=112
-#EXTINF:-1 tvg-name="天元围棋" group-title="央视高清备用",天元围棋
-http://ygbh.site/php/bfgd.php?id=144
 #EXTINF:-1,tvg-id="云南卫视" tvg-name="云南卫视" group-title="卫视频道",云南卫视
 http://nn.7x9d.cn/xzc2.php?ua=TW96aWxsYS81LjAgKFdpbmRvd3MgTlQgNi4xOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTA2LjAuMC4wIFNhZmFyaS81MzcuMzY=&hls=aHR0cDovL3d3dy5kc2suY2MvcGhwL3N4Z2QucGhwP2lkPXlud3M=
 #EXTINF:-1 tvg-name="厦门卫视" group-title="卫视频道",厦门卫视
@@ -647,10 +571,42 @@ http://e2.woc.iiiya.cn:28888/rtp/239.61.2.11:8060
 http://nn.7x9d.cn/地方台8563/海南.php?id=hnws
 #EXTINF:-1 tvg-name="浙江卫视" group-title="卫视频道",浙江卫视
 http://ali-m-l.cztv.com/channels/lantian/channel001/1080p.m3u8
+#EXTINF:-1 tvg-name="CCTV2" group-title="咪咕备用",CCTV2
+http://t.061899.xyz/tl/dq.php?id=cctv2
+#EXTINF:-1 tvg-name="CCTV6" group-title="咪咕备用",CCTV6
+http://t.061899.xyz/tl/dq.php?id=cctv6
+#EXTINF:-1 tvg-name="CCTV8" group-title="咪咕备用",CCTV8
+http://t.061899.xyz/tl/dq.php?id=cctv8
+#EXTINF:-1 tvg-name="CCTV11" group-title="咪咕备用",CCTV11
+http://t.061899.xyz/tl/dq.php?id=cctv11
+#EXTINF:-1 tvg-name="CCTV13" group-title="咪咕备用",CCTV13
+http://t.061899.xyz/tl/dq.php?id=cctv13
+#EXTINF:-1 tvg-name="CCTV15" group-title="咪咕备用",CCTV15
+http://t.061899.xyz/tl/dq.php?id=cctv15
+#EXTINF:-1 tvg-name="CCTV17" group-title="咪咕备用",CCTV17
+http://t.061899.xyz/tl/dq.php?id=cctv17
+#EXTINF:-1 tvg-name="CCTV发现之旅" group-title="咪咕备用",CCTV发现之旅
+http://t.061899.xyz/tl/dq.php?id=fxzl
+#EXTINF:-1 tvg-name="湖南卫视" group-title="咪咕备用",湖南卫视
+http://t.061899.xyz/tl/dq.php?id=hunws
+#EXTINF:-1 tvg-name="东南卫视" group-title="咪咕备用",东南卫视
+http://t.061899.xyz/tl/dq.php?id=dnws
+#EXTINF:-1 tvg-name="河北卫视" group-title="咪咕备用",河北卫视
+http://t.061899.xyz/tl/dq.php?id=hbws
+#EXTINF:-1 tvg-name="深圳卫视" group-title="咪咕备用",深圳卫视
+http://t.061899.xyz/tl/dq.php?id=szws
+#EXTINF:-1 tvg-name="四川卫视" group-title="咪咕备用",四川卫视
+http://t.061899.xyz/tl/dq.php?id=scws
+#EXTINF:-1 tvg-name="西藏卫视" group-title="咪咕备用",西藏卫视
+http://t.061899.xyz/tl/dq.php?id=xzws
 #EXTINF:-1 tvg-name="河南卫视" group-title="咪咕备用",河南卫视
 http://lxajh.top/tv/hn.php?id=hnws
-#EXTINF:-1 tvg-name="西藏卫视" group-title="咪咕备用",西藏卫视
-http://php.jdshipin.com:8880/xztv.php?id=ws
+#EXTINF:-1 tvg-name="劲爆体育" group-title="咪咕备用",劲爆体育
+http://t.061899.xyz/tl/dq.php?id=jbty
+#EXTINF:-1 tvg-name="乐游" group-title="咪咕备用",乐游
+http://t.061899.xyz/tl/dq.php?id=ly
+#EXTINF:-1 tvg-name="江苏国际" group-title="咪咕备用",江苏国际
+http://t.061899.xyz/tl/dq.php?id=jsgj
 #EXTINF:-1 tvg-name="CCTV4K" group-title="移动IPTV",CCTV-4K
 http://www.tszhgjj.cn:7000/rtp/239.253.93.134:6631
 #EXTINF:-1 tvg-name="星空国际" group-title="港澳台频道",星空国际
@@ -659,12 +615,8 @@ http://iot-mqqt.111yao.cn:8080/live/diyp_starmovies.m3u8
 http://php.jdshipin.com/TVOD/iptv.php?id=asam
 #EXTINF:-1 tvg-name="莲花卫视" group-title="港澳台频道",莲花卫视
 http://live-hls.macaulotustv.com/lotustv/macaulotustv.m3u8
-#EXTINF:-1 tvg-name="无线新闻" group-title="港澳台频道",TVB无线新闻
-http://cdn9.163189.xyz/smt1.1.php?id=inews_twn
 #EXTINF:-1 tvg-name="翡翠台" group-title="港澳台频道",TVB翡翠台 1080P
 http://php.jdshipin.com:8880/TVOD/iptv.php?id=fct3
-#EXTINF:-1 tvg-name="明珠台" group-title="港澳台频道",TVB明珠台
-http://cdn9.163189.xyz/smt1.1.php?id=pearl_twn
 #EXTINF:-1 tvg-name="星空卫视" group-title="港澳台频道",星空卫视
 http://iot-mqqt.111yao.cn:8080/live/diyp_xingkong.m3u8
 #EXTINF:-1 tvg-name="环球电视" group-title="港澳台频道",环球电视
@@ -691,136 +643,80 @@ http://ottproxy2.ist.ooo/livehls/MOB-U1-NO/03.m3u8
 http://live4play.uk/livehttpplay?channel_id=20199
 #EXTINF:-1 tvg-name="大立电视台" group-title="港澳台频道",大立电视台
 http://www.dalitv.com.tw:4568/live/dali/index.m3u8
+#EXTINF:-1 tvg-name="靖天电影" group-title="港澳台频道",靖天电影
+http://live4play.uk/livehttpplay?channel_id=12037
 #EXTINF:-1 tvg-name="半岛新闻" group-title="港澳台频道",半岛新闻
 http://live-hls-web-aje.getaj.net/AJE/01.m3u8
-#EXTINF:-1 group-title="动画频道",哆啦A梦
-http://live.nctv.top/huya.php?id=11601963
-#EXTINF:-1 group-title="动画频道",猫和老鼠
-http://live.nctv.top/huya.php?id=11352879
 #EXTINF:-1 group-title="动画频道",喜羊羊与灰太狼
 http://live.nctv.top/huya.php?id=23865080
-#EXTINF:-1 group-title="动画频道",中华小当家
-http://live.nctv.top/huya.php?id=11342413
-#EXTINF:-1 group-title="电影频道",刘德华电影
-http://live.nctv.top/huya.php?id=11342424
-#EXTINF:-1 group-title="电影频道",成龙电影
-http://live.nctv.top/huya.php?id=11342386
+#EXTINF:-1 group-title="动画频道",精灵宝可梦
+http://live.nctv.top/huya.php?id=23749096
+#EXTINF:-1 group-title="电影频道",古天乐电影
+http://live.nctv.top/huya.php?id=29982675
+#EXTINF:-1 group-title="电影频道",甄子丹电影
+http://live.nctv.top/huya.php?id=11352935
 #EXTINF:-1 group-title="电影频道",沈腾电影
 http://live.nctv.top/huya.php?id=11601968
-#EXTINF:-1 group-title="电影频道",黄渤电影
-http://live.nctv.top/huya.php?id=11352876
 #EXTINF:-1 group-title="电影频道",强森电影
 http://live.nctv.top/huya.php?id=21059581
-#EXTINF:-1 group-title="电影频道",武侠电影
-http://live.nctv.top/huya.php?id=11342427
-#EXTINF:-1 group-title="电影频道",玄幻电影
-http://live.nctv.top/huya.php?id=11342414
+#EXTINF:-1 group-title="电影频道",王晶电影
+http://live.nctv.top/huya.php?id=11602058
+#EXTINF:-1 group-title="电影频道",功夫电影
+http://live.nctv.top/huya.php?id=11352941
 #EXTINF:-1 group-title="电影频道",战争电影
 http://live.nctv.top/huya.php?id=21059574
 #EXTINF:-1 group-title="电影频道",谍战电影
 http://live.nctv.top/huya.php?id=21059585
 #EXTINF:-1 group-title="电影频道",枪战电影
 http://live.nctv.top/huya.php?id=21059579
-#EXTINF:-1 group-title="电影频道",狄仁杰电影
-http://live.nctv.top/huya.php?id=30080229
-#EXTINF:-1 group-title="电影频道",宇宙科幻合集
-http://live.nctv.top/huya.php?id=11342428
-#EXTINF:-1 group-title="电影频道",欧美大片
-http://live.nctv.top/douyu.php?id=2793084
-#EXTINF:-1 group-title="电影频道",邵氏影院
-http://live.nctv.top/douyu.php?id=4246519
-#EXTINF:-1 group-title="电影频道",冰冰影剧
-http://live.nctv.top/douyu.php?id=74374
-#EXTINF:-1 group-title="电影频道",斗鱼港剧
-http://live.nctv.top/douyu.php?id=5061550
 #EXTINF:-1 group-title="电视剧频道",延禧攻略
 http://cfss.cc/cdn/hy/26355864.m3u8
 #EXTINF:-1 group-title="电视剧频道",新三国
 http://cfss.cc/cdn/hy/11352944.m3u8
-#EXTINF:-1 group-title="电视剧频道",新水浒传
-http://cfss.cc/cdn/hy/11342384.m3u8
-#EXTINF:-1 group-title="电视剧频道",新三国（斗鱼）
-http://live.nctv.top/douyu.php?id=5908256
-#EXTINF:-1 group-title="电视剧频道",神探狄仁杰第一部
-http://live.nctv.top/huya.php?id=11352958
+#EXTINF:-1 group-title="电视剧频道",神探狄仁杰第三部
+http://live.nctv.top/huya.php?id=11342425
 #EXTINF:-1 group-title="电视剧频道",爱情公寓
 http://live.nctv.top/huya.php?id=11336726
-#EXTINF:-1 group-title="电视剧频道",亮剑
-http://live.nctv.top/huya.php?id=30080238
-#EXTINF:-1 group-title="电视剧频道",笑傲江湖
-http://live.nctv.top/huya.php?id=26355790
+#EXTINF:-1 group-title="电视剧频道",士兵突击
+http://live.nctv.top/huya.php?id=11342430
 #EXTINF:-1 group-title="电视剧频道",神雕侠侣
 http://live.nctv.top/huya.php?id=11352964
-#EXTINF:-1 group-title="电视剧频道",铁齿铜牙纪晓岚
-http://live.nctv.top/huya.php?id=11342396
-#EXTINF:-1 group-title="电视剧频道",康熙王朝
-http://live.nctv.top/huya.php?id=11352940
-#EXTINF:-1 group-title="电视剧频道",陈情令
-http://live.nctv.top/huya.php?id=29465862
-#EXTINF:-1 group-title="电视剧频道",庆余年
-http://live.nctv.top/huya.php?id=11352960
-#EXTINF:-1 group-title="电视剧频道",鬼吹灯之精绝古城
-http://live.nctv.top/huya.php?id=11352871
+#EXTINF:-1 group-title="电视剧频道",倚天屠龙记
+http://live.nctv.top/huya.php?id=11342403
 #EXTINF:-1 group-title="电视剧频道",鬼吹灯之怒晴湘西
 http://live.nctv.top/huya.php?id=11602075
-#EXTINF:-1 group-title="电视剧频道",鬼吹灯之龙岭迷窟
-http://live.nctv.top/huya.php?id=29465863
-#EXTINF:-1 group-title="电视剧频道",鬼吹灯之云南虫谷
-http://live.nctv.top/huya.php?id=11352898
-#EXTINF:-1 group-title="电视剧频道",西游记续集
-http://live.nctv.top/douyu.php?id=3113309
-#EXTINF:-1 group-title="电视剧频道", 三国演义
-http://live.nctv.top/huya.php?id=11602081
 #EXTINF:-1 group-title="电视剧频道",西游记
 http://live.nctv.top/huya.php?id=26355861
 #EXTINF:-1 group-title="电视剧频道",乌龙闯情关
 http://live.nctv.top/huya.php?id=26355767
-#EXTINF:-1 group-title="电视剧频道",流水迢迢
-http://live.nctv.top/huya.php?id=23865036
-#EXTINF:-1 group-title="电视剧频道",唐诡之西行
-http://live.nctv.top/huya.php?id=26355763
-#EXTINF:-1 group-title="电视剧频道",玫瑰的故事
-http://live.nctv.top/huya.php?id=23865142
-#EXTINF:-1 group-title="电视剧频道",梦中的那片海
-http://live.nctv.top/huya.php?id=26355765
-#EXTINF:-1 group-title="电视剧频道",康熙微服私访记
-http://live.nctv.top/huya.php?id=11342418
+#EXTINF:-1 group-title="电视剧频道",柳舟计
+http://live.nctv.top/huya.php?id=23860039
+#EXTINF:-1 group-title="电视剧频道",与凤行
+http://live.nctv.top/huya.php?id=26355866
+#EXTINF:-1 group-title="电视剧频道",永夜星河
+http://live.nctv.top/huya.php?id=23734169
 #EXTINF:-1 group-title="电视剧频道",如懿传
 http://live.nctv.top/huya.php?id=29465868
-#EXTINF:-1 group-title="电视剧频道",芈月传
-http://live.nctv.top/huya.php?id=11352975
-#EXTINF:-1 group-title="埋堆堆频道",封神榜
-http://live.nctv.top/huya.php?id=29465849
-#EXTINF:-1 group-title="埋堆堆频道",无心法师
-http://live.nctv.top/huya.php?id=30080233
+#EXTINF:-1 group-title="埋堆堆频道",楚汉骄雄
+http://live.nctv.top/huya.php?id=29465854
 #EXTINF:-1 group-title="埋堆堆频道",西游记2
 http://live.nctv.top/huya.php?id=29465859
 #EXTINF:-1 group-title="埋堆堆频道",活佛济公3
 http://live.nctv.top/huya.php?id=23903123
 #EXTINF:-1 group-title="埋堆堆频道",寻秦记
 http://live.nctv.top/huya.php?id=29465848
-#EXTINF:-1 group-title="埋堆堆频道",大唐双龙传
-http://live.nctv.top/huya.php?id=29465850
-#EXTINF:-1 group-title="埋堆堆频道",射雕英雄传
-http://live.nctv.top/huya.php?id=23824164
 #EXTINF:-1 group-title="埋堆堆频道",倚天屠龙记
 http://live.nctv.top/huya.php?id=23734246
-#EXTINF:-1 group-title="埋堆堆频道",刑事侦缉档案
-http://live.nctv.top/huya.php?id=29465856
 #EXTINF:-1 group-title="埋堆堆频道",法政先锋
 http://live.nctv.top/huya.php?id=23863804
+#EXTINF:-1 group-title="埋堆堆频道",洗冤录
+http://live.nctv.top/huya.php?id=29465851
 #EXTINF:-1 group-title="埋堆堆频道",陀枪师姐
 http://live.nctv.top/huya.php?id=29465857
-#EXTINF:-1 group-title="埋堆堆频道",使徒行者
-http://live.nctv.top/huya.php?id=23734256
-#EXTINF:-1 group-title="埋堆堆频道",金枝欲孽
-http://live.nctv.top/huya.php?id=29465847
-#EXTINF:-1 group-title="埋堆堆频道",扫黄先锋
-http://live.nctv.top/huya.php?id=29465855
-#EXTINF:-1 group-title="埋堆堆频道",创世纪
-http://live.nctv.top/huya.php?id=29465852
 #EXTINF:-1 group-title="埋堆堆频道",妙手仁心
 http://live.nctv.top/huya.php?id=29465853
+#EXTINF:-1 group-title="埋堆堆频道",野蛮亲家
+http://live.nctv.top/huya.php?id=23863796
 #EXTINF:-1 group-title="☘️四川频道",广安公共
 http://live1.gatv.com.cn:85/live/GGPD_ggpdzm.m3u8?zsicd
 #EXTINF:-1 tvg-name="辽宁公共" group-title="☘️辽宁频道",辽宁公共
