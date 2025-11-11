@@ -7,6 +7,8 @@ http://m3u8.channel.wsrtv.com.cn/cms/videos/nmip-media/channellive/channel7/play
 http://play1-qk.nmtv.cn/live/1686560387346365.m3u8
 #EXTINF:-1 tvg-name="凤凰电影" group-title="电影频道", 凤凰电影
 http://iot-mqqt.111yao.cn:8080/live/diyp_fhdy.m3u8
+#EXTINF:-1 tvg-name="靖天电影" group-title="电影频道", 靖天电影
+http://live4play.uk/livehttpplay?channel_id=12037
 #EXTINF:-1 tvg-name="靖天戏剧" group-title="电影频道", 靖天戏剧
 http://breezy-audrie-zspace-7524863c.koyeb.app/vipsir?token=leifeng&id=4gtv-4gtv058
 #EXTINF:-1 tvg-name="靖天映画" group-title="电影频道", 靖天映画
@@ -29,20 +31,16 @@ http://cfss.cc/cdn/hy/11342421.m3u8
 http://live.metshop.top/huya/21059578?cdn=alicdn
 #EXTINF:-1 tvg-name="电影八点档" group-title="电影频道", 电影八点档
 http://live.metshop.top/huya/880261?cdn=alicdn
-#EXTINF:-1 tvg-name="电影功夫片" group-title="电影频道", 电影功夫片
-http://live.metshop.top/huya/11352941?cdn=alicdn
-#EXTINF:-1 tvg-name="电影嫣然影厅" group-title="电影频道", 电影嫣然影厅
-http://live.metshop.top/huya/11601977?cdn=alicdn
-#EXTINF:-1 tvg-name="电影战争片" group-title="电影频道", 电影战争片
-http://live.metshop.top/huya/21059574?cdn=alicdn
-#EXTINF:-1 tvg-name="电影犯罪片" group-title="电影频道", 电影犯罪片
-http://live.metshop.top/huya/11352974?cdn=alicdn
+#EXTINF:-1 tvg-name="电影周星星" group-title="电影频道", 电影周星星
+http://live.metshop.top/huya/11336587?cdn=alicdn
+#EXTINF:-1 tvg-name="电影搞笑喜剧" group-title="电影频道", 电影搞笑喜剧
+http://live.metshop.top/huya/11342423?cdn=alicdn
+#EXTINF:-1 tvg-name="电影梁家辉" group-title="电影频道", 电影梁家辉
+http://live.metshop.top/huya/11342429?cdn=alicdn
 #EXTINF:-1 tvg-name="电影蜘蛛侠" group-title="电影频道", 电影蜘蛛侠
 http://live.metshop.top/huya/21059599?cdn=alicdn
-#EXTINF:-1 tvg-name="电影谍战" group-title="电影频道", 电影谍战
-http://live.metshop.top/huya/21059585?cdn=alicdn
-#EXTINF:-1 tvg-name="电影贺岁" group-title="电影频道", 电影贺岁
-http://live.metshop.top/huya/11601971?cdn=alicdn
+#EXTINF:-1 tvg-name="电影谍战片" group-title="电影频道", 电影谍战片
+http://live.metshop.top/huya/21059587?cdn=alicdn
 #EXTINF:-1 tvg-name="龙门飞甲" group-title="电影频道", 龙门飞甲
 http://jsmov2.a.yximgs.com/bs3/video-hls/5203346449046555193_hlsb.m3u8
 #EXTINF:-1 tvg-name="广东少儿" group-title="儿童频道", 广东少儿
@@ -81,6 +79,8 @@ http://live.dxhmt.cn:9081/tv/11122-1.m3u8
 http://stream10.jlntv.cn/jiutaitv/sd/live.m3u8
 #EXTINF:-1 tvg-name="云和新闻综合" group-title="地方频道", 云和新闻综合
 http://l.cztvcloud.com/channels/lantian/SXyunhe1/720p.m3u8
+#EXTINF:-1 tvg-name="井研综合" group-title="地方频道", 井研综合
+http://tvfile.jyrmt.cn/nmip-media/channellive/channel104452/playlist.m3u8
 #EXTINF:-1 tvg-name="亳州农村" group-title="地方频道", 亳州农村
 http://zbbf2.ahbztv.com/live/418.m3u8
 #EXTINF:-1 tvg-name="什邡新闻" group-title="地方频道", 什邡新闻
@@ -171,8 +171,6 @@ http://lbyzztfe.live.sxmty.com/live/hls/645ff4c60e0a49f0a203abbd73dd8be9/0720e66
 http://yixing-tv-ori-hls.jstv.com/yixing-tv-ori/yixing_xw.m3u8
 #EXTINF:-1 tvg-name="宾阳综合" group-title="地方频道", 宾阳综合
 http://pulls.myun.tv/live/0dkp33j5.m3u8
-#EXTINF:-1 tvg-name="宿松新闻综合" group-title="地方频道", 宿松新闻综合
-http://live.ahsz.tv/video/s10001-szzh/index.m3u8
 #EXTINF:-1 tvg-name="屏边综合" group-title="地方频道", 屏边综合
 http://live.ynurl.com/video/s10040-pbzh/index.m3u8?zyund
 #EXTINF:-1 tvg-name="山东新闻" group-title="地方频道", 山东新闻
@@ -242,7 +240,7 @@ http://l.cztvcloud.com/channels/lantian/SXputuo1/720p.m3u8
 #EXTINF:-1 tvg-name="来宾综合" group-title="地方频道", 来宾综合
 http://zb.gxlbamc.com:1935/live/lbzh.stream/playlist.m3u8
 #EXTINF:-1 tvg-name="松潘新闻综合" group-title="地方频道", 松潘新闻综合
-http://live.spccmc.com:90/live/spxwzh.m3u8
+http://live.spccmc.com:90/live/spxwzh.m3u8?zsicd
 #EXTINF:-1 tvg-name="松阳综合" group-title="地方频道", 松阳综合
 http://l.cztvcloud.com/channels/lantian/SXsongyang1/720p.m3u8
 #EXTINF:-1 tvg-name="柳河综合" group-title="地方频道", 柳河综合
@@ -411,6 +409,8 @@ http://cnpull.sccnfb.com:80/live/123456.m3u8
 http://tpc.x3322.net:9901/tsfile/live/1010_1.m3u8
 #EXTINF:-1 tvg-name="长沙新闻综合" group-title="地方频道", 长沙新闻综合
 http://ls.qingting.fm/live/4877.m3u8
+#EXTINF:-1 tvg-name="长治公共" group-title="地方频道", 长治公共
+http://live.njgdmm.com/changzhi/cztv2.m3u8
 #EXTINF:-1 tvg-name="长白山电视台" group-title="地方频道", 长白山电视台
 http://stream8.jlntv.cn/cbstv/sd/live.m3u8?zjild
 #EXTINF:-1 tvg-name="长白朝语" group-title="地方频道", 长白朝语
@@ -673,82 +673,38 @@ http://ottproxy2.ist.ooo/livehls/MOB-U1-NO/03.m3u8
 http://live4play.uk/livehttpplay?channel_id=20199
 #EXTINF:-1 tvg-name="大立电视台" group-title="港澳台频道",大立电视台
 http://www.dalitv.com.tw:4568/live/dali/index.m3u8
-#EXTINF:-1 tvg-name="靖天电影" group-title="港澳台频道",靖天电影
-http://live4play.uk/livehttpplay?channel_id=12037
 #EXTINF:-1 tvg-name="半岛新闻" group-title="港澳台频道",半岛新闻
 http://live-hls-web-aje.getaj.net/AJE/01.m3u8
 #EXTINF:-1 group-title="动画频道",七龙珠
 http://live.nctv.top/huya.php?id=11601966
-#EXTINF:-1 group-title="动画频道",哆啦A梦
-http://live.nctv.top/huya.php?id=11601963
 #EXTINF:-1 group-title="动画频道",猫和老鼠
 http://live.nctv.top/huya.php?id=11352879
-#EXTINF:-1 group-title="动画频道",喜羊羊与灰太狼
-http://live.nctv.top/huya.php?id=23865080
-#EXTINF:-1 group-title="动画频道",精灵宝可梦
-http://live.nctv.top/huya.php?id=23749096
-#EXTINF:-1 group-title="动画频道",名侦探柯南
-http://live.nctv.top/huya.php?id=30080236
-#EXTINF:-1 group-title="动画频道",中华小当家
-http://live.nctv.top/huya.php?id=11342413
-#EXTINF:-1 group-title="电影频道",刘德华电影
-http://live.nctv.top/huya.php?id=11342424
-#EXTINF:-1 group-title="电影频道",古天乐电影
-http://live.nctv.top/huya.php?id=29982675
 #EXTINF:-1 group-title="电影频道",成龙电影
 http://live.nctv.top/huya.php?id=11342386
 #EXTINF:-1 group-title="电影频道",李连杰电影
 http://live.nctv.top/huya.php?id=11342390
 #EXTINF:-1 group-title="电影频道",甄子丹电影
 http://live.nctv.top/huya.php?id=11352935
-#EXTINF:-1 group-title="电影频道",沈腾电影
-http://live.nctv.top/huya.php?id=11601968
 #EXTINF:-1 group-title="电影频道",黄渤电影
 http://live.nctv.top/huya.php?id=11352876
-#EXTINF:-1 group-title="电影频道",强森电影
-http://live.nctv.top/huya.php?id=21059581
-#EXTINF:-1 group-title="电影频道",王晶电影
-http://live.nctv.top/huya.php?id=11602058
-#EXTINF:-1 group-title="电影频道",金庸武侠
-http://live.nctv.top/huya.php?id=11342435
-#EXTINF:-1 group-title="电影频道",功夫电影
-http://live.nctv.top/huya.php?id=11352941
-#EXTINF:-1 group-title="电影频道",贺岁电影
-http://live.nctv.top/huya.php?id=11601986
-#EXTINF:-1 group-title="电影频道",怪兽电影
-http://live.nctv.top/huya.php?id=21059577
 #EXTINF:-1 group-title="电影频道",武侠电影
 http://live.nctv.top/huya.php?id=11342427
 #EXTINF:-1 group-title="电影频道",玄幻电影
 http://live.nctv.top/huya.php?id=11342414
 #EXTINF:-1 group-title="电影频道",罪犯电影
 http://live.nctv.top/huya.php?id=11352962
-#EXTINF:-1 group-title="电影频道",战争电影
-http://live.nctv.top/huya.php?id=21059574
-#EXTINF:-1 group-title="电影频道",谍战电影
-http://live.nctv.top/huya.php?id=21059585
 #EXTINF:-1 group-title="电影频道",枪战电影
 http://live.nctv.top/huya.php?id=21059579
 #EXTINF:-1 group-title="电影频道",狄仁杰电影
 http://live.nctv.top/huya.php?id=30080229
-#EXTINF:-1 group-title="电影频道",宇宙科幻合集
-http://live.nctv.top/huya.php?id=11342428
 #EXTINF:-1 group-title="电影频道",欧美大片
 http://live.nctv.top/douyu.php?id=2793084
-#EXTINF:-1 group-title="电影频道",邵氏影院
-http://live.nctv.top/douyu.php?id=4246519
 #EXTINF:-1 group-title="电影频道",冰冰影剧
 http://live.nctv.top/douyu.php?id=74374
-#EXTINF:-1 group-title="电影频道",斗鱼港剧
-http://live.nctv.top/douyu.php?id=5061550
-#EXTINF:-1 group-title="电视剧频道",延禧攻略
-http://cfss.cc/cdn/hy/26355864.m3u8
 #EXTINF:-1 group-title="电视剧频道",新三国
 http://cfss.cc/cdn/hy/11352944.m3u8
 #EXTINF:-1 group-title="电视剧频道",新三国（斗鱼）
 http://live.nctv.top/douyu.php?id=5908256
-#EXTINF:-1 group-title="电视剧频道",神探狄仁杰第一部
-http://live.nctv.top/huya.php?id=11352958
 #EXTINF:-1 group-title="电视剧频道",神探狄仁杰第三部
 http://live.nctv.top/huya.php?id=11342425
 #EXTINF:-1 group-title="电视剧频道",爱情公寓
@@ -757,106 +713,48 @@ http://live.nctv.top/huya.php?id=11336726
 http://live.nctv.top/huya.php?id=30080238
 #EXTINF:-1 group-title="电视剧频道",雪豹
 http://live.nctv.top/huya.php?id=29580970
-#EXTINF:-1 group-title="电视剧频道",特种兵之火凤凰
-http://live.nctv.top/huya.php?id=29982636
-#EXTINF:-1 group-title="电视剧频道",士兵突击
-http://live.nctv.top/huya.php?id=11342430
 #EXTINF:-1 group-title="电视剧频道",笑傲江湖
 http://live.nctv.top/huya.php?id=26355790
 #EXTINF:-1 group-title="电视剧频道",神雕侠侣
 http://live.nctv.top/huya.php?id=11352964
 #EXTINF:-1 group-title="电视剧频道",天龙八部
 http://live.nctv.top/huya.php?id=20985816
-#EXTINF:-1 group-title="电视剧频道",倚天屠龙记
-http://live.nctv.top/huya.php?id=11342403
-#EXTINF:-1 group-title="电视剧频道",铁齿铜牙纪晓岚
-http://live.nctv.top/huya.php?id=11342396
 #EXTINF:-1 group-title="电视剧频道",康熙王朝
 http://live.nctv.top/huya.php?id=11352940
-#EXTINF:-1 group-title="电视剧频道",陈情令
-http://live.nctv.top/huya.php?id=29465862
-#EXTINF:-1 group-title="电视剧频道",鬼吹灯之精绝古城
-http://live.nctv.top/huya.php?id=11352871
-#EXTINF:-1 group-title="电视剧频道",鬼吹灯之怒晴湘西
-http://live.nctv.top/huya.php?id=11602075
 #EXTINF:-1 group-title="电视剧频道",鬼吹灯之龙岭迷窟
 http://live.nctv.top/huya.php?id=29465863
-#EXTINF:-1 group-title="电视剧频道",鬼吹灯之云南虫谷
-http://live.nctv.top/huya.php?id=11352898
 #EXTINF:-1 group-title="电视剧频道",西游记续集
 http://live.nctv.top/douyu.php?id=3113309
 #EXTINF:-1 group-title="电视剧频道", 三国演义
 http://live.nctv.top/huya.php?id=11602081
-#EXTINF:-1 group-title="电视剧频道",西游记
-http://live.nctv.top/huya.php?id=26355861
-#EXTINF:-1 group-title="电视剧频道",乌龙闯情关
-http://live.nctv.top/huya.php?id=26355767
 #EXTINF:-1 group-title="电视剧频道",柳舟计
 http://live.nctv.top/huya.php?id=23860039
 #EXTINF:-1 group-title="电视剧频道",与凤行
 http://live.nctv.top/huya.php?id=26355866
-#EXTINF:-1 group-title="电视剧频道",大秦赋
-http://live.nctv.top/huya.php?id=23903130
-#EXTINF:-1 group-title="电视剧频道",永夜星河
-http://live.nctv.top/huya.php?id=23734169
-#EXTINF:-1 group-title="电视剧频道",流水迢迢
-http://live.nctv.top/huya.php?id=23865036
 #EXTINF:-1 group-title="电视剧频道",唐诡之西行
 http://live.nctv.top/huya.php?id=26355763
-#EXTINF:-1 group-title="电视剧频道",玫瑰的故事
-http://live.nctv.top/huya.php?id=23865142
 #EXTINF:-1 group-title="电视剧频道",梦中的那片海
 http://live.nctv.top/huya.php?id=26355765
-#EXTINF:-1 group-title="电视剧频道",康熙微服私访记
-http://live.nctv.top/huya.php?id=11342418
-#EXTINF:-1 group-title="电视剧频道",如懿传
-http://live.nctv.top/huya.php?id=29465868
-#EXTINF:-1 group-title="电视剧频道",芈月传
-http://live.nctv.top/huya.php?id=11352975
-#EXTINF:-1 group-title="埋堆堆频道",楚汉骄雄
-http://live.nctv.top/huya.php?id=29465854
 #EXTINF:-1 group-title="埋堆堆频道",封神榜
 http://live.nctv.top/huya.php?id=29465849
 #EXTINF:-1 group-title="埋堆堆频道",无心法师
 http://live.nctv.top/huya.php?id=30080233
-#EXTINF:-1 group-title="埋堆堆频道",西游记2
-http://live.nctv.top/huya.php?id=29465859
-#EXTINF:-1 group-title="埋堆堆频道",活佛济公3
-http://live.nctv.top/huya.php?id=23903123
 #EXTINF:-1 group-title="埋堆堆频道",寻秦记
 http://live.nctv.top/huya.php?id=29465848
 #EXTINF:-1 group-title="埋堆堆频道",大唐双龙传
 http://live.nctv.top/huya.php?id=29465850
-#EXTINF:-1 group-title="埋堆堆频道",神雕侠侣
-http://live.nctv.top/huya.php?id=23865171
 #EXTINF:-1 group-title="埋堆堆频道",射雕英雄传
 http://live.nctv.top/huya.php?id=23824164
-#EXTINF:-1 group-title="埋堆堆频道",倚天屠龙记
-http://live.nctv.top/huya.php?id=23734246
-#EXTINF:-1 group-title="埋堆堆频道",刑事侦缉档案
-http://live.nctv.top/huya.php?id=29465856
 #EXTINF:-1 group-title="埋堆堆频道",法政先锋
 http://live.nctv.top/huya.php?id=23863804
-#EXTINF:-1 group-title="埋堆堆频道",洗冤录
-http://live.nctv.top/huya.php?id=29465851
 #EXTINF:-1 group-title="埋堆堆频道",陀枪师姐
 http://live.nctv.top/huya.php?id=29465857
-#EXTINF:-1 group-title="埋堆堆频道",使徒行者
-http://live.nctv.top/huya.php?id=23734256
-#EXTINF:-1 group-title="埋堆堆频道",鉴证实录
-http://live.nctv.top/huya.php?id=23903183
 #EXTINF:-1 group-title="埋堆堆频道",金枝欲孽
 http://live.nctv.top/huya.php?id=29465847
-#EXTINF:-1 group-title="埋堆堆频道",扫黄先锋
-http://live.nctv.top/huya.php?id=29465855
 #EXTINF:-1 group-title="埋堆堆频道",创世纪
 http://live.nctv.top/huya.php?id=29465852
 #EXTINF:-1 group-title="埋堆堆频道",妙手仁心
 http://live.nctv.top/huya.php?id=29465853
-#EXTINF:-1 group-title="埋堆堆频道",大时代
-http://live.nctv.top/huya.php?id=23865161
-#EXTINF:-1 group-title="埋堆堆频道",野蛮亲家
-http://live.nctv.top/huya.php?id=23863796
 #EXTINF:-1 group-title="埋堆堆频道",笑看风云
 http://live.nctv.top/huya.php?id=29465858
 #EXTINF:-1 group-title="☘️四川频道",广安公共
@@ -905,5 +803,7 @@ http://stream.hrbtv.net/yspd/sd/live.m3u8?zheild
 http://stream.hrbtv.net/shpd/sd/live.m3u8?zheild
 #EXTINF:-1 tvg-name="哈尔滨娱乐" group-title="☘️黑龙江频道",哈尔滨娱乐
 http://stream.hrbtv.net/ylpd/sd/live.m3u8?zheild
+#EXTINF:-1 tvg-name="赣州新闻" group-title="地方频道",赣州新闻综合
+http://play-live-hls.jxtvcn.com.cn/live/tv_ganzhou.m3u8
 #EXTINF:-1 group-title="国际频道",Newsmax
 http://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8
