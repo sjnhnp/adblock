@@ -11,6 +11,8 @@ https://gcwbndali.v.myalicdn.com/gcwbnd/ipanda1000_2/index.m3u8
 https://gcalic.v.myalicdn.com/gc/wgw05_1/index.m3u8?contentid=2820180516001
 #EXTINF:-1 tvg-name="支持作者" group-title="央视频道", 支持作者
 https://vd3.bdstatic.com/mda-rkaittm5s06vzzyq/sc/cae_h264/1762869883709304452/mda-rkaittm5s06vzzyq.mp4
+#EXTINF:-1 tvg-name="浙江卫视" group-title="卫视频道", 浙江卫视
+https://ali-m-l.cztv.com/channels/lantian/channel001/1080p.m3u8
 #EXTINF:-1 tvg-name="山东教育" group-title="卫视频道", 山东教育
 https://test1.live.sdetv.com.cn/live/dianshizhibo/playlist.m3u8
 #EXTINF:-1 tvg-name="河北4K" group-title="卫视频道", 河北4K
@@ -22,7 +24,7 @@ https://epg.pw/stream/ffcb6572863f0745a7369fbd9d901f1dfd0ab8fab8bad8bebb4e01c90b
 #EXTINF:-1 tvg-name="无线星河" group-title="电影频道", 无线星河
 https://cdn6.101.qzz.io/163189/tvbxh
 #EXTINF:-1 tvg-name="靖天映画" group-title="电影频道", 靖天映画
-https://4gtv.dxjc.pp.ua/4gtv-4gtv055/index.m3u8
+https://4gtv.dxjc.pp.ua/li-4gtv-4gtv055/index.m3u8
 #EXTINF:-1 tvg-name="人在囧途" group-title="电影频道", 人在囧途
 https://vip.ffzy-play.com/20221018/1953_2d6ba500/index.m3u8
 #EXTINF:-1 tvg-name="人在囧途之泰囧" group-title="电影频道", 人在囧途之泰囧
@@ -55,8 +57,8 @@ https://live.ottiptv.cc/huya/21059574
 https://vip.ffzy-online.com/20221015/719_80ff87c2/index.m3u8
 #EXTINF:-1 tvg-name="拆弹专家2" group-title="电影频道", 拆弹专家2
 https://vip.ffzy-online.com/20221015/722_e32c42bc/index.m3u8
-#EXTINF:-1 tvg-name="李连杰电影" group-title="电影频道", 李连杰电影
-https://live.ottiptv.cc/huya/11342390
+#EXTINF:-1 tvg-name="枪战电影" group-title="电影频道", 枪战电影
+https://live.ottiptv.cc/huya/21059579
 #EXTINF:-1 tvg-name="武侠电影" group-title="电影频道", 武侠电影
 https://live.ottiptv.cc/huya/11342427
 #EXTINF:-1 tvg-name="沈腾电影" group-title="电影频道", 沈腾电影
@@ -65,8 +67,6 @@ https://live.ottiptv.cc/huya/11601968
 https://ali-m-l.cztv.com/channels/lantian/channel004/1080p.m3u8
 #EXTINF:-1 tvg-name="狄仁杰电影" group-title="电影频道", 狄仁杰电影
 https://live.ottiptv.cc/huya/30080229
-#EXTINF:-1 tvg-name="玄幻电影" group-title="电影频道", 玄幻电影
-https://live.ottiptv.cc/huya/11342414
 #EXTINF:-1 tvg-name="王晶电影" group-title="电影频道", 王晶电影
 https://live.ottiptv.cc/huya/11602058
 #EXTINF:-1 tvg-name="甄子丹电影" group-title="电影频道", 甄子丹电影
@@ -79,8 +79,6 @@ https://vip.ffzy-play7.com/20230116/11563_b9f44814/index.m3u8
 https://live.ottiptv.cc/huya/21059585
 #EXTINF:-1 tvg-name="贺岁电影" group-title="电影频道", 贺岁电影
 https://live.ottiptv.cc/huya/11601986
-#EXTINF:-1 tvg-name="金庸武侠" group-title="电影频道", 金庸武侠
-https://live.ottiptv.cc/huya/11342435
 #EXTINF:-1 tvg-name="韩国电影1" group-title="电影频道", 韩国电影1
 https://stream.ads.ottera.tv/playlist.m3u8?network_id=595
 #EXTINF:-1 tvg-name="韩国电影2" group-title="电影频道", 韩国电影2
@@ -96,15 +94,17 @@ https://hdl-vip-ws.qf.56.com/live/lc_11730.flv
 #EXTINF:-1 tvg-name="浙江少儿" group-title="儿童频道", 浙江少儿
 https://ali-m-l.cztv.com/channels/lantian/channel008/1080p.m3u8
 #EXTINF:-1 tvg-name="中华小当家" group-title="儿童频道", 中华小当家
-https://live.metshop.top/huya/11342413
+https://live.ottiptv.cc/huya/11342413
 #EXTINF:-1 tvg-name="名侦探柯南" group-title="儿童频道", 名侦探柯南
 https://live.ottiptv.cc/huya/30080236
+#EXTINF:-1 tvg-name="哆啦A梦" group-title="儿童频道", 哆啦A梦
+https://live.ottiptv.cc/huya/11601963
 #EXTINF:-1 tvg-name="喜羊羊与灰太狼" group-title="儿童频道", 喜羊羊与灰太狼
 https://live.ottiptv.cc/huya/23865080
 #EXTINF:-1 tvg-name="海绵宝宝" group-title="儿童频道", 海绵宝宝
 https://live.metshop.top/douyu/3949681
-#EXTINF:-1 tvg-name="猫和老鼠" group-title="儿童频道", 猫和老鼠
-https://live.iill.top/huya/11352879
+#EXTINF:-1 tvg-name="精灵宝可梦" group-title="儿童频道", 精灵宝可梦
+https://live.ottiptv.cc/huya/23749096
 #EXTINF:-1 tvg-name="黑龙江少儿" group-title="儿童频道", 黑龙江少儿
 https://ls.qingting.fm/live/4972/64k.m3u8
 #EXTINF:-1 tvg-name="安多卫视" group-title="地方频道", 安多卫视
@@ -175,8 +175,6 @@ https://p2.vzan.com/slowlive/596867413819827251/live.m3u8?zbid=1725814272&amp;tp
 https://ls.qingting.fm/live/1841/64k.m3u8
 #EXTINF:-1 tvg-name="平泉综合" group-title="地方频道", 平泉综合
 https://jwcdnqx.hebyun.com.cn/live/pqzh/1500k/tzwj_video.m3u8
-#EXTINF:-1 tvg-name="平遥新闻综合" group-title="地方频道", 平遥新闻综合
-https://tntgjhjb.live.sxmty.com/live/hls/3a4585ac11ec4e1bb07b419101b370c3/baf63e2b313440c2a25d7859f9b73b05-1.m3u8?zshanxd
 #EXTINF:-1 tvg-name="广元公共" group-title="地方频道", 广元公共
 https://m3u8.channel.dzsm.com/nmip-media/channellive/channel101257/playlist.m3u8
 #EXTINF:-1 tvg-name="广元综合" group-title="地方频道", 广元综合
@@ -213,8 +211,6 @@ https://pull.gltvs.com:443/live/glxw/playlist.m3u8?v=b0528684bf934e120e1c30fc808
 https://play.kankanlive.com/live/1693539781636986.m3u8
 #EXTINF:-1 tvg-name="武汉一台新闻综合" group-title="地方频道", 武汉一台新闻综合
 https://ls.qingting.fm/live/20198/64k.m3u8
-#EXTINF:-1 tvg-name="武清综合" group-title="地方频道", 武清综合
-https://tvpull.smartwq.cn/wqlive/convergencemedia/playlist.m3u8?ztianjd
 #EXTINF:-1 tvg-name="武进新闻" group-title="地方频道", 武进新闻
 https://live.wjyanghu.com/live/CH1.m3u8
 #EXTINF:-1 tvg-name="永昌综合" group-title="地方频道", 永昌综合
@@ -249,6 +245,8 @@ https://huaiyin-tv-replay.cm.jstv.com/huaiyin-tv/huaiyinf.m3u8
 https://jwcdnqx.hebyun.com.cn/live/qinghe/1500k/tzwj_video.m3u8
 #EXTINF:-1 tvg-name="清河经济综艺" group-title="地方频道", 清河经济综艺
 https://jwcdnqx.hebyun.com.cn/live/qinghe1/1500k/tzwj_video.m3u8
+#EXTINF:-1 tvg-name="湖州文化娱乐" group-title="地方频道", 湖州文化娱乐
+https://hzcm-live.media.hugd.com/613c47f0ab0d4eaa98b21378d0db6ded/0051d31c9dd543a7825eea4e49675b2a.m3u8?auth_key=2277598059-0a5ebfa1c0dc4671b42a60810fc37039-0-fa625b7d1feab612062453c12e3c8887
 #EXTINF:-1 tvg-name="溧水新闻综合" group-title="地方频道", 溧水新闻综合
 https://mgtv.ottiptv.cc/migu/639737327.m3u8?migutoken=4c07b7afe94ad06d114a6bccae5747804d493ab7b1100069e485b78d3cb91c0fb0dbd92aa90a6157d7066e5b90780fabf5e150e17ebb9bc72b8bb18f43c5acddd1c0fd4d1904a99210aa962135
 #EXTINF:-1 tvg-name="灌阳新闻综合" group-title="地方频道", 灌阳新闻综合
@@ -315,6 +313,8 @@ https://www.wxhcgbds.com:8081/channelTv/WXTV_1.m3u8?zshanxd
 https://zb-live.ynurl.com/longchuan/58f88df3-605e-4c57-865c-8e8f85241ca1.m3u8
 #EXTINF:-1 tvg-name="陕西新闻资讯" group-title="地方频道", 陕西新闻资讯
 https://mgtv.ottiptv.cc/migu/956909289.m3u8?migutoken=d4f3f5a8bf93821548ae70c6bd12860956574c27b3b1ef52c88c8e3d72259b1727a6dbf5d6a5de850afac4c7ffe2f2124bb3b558a89906cd32ccc8913f0f22dd74b7a84514b6015bff75903d9c
+#EXTINF:-1 tvg-name="陕西都市青春" group-title="地方频道", 陕西都市青春
+https://mgtv.ottiptv.cc/migu/956909358.m3u8?migutoken=c3931ea9d3d7ede24a9d13084dadcc55f7f21b114c6c584ca7defd6492ba46b7286dbd751d0f853f83e998e4b0349c62cf4bc570ac83667c4f6bd49a9411edc68e80c1d7f24da79a264d15912b
 #EXTINF:-1 tvg-name="雅安新闻综合" group-title="地方频道", 雅安新闻综合
 https://play.yunxya.com/channellive/xinwen.m3u8
 #EXTINF:-1 tvg-name="鹿泉一套" group-title="地方频道", 鹿泉一套
@@ -991,18 +991,16 @@ https://hls.ningxiahuangheyun.com/live/nxse1M.m3u8
 https://livestream-bt.nmtv.cn/nmtv/2318general.m3u8?txSecret=a2c948908728a0733cecbe1fadea23dc&txTime=771E8800
 #EXTINF:-1 group-title="动画频道",七龙珠
 https://live.ottiptv.cc/huya/11601966
-#EXTINF:-1 group-title="动画频道",哆啦A梦
-https://live.ottiptv.cc/huya/11601963
 #EXTINF:-1 group-title="动画频道",猫和老鼠
 https://live.ottiptv.cc/huya/11352879
-#EXTINF:-1 group-title="动画频道",精灵宝可梦
-https://live.ottiptv.cc/huya/23749096
-#EXTINF:-1 group-title="动画频道",中华小当家
-https://live.ottiptv.cc/huya/11342413
 #EXTINF:-1 group-title="虎牙影视",刘德华电影
 https://live.ottiptv.cc/huya/11342424
-#EXTINF:-1 group-title="虎牙影视",枪战电影
-https://live.ottiptv.cc/huya/21059579
+#EXTINF:-1 group-title="虎牙影视",李连杰电影
+https://live.ottiptv.cc/huya/11342390
+#EXTINF:-1 group-title="虎牙影视",金庸武侠
+https://live.ottiptv.cc/huya/11342435
+#EXTINF:-1 group-title="虎牙影视",玄幻电影
+https://live.ottiptv.cc/huya/11342414
 #EXTINF:-1 group-title="电视剧频道",爱情公寓
 https://www.douzhicloud.site:35455/huya/11336726
 #EXTINF:-1 group-title="电视剧频道",亮剑
