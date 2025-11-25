@@ -765,6 +765,12 @@ https://gdcucc.v1.mk/gdcucc/brtv8k.m3u8
 https://live.tvfix.org/live/cmc/index.m3u8
 #EXTINF:-1 tvg-name="美亚电影" group-title="数字频道",美亚电影台
 https://live.tvfix.org/live/mydy/index.m3u8
+#EXTINF:-1 tvg-name="翡翠台" group-title="BXTV频道",翡翠高清
+https://test-al-livepull.migucloud.com/live/CL7gYJcMM5BXZvyamZly3XZnyMmRJHUf2Rp12oP6KkG1PhQWJK.flv
+#EXTINF:-1 tvg-name="NOW新闻" group-title="BXTV频道",NOW爆谷
+https://bxtv.3a.ink/api.php?id=baogu
+#EXTINF:-1 tvg-name="NOW新闻" group-title="BXTV频道",NOW爆谷星影台
+https://bxtv.3a.ink/api.php?id=xingying
 #EXTINF:-1 tvg-name="耀才财经" group-title="港澳台频道",耀才财经
 https://v3.mediacast.hk/webcast/bshdlive-pc/chunklist_w99771165.m3u8
 #EXTINF:-1 tvg-name="中天新闻" group-title="港澳台频道",中天新闻
