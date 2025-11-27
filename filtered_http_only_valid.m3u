@@ -23,8 +23,6 @@ http://jsmov2.a.yximgs.com/bs3/video-hls/5216294367991385255_hlsb.m3u8
 http://www.douzhicloud.site:35455/huya/29465856
 #EXTINF:-1 tvg-name="创世纪" group-title="电影频道", 创世纪
 http://www.douzhicloud.site:35455/huya/29465852
-#EXTINF:-1 tvg-name="古天乐电影" group-title="电影频道", 古天乐电影
-http://www.douzhicloud.site:35455/huya/29982675
 #EXTINF:-1 tvg-name="天龙八部" group-title="电影频道", 天龙八部
 http://www.douzhicloud.site:35455/yy/1351814644
 #EXTINF:-1 tvg-name="封神榜" group-title="电影频道", 封神榜
@@ -35,8 +33,6 @@ http://www.douzhicloud.site:35455/huya/21059581
 http://www.douzhicloud.site:35455/huya/21059577
 #EXTINF:-1 tvg-name="战争电影" group-title="电影频道", 战争电影
 http://www.douzhicloud.site:35455/huya/21059574
-#EXTINF:-1 tvg-name="斗鱼港剧" group-title="电影频道", 斗鱼港剧
-http://www.douzhicloud.site:35455/douyu/5061550
 #EXTINF:-1 tvg-name="末日电影合集" group-title="电影频道", 末日电影合集
 http://www.douzhicloud.site:35455/yy/1354889019
 #EXTINF:-1 tvg-name="李连杰电影" group-title="电影频道", 李连杰电影
@@ -51,16 +47,10 @@ http://www.douzhicloud.site:35455/huya/29465854
 http://www.douzhicloud.site:35455/huya/11342427
 #EXTINF:-1 tvg-name="活佛济公3" group-title="电影频道", 活佛济公3
 http://www.douzhicloud.site:35455/huya/23903123
-#EXTINF:-1 tvg-name="热门港剧" group-title="电影频道", 热门港剧
-http://www.douzhicloud.site:35455/douyu/5522351
-#EXTINF:-1 tvg-name="狄仁杰电影" group-title="电影频道", 狄仁杰电影
-http://www.douzhicloud.site:35455/huya/30080229
 #EXTINF:-1 tvg-name="玄幻电影" group-title="电影频道", 玄幻电影
 http://www.douzhicloud.site:35455/huya/11342414
 #EXTINF:-1 tvg-name="王晶电影" group-title="电影频道", 王晶电影
 http://www.douzhicloud.site:35455/huya/11602058
-#EXTINF:-1 tvg-name="甄子丹电影" group-title="电影频道", 甄子丹电影
-http://www.douzhicloud.site:35455/huya/11352935
 #EXTINF:-1 tvg-name="电影八点档" group-title="电影频道", 电影八点档
 http://live.metshop.top/huya/880261?cdn=alicdn
 #EXTINF:-1 tvg-name="电影功夫片" group-title="电影频道", 电影功夫片
@@ -87,8 +77,6 @@ http://www.douzhicloud.site:35455/douyu/6863367
 http://www.douzhicloud.site:35455/huya/11352962
 #EXTINF:-1 tvg-name="贺岁电影" group-title="电影频道", 贺岁电影
 http://www.douzhicloud.site:35455/huya/11601986
-#EXTINF:-1 tvg-name="邵氏影院" group-title="电影频道", 邵氏影院
-http://www.douzhicloud.site:35455/douyu/4246519
 #EXTINF:-1 tvg-name="野蛮亲家" group-title="电影频道", 野蛮亲家
 http://www.douzhicloud.site:35455/huya/23863796
 #EXTINF:-1 tvg-name="金庸武侠" group-title="电影频道", 金庸武侠
@@ -341,6 +329,8 @@ http://www.cdnstv.com:6398/hls/1113/index.m3u8
 http://tmpstream.hyrtv.cn/hygg/sd/live.m3u8
 #EXTINF:-1 tvg-name="河源综合" group-title="地方频道", 河源综合
 http://tmpstream.hyrtv.cn/xwzh/sd/live.m3u8
+#EXTINF:-1 tvg-name="泗阳综合" group-title="地方频道", 泗阳综合
+http://3739115337.cloudvdn.com/a.m3u8?domain=siyang-tv-hls.cm.jstv.com&player=nwEAAKHdjSKP_58X&secondToken=secondToken%3A5FUijZmDyNMxtCDdne0YzSAwjuw&streamid=siyang-tv%3Asiyang-tv%2Fsiyangzh&v3=1
 #EXTINF:-1 tvg-name="洞头综合" group-title="地方频道", 洞头综合
 http://l.cztvcloud.com/channels/lantian/SXdongtou1/720p.m3u8
 #EXTINF:-1 tvg-name="津南一套" group-title="地方频道", 津南一套
@@ -573,8 +563,6 @@ http://ygbh.site/php/bfgd.php?id=063
 http://ygbh.site/php/bfgd.php?id=064
 #EXTINF:-1 tvg-name="CCTV5+" group-title="央视高清备用",CCTV5+
 http://ygbh.site/php/bfgd.php?id=246
-#EXTINF:-1 tvg-name="CCTV6" group-title="央视高清备用",CCTV6
-http://ygbh.site/php/bfgd.php?id=065
 #EXTINF:-1 tvg-name="CCTV7" group-title="央视高清备用",CCTV7
 http://ygbh.site/php/bfgd.php?id=127
 #EXTINF:-1 tvg-name="CCTV8" group-title="央视高清备用",CCTV8
@@ -585,8 +573,6 @@ http://ygbh.site/php/bfgd.php?id=128
 http://ygbh.site/php/bfgd.php?id=129
 #EXTINF:-1 tvg-name="CCTV11" group-title="央视高清备用",CCTV11
 http://ygbh.site/php/bfgd.php?id=130
-#EXTINF:-1 tvg-name="CCTV12" group-title="央视高清备用",CCTV12
-http://ygbh.site/php/bfgd.php?id=131
 #EXTINF:-1 tvg-name="CCTV13" group-title="央视高清备用",CCTV13
 http://ygbh.site/php/bfgd.php?id=067
 #EXTINF:-1 tvg-name="CCTV14" group-title="央视高清备用",CCTV14
@@ -611,8 +597,6 @@ http://ygbh.site/php/bfgd.php?id=106
 http://ygbh.site/php/bfgd.php?id=105
 #EXTINF:-1 tvg-name="北京卫视" group-title="央视高清备用",北京卫视
 http://ygbh.site/php/bfgd.php?id=083
-#EXTINF:-1 tvg-name="天津卫视" group-title="央视高清备用",天津卫视
-http://ygbh.site/php/bfgd.php?id=084
 #EXTINF:-1 tvg-name="江苏卫视" group-title="央视高清备用",江苏卫视
 http://ygbh.site/php/bfgd.php?id=085
 #EXTINF:-1 tvg-name="湖南卫视" group-title="央视高清备用",湖南卫视
@@ -623,8 +607,6 @@ http://ygbh.site/php/bfgd.php?id=093
 http://ygbh.site/php/bfgd.php?id=094
 #EXTINF:-1 tvg-name="广东卫视" group-title="央视高清备用",广东卫视
 http://ygbh.site/php/bfgd.php?id=092
-#EXTINF:-1 tvg-name="深圳卫视" group-title="央视高清备用",深圳卫视
-http://ygbh.site/php/bfgd.php?id=100
 #EXTINF:-1 tvg-name="安徽卫视" group-title="央视高清备用",安徽卫视
 http://ygbh.site/php/bfgd.php?id=096
 #EXTINF:-1 tvg-name="吉林卫视" group-title="央视高清备用",吉林卫视
@@ -649,8 +631,6 @@ http://ygbh.site/php/bfgd.php?id=108
 http://ygbh.site/php/bfgd.php?id=103
 #EXTINF:-1 tvg-name="重庆卫视" group-title="央视高清备用",重庆卫视
 http://ygbh.site/php/bfgd.php?id=107
-#EXTINF:-1 tvg-name="广西卫视" group-title="央视高清备用",广西卫视
-http://ygbh.site/php/bfgd.php?id=116
 #EXTINF:-1 tvg-name="云南卫视" group-title="央视高清备用",云南卫视
 http://ygbh.site/php/bfgd.php?id=115
 #EXTINF:-1 tvg-name="贵州卫视" group-title="央视高清备用",贵州卫视
@@ -679,10 +659,6 @@ http://ygbh.site/php/bfgd.php?id=121
 http://ygbh.site/php/bfgd.php?id=095
 #EXTINF:-1 tvg-name="内蒙古卫视" group-title="央视高清备用",内蒙古卫视
 http://ygbh.site/php/bfgd.php?id=110
-#EXTINF:-1 tvg-name="山东教育卫视" group-title="央视高清备用",山东教育卫视
-http://ygbh.site/php/bfgd.php?id=112
-#EXTINF:-1 tvg-name="天元围棋" group-title="央视高清备用",天元围棋
-http://ygbh.site/php/bfgd.php?id=144
 #EXTINF:-1,tvg-id="云南卫视" tvg-name="云南卫视" group-title="卫视频道",云南卫视
 http://nn.7x9d.cn/xzc2.php?ua=TW96aWxsYS81LjAgKFdpbmRvd3MgTlQgNi4xOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTA2LjAuMC4wIFNhZmFyaS81MzcuMzY=&hls=aHR0cDovL3d3dy5kc2suY2MvcGhwL3N4Z2QucGhwP2lkPXlud3M=
 #EXTINF:-1 tvg-name="厦门卫视" group-title="卫视频道",厦门卫视
@@ -735,12 +711,8 @@ http://utv1.hqtvzb.com:9999/hls/world.m3u8
 http://ottproxy2.ist.ooo/livehls/MOB-U1-NO/03.m3u8
 #EXTINF:-1 tvg-name="大立电视台" group-title="港澳台频道",大立电视台
 http://www.dalitv.com.tw:4568/live/dali/index.m3u8
-#EXTINF:-1 group-title="动画频道",七龙珠
-http://www.douzhicloud.site:35455/huya/11601966
 #EXTINF:-1 group-title="动画频道",哆啦A梦
 http://www.douzhicloud.site:35455/huya/11601963
-#EXTINF:-1 group-title="动画频道",猫和老鼠
-http://www.douzhicloud.site:35455/huya/11352879
 #EXTINF:-1 group-title="动画频道",喜羊羊与灰太狼
 http://www.douzhicloud.site:35455/huya/23865080
 #EXTINF:-1 group-title="动画频道",精灵宝可梦
@@ -769,6 +741,8 @@ http://www.douzhicloud.site:35455/huya/11352944
 http://www.douzhicloud.site:35455/huya/11342384
 #EXTINF:-1 group-title="电视剧频道",少年包青天第一部
 http://www.douzhicloud.site:35455/yy/1356043677
+#EXTINF:-1 group-title="电视剧频道",少年包青天第三部
+http://www.douzhicloud.site:35455/yy/1382736814
 #EXTINF:-1 group-title="电视剧频道",神探狄仁杰第一部
 http://www.douzhicloud.site:35455/huya/11352958
 #EXTINF:-1 group-title="电视剧频道",神探狄仁杰第三部
@@ -777,8 +751,6 @@ http://www.douzhicloud.site:35455/huya/11342425
 http://www.douzhicloud.site:35455/huya/11336726
 #EXTINF:-1 group-title="电视剧频道",亮剑
 http://www.douzhicloud.site:35455/huya/30080238
-#EXTINF:-1 group-title="电视剧频道",雪豹
-http://www.douzhicloud.site:35455/huya/29580970
 #EXTINF:-1 group-title="电视剧频道",特种兵之火凤凰
 http://www.douzhicloud.site:35455/huya/29982636
 #EXTINF:-1 group-title="电视剧频道",士兵突击
@@ -791,12 +763,8 @@ http://www.douzhicloud.site:35455/huya/11352964
 http://www.douzhicloud.site:35455/huya/20985816
 #EXTINF:-1 group-title="电视剧频道",倚天屠龙记
 http://www.douzhicloud.site:35455/huya/11342403
-#EXTINF:-1 group-title="电视剧频道",铁齿铜牙纪晓岚
-http://www.douzhicloud.site:35455/huya/11342396
 #EXTINF:-1 group-title="电视剧频道",康熙王朝
 http://www.douzhicloud.site:35455/huya/11352940
-#EXTINF:-1 group-title="电视剧频道",陈情令
-http://www.douzhicloud.site:35455/huya/29465862
 #EXTINF:-1 group-title="电视剧频道",庆余年
 http://www.douzhicloud.site:35455/huya/11352960
 #EXTINF:-1 group-title="电视剧频道",鬼吹灯之精绝古城
@@ -807,14 +775,14 @@ http://www.douzhicloud.site:35455/huya/11602075
 http://www.douzhicloud.site:35455/huya/29465863
 #EXTINF:-1 group-title="电视剧频道",鬼吹灯之云南虫谷
 http://www.douzhicloud.site:35455/huya/11352898
+#EXTINF:-1 group-title="电视剧频道",伪装者
+http://www.douzhicloud.site:35455/yy/1354936244
 #EXTINF:-1 group-title="电视剧频道",西游记后传
 http://www.douzhicloud.site:35455/yy/1353392400
 #EXTINF:-1 group-title="电视剧频道",隋唐英雄传
 http://www.douzhicloud.site:35455/yy/1352475619
 #EXTINF:-1 group-title="电视剧频道",仙剑奇侠传
 http://www.douzhicloud.site:35455/yy/1382749903
-#EXTINF:-1 group-title="电视剧频道",西游记续集
-http://www.douzhicloud.site:35455/douyu/3113309
 #EXTINF:-1 group-title="电视剧频道",我是特种兵之利刃出鞘
 http://www.douzhicloud.site:35455/yy/37999586
 #EXTINF:-1 group-title="电视剧频道",狂飙
@@ -831,8 +799,6 @@ http://www.douzhicloud.site:35455/huya/23860039
 http://www.douzhicloud.site:35455/huya/26355866
 #EXTINF:-1 group-title="电视剧频道",大秦赋
 http://www.douzhicloud.site:35455/huya/23903130
-#EXTINF:-1 group-title="电视剧频道",永夜星河
-http://www.douzhicloud.site:35455/huya/23734169
 #EXTINF:-1 group-title="电视剧频道",流水迢迢
 http://www.douzhicloud.site:35455/huya/23865036
 #EXTINF:-1 group-title="电视剧频道",唐诡之西行
@@ -849,12 +815,8 @@ http://www.douzhicloud.site:35455/yy/1354926650
 http://www.douzhicloud.site:35455/yy/1382735624
 #EXTINF:-1 group-title="电视剧频道",康熙微服私访记
 http://www.douzhicloud.site:35455/huya/11342418
-#EXTINF:-1 group-title="电视剧频道",如懿传
-http://www.douzhicloud.site:35455/huya/29465868
 #EXTINF:-1 group-title="电视剧频道",芈月传
 http://www.douzhicloud.site:35455/huya/11352975
-#EXTINF:-1 group-title="埋堆堆频道",寻秦记
-http://www.douzhicloud.site:35455/huya/29465848
 #EXTINF:-1 group-title="埋堆堆频道",西游记2
 http://www.douzhicloud.site:35455/huya/29465859
 #EXTINF:-1 group-title="埋堆堆频道",大唐双龙传
@@ -869,10 +831,6 @@ http://www.douzhicloud.site:35455/huya/23863804
 http://www.douzhicloud.site:35455/huya/29465851
 #EXTINF:-1 group-title="埋堆堆频道",陀枪师姐
 http://www.douzhicloud.site:35455/huya/29465857
-#EXTINF:-1 group-title="埋堆堆频道",使徒行者
-http://www.douzhicloud.site:35455/huya/23734256
-#EXTINF:-1 group-title="埋堆堆频道",鉴证实录
-http://www.douzhicloud.site:35455/huya/23903183
 #EXTINF:-1 group-title="埋堆堆频道",扫黄先锋
 http://www.douzhicloud.site:35455/huya/29465855
 #EXTINF:-1 group-title="埋堆堆频道",妙手仁心
