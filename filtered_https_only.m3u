@@ -18,11 +18,13 @@ https://tylive.kan0512.com/norecord/csztv4k_4k.m3u8
 #EXTINF:-1 tvg-name="黑莓电影" group-title="电影频道", 黑莓电影
 https://epg.pw/stream/ffcb6572863f0745a7369fbd9d901f1dfd0ab8fab8bad8bebb4e01c90b303c47.m3u8
 #EXTINF:-1 tvg-name="科幻电影" group-title="电影频道", 科幻电影
-https://yylunbo.ottiptv.cc/yy/1355065896
+https://yylunbo.ottiptv.cc/yy/1354930209
 #EXTINF:-1 tvg-name="无线星河" group-title="电影频道", 无线星河
 https://cdn6.101.qzz.io/163189/tvbxh
 #EXTINF:-1 tvg-name="1930年代经典电影" group-title="电影频道", 1930年代经典电影
 https://yylunbo.ottiptv.cc/yy/1356363815
+#EXTINF:-1 tvg-name="24小时电影轮播" group-title="电影频道", 24小时电影轮播
+https://yylunbo.ottiptv.cc/yy/1414808388
 #EXTINF:-1 tvg-name="人在囧途" group-title="电影频道", 人在囧途
 https://vip.ffzy-play.com/20221018/1953_2d6ba500/index.m3u8
 #EXTINF:-1 tvg-name="人在囧途之泰囧" group-title="电影频道", 人在囧途之泰囧
@@ -33,8 +35,6 @@ https://vip.ffzy-play7.com/20230112/11082_fde1a94d/index.m3u8
 https://yylunbo.ottiptv.cc/yy/1382735577
 #EXTINF:-1 tvg-name="周星驰搞笑电影" group-title="电影频道", 周星驰搞笑电影
 https://yylunbo.ottiptv.cc/yy/38670875
-#EXTINF:-1 tvg-name="哈尔滨影视" group-title="电影频道", 哈尔滨影视
-https://stream.hrbtv.net/yspd/sd/live.m3u8
 #EXTINF:-1 tvg-name="喜剧爱情电影不期而遇" group-title="电影频道", 喜剧爱情电影不期而遇
 https://yylunbo.ottiptv.cc/yy/1382745181
 #EXTINF:-1 tvg-name="国产动作电影" group-title="电影频道", 国产动作电影
@@ -120,7 +120,7 @@ https://yylunbo.ottiptv.cc/yy/1382736823
 #EXTINF:-1 tvg-name="精彩动作电影享不停" group-title="电影频道", 精彩动作电影享不停
 https://yylunbo.ottiptv.cc/yy/1382736809
 #EXTINF:-1 tvg-name="经典港片电影" group-title="电影频道", 经典港片电影
-https://yylunbo.ottiptv.cc/yy/1461889059
+https://yylunbo.ottiptv.cc/yy/1459801818
 #EXTINF:-1 tvg-name="经典电影" group-title="电影频道", 经典电影
 https://yylunbo.ottiptv.cc/yy/1414812324
 #EXTINF:-1 tvg-name="经典电影港片枪战" group-title="电影频道", 经典电影港片枪战
@@ -254,9 +254,9 @@ https://play.kankanlive.com/live/1624439143745981.m3u8?zgand
 #EXTINF:-1 tvg-name="朝天综合" group-title="地方频道", 朝天综合
 https://m3u8.channel.dzsm.com/nmip-media/channellive/channel104601/playlist.m3u8
 #EXTINF:-1 tvg-name="桂林新闻" group-title="地方频道", 桂林新闻
-https://pull.gltvs.com/live/glxw/playlist.m3u8?v=b0528684bf934e120e1c30fc808e6576&t=1796868188
+https://pull.gltvs.com:443/live/glxw/playlist.m3u8?v=b0528684bf934e120e1c30fc808e6576&t=1796868188
 #EXTINF:-1 tvg-name="欢笑剧场" group-title="地方频道", 欢笑剧场
-https://shyd.695847.xyz/cms001/ch00000090990000001193/index.m3u8?IASHttpSessionId=RR4967720251014100028031761&ispcode=12
+https://shyd.695847.xyz/cms001/ch00000090990000001490/index.m3u8?IASHttpSessionId=RR4967720251014100028031761&ispcode=12
 #EXTINF:-1 tvg-name="武威新闻" group-title="地方频道", 武威新闻
 https://play.kankanlive.com/live/1693539781636986.m3u8
 #EXTINF:-1 tvg-name="武汉一台新闻综合" group-title="地方频道", 武汉一台新闻综合
@@ -265,8 +265,6 @@ https://ls.qingting.fm/live/20198/64k.m3u8
 https://tvpull.smartwq.cn/wqlive/convergencemedia/playlist.m3u8?ztianjd
 #EXTINF:-1 tvg-name="武进新闻" group-title="地方频道", 武进新闻
 https://live.wjyanghu.com/live/CH1.m3u8
-#EXTINF:-1 tvg-name="武进生活" group-title="地方频道", 武进生活
-https://live.wjyanghu.com/live/CH2.m3u8
 #EXTINF:-1 tvg-name="永昌综合" group-title="地方频道", 永昌综合
 https://play.kankanlive.com/live/1652755738635915.m3u8
 #EXTINF:-1 tvg-name="河北农民" group-title="地方频道", 河北农民
@@ -380,7 +378,7 @@ https://hls.cntv.lxdns.com/asp/hls/2000/0303000a/3/default/f0a47e155d32450daa1d3
 #EXTINF:-1 tvg-name="飞碟之谜02" group-title="纪录频道", 飞碟之谜02
 https://newcntv.qcloudcdn.com/asp/hls/2000/0303000a/3/default/d2454bbb542d4613a9db478dab2addfd/2000.m3u8
 #EXTINF:-1 tvg-name="精品体育" group-title="体育频道", 精品体育
-https://epg.pw/stream/94ed0232b61ce8d89883160a4cdfbfc8f3225cae70ef8e17d93eec249a3c8ad6.m3u8
+https://epg.pw/stream/f7556eccd4ae06b0c2991fdc7a4f8388496559f728cc82459a8e50346040e226.m3u8
 #EXTINF:-1 tvg-name="JJ斗地主" group-title="体育频道", JJ斗地主
 https://live.iill.top/douyin/685317364746
 #EXTINF:-1 tvg-name="90年代爱情经典必看" group-title="解说频道", 90年代爱情经典必看
@@ -391,8 +389,6 @@ https://yylunbo.ottiptv.cc/yy/1353422557
 https://yylunbo.ottiptv.cc/yy/1354932427
 #EXTINF:-1 tvg-name="大家都在看的电视剧" group-title="解说频道", 大家都在看的电视剧
 https://yylunbo.ottiptv.cc/yy/1354930964
-#EXTINF:-1 tvg-name="打王者看电影" group-title="解说频道", 打王者看电影
-https://yylunbo.ottiptv.cc/yy/1460889796
 #EXTINF:-1 tvg-name="新三国萌儿陪看" group-title="解说频道", 新三国萌儿陪看
 https://yylunbo.ottiptv.cc/yy/29216766
 #EXTINF:-1 tvg-name="新白娘子4K观看" group-title="解说频道", 新白娘子4K观看
@@ -425,6 +421,8 @@ https://yylunbo.ottiptv.cc/yy/1382736839
 https://yylunbo.ottiptv.cc/yy/1354932379
 #EXTINF:-1 tvg-name="陪你一起看好剧" group-title="解说频道", 陪你一起看好剧
 https://yylunbo.ottiptv.cc/yy/1354932359
+#EXTINF:-1 tvg-name="靓剑乐乐陪看" group-title="解说频道", 靓剑乐乐陪看
+https://yylunbo.ottiptv.cc/yy/1352946111
 #EXTINF:-1 tvg-name="1987年春晚" group-title="春晚频道", 1987年春晚
 https://txmov2.a.kwimgs.com/bs3/video-hls/5195746663405928031_hlsb.m3u8
 #EXTINF:-1 tvg-name="1988年春晚" group-title="春晚频道", 1988年春晚
