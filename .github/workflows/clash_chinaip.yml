@@ -26,7 +26,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run conversion script
-        run: python convert.py
+        run: python clash_chinaip.py
 
       - name: Commit and push changes
         run: |
