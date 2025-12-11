@@ -21,7 +21,7 @@ def convert_to_clash_yaml(rules):
         line = line.strip()
         if not line or line.startswith('#'):
             continue
-        payload.append(f"'{line}'")
+        payload.append(line)
     
     return {
         "payload": payload
@@ -37,10 +37,12 @@ def main():
     
     print(f"Writing {len(clash_data['payload'])} rules to {OUTPUT_FILE}...")
     
-    # Custom dumper to match the specific format if needed, but standard safe_dump is usually fine.
-    # We want valid YAML.
+    print(f"Writing {len(clash_data['payload'])} rules to {OUTPUT_FILE}...")
     with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
-        yaml.safe_dump(clash_data, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
+        f.write("payload:\n")
+        for line in clash_data['payload']:
+            f.write(f"  - '{line}'\n")
+
 
     print("Done.")
 
