@@ -21,12 +21,24 @@ def convert_to_clash_yaml(rules):
         line = line.strip()
         if not line or line.startswith('#'):
             continue
-        # Remove "full:" prefix if present
-        if line.startswith("full:"):
-            line = line[5:]
         
-        if line:
-            payload.append(line)
+        # Convert MosDNS prefixes to Clash types
+        if line.startswith("regexp:"):
+            # regexp:pattern -> DOMAIN-REGEX,pattern
+            payload.append(f"DOMAIN-REGEX,{line[7:]}")
+        elif line.startswith("full:"):
+            # full:domain -> DOMAIN,domain
+            payload.append(f"DOMAIN,{line[5:]}")
+        elif line.startswith("domain:"):
+            # domain:domain -> DOMAIN-SUFFIX,domain
+            payload.append(f"DOMAIN-SUFFIX,{line[7:]}")
+        elif line.startswith("keyword:"):
+            # keyword:key -> DOMAIN-KEYWORD,key
+            payload.append(f"DOMAIN-KEYWORD,{line[8:]}")
+        else:
+            # Default to DOMAIN-SUFFIX for lines without known prefix
+            # Assuming lines are domains.
+            payload.append(f"DOMAIN-SUFFIX,{line}")
     
     return {
         "payload": payload
