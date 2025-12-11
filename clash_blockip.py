@@ -3,7 +3,7 @@ import yaml
 import os
 
 SOURCE_URL = "https://raw.githubusercontent.com/pmkol/easymosdns/rules/gfw_ip_list.txt"
-OUTPUT_FILE = "china_ip_clash.yaml"
+OUTPUT_FILE = "block_ip_clash.yaml"
 
 def fetch_rules():
     print(f"Fetching rules from {SOURCE_URL}...")
