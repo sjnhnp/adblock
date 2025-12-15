@@ -37,6 +37,8 @@ https://amg00217-newsmax-amg00217c2-lg-ca-4271.playouts.now.amagi.tv/playlist/am
 https://stream.ads.ottera.tv/playlist.m3u8?network_id=5468
 #EXTINF:-1 group-title="国际",WION
 https://d7x8z4yuq42qn.cloudfront.net/index_7.m3u8
+#EXTINF:-1 group-title="国际",TalkTV
+https://live-talktv-ssai.simplestreamcdn.com/v1/master/774d979dd66704abea7c5b62cb34c6815fda0d35/talktv-live/index.m3u8
 #EXTINF:-1 group-title="国际",Arirang
 https://amdlive-ch01-ctnd-com.akamaized.net/arirang_1ch/smil:arirang_1ch.smil/chunklist_b3256000_sleng.m3u8
 #EXTINF:-1 group-title="国际",Taiwan Plus
@@ -163,6 +165,8 @@ https://wurllg.global.transmit.live/hls/689629d4e139235851c80caf/v1/lg_nflchanne
 https://d4whmvwm0rdvi.cloudfront.net/10007/99993044/hls/master.m3u8?ads.xumo_channelId=99993044&ads.asnw=169843&ads.afid=380753606&ads.sfid=17850336&ads.csid=lgchannels_us_nbcuuniversalmonsters_ssai_cro&ads._fw_is_lat=[LMT]&ads._fw_us_privacy=[US_PRIVACY]&ads._fw_coppa=0&ads._fw_did=[IFA]&ads._fw_vcid2=512116:[IFA]&ads._fw_app_bundle=[APP_BUNDLE]&ads._fw_app_store_url=[APP_STOREURL]&ads._fw_content_category=IAB1-7&ads._fw_content_genre=television&ads._fw_content_language=en&ads._fw_content_rating=tv-14&ads._fw_deviceMake=[DEVICE_MAKE]&ads._fw_device_model=[DEVICE_MODEL]&ads._fw_deviceType=3-Connected_TV&ads.appVersion=[APP_VERSION]&ads.appName=lgchannels&ads.xumo_contentId=3940&ads.xumo_contentName=NBCUUniversalMonsters&ads.xumo_providerId=3940&ads.xumo_providerName=NBCUUniversalMonsters&ads.channelId=99993044&ads._fw_ifa_type=dpid&ads.givn=[NONCE]&ads.fck=[FCK]&ads.viewsize=[VIEWSIZE]
 #EXTINF:-1 group-title="国际",ION
 https://wurlewscripps.global.transmit.live/hls/68962b3c9b574d4b1045a55a/v1/scripps_ion_1/lg_us/latest/main/hls/playlist.m3u8?wurl_channel=1116&wurl_name=ION&coppa=0&uid=[DEVICE_ID]&rdid=[IFA]&ifatype=[IFA_TYPE]&dnt=[LMT]&donotsell=[DNS]&isgdpr=[GDPR]&gdpr=[GDPR_CONSENT]&country=[COUNTRY]&pr=[US_PRIVACY]&appstoreurl=[APP_STOREURL]&bundleid=[APP_BUNDLE]&appname=[APP_NAME]&appversion=[APP_VERSION]&dt=[DEVICE_TYPE]&make=[DEVICE_MAKE]&model=[DEVICE_MODEL]&targetad=[TARGETAD_ALLOWED]&fck=[FCK]&viewsize=[VIEWSIZE]
+#EXTINF:-1 group-title="国际",ION Plus
+https://cdn-uw2-prod.tsv2.amagi.tv/linear/amg01438-ewscrippscompan-ionplus-tablo/playlist.m3u8
 #EXTINF:-1 group-title="国际",News 12
 https://wurlnews12ny.global.transmit.live/hls/68c48577268ca4398b084116/v1/alticeusanewsinc_news12newyork_1/lg_us/latest/main/hls/playlist.m3u8?wurl_channel=1721&wurl_name=News12NewYork&coppa=0&uid=[DEVICE_ID]&rdid=[IFA]&ifatype=[IFA_TYPE]&dnt=[LMT]&donotsell=[DNS]&isgdpr=[GDPR]&gdpr=[GDPR_CONSENT]&country=[COUNTRY]&pr=[US_PRIVACY]&appstoreurl=[APP_STOREURL]&bundleid=[APP_BUNDLE]&appname=[APP_NAME]&appversion=[APP_VERSION]&dt=[DEVICE_TYPE]&make=[DEVICE_MAKE]&model=[DEVICE_MODEL]&targetad=[TARGETAD_ALLOWED]&fck=[FCK]&viewsize=[VIEWSIZE]&nonce=[NONCE]
 #EXTINF:-1 group-title="国际",Billiard TV
@@ -171,27 +175,5 @@ https://stream.ads.ottera.tv/playlist.m3u8?network_id=15270&avod=1&coppa=0&td=6&
 https://wurl120sports.global.transmit.live/hls/6863f426233e6604b8b45832/v1/stadium_gracenote/lg_us/latest/main/hls/playlist.m3u8?wurl_channel=160&wurl_name=Stadium&coppa=0&uid=[DEVICE_ID]&rdid=[IFA]&ifatype=[IFA_TYPE]&dnt=[LMT]&donotsell=[DNS]&isgdpr=[GDPR]&gdpr=[GDPR_CONSENT]&country=[COUNTRY]&pr=[US_PRIVACY]&appstoreurl=[APP_STOREURL]&bundleid=[APP_BUNDLE]&appname=[APP_NAME]&appversion=[APP_VERSION]&dt=[DEVICE_TYPE]&make=[DEVICE_MAKE]&model=[DEVICE_MODEL]&targetad=[TARGETAD_ALLOWED]&fck=[FCK]&viewsize=[VIEWSIZE]&nonce=[NONCE]
 #EXTINF:-1 group-title="国际",Overtime
 https://wurlrainbowmedia.global.transmit.live/hls/68c49d5a192b2a4e99da1da4/v1/amc_overtime_1/lg_us/latest/main/hls/playlist.m3u8?wurl_channel=1192&wurl_name=Overtime&coppa=0&uid=[DEVICE_ID]&rdid=[IFA]&ifatype=[IFA_TYPE]&dnt=[LMT]&donotsell=[DNS]&isgdpr=[GDPR]&gdpr=[GDPR_CONSENT]&country=[COUNTRY]&pr=[US_PRIVACY]&appstoreurl=[APP_STOREURL]&bundleid=[APP_BUNDLE]&appname=[APP_NAME]&appversion=[APP_VERSION]&dt=[DEVICE_TYPE]&make=[DEVICE_MAKE]&model=[DEVICE_MODEL]&targetad=[TARGETAD_ALLOWED]&fck=[FCK]&viewsize=[VIEWSIZE]
-#EXTINF:-1 tvg-name="UK: Sky Sports F1 UHD" group-title="国际",Sky Sports F1
-http://best-streams.tv:80/11223344/44332211/375493
-#EXTINF:-1 tvg-name="UK: Sky Sports Main Event UHD" group-title="国际",Sky Sports Main Event
-http://best-streams.tv:80/11223344/44332211/375494
-#EXTINF:-1 tvg-name="Sky Sports Premier League FHD" group-title="国际",Sky Sports Premier League
-http://best-streams.tv:80/11223344/44332211/369562
-#EXTINF:-1 tvg-name="Sky Sports Football FHD" group-title="国际",Sky Sports Football
-http://best-streams.tv:80/11223344/44332211/369559
-#EXTINF:-1 tvg-name="Sky Sports Cricket FHD" group-title="国际",Sky Sports Cricket
-http://best-streams.tv:80/11223344/44332211/369556
-#EXTINF:-1 tvg-name="Sky Sports Golf FHD" group-title="国际",Sky Sports Golf
-http://best-streams.tv:80/11223344/44332211/369553
-#EXTINF:-1 tvg-name="Sky Sports Tennis FHD" group-title="国际",Sky Sports Tennis
-http://best-streams.tv:80/11223344/44332211/369547
-#EXTINF:-1 tvg-name="Sky Sports News FHD" group-title="国际",Sky Sports News
-http://best-streams.tv:80/11223344/44332211/369541
-#EXTINF:-1 tvg-name="Sky Sports+ FHD" group-title="国际",Sky Sports+
-http://best-streams.tv:80/11223344/44332211/369538
-#EXTINF:-1 tvg-name="Sky Sports Racing FHD" group-title="国际",Sky Sports Racing
-http://best-streams.tv:80/11223344/44332211/369535
-#EXTINF:-1 tvg-name="Sky Sports Mix FHD" group-title="国际",Sky Sports Mix
-http://best-streams.tv:80/11223344/44332211/369532
-#EXTINF:-1 tvg-name="Sky Sports Box Office FHD" group-title="国际",Sky Sports Box Office
-http://best-streams.tv:80/11223344/44332211/369529
+#EXTINF:-1 group-title="国际",FIFA+
+https://d2w9q46ikgrcwx.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-of5cbk3sav3w5/v1/sysdata_s_p_a_fifa_7/samsungheadend_us/latest/main/hls/playlist.m3u8
