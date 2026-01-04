@@ -24,7 +24,7 @@ https://fl1.moveonjoy.com/CNBC/index.m3u8
 #EXTINF:-1 group-title="国际",NBC
 https://fl1.moveonjoy.com/FL_Tampa_NBC/index.m3u8
 #EXTINF:-1 group-title="国际",MSNBC
-https://fl1.moveonjoy.com/MSNBC/index.m3u8
+http://41.205.93.154/MSNBC/index.m3u8
 #EXTINF:-1 group-title="国际",NBC News Now
 https://livehub-voidnet.onrender.com/cluster/streamcore/us/NBC_REDIS.m3u8
 #EXTINF:-1 group-title="国际",LiveNow
@@ -277,12 +277,12 @@ http://cord-cutter.net:8080/k4Svp2/645504/18925
 http://fl1.moveonjoy.com/Aspire/index.m3u8
 #EXTINF:-1 group-title="国际",Astro Premier League
 http://stalker.klma2023.net/play/live.php?mac=00:1B:79:F8:59:0E&stream=1163984&extension=ts
-#EXTINF:-1 group-title="国际",BET
-http://fl1.moveonjoy.com/BET_EAST/index.m3u8
+#EXTINF:-1 group-title="国际",Persuit Channel
+https://d2qa45tniogkj6.cloudfront.net/out/v1/30f129d3a8a8482b9efe5092cf46e601/index.m3u8
 #EXTINF:-1 group-title="国际",Bravo TV
 http://fl1.moveonjoy.com/BRAVO/index.m3u8
-#EXTINF:-1 group-title="国际",C-Span
-http://fl1.moveonjoy.com/C-SPAN/index.m3u8
+#EXTINF:-1 group-title="国际",The First
+https://thefirst-oando.amagi.tv/playlist.m3u8
 #EXTINF:-1 group-title="国际",Cooking Channel
 https://fl1.moveonjoy.com/COOKING_CHANNEL/index.m3u8
 #EXTINF:-1 group-title="国际",Comet TV
