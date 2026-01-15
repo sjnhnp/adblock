@@ -46,7 +46,7 @@ OUTPUT_FILES = {
     'a11b11': {'title': 'X dns - Combined A1+B1 (Validated)', 'combine': ['a11', 'b11']}
 }
 
-DNS_TIMEOUT = 5
+DNS_TIMEOUT = 4
 DNS_RETRIES = 2
 CONCURRENT_CHECK_LIMIT = 200
 HOMEPAGE_URL = 'https://github.com/sjnhnp/adblock'
@@ -103,6 +103,9 @@ async def check_domain_is_nxdomain(domain: str, resolver: aiodns.DNSResolver, re
             elif e.args[0] in [aiodns.error.ARES_ETIMEOUT, aiodns.error.ARES_ESERVFAIL, aiodns.error.ARES_EREFUSED]:
                 raise
             return False
+        except Exception:
+             # Catch other potential errors to avoid crashing the task
+             return False
 
     for attempt in range(retries + 1):
         a_is_nxdomain = False
@@ -116,6 +119,8 @@ async def check_domain_is_nxdomain(domain: str, resolver: aiodns.DNSResolver, re
                 await asyncio.sleep(1 + attempt)
                 continue
             return False
+        except Exception:
+             return False
     return False
 
 def load_invalid_domain_cache() -> Dict[str, bool]:
@@ -180,6 +185,7 @@ def save_invalid_domain_cache(invalid_domains: Set[str]) -> None:
 async def validate_domains_async(domains: Set[str], force_refresh: bool = False) -> Set[str]:
     """Validate domains by checking if they return NXDOMAIN."""
     invalid_domain_cache = load_invalid_domain_cache()
+    # Decreased concurrency limit logic is handled by the semaphore, but chunking adds another layer of safety.
     resolver = aiodns.DNSResolver(nameservers=CUSTOM_DNS_SERVERS, timeout=DNS_TIMEOUT, tries=(1 + DNS_RETRIES))
 
     domains_to_check = list(domains) if force_refresh else [d for d in domains if d not in invalid_domain_cache]
@@ -188,20 +194,33 @@ async def validate_domains_async(domains: Set[str], force_refresh: bool = False)
     domains_resolved_valid = set()
 
     if domains_to_check:
-        logging.info(f"Validating {len(domains_to_check)} domains (skipping {len(domains) - len(domains_to_check)} cached domains)")
+        total_checks = len(domains_to_check)
+        logging.info(f"Validating {total_checks} domains (skipping {len(domains) - total_checks} cached domains)")
         semaphore = asyncio.Semaphore(CONCURRENT_CHECK_LIMIT)
         
         async def check_and_update(domain: str) -> None:
             async with semaphore:
                 if await check_domain_is_nxdomain(domain, resolver):
-                    logging.debug(f"Domain {domain} confirmed NXDOMAIN")
+                    # logging.debug(f"Domain {domain} confirmed NXDOMAIN") # Reduce logging verbosity
                     newly_confirmed_invalid.add(domain)
                 else:
-                    logging.debug(f"Domain {domain} resolved successfully")
+                    # logging.debug(f"Domain {domain} resolved successfully")
                     domains_resolved_valid.add(domain)
 
-        tasks = [asyncio.create_task(check_and_update(d)) for d in domains_to_check]
-        await asyncio.gather(*tasks, return_exceptions=True)
+        # Process in chunks to avoid overwhelming the event loop and to provide progress updates
+        chunk_size = 5000
+        domains_list = domains_to_check # Already a list
+        
+        for i in range(0, total_checks, chunk_size):
+            chunk = domains_list[i : i + chunk_size]
+            
+            # Log progress
+            current_progress = min(i + chunk_size, total_checks)
+            logging.info(f"Processing batch {i // chunk_size + 1}: {current_progress}/{total_checks} ({(current_progress/total_checks)*100:.1f}%)")
+            
+            tasks = [asyncio.create_task(check_and_update(d)) for d in chunk]
+            await asyncio.gather(*tasks, return_exceptions=True)
+            
         logging.info(f"Found {len(newly_confirmed_invalid)} newly invalid domains")
 
     # Update the set of confirmed invalid domains
