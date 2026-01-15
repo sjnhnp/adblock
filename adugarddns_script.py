@@ -46,9 +46,9 @@ OUTPUT_FILES = {
     'a11b11': {'title': 'X dns - Combined A1+B1 (Validated)', 'combine': ['a11', 'b11']}
 }
 
-DNS_TIMEOUT = 4
-DNS_RETRIES = 2
-CONCURRENT_CHECK_LIMIT = 200
+DNS_TIMEOUT = 3
+DNS_RETRIES = 1
+CONCURRENT_CHECK_LIMIT = 100
 HOMEPAGE_URL = 'https://github.com/sjnhnp/adblock'
 HTTP_TIMEOUT = 60  # seconds
 
@@ -123,8 +123,8 @@ async def check_domain_is_nxdomain(domain: str, resolver: aiodns.DNSResolver, re
              return False
     return False
 
-def load_invalid_domain_cache() -> Dict[str, bool]:
-    """Load and filter the invalid domain cache, removing expired entries."""
+def load_domain_cache() -> Dict[str, Any]:
+    """Load and filter the domain cache, removing expired entries."""
     if not os.path.exists(CACHE_FILE):
         logging.info("Cache file not found. Starting with an empty cache.")
         return {}
@@ -146,53 +146,64 @@ def load_invalid_domain_cache() -> Dict[str, bool]:
     for domain, entry in cache_data.items():
         loaded_count += 1
         timestamp_str = None
-        is_invalid = False
+        status = None # 'v' for valid, 'i' for invalid/nxdomain
 
         if isinstance(entry, dict) and 'timestamp' in entry:
             timestamp_str = entry.get('timestamp')
-            is_invalid = entry.get('invalid', False)
+            # Legacy cache support
+            if 'invalid' in entry:
+                 status = 'i' if entry['invalid'] else 'v'
+            else:
+                 status = entry.get('status', 'v') # Default to valid if generic
         
-        if is_invalid and timestamp_str:
+        if status and timestamp_str:
             try:
                 timestamp = datetime.fromisoformat(timestamp_str)
                 if timestamp.tzinfo is None:
                     timestamp = timestamp.replace(tzinfo=timezone.utc).astimezone(utc8_tz)
                 if timestamp > expiry_limit:
-                    valid_cache[domain] = True
+                    valid_cache[domain] = {'status': status, 'timestamp': timestamp_str}
                 else:
                     expired_count += 1
             except ValueError:
                 logging.warning(f"Invalid timestamp format in cache for domain: {domain}. Ignoring entry.")
     
-    logging.info(f"Loaded {len(valid_cache)} non-expired invalid domains from cache ({loaded_count} total entries, {expired_count} expired or ignored).")
+    logging.info(f"Loaded {len(valid_cache)} non-expired entries from cache ({loaded_count} total, {expired_count} expired).")
     return valid_cache
 
-def save_invalid_domain_cache(invalid_domains: Set[str]) -> None:
-    """Save the set of invalid domains to cache with timestamps."""
-    cache_data = {}
-    utc8_tz = timezone(timedelta(hours=8))
-    now_iso = datetime.now(utc8_tz).isoformat()
-    for domain in invalid_domains:
-        cache_data[domain] = {"invalid": True, "timestamp": now_iso}
-        
+def save_domain_cache(cache_data: Dict[str, Any]) -> None:
+    """Save the domain cache to file."""
     try:
         with open(CACHE_FILE, 'w') as f:
             json.dump(cache_data, f, indent=2)
-        logging.info(f"Saved {len(invalid_domains)} confirmed invalid domains to cache.")
+        # logging.info(f"Saved cache with {len(cache_data)} entries.")
     except IOError as e:
         logging.error(f"Error writing cache file {CACHE_FILE}: {e}")
 
 async def validate_domains_async(domains: Set[str], force_refresh: bool = False) -> Set[str]:
     """Validate domains by checking if they return NXDOMAIN."""
-    invalid_domain_cache = load_invalid_domain_cache()
-    # Decreased concurrency limit logic is handled by the semaphore, but chunking adds another layer of safety.
+    domain_cache = load_domain_cache()
     resolver = aiodns.DNSResolver(nameservers=CUSTOM_DNS_SERVERS, timeout=DNS_TIMEOUT, tries=(1 + DNS_RETRIES))
+    
+    utc8_tz = timezone(timedelta(hours=8))
+    
+    # helper to update cache
+    def update_cache_entry(domain: str, is_nxdomain: bool):
+        now_iso = datetime.now(utc8_tz).isoformat()
+        status = 'i' if is_nxdomain else 'v'
+        domain_cache[domain] = {'status': status, 'timestamp': now_iso}
 
-    domains_to_check = list(domains) if force_refresh else [d for d in domains if d not in invalid_domain_cache]
-    confirmed_invalid_domains = set(invalid_domain_cache.keys())
-    newly_confirmed_invalid = set()
-    domains_resolved_valid = set()
+    domains_to_check = []
+    if force_refresh:
+        domains_to_check = list(domains)
+    else:
+        for d in domains:
+            if d not in domain_cache:
+                domains_to_check.append(d)
 
+    # Prepare initial return set based on cache
+    confirmed_invalid_domains = {d for d, val in domain_cache.items() if val.get('status') == 'i'}
+    
     if domains_to_check:
         total_checks = len(domains_to_check)
         logging.info(f"Validating {total_checks} domains (skipping {len(domains) - total_checks} cached domains)")
@@ -201,18 +212,19 @@ async def validate_domains_async(domains: Set[str], force_refresh: bool = False)
         async def check_and_update(domain: str) -> None:
             async with semaphore:
                 if await check_domain_is_nxdomain(domain, resolver):
-                    # logging.debug(f"Domain {domain} confirmed NXDOMAIN") # Reduce logging verbosity
-                    newly_confirmed_invalid.add(domain)
+                    update_cache_entry(domain, True)
+                    confirmed_invalid_domains.add(domain)
                 else:
-                    # logging.debug(f"Domain {domain} resolved successfully")
-                    domains_resolved_valid.add(domain)
+                    update_cache_entry(domain, False)
+                    # Remove from invalid set if it was there (unlikely due to cache logic but safe)
+                    if domain in confirmed_invalid_domains:
+                         confirmed_invalid_domains.remove(domain)
 
-        # Process in chunks to avoid overwhelming the event loop and to provide progress updates
-        chunk_size = 5000
-        domains_list = domains_to_check # Already a list
+        # Process in chunks
+        chunk_size = 2000
         
         for i in range(0, total_checks, chunk_size):
-            chunk = domains_list[i : i + chunk_size]
+            chunk = domains_to_check[i : i + chunk_size]
             
             # Log progress
             current_progress = min(i + chunk_size, total_checks)
@@ -221,14 +233,15 @@ async def validate_domains_async(domains: Set[str], force_refresh: bool = False)
             tasks = [asyncio.create_task(check_and_update(d)) for d in chunk]
             await asyncio.gather(*tasks, return_exceptions=True)
             
-        logging.info(f"Found {len(newly_confirmed_invalid)} newly invalid domains")
+            # Save cache incrementally
+            save_domain_cache(domain_cache)
+            
+        logging.info(f"Validation finished. Total invalid domains: {len(confirmed_invalid_domains)}")
+    else:
+        logging.info("All domains found in cache. No new validation needed.")
 
-    # Update the set of confirmed invalid domains
-    confirmed_invalid_domains.update(newly_confirmed_invalid)
-    # Remove any domains that were previously thought invalid but now resolve
-    confirmed_invalid_domains.difference_update(domains_resolved_valid)
-    
-    save_invalid_domain_cache(confirmed_invalid_domains)
+    # Final save
+    save_domain_cache(domain_cache)
     return confirmed_invalid_domains
 
 def filter_rules_by_invalid_domains(rules: List[str], invalid_domains: Set[str]) -> List[str]:
