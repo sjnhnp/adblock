@@ -25,8 +25,10 @@ logging.basicConfig(
 )
 
 CUSTOM_DNS_SERVERS = [
-    '223.5.5.5', '223.6.6.6', '119.29.29.29', '208.67.222.2',
-    '8.8.4.4', '9.9.9.10', '1.1.1.1', '1.0.0.1'
+    '1.1.1.1', '1.0.0.1',           # Cloudflare
+    '8.8.8.8', '8.8.4.4',           # Google
+    '208.67.222.2', '208.67.220.20', # OpenDNS
+    '9.9.9.9', '149.112.112.112'    # Quad9
 ]
 
 CACHE_FILE = "domain_cache1.json"
@@ -91,7 +93,7 @@ async def check_domain_is_nxdomain(domain: str, resolver: aiodns.DNSResolver, re
     async def perform_query(qtype: str) -> bool:
         nonlocal a_is_nxdomain, aaaa_is_nxdomain
         try:
-            await resolver.query(domain, qtype)
+            await resolver.query_dns(domain, qtype)
             return False
         except aiodns.error.DNSError as e:
             if e.args[0] == nxdomain_code:
