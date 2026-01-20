@@ -23,8 +23,6 @@ https://vip.ffzy-play.com/20221018/1951_47e1adc8/index.m3u8
 https://vip.ffzy-play7.com/20230112/11082_fde1a94d/index.m3u8
 #EXTINF:-1 tvg-name="南宁影视娱乐" group-title="电影频道", 南宁影视娱乐
 https://hls.nntv.cn/nnlive/NNTV_VOD_A.m3u8
-#EXTINF:-1 tvg-name="天映经典" group-title="电影频道", 天映经典
-https://epg.pw/stream/cb817875cf26eb683af274dd8cdf7f559a71353d9565c32447c8d98894bc8095.ctv
 #EXTINF:-1 tvg-name="寒战" group-title="电影频道", 寒战
 https://vip.ffzy-play6.com/20221019/157_bf0740ee/index.m3u8
 #EXTINF:-1 tvg-name="我不是药神" group-title="电影频道", 我不是药神
@@ -39,6 +37,8 @@ https://ali-m-l.cztv.com/channels/lantian/channel004/1080p.m3u8
 https://vip.ffzy-play7.com/20230116/11563_b9f44814/index.m3u8
 #EXTINF:-1 tvg-name="韩国电影2" group-title="电影频道", 韩国电影2
 https://stream.ads.ottera.tv/playlist.m3u8?network_id=743
+#EXTINF:-1 tvg-name="北京纪实科教8K" group-title="数字频道", 北京纪实科教8K
+https://gdcucc.v1.mk/gdcucc/brtv8k.m3u8
 #EXTINF:-1 tvg-name="南国都市" group-title="数字频道", 南国都市
 https://tencentplay.gztv.com/live/nanguodushi.m3u8?txSecret=550af55c0ea34ce492748481415b6dfa&txTime=1903e7b17de
 #EXTINF:-1 tvg-name="搜狐剧场" group-title="数字频道", 搜狐剧场
@@ -113,6 +113,8 @@ https://ls.qingting.fm/live/1841/64k.m3u8
 https://www.ahtv.cn/folder9000/folder20193?channelIndex=6
 #EXTINF:-1 tvg-name="平泉综合" group-title="地方频道", 平泉综合
 https://jwcdnqx.hebyun.com.cn/live/pqzh/1500k/tzwj_video.m3u8
+#EXTINF:-1 tvg-name="平遥新闻综合" group-title="地方频道", 平遥新闻综合
+https://tntgjhjb.live.sxmty.com/live/hls/3a4585ac11ec4e1bb07b419101b370c3/baf63e2b313440c2a25d7859f9b73b05-1.m3u8?zshanxd
 #EXTINF:-1 tvg-name="广元公共" group-title="地方频道", 广元公共
 https://m3u8.channel.dzsm.com/nmip-media/channellive/channel101257/playlist.m3u8
 #EXTINF:-1 tvg-name="广元综合" group-title="地方频道", 广元综合
@@ -153,6 +155,8 @@ https://tvpull.smartwq.cn/wqlive/convergencemedia/playlist.m3u8?ztianjd
 https://live.wjyanghu.com/live/CH1.m3u8
 #EXTINF:-1 tvg-name="汾西综合" group-title="地方频道", 汾西综合
 https://qmmqvzoz.live.sxmty.com/live/hls/f24f8a390c084386a564074c9260100c/be3fdf07606145739ab2c4b80fe0136a.m3u8?zshanxd
+#EXTINF:-1 tvg-name="沭阳综合" group-title="地方频道", 沭阳综合
+https://shuyang-tv-hls.cm.jstv.com:443/shuyang-tv/shuyangzh.m3u8
 #EXTINF:-1 tvg-name="河北农民" group-title="地方频道", 河北农民
 https://ls.qingting.fm/live/1650/64k.m3u8
 #EXTINF:-1 tvg-name="河北都市" group-title="地方频道", 河北都市
@@ -169,6 +173,8 @@ https://ali-m-l.cztv.com/channels/lantian/channel009/1080p.m3u8
 https://ali-m-l.cztv.com/channels/lantian/channel003/1080p.m3u8
 #EXTINF:-1 tvg-name="浙江钱江都市" group-title="地方频道", 浙江钱江都市
 https://ali-m-l.cztv.com/channels/lantian/channel002/1080p.m3u8
+#EXTINF:-1 tvg-name="涟水电视台综合" group-title="地方频道", 涟水电视台综合
+https://lianshui-tv-hls.cm.jstv.com:443/lianshui-tv/lsxw.m3u8
 #EXTINF:-1 tvg-name="淮阴综合" group-title="地方频道", 淮阴综合
 https://huaiyin-tv-replay.cm.jstv.com/huaiyin-tv/huaiyinf.m3u8
 #EXTINF:-1 tvg-name="清河经济综艺" group-title="地方频道", 清河经济综艺
@@ -253,12 +259,8 @@ https://liveout.btzx.com.cn/62ds9e/6o77s4.m3u8?zxinjd
 https://hls.cntv.lxdns.com/asp/hls/2000/0303000a/3/default/f0a47e155d32450daa1d36a04fd7d262/2000.m3u8
 #EXTINF:-1 tvg-name="飞碟之谜02" group-title="纪录频道", 飞碟之谜02
 https://newcntv.qcloudcdn.com/asp/hls/2000/0303000a/3/default/d2454bbb542d4613a9db478dab2addfd/2000.m3u8
-#EXTINF:-1 tvg-name="JJ斗地主" group-title="体育频道", JJ斗地主
-https://live.iill.top/douyin/685317364746
 #EXTINF:-1 tvg-name="漫画解说" group-title="解说频道", 漫画解说
 https://www.goodiptv.club/douyu/5907076
-#EXTINF:-1 tvg-name="音乐现场" group-title="音乐频道", 音乐现场
-https://satellitepull.cnr.cn/live/wx32nmgyygb/playlist.m3u8
 #EXTINF:-1 tvg-name="1987年春晚" group-title="春晚频道", 1987年春晚
 https://txmov2.a.kwimgs.com/bs3/video-hls/5195746663405928031_hlsb.m3u8
 #EXTINF:-1 tvg-name="1988年春晚" group-title="春晚频道", 1988年春晚
@@ -629,8 +631,6 @@ https://zby.130519.xyz/PLTV/11/224/3221226116/index.m3u8
 https://zby.130519.xyz/PLTV/11/224/3221226118/index.m3u8
 #EXTINF:-1 tvg-name="睛彩广场" group-title="移动IPTV",睛彩广场
 https://zby.130519.xyz/PLTV/11/224/3221226139/index.m3u8
-#EXTINF:-1 tvg-name="北京纪实科教8K" group-title="数字频道",纪实科教8K
-https://gdcucc.v1.mk/gdcucc/brtv8k.m3u8
 #EXTINF:-1 tvg-name="豆瓣电影" group-title="数字频道",中国电影频道
 https://live.tvfix.org/live/cmc/index.m3u8
 #EXTINF:-1 tvg-name="美亚电影" group-title="数字频道",美亚电影台
