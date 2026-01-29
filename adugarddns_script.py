@@ -48,9 +48,10 @@ OUTPUT_FILES = {
 
 DNS_TIMEOUT = 3
 DNS_RETRIES = 1
-CONCURRENT_CHECK_LIMIT = 100
+CONCURRENT_CHECK_LIMIT = 500  # Increased for better performance
 HOMEPAGE_URL = 'https://github.com/sjnhnp/adblock'
 HTTP_TIMEOUT = 60  # seconds
+MAX_EXECUTION_TIME = 350 * 60 # 350 minutes in seconds (leave 10 min buffer for cleanup)
 
 # --- Core Functions ---
 
@@ -184,6 +185,7 @@ async def validate_domains_async(domains: Set[str], force_refresh: bool = False)
     """Validate domains by checking if they return NXDOMAIN."""
     domain_cache = load_domain_cache()
     resolver = aiodns.DNSResolver(nameservers=CUSTOM_DNS_SERVERS, timeout=DNS_TIMEOUT, tries=(1 + DNS_RETRIES))
+    start_time = asyncio.get_running_loop().time()
     
     utc8_tz = timezone(timedelta(hours=8))
     
@@ -235,6 +237,12 @@ async def validate_domains_async(domains: Set[str], force_refresh: bool = False)
             
             # Save cache incrementally
             save_domain_cache(domain_cache)
+
+            # Check execution time
+            elapsed = asyncio.get_running_loop().time() - start_time
+            if elapsed > MAX_EXECUTION_TIME:
+                logging.warning(f"Time limit reached ({elapsed:.0f}s). Stopping validation to ensure cache save.")
+                break
             
         logging.info(f"Validation finished. Total invalid domains: {len(confirmed_invalid_domains)}")
     else:
