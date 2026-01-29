@@ -2,7 +2,7 @@ name: x abc dns1
 
 on:
   schedule:
-    - cron: '0 12 * * *'  # 每天 UTC 00:00 运行（对应 UTC+8 的 08:00）
+    - cron: '15 20 * * *'  # 每天 UTC 20:15 运行（对应 UTC+8 的 04:15），避开高峰
   workflow_dispatch:     # 支持手动触发
 
 permissions:
