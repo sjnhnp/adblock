@@ -1,31 +1,52 @@
-# adblock上游如下，去重+合并
+# Adblock Filters & Tools
 
-#### 上游
-- https://github.com/8680/GOODBYEADS a 
-- https://github.com/217heidai/adblockfilters c 1'lite
-- https://github.com/hagezi/dns-blocklists b pro.mini
+This repository maintains several automated workflows for filtering and updating adblock rules and IPTV lists.
 
-#### adguard dns：a1、b1、a1b1、xfilter
-- a1：a dns-与b重复-与c重复-失效域名
-- b1：b-与c重复-失效域名
-- a1b1：a1+b1
-- xfilter：a拦截规则-a dns- a白名单+c规则2filter
+## 1. Filtered M3U (IPTV)
 
-#### adguard home 或 adguard dns过滤器建议方案，排序如下，因为adguard dns 是按首次匹配立即停止
-- [秋风规则](https://github.com/TG-Twilight/AWAvenue-Ads-Rule)
-- c 1'lite
-- b1
-- a1
-- [oisd nsfw small](https://nsfw-small.oisd.nl) 去色情NSFW domains found in the top 1 million domains (Using Tranco List)
+Automated filtering and processing of IPTV M3U playlists.
 
-#### adguard 内容过滤器，用合并即可，因为是历遍所有规则，所以白名单不需要刻意排前
-- xfilter
+- **HTTPS Channels**: [filtered_https_only.m3u](filtered_https_only.m3u)
+  - Contains only IPv4/MyIPTV channels using HTTPS.
+  - Excludes specific channels (e.g., CGTN).
 
-#### adguard home 或 adguard 有相关功能
-- 建议开启安全搜索
-  - home里没有提供一些其他搜索，比如baidu，那么可以透过hagezi安全搜索黑名单禁用home之外的搜索。
-- 家庭保护和安全浏览
-  - 到底有没存在本地数据库缓存，先进行比对，不确定
-  - 如果中国大陆服务器开启家庭保护和安全浏览，可能会影响访问网站，因为大陆服务器不能顺利访问adguard的数据库服务器进行比对
-- 如果不开启以上两者，可以透过过滤黑名单，比如nsfw去色情，其他相关可以去[hagezi](https://github.com/hagezi/dns-blocklists)寻找相关
+- **HTTP Valid Channels**: [filtered_http_only_valid.m3u](filtered_http_only_valid.m3u)
+  - Contains valid HTTP channels.
 
+- **Global (Attributes Removed)**: [filtered_global_attributes_removed.m3u](filtered_global_attributes_removed.m3u)
+  - Sourced from global lists with specific attributes (like `tvg-logo`, `tvg-id`) removed for cleaner lists.
+
+**Update Frequency**: Every 6 hours.
+
+## 2. AdGuard DNS Filter (X DNS)
+
+High-quality AdGuard DNS filter rules with automated validation to remove invalid (NXDOMAIN) domains.
+
+- **Combined List**: [a11b11.txt](a11b11.txt)
+  - Use this for best coverage. Combined validated rules from multiple sources.
+
+- **Source A Unique**: [a11.txt](a11.txt)
+  - Unique validated rules from Source A.
+
+- **Source B Unique**: [b11.txt](b11.txt)
+  - Unique validated rules from Source B.
+
+**Update Frequency**: Daily (20:15 UTC).
+
+## 3. X Filter
+
+Merged general adblock rules.
+
+- **Rule List**: [xfilter.txt](xfilter.txt)
+
+**Update Frequency**: Daily (00:00 UTC).
+
+---
+
+### Workflows
+
+| Name | File | Description |
+|------|------|-------------|
+| **Update Filtered M3U** | `update_m3u.yml` | Processes M3U playlists (Merge, Filter, Attribute Removal). |
+| **x abc dns1** | `adguard-dns.yml` | Updates AdGuard DNS rules with domain validation. |
+| **X Filter** | `xfilter.yml` | Usage for general adblock rule merging. |
