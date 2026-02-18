@@ -17,6 +17,8 @@ https://srs.ssws.tv/video/sstv-10/index.m3u8
 https://test1.live.sdetv.com.cn/live/dianshizhibo/playlist.m3u8
 #EXTINF:-1 tvg-name="东方卫视4K" group-title="卫视频道", 东方卫视4K
 https://bp-resource-dfl.bestv.cn/148/3/video.m3u8
+#EXTINF:-1 tvg-name="东森亚洲卫视" group-title="卫视频道", 东森亚洲卫视
+https://p2hs.vzan.com/slowlive/821481626725612419/live.m3u8
 #EXTINF:-1 tvg-name="苏州4K" group-title="卫视频道", 苏州4K
 https://tylive.kan0512.com/norecord/csztv4k_4k.m3u8
 #EXTINF:-1 tvg-name="科幻电影" group-title="电影频道", 科幻电影
@@ -29,8 +31,6 @@ https://cdn8.163189.xyz/live/lhdy/stream.m3u8
 https://yylunbo.ottiptv.cc/yy/1356363815
 #EXTINF:-1 tvg-name="8090电影一哥" group-title="电影频道", 8090电影一哥
 https://yylunbo.ottiptv.cc/yy/29197808
-#EXTINF:-1 tvg-name="YY果国际电影频道" group-title="电影频道", YY果国际电影频道
-https://yylunbo.ottiptv.cc/yy/1382627144
 #EXTINF:-1 tvg-name="人在囧途" group-title="电影频道", 人在囧途
 https://vip.ffzy-play.com/20221018/1953_2d6ba500/index.m3u8
 #EXTINF:-1 tvg-name="人在囧途之泰囧" group-title="电影频道", 人在囧途之泰囧
@@ -53,8 +53,6 @@ https://yylunbo.ottiptv.cc/yy/1382851522
 https://yylunbo.ottiptv.cc/yy/1354936201
 #EXTINF:-1 tvg-name="大江大河2高分影视推荐" group-title="电影频道", 大江大河2高分影视推荐
 https://yylunbo.ottiptv.cc/yy/1382736797
-#EXTINF:-1 tvg-name="大江大河高分影视推荐" group-title="电影频道", 大江大河高分影视推荐
-https://yylunbo.ottiptv.cc/yy/1382736806
 #EXTINF:-1 tvg-name="大进军全集红色系列电影" group-title="电影频道", 大进军全集红色系列电影
 https://yylunbo.ottiptv.cc/yy/1382745083
 #EXTINF:-1 tvg-name="奇幻冒险电影凯斯宾王子的魔法征途" group-title="电影频道", 奇幻冒险电影凯斯宾王子的魔法征途
@@ -99,8 +97,6 @@ https://yylunbo.ottiptv.cc/yy/1354936234
 https://yylunbo.ottiptv.cc/yy/1351496216
 #EXTINF:-1 tvg-name="电影百团大战" group-title="电影频道", 电影百团大战
 https://yylunbo.ottiptv.cc/yy/1382736871
-#EXTINF:-1 tvg-name="电影黑豹" group-title="电影频道", 电影黑豹
-https://yylunbo.ottiptv.cc/yy/1382736816
 #EXTINF:-1 tvg-name="粟裕大将影视" group-title="电影频道", 粟裕大将影视
 https://yylunbo.ottiptv.cc/yy/1354926542
 #EXTINF:-1 tvg-name="精彩动作电影" group-title="电影频道", 精彩动作电影
@@ -111,8 +107,6 @@ https://yylunbo.ottiptv.cc/yy/1382736809
 https://yylunbo.ottiptv.cc/yy/1461889059
 #EXTINF:-1 tvg-name="经典电影" group-title="电影频道", 经典电影
 https://yylunbo.ottiptv.cc/yy/1414812324
-#EXTINF:-1 tvg-name="经典电影港片枪战" group-title="电影频道", 经典电影港片枪战
-https://yylunbo.ottiptv.cc/yy/1355076627
 #EXTINF:-1 tvg-name="让子弹飞" group-title="电影频道", 让子弹飞
 https://vip.ffzy-play7.com/20230116/11563_b9f44814/index.m3u8
 #EXTINF:-1 tvg-name="超精彩系列动作电影" group-title="电影频道", 超精彩系列动作电影
@@ -131,10 +125,6 @@ https://gdcucc.v1.mk/gdcucc/brtv8k.m3u8
 https://tencentplay.gztv.com/live/nanguodushi.m3u8?txSecret=550af55c0ea34ce492748481415b6dfa&txTime=1903e7b17de
 #EXTINF:-1 tvg-name="浙江少儿" group-title="儿童频道", 浙江少儿
 https://ali-m-l.cztv.com/channels/lantian/channel008/1080p.m3u8
-#EXTINF:-1 tvg-name="中华小当家" group-title="儿童频道", 中华小当家
-https://live.iill.top/huya/11342413
-#EXTINF:-1 tvg-name="猫和老鼠" group-title="儿童频道", 猫和老鼠
-https://live.iill.top/huya/11352879
 #EXTINF:-1 tvg-name="黑龙江少儿" group-title="儿童频道", 黑龙江少儿
 https://ls.qingting.fm/live/4972/64k.m3u8
 #EXTINF:-1 tvg-name="厦门卫视" group-title="地方频道", 厦门卫视
@@ -365,8 +355,6 @@ https://yylunbo.ottiptv.cc/yy/1382745114
 https://yylunbo.ottiptv.cc/yy/1354932427
 #EXTINF:-1 tvg-name="大家都在看的电视剧" group-title="解说频道", 大家都在看的电视剧
 https://yylunbo.ottiptv.cc/yy/1354930964
-#EXTINF:-1 tvg-name="新三国萌儿陪看" group-title="解说频道", 新三国萌儿陪看
-https://yylunbo.ottiptv.cc/yy/29216766
 #EXTINF:-1 tvg-name="新白娘子4K观看" group-title="解说频道", 新白娘子4K观看
 https://yylunbo.ottiptv.cc/yy/1508961855
 #EXTINF:-1 tvg-name="朵宝陪你看狄仁杰" group-title="解说频道", 朵宝陪你看狄仁杰
