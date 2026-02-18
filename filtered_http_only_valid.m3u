@@ -5,8 +5,6 @@ http://hmfs.f3322.net:3388/hls/28/index.m3u8
 http://drive.mxmy.net:8888/udp/239.3.1.188:8001
 #EXTINF:-1 tvg-name="凤凰电影" group-title="电影频道", 凤凰电影
 http://iot-mqqt.111yao.cn:8080/live/diyp_fhdy.m3u8
-#EXTINF:-1 tvg-name="靖天戏剧" group-title="电影频道", 靖天戏剧
-http://breezy-audrie-zspace-7524863c.koyeb.app/vipsir?token=leifeng&id=4gtv-4gtv058
 #EXTINF:-1 tvg-name="东阳影视生活" group-title="电影频道", 东阳影视生活
 http://l.cztvcloud.com/channels/lantian/SXdongyang1/720p.m3u8
 #EXTINF:-1 tvg-name="倩女幽魂人间道" group-title="电影频道", 倩女幽魂人间道
@@ -17,14 +15,14 @@ http://jsmov2.a.yximgs.com/bs3/video-hls/5232901391302199073_hlsb.m3u8
 http://jsmov2.a.yximgs.com/bs3/video-hls/5216294367991385255_hlsb.m3u8
 #EXTINF:-1 tvg-name="哈尔滨影视" group-title="电影频道", 哈尔滨影视
 http://stream.hrbtv.net/yspd/sd/live.m3u8?zheild
+#EXTINF:-1 tvg-name="天映经典" group-title="电影频道", 天映经典
+http://pull-vivek.speedws.com/live/aaatyjd.flv
 #EXTINF:-1 tvg-name="龙门飞甲" group-title="电影频道", 龙门飞甲
 http://jsmov2.a.yximgs.com/bs3/video-hls/5203346449046555193_hlsb.m3u8
 #EXTINF:-1 tvg-name="广东少儿" group-title="儿童频道", 广东少儿
 http://gmxw.7766.org:808/hls/175/index.m3u8
 #EXTINF:-1 tvg-name="南京少儿" group-title="儿童频道", 南京少儿
 http://nklive.nbs.cn/hls/e0981f3f-1a20-4a59-b8d1-17feb83a4610/index.m3u8
-#EXTINF:-1 tvg-name="武汉少儿频道" group-title="儿童频道", 武汉少儿频道
-http://hzzzz530.com:4022/udp/239.69.1.6:9676
 #EXTINF:-1 tvg-name="福州少儿" group-title="儿童频道", 福州少儿
 http://live.zohi.tv/video/s10001-fztv-4/index.m3u8
 #EXTINF:-1 tvg-name="韩国EBS少儿" group-title="儿童频道", 韩国EBS少儿
@@ -32,7 +30,7 @@ http://ebsonairios.ebs.co.kr/ebsutablet500k/tablet500k/playlist.m3u8
 #EXTINF:-1 tvg-name="广东珠江" group-title="地方频道", 广东珠江
 http://cdn2.132.us.kg/live/gdzj/stream.m3u8
 #EXTINF:-1 tvg-name="广东体育" group-title="地方频道", 广东体育
-http://cdn2.132.us.kg/live/gdty/stream.m3u8
+http://cdn2.163189.xyz/live/gdty/stream.m3u8
 #EXTINF:-1 tvg-name="快乐垂钓" group-title="地方频道", 快乐垂钓
 http://drive.mxmy.net:8888/udp/239.3.1.164:8001
 #EXTINF:-1 tvg-name="七台河新闻综合" group-title="地方频道", 七台河新闻综合
@@ -209,8 +207,6 @@ http://l.cztvcloud.com/channels/lantian/SXwuyi1/720p.m3u8
 http://uzoiczhh.live.sxmty.com/live/hls/0d41f1480c4042d49927858f01fde707/53130407737b417b9a6259b57246bae3.m3u8?zshanxd
 #EXTINF:-1 tvg-name="武进生活" group-title="地方频道", 武进生活
 http://live.wjyanghu.com/live/CH2.m3u8
-#EXTINF:-1 tvg-name="永嘉新闻综合" group-title="地方频道", 永嘉新闻综合
-http://l.cztvcloud.com/channels/lantian/SXyongjia1/720p.m3u8
 #EXTINF:-1 tvg-name="永昌综合" group-title="地方频道", 永昌综合
 http://play.kankanlive.com/live/1720408280309109.m3u8
 #EXTINF:-1 tvg-name="江川综合" group-title="地方频道", 江川综合
@@ -225,10 +221,10 @@ http://file.ysxtv.cn/cms/videos/nmip-media/channellive/channel4/playlist.m3u8?zs
 http://tmpstream.hyrtv.cn/hygg/sd/live.m3u8
 #EXTINF:-1 tvg-name="河源综合" group-title="地方频道", 河源综合
 http://tmpstream.hyrtv.cn/xwzh/sd/live.m3u8
-#EXTINF:-1 tvg-name="泗阳综合" group-title="地方频道", 泗阳综合
-http://3739115337.cloudvdn.com/a.m3u8?domain=siyang-tv-hls.cm.jstv.com&player=nwEAAKHdjSKP_58X&secondToken=secondToken%3A5FUijZmDyNMxtCDdne0YzSAwjuw&streamid=siyang-tv%3Asiyang-tv%2Fsiyangzh&v3=1
 #EXTINF:-1 tvg-name="洞头综合" group-title="地方频道", 洞头综合
 http://l.cztvcloud.com/channels/lantian/SXdongtou1/720p.m3u8
+#EXTINF:-1 tvg-name="津南一套" group-title="地方频道", 津南一套
+http://play.jinnantv.top/live/JNTV1.m3u8?ztianjd
 #EXTINF:-1 tvg-name="浙江休闲台" group-title="地方频道", 浙江休闲台
 http://ali-m-l.cztv.com/channels/lantian/channel006/720p.m3u8
 #EXTINF:-1 tvg-name="浙江教科" group-title="地方频道", 浙江教科
@@ -241,6 +237,8 @@ http://ali-m-l.cztv.com/channels/lantian/channel12/720p.m3u8
 http://ali-xwl.cztv.com/live/channel071080Plxw.m3u8
 #EXTINF:-1 tvg-name="浙江民生" group-title="地方频道", 浙江民生
 http://ali-m-l.cztv.com/channels/lantian/channel006/1080p.m3u8
+#EXTINF:-1 tvg-name="浙江生活" group-title="地方频道", 浙江生活
+http://ls.qingting.fm/live/1099.m3u8
 #EXTINF:-1 tvg-name="浙江留学" group-title="地方频道", 浙江留学
 http://ali-vl.cztv.com/channels/lantian/channel009/360p.m3u8
 #EXTINF:-1 tvg-name="浙江经济" group-title="地方频道", 浙江经济
@@ -265,6 +263,8 @@ http://hzcm-live.media.hugd.com/3f5fa7d64c7c46a38c6bd8ad35e836cc/65128273761b473
 http://traffic.jbh.tjbh.com/live/bhtv10/playlist.m3u8
 #EXTINF:-1 tvg-name="瑞丽综合" group-title="地方频道", 瑞丽综合
 http://live.ynurl.com/video/s10021-rltv/index.m3u8?zyund
+#EXTINF:-1 tvg-name="番禺综合" group-title="地方频道", 番禺综合
+http://video.epaper.pybtv.cn:8080/live/rtmp_live_demo.flv
 #EXTINF:-1 tvg-name="盈江综合" group-title="地方频道", 盈江综合
 http://live.ynurl.com/video/s10016-YJTV-2/index.m3u8?zyund
 #EXTINF:-1 tvg-name="石屏综合" group-title="地方频道", 石屏综合
@@ -337,8 +337,6 @@ http://zjtv-wshls.homecdn.com/live/2aa16.m3u8
 http://cm-wshls.homecdn.com/live/2aa50.m3u8
 #EXTINF:-1 tvg-name="长宁综合" group-title="地方频道", 长宁综合
 http://cnpull.sccnfb.com:80/live/123456.m3u8
-#EXTINF:-1 tvg-name="长影频道" group-title="地方频道", 长影频道
-http://tpc.x3322.net:9901/tsfile/live/1010_1.m3u8
 #EXTINF:-1 tvg-name="长沙新闻综合" group-title="地方频道", 长沙新闻综合
 http://ls.qingting.fm/live/4877.m3u8
 #EXTINF:-1 tvg-name="长白山电视台" group-title="地方频道", 长白山电视台
@@ -461,30 +459,6 @@ http://nn.7x9d.cn/地方台8563/海南.php?id=hnws
 http://ali-m-l.cztv.com/channels/lantian/channel001/1080p.m3u8
 #EXTINF:-1 tvg-name="CCTV9" group-title="移动IPTV",CCTV-9
 http://p.ytelc.com/169l/0/cctv.php?id=cctv9
-#EXTINF:-1 tvg-name="鳳凰衛視中文" group-title="BXTV频道",鳳凰衛視中文台
-http://bxtv.3a.ink/api.php?id=fhzw
-#EXTINF:-1 tvg-name="鳳凰衛視資訊" group-title="BXTV频道",鳳凰衛視資訊台
-http://bxtv.3a.ink/api.php?id=fhzx
-#EXTINF:-1 tvg-name="鳳凰衛視香港" group-title="BXTV频道",鳳凰衛視香港台
-http://bxtv.3a.ink/api.php?id=fhhk
-#EXTINF:-1 tvg-name="千禧經典台" group-title="BXTV频道",千禧經典台
-http://bxtv.3a.ink/api.php?id=qxjd
-#EXTINF:-1 tvg-name="翡翠台" group-title="BXTV频道",翡翠台
-http://bxtv.3a.ink/api.php?id=fct
-#EXTINF:-1 tvg-name="明珠台" group-title="BXTV频道",明珠台
-http://bxtv.3a.ink/api.php?id=mz
-#EXTINF:-1 tvg-name="無線新聞台" group-title="BXTV频道",無線新聞台
-http://bxtv.3a.ink/api.php?id=wxxw
-#EXTINF:-1 tvg-name="美亞電影台" group-title="BXTV频道",美亞電影台
-http://bxtv.3a.ink/api.php?id=meiya
-#EXTINF:-1 tvg-name="myTV SUPER 18台" group-title="BXTV频道",myTV SUPER 18台
-http://bxtv.3a.ink/api.php?id=18
-#EXTINF:-1 tvg-name="TVB Plus" group-title="BXTV频道",TVB Plus
-http://bxtv.3a.ink/api.php?id=tvbp
-#EXTINF:-1 tvg-name="PopC" group-title="BXTV频道",PopC
-http://bxtv.3a.ink/api.php?id=popc
-#EXTINF:-1 tvg-name="中天新聞台" group-title="BXTV频道",中天新聞台
-http://bxtv.3a.ink/api.php?id=ztxw
 #EXTINF:-1 tvg-name="凤凰中文" group-title="港澳代理",凤凰中文
 http://r.jdshipin.com/cCCzW
 #EXTINF:-1 tvg-name="凤凰资讯" group-title="港澳代理",凤凰资讯
@@ -507,8 +481,6 @@ http://r.jdshipin.com/n90gt
 http://r.jdshipin.com/GeWKr
 #EXTINF:-1 tvg-name="明珠台" group-title="港澳代理",明珠台
 http://r.jdshipin.com/ZQ4kN
-#EXTINF:-1 tvg-name="明珠台" group-title="港澳代理",明珠台
-http://r.jdshipin.com/jUx8K
 #EXTINF:-1 tvg-name="TVB Plus" group-title="港澳代理",TVB Plus
 http://r.jdshipin.com/Nr5jq
 #EXTINF:-1 tvg-name="TVB Plus" group-title="港澳代理",TVB Plus
@@ -521,6 +493,8 @@ http://r.jdshipin.com/Voac4
 http://r.jdshipin.com/thuYX
 #EXTINF:-1 tvg-name="ViuTV" group-title="港澳代理",ViuTV
 http://r.jdshipin.com/vSJvl
+#EXTINF:-1 tvg-name="ViuTV" group-title="港澳代理",ViuTV
+http://r.jdshipin.com/TcKr2
 #EXTINF:-1 tvg-name="HOY TV" group-title="港澳代理",HOY TV
 http://r.jdshipin.com/sFw4S
 #EXTINF:-1 tvg-name="广东珠江" group-title="港澳代理",广东珠江
@@ -533,14 +507,8 @@ http://r.jdshipin.com/iR6Gq
 http://r.jdshipin.com/nWaZO
 #EXTINF:-1 tvg-name="广州综合" group-title="港澳代理",广州综合
 http://r.jdshipin.com/snhya
-#EXTINF:-1 tvg-name="海峡卫视" group-title="港澳代理",海峡卫视
-http://r.jdshipin.com/WtYt3
 #EXTINF:-1 tvg-name="珠江卫视" group-title="港澳代理",珠江卫视
 http://iptv.4666888.xyz/iptv2A.php?id=19
-#EXTINF:-1 tvg-name="明珠台" group-title="港澳代理",明珠台
-http://iptv.4666888.xyz/iptv2A.php?id=29
-#EXTINF:-1 tvg-name="美亚电影" group-title="港澳代理",美亚电影
-http://iptv.4666888.xyz/iptv2A.php?id=30
 #EXTINF:-1 tvg-name="有线新闻" group-title="港澳代理",有线新闻
 http://iptv.4666888.xyz/iptv2A.php?id=31
 #EXTINF:-1 tvg-name="翡翠台" group-title="港澳代理",翡翠台
@@ -561,6 +529,8 @@ http://php.jdshipin.com:8880/TVOD/iptv.php?id=as
 http://php.jdshipin.com:8880/TVOD/iptv.php?id=asam
 #EXTINF:-1 tvg-name="无线新闻" group-title="港澳台频道",TVB无线新闻
 http://cdn9.163189.xyz/smt1.1.php?id=inews_twn
+#EXTINF:-1 tvg-name="无线星河" group-title="港澳台频道",TVB无线星河
+http://php.jdshipin.com:8880/smt.php?id=Xinhe
 #EXTINF:-1 tvg-name="翡翠台" group-title="港澳台频道",TVB翡翠台
 http://cdn9.163189.xyz/smt1.1.php?id=jade_twn
 #EXTINF:-1 tvg-name="翡翠台" group-title="港澳台频道",TVB翡翠台 1080P
@@ -599,6 +569,8 @@ http://php.jdshipin.com:8880/TVOD/iptv.php?id=j1
 http://php.jdshipin.com/TVOD/iptv.php?id=j2
 #EXTINF:-1 tvg-name="明珠台" group-title="港澳台频道",明珠台
 http://php.jdshipin.com/TVOD/iptv.php?id=mzt2
+#EXTINF:-1 tvg-name="VIUTV" group-title="港澳台频道",VIUTV
+http://php.jdshipin.com/TVOD/iptv.php?id=viutv
 #EXTINF:-1 tvg-name="VIUTV" group-title="港澳台频道",VIUTV
 http://php.jdshipin.com/TVOD/iptv.php?id=viutv2
 #EXTINF:-1 tvg-name="无线新闻台" group-title="港澳台频道",无线新闻台
@@ -661,8 +633,6 @@ http://dassby.qqff.top:99/live/辽宁都市/index.m3u8
 http://dassby.qqff.top:99/live/辽宁体育/index.m3u8
 #EXTINF:-1 tvg-name="广东珠江" group-title="☘️广东频道",广东珠江
 http://cdn2.163189.xyz/live/gdzj/stream.m3u8
-#EXTINF:-1 tvg-name="广东体育" group-title="☘️广东频道",广东体育
-http://cdn2.163189.xyz/live/gdty/stream.m3u8
 #EXTINF:-1 tvg-name="河南都市" group-title="☘️河南频道",河南都市
 http://www.lwfz.fun:8800/rtp/239.16.20.164:11640
 #EXTINF:-1 tvg-name="河南民生" group-title="☘️河南频道",河南民生
