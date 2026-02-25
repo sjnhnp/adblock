@@ -19,8 +19,6 @@ http://jsmov2.a.yximgs.com/bs3/video-hls/5250634317044855747_hlsb.m3u8
 http://jsmov2.a.yximgs.com/bs3/video-hls/5232901391302199073_hlsb.m3u8
 #EXTINF:-1 tvg-name="倩女幽魂道道道" group-title="电影频道", 倩女幽魂道道道
 http://jsmov2.a.yximgs.com/bs3/video-hls/5216294367991385255_hlsb.m3u8
-#EXTINF:-1 tvg-name="哈尔滨影视" group-title="电影频道", 哈尔滨影视
-http://stream.hrbtv.net/yspd/sd/live.m3u8?zheild
 #EXTINF:-1 tvg-name="天映经典" group-title="电影频道", 天映经典
 http://pull-vivek.speedws.com/live/aaatyjd.flv
 #EXTINF:-1 tvg-name="龙门飞甲" group-title="电影频道", 龙门飞甲
@@ -547,6 +545,8 @@ http://iptv.4666888.xyz/iptv2A.php?id=30
 http://iptv.4666888.xyz/iptv2A.php?id=31
 #EXTINF:-1 tvg-name="翡翠台" group-title="港澳代理",翡翠台
 http://iptv.4666888.xyz/iptv2A.php?id=34
+#EXTINF:-1 tvg-name="龙华电影" group-title="港澳代理",龙华电影
+http://iptv.4666888.xyz/iptv2A.php?id=45
 #EXTINF:-1 tvg-name="凤凰中文" group-title="港澳台频道",凤凰中文高清
 http://cdn6.163189.xyz/163189/fhzw
 #EXTINF:-1 tvg-name="凤凰资讯" group-title="港澳台频道",凤凰资讯高清
@@ -679,8 +679,6 @@ http://cdn.jdshipin.com:8880/huya.php?id=21059581
 http://cdn.jdshipin.com:8880/huya.php?id=11602058
 #EXTINF:-1 group-title="虎牙影视",金庸武侠
 http://cdn.jdshipin.com:8880/huya.php?id=11342435
-#EXTINF:-1 group-title="虎牙影视",功夫电影
-http://cdn.jdshipin.com:8880/huya.php?id=11352941
 #EXTINF:-1 group-title="虎牙影视",贺岁电影
 http://cdn.jdshipin.com:8880/huya.php?id=11601986
 #EXTINF:-1 group-title="虎牙影视",怪兽电影
@@ -699,10 +697,6 @@ http://cdn.jdshipin.com:8880/huya.php?id=21059585
 http://cdn.jdshipin.com:8880/huya.php?id=21059579
 #EXTINF:-1 group-title="虎牙影视",狄仁杰电影
 http://cdn.jdshipin.com:8880/huya.php?id=30080229
-#EXTINF:-1 group-title="虎牙影视",宇宙科幻合集
-http://cdn.jdshipin.com:8880/huya.php?id=11342428
-#EXTINF:-1 group-title="电视剧频道",延禧攻略
-http://cdn.jdshipin.com:8880/huya.php?id=26355864
 #EXTINF:-1 group-title="电视剧频道",新三国
 http://cdn.jdshipin.com:8880/huya.php?id=11352944
 #EXTINF:-1 group-title="电视剧频道",新水浒传
@@ -855,8 +849,6 @@ http://nn.7x9d.cn/地方台8563/海南.php?id=ggpd
 http://nn.7x9d.cn/地方台8563/海南.php?id=wlpd
 #EXTINF:-1 tvg-name="海南少儿" group-title="☘️海南频道",海南少儿
 http://nn.7x9d.cn/地方台8563/海南.php?id=sepd
-#EXTINF:-1 tvg-name="哈尔滨新闻综合" group-title="☘️黑龙江频道",哈尔滨新闻综合
-http://stream.hrbtv.net/xwzh/sd/live.m3u8?zheild
 #EXTINF:-1 tvg-name="哈尔滨生活" group-title="☘️黑龙江频道",哈尔滨生活
 http://stream.hrbtv.net/shpd/sd/live.m3u8?zheild
 #EXTINF:-1 tvg-name="哈尔滨娱乐" group-title="☘️黑龙江频道",哈尔滨娱乐
