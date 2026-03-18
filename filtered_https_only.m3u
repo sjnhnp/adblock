@@ -11,8 +11,6 @@ https://gcwbndali.v.myalicdn.com/gcwbnd/ipanda1000_2/index.m3u8
 https://gcalic.v.myalicdn.com/gc/wgw05_1/index.m3u8?contentid=2820180516001
 #EXTINF:-1 tvg-name="支持作者" group-title="央视频道", 支持作者
 https://vd2.bdstatic.com/mda-scfjjr0gw3rrk0nm/sc/cae_h264/1773669284080863767/mda-scfjjr0gw3rrk0nm.mp4
-#EXTINF:-1 tvg-name="湖南卫视" group-title="卫视频道", 湖南卫视
-https://txmov2.a.kwimgs.com/bs3/video-hls/5199687338554291078_hlsb.m3u8
 #EXTINF:-1 tvg-name="三沙卫视" group-title="卫视频道", 三沙卫视
 https://srs.ssws.tv/video/sstv-10/index.m3u8
 #EXTINF:-1 tvg-name="山东教育" group-title="卫视频道", 山东教育
@@ -55,10 +53,6 @@ https://stream.ads.ottera.tv/playlist.m3u8?network_id=743
 https://tencentplay.gztv.com/live/nanguodushi.m3u8?txSecret=550af55c0ea34ce492748481415b6dfa&txTime=1903e7b17de
 #EXTINF:-1 tvg-name="浙江少儿" group-title="儿童频道", 浙江少儿
 https://ali-m-l.cztv.com/channels/lantian/channel008/1080p.m3u8
-#EXTINF:-1 tvg-name="中华小当家" group-title="儿童频道", 中华小当家
-https://live.iill.top/huya/11342413
-#EXTINF:-1 tvg-name="猫和老鼠" group-title="儿童频道", 猫和老鼠
-https://live.iill.top/huya/11352879
 #EXTINF:-1 tvg-name="黑龙江少儿" group-title="儿童频道", 黑龙江少儿
 https://ls.qingting.fm/live/4972/64k.m3u8
 #EXTINF:-1 tvg-name="厦门卫视" group-title="地方频道", 厦门卫视
@@ -165,6 +159,8 @@ https://dxtx.hntv.tv/live/lypd.m3u8?txSecret=10c771842a0be59e8b575d765173ec96&tx
 https://play.kankanlive.com/live/1693539781636986.m3u8
 #EXTINF:-1 tvg-name="武汉一台新闻综合" group-title="地方频道", 武汉一台新闻综合
 https://ls.qingting.fm/live/20198/64k.m3u8
+#EXTINF:-1 tvg-name="武清综合" group-title="地方频道", 武清综合
+https://tvpull.smartwq.cn/wqlive/convergencemedia/playlist.m3u8?ztianjd
 #EXTINF:-1 tvg-name="武进新闻" group-title="地方频道", 武进新闻
 https://live.wjyanghu.com/live/CH1.m3u8
 #EXTINF:-1 tvg-name="沭阳综合" group-title="地方频道", 沭阳综合
