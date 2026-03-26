@@ -1,6 +1,8 @@
 #EXTM3U x-tvg-url="http://epg.51zmt.top:8000/e.xml"
 #EXTINF:-1 tvg-name="中国交通" group-title="央视频道", 中国交通
 http://drive.mxmy.net:8888/udp/239.3.1.188:8001
+#EXTINF:-1 tvg-name="山西卫视" group-title="卫视频道", 山西卫视
+http://m3u8.channel.wsrtv.com.cn/cms/videos/nmip-media/channellive/channel7/playlist.m3u8
 #EXTINF:-1 tvg-name="靖天戏剧" group-title="电影频道", 靖天戏剧
 http://breezy-audrie-zspace-7524863c.koyeb.app/vipsir?token=leifeng&id=4gtv-4gtv058
 #EXTINF:-1 tvg-name="靖天映画" group-title="电影频道", 靖天映画
@@ -13,20 +15,24 @@ http://jsmov2.a.yximgs.com/bs3/video-hls/5250634317044855747_hlsb.m3u8
 http://jsmov2.a.yximgs.com/bs3/video-hls/5232901391302199073_hlsb.m3u8
 #EXTINF:-1 tvg-name="倩女幽魂道道道" group-title="电影频道", 倩女幽魂道道道
 http://jsmov2.a.yximgs.com/bs3/video-hls/5216294367991385255_hlsb.m3u8
-#EXTINF:-1 tvg-name="刀刀影院" group-title="电影频道", 刀刀影院
-http://www.goodiptv.club/douyu/747764
 #EXTINF:-1 tvg-name="哈尔滨影视" group-title="电影频道", 哈尔滨影视
 http://stream.hrbtv.net/yspd/sd/live.m3u8?zheild
 #EXTINF:-1 tvg-name="斗鱼港剧" group-title="电影频道", 斗鱼港剧
 http://www.goodiptv.club/douyu/5061550
-#EXTINF:-1 tvg-name="热门港剧" group-title="电影频道", 热门港剧
-http://www.goodiptv.club/douyu/5522351
+#EXTINF:-1 tvg-name="电影丧尸片" group-title="电影频道", 电影丧尸片
+http://live.metshop.top/huya/21059578?cdn=alicdn
+#EXTINF:-1 tvg-name="电影八点档" group-title="电影频道", 电影八点档
+http://live.metshop.top/huya/880261?cdn=alicdn
 #EXTINF:-1 tvg-name="电影刘德华" group-title="电影频道", 电影刘德华
 http://live.metshop.top/huya/11342424?cdn=alicdn
 #EXTINF:-1 tvg-name="电影功夫片" group-title="电影频道", 电影功夫片
 http://live.metshop.top/huya/11352941?cdn=alicdn
+#EXTINF:-1 tvg-name="电影动作电影" group-title="电影频道", 电影动作电影
+http://live.metshop.top/huya/11602077?cdn=alicdn
 #EXTINF:-1 tvg-name="电影周星星" group-title="电影频道", 电影周星星
 http://live.metshop.top/huya/11336587?cdn=alicdn
+#EXTINF:-1 tvg-name="电影战争片" group-title="电影频道", 电影战争片
+http://live.metshop.top/huya/21059574?cdn=alicdn
 #EXTINF:-1 tvg-name="电影搞笑喜剧" group-title="电影频道", 电影搞笑喜剧
 http://live.metshop.top/huya/11342423?cdn=alicdn
 #EXTINF:-1 tvg-name="电影梁家辉" group-title="电影频道", 电影梁家辉
@@ -41,8 +47,6 @@ http://live.metshop.top/huya/21059585?cdn=alicdn
 http://live.metshop.top/huya/11601971?cdn=alicdn
 #EXTINF:-1 tvg-name="经典剧集" group-title="电影频道", 经典剧集
 http://www.goodiptv.club/douyu/6863367
-#EXTINF:-1 tvg-name="贝爷求生" group-title="电影频道", 贝爷求生
-http://www.goodiptv.club/douyu/9661369
 #EXTINF:-1 tvg-name="龙门飞甲" group-title="电影频道", 龙门飞甲
 http://jsmov2.a.yximgs.com/bs3/video-hls/5203346449046555193_hlsb.m3u8
 #EXTINF:-1 tvg-name="广东少儿" group-title="儿童频道", 广东少儿
@@ -56,7 +60,7 @@ http://ebsonairios.ebs.co.kr/ebsutablet500k/tablet500k/playlist.m3u8
 #EXTINF:-1 tvg-name="广东珠江" group-title="地方频道", 广东珠江
 http://cdn2.132.us.kg/live/gdzj/stream.m3u8
 #EXTINF:-1 tvg-name="广东体育" group-title="地方频道", 广东体育
-http://cdn2.163189.xyz/live/gdty/stream.m3u8
+http://cdn2.132.us.kg/live/gdty/stream.m3u8
 #EXTINF:-1 tvg-name="快乐垂钓" group-title="地方频道", 快乐垂钓
 http://drive.mxmy.net:8888/udp/239.3.1.164:8001
 #EXTINF:-1 tvg-name="七台河新闻综合" group-title="地方频道", 七台河新闻综合
@@ -87,8 +91,6 @@ http://l.cztvcloud.com/channels/lantian/SXyunhe1/720p.m3u8
 http://tvfile.jyrmt.cn/nmip-media/channellive/channel104452/playlist.m3u8
 #EXTINF:-1 tvg-name="亳州农村" group-title="地方频道", 亳州农村
 http://zbbf2.ahbztv.com/live/418.m3u8
-#EXTINF:-1 tvg-name="什邡新闻" group-title="地方频道", 什邡新闻
-http://live.sfrmt.com:85/live/zhpd.m3u8?zsicd
 #EXTINF:-1 tvg-name="余姚新闻综合" group-title="地方频道", 余姚新闻综合
 http://l.cztvcloud.com/channels/lantian/SXyuyao1/720p.m3u8
 #EXTINF:-1 tvg-name="余杭未来E" group-title="地方频道", 余杭未来E
@@ -227,6 +229,10 @@ http://stream5.jlntv.cn/wq/sd/live.m3u8
 http://live.iwcmt.cn:90/live/zhxw.m3u8
 #EXTINF:-1 tvg-name="沐川综合" group-title="地方频道", 沐川综合
 http://file.ysxtv.cn/cms/videos/nmip-media/channellive/channel4/playlist.m3u8?zsicd
+#EXTINF:-1 tvg-name="河源公共" group-title="地方频道", 河源公共
+http://tmpstream.hyrtv.cn/hygg/sd/live.m3u8
+#EXTINF:-1 tvg-name="河源综合" group-title="地方频道", 河源综合
+http://tmpstream.hyrtv.cn/xwzh/sd/live.m3u8
 #EXTINF:-1 tvg-name="泗阳综合" group-title="地方频道", 泗阳综合
 http://3739115337.cloudvdn.com/a.m3u8?domain=siyang-tv-hls.cm.jstv.com&player=nwEAAKHdjSKP_58X&secondToken=secondToken%3A5FUijZmDyNMxtCDdne0YzSAwjuw&streamid=siyang-tv%3Asiyang-tv%2Fsiyangzh&v3=1
 #EXTINF:-1 tvg-name="洞头综合" group-title="地方频道", 洞头综合
@@ -605,6 +611,8 @@ http://cdn.163189.xyz/163189/now
 http://cdn6.163189.xyz/163189/amty
 #EXTINF:-1 tvg-name="澳门综艺" group-title="港澳台频道",澳门综艺
 http://cdn6.163189.xyz/163189/amzy
+#EXTINF:-1 group-title="虎牙影视",周星驰电影
+http://cdn.jdshipin.com:8880/huya.php?id=11342412
 #EXTINF:-1 group-title="虎牙影视",林正英电影
 http://cdn.jdshipin.com:8880/huya.php?id=11342421
 #EXTINF:-1 group-title="虎牙影视",刘德华电影
@@ -621,14 +629,20 @@ http://cdn.jdshipin.com:8880/huya.php?id=11352935
 http://cdn.jdshipin.com:8880/huya.php?id=11601968
 #EXTINF:-1 group-title="虎牙影视",黄渤电影
 http://cdn.jdshipin.com:8880/huya.php?id=11352876
+#EXTINF:-1 group-title="虎牙影视",强森电影
+http://cdn.jdshipin.com:8880/huya.php?id=21059581
 #EXTINF:-1 group-title="虎牙影视",王晶电影
 http://cdn.jdshipin.com:8880/huya.php?id=11602058
+#EXTINF:-1 group-title="虎牙影视",金庸武侠
+http://cdn.jdshipin.com:8880/huya.php?id=11342435
 #EXTINF:-1 group-title="虎牙影视",功夫电影
 http://cdn.jdshipin.com:8880/huya.php?id=11352941
 #EXTINF:-1 group-title="虎牙影视",贺岁电影
 http://cdn.jdshipin.com:8880/huya.php?id=11601986
 #EXTINF:-1 group-title="虎牙影视",怪兽电影
 http://cdn.jdshipin.com:8880/huya.php?id=21059577
+#EXTINF:-1 group-title="虎牙影视",武侠电影
+http://cdn.jdshipin.com:8880/huya.php?id=11342427
 #EXTINF:-1 group-title="虎牙影视",玄幻电影
 http://cdn.jdshipin.com:8880/huya.php?id=11342414
 #EXTINF:-1 group-title="虎牙影视",罪犯电影
@@ -645,8 +659,6 @@ http://cdn.jdshipin.com:8880/huya.php?id=30080229
 http://cdn.jdshipin.com:8880/huya.php?id=11342428
 #EXTINF:-1 group-title="电视剧频道",西游记续集
 http://www.goodiptv.club/douyu/3113309
-#EXTINF:-1 group-title="埋堆堆频道",楚汉骄雄
-http://cdn.jdshipin.com:8880/huya.php?id=29465854
 #EXTINF:-1 group-title="埋堆堆频道",寻秦记
 http://cdn.jdshipin.com:8880/huya.php?id=29465848
 #EXTINF:-1 group-title="埋堆堆频道",封神榜
@@ -655,12 +667,16 @@ http://cdn.jdshipin.com:8880/huya.php?id=29465849
 http://cdn.jdshipin.com:8880/huya.php?id=29465859
 #EXTINF:-1 group-title="埋堆堆频道",大唐双龙传
 http://cdn.jdshipin.com:8880/huya.php?id=29465850
-#EXTINF:-1 group-title="埋堆堆频道",神雕侠侣
-http://cdn.jdshipin.com:8880/huya.php?id=23865171
 #EXTINF:-1 group-title="埋堆堆频道",射雕英雄传
 http://cdn.jdshipin.com:8880/huya.php?id=23824164
+#EXTINF:-1 group-title="埋堆堆频道",倚天屠龙记
+http://cdn.jdshipin.com:8880/huya.php?id=23734246
 #EXTINF:-1 group-title="埋堆堆频道",笑傲江湖
 http://cdn.jdshipin.com:8880/huya.php?id=23865142
+#EXTINF:-1 group-title="埋堆堆频道",活佛济公3
+http://cdn.jdshipin.com:8880/huya.php?id=23903123
+#EXTINF:-1 group-title="埋堆堆频道",无心法师
+http://cdn.jdshipin.com:8880/huya.php?id=30080233
 #EXTINF:-1 group-title="埋堆堆频道",刑事侦缉档案
 http://cdn.jdshipin.com:8880/huya.php?id=29465856
 #EXTINF:-1 group-title="埋堆堆频道",法政先锋
@@ -673,8 +689,12 @@ http://cdn.jdshipin.com:8880/huya.php?id=29465857
 http://cdn.jdshipin.com:8880/huya.php?id=23734256
 #EXTINF:-1 group-title="埋堆堆频道",鉴证实录
 http://cdn.jdshipin.com:8880/huya.php?id=23903183
+#EXTINF:-1 group-title="埋堆堆频道",金枝欲孽
+http://cdn.jdshipin.com:8880/huya.php?id=29465847
 #EXTINF:-1 group-title="埋堆堆频道",扫黄先锋
 http://cdn.jdshipin.com:8880/huya.php?id=29465855
+#EXTINF:-1 group-title="埋堆堆频道",创世纪
+http://cdn.jdshipin.com:8880/huya.php?id=29465852
 #EXTINF:-1 group-title="埋堆堆频道",妙手仁心
 http://cdn.jdshipin.com:8880/huya.php?id=29465853
 #EXTINF:-1 group-title="埋堆堆频道",大时代
@@ -703,10 +723,8 @@ http://dassby.qqff.top:99/live/辽宁都市/index.m3u8
 http://dassby.qqff.top:99/live/辽宁体育/index.m3u8
 #EXTINF:-1 tvg-name="广东珠江" group-title="☘️广东频道",广东珠江
 http://cdn2.163189.xyz/live/gdzj/stream.m3u8
-#EXTINF:-1 tvg-name="河源综合" group-title="☘️广东频道",河源综合
-http://tmpstream.hyrtv.cn/xwzh/sd/live.m3u8
-#EXTINF:-1 tvg-name="河源公共" group-title="☘️广东频道",河源公共
-http://tmpstream.hyrtv.cn/hygg/sd/live.m3u8
+#EXTINF:-1 tvg-name="广东体育" group-title="☘️广东频道",广东体育
+http://cdn2.163189.xyz/live/gdty/stream.m3u8
 #EXTINF:-1 tvg-name="河南都市" group-title="☘️河南频道",河南都市
 http://www.lwfz.fun:8800/rtp/239.16.20.164:11640
 #EXTINF:-1 tvg-name="河南民生" group-title="☘️河南频道",河南民生
