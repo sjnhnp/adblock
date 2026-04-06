@@ -3,12 +3,8 @@
 https://jmp2.uk/stvp-GBBD8000016N
 #EXTINF:-1 group-title="国际",BBC News
 https://jmp2.uk/rok-6183f9f73a64394cf3c55690605af2a7.m3u8
-#EXTINF:-1 group-title="国际",ABC
-http://mytvstream.net:8080/live/30550113/30550113/120952.m3u8
 #EXTINF:-1 group-title="国际",CNA
 https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8
-#EXTINF:-1 group-title="国际",CBS
-http://mytvstream.net:8080/live/30550113/30550113/120749.m3u8
 #EXTINF:-1 group-title="国际",GB News
 https://rakutenaa-lightning-gbnews-rakuten-ccoa9.amagi.tv/playlist/rakutenAA-lightning-gbnews-rakuten/playlist.m3u8
 #EXTINF:-1 group-title="国际",RT News
@@ -39,22 +35,10 @@ http://23.237.104.106:8080/USA_DISNEY_XD/index.m3u8
 http://41.205.93.154/ESPN/index.m3u8
 #EXTINF:-1 tvg-name="ESPN U" group-title="国际",ESPN U
 http://23.237.104.106:8080/USA_ESPNU/index.m3u8
-#EXTINF:-1 tvg-name="ESPN2" group-title="国际",ESPN2
-http://mytvstream.net:8080/live/30550113/30550113/2210.m3u8
-#EXTINF:-1 tvg-name="Fox News" group-title="国际",Fox News
-http://mytvstream.net:8080/live/30550113/30550113/1818.m3u8
-#EXTINF:-1 tvg-name="Fox" group-title="国际",Fox
-http://mytvstream.net:8080/live/30550113/30550113/121595.m3u8
-#EXTINF:-1 tvg-name="Fox Sports 1" group-title="国际",Fox Sports 1
-http://mytvstream.net:8080/live/30550113/30550113/1846.m3u8
-#EXTINF:-1 tvg-name="Fox Sports 2" group-title="国际",Fox Sports 2
-http://mytvstream.net:8080/live/30550113/30550113/1847.m3u8
 #EXTINF:-1 tvg-name="HBO" group-title="国际",HBO
 http://23.237.104.106:8080/USA_HBO/index.m3u8
 #EXTINF:-1 tvg-name="HBO 2" group-title="国际",HBO 2
 http://23.237.104.106:8080/USA_HBO2/index.m3u8
-#EXTINF:-1 tvg-name="ION TV" group-title="国际",ION TV
-http://mytvstream.net:8080/live/30550113/30550113/9297.m3u8
 #EXTINF:-1 tvg-name="Lifetime Movie Network" group-title="国际",Lifetime Movie Network
 http://23.237.104.106:8080/USA_LMN/index.m3u8
 #EXTINF:-1 tvg-name="National Geographic" group-title="国际",National Geographic
@@ -63,8 +47,6 @@ http://23.237.104.106:8080/USA_NAT_GEO/index.m3u8
 https://d7x8z4yuq42qn.cloudfront.net/index_7.m3u8
 #EXTINF:-1 group-title="国际",Cartoon Network
 http://23.237.104.106:8080/USA_CARTOON_NETWORK/index.m3u8
-#EXTINF:-1 group-title="国际",C-Span
-http://mytvstream.net:8080/live/30550113/30550113/136589.m3u8
 #EXTINF:-1 group-title="国际",CMT
 http://23.237.104.106:8080/USA_CMT/index.m3u8
 #EXTINF:-1 group-title="国际",TalkTV
@@ -99,8 +81,6 @@ https://appletree-mytimeau-samsung.amagi.tv/playlist.m3u8
 https://cdn-apse1-prod.tsv2.amagi.tv/linear/amg01076-lightningintern-pulse-samsungau/playlist.m3u8
 #EXTINF:-1 group-title="国际",Tastemade
 https://cdn-ue1-prod.tsv2.amagi.tv/linear/tastemade-tastemade-int-aus-samsungau/playlist.m3u8
-#EXTINF:-1 group-title="国际",ESPN2
-http://1tv41.icu:8080/8434692955/judgen64@yahoo.com/2210
 #EXTINF:-1 group-title="国际",BBC Earth
 https://aegis-cloudfront-1.tubi.video/bb1fc6ad-9948-42ea-aaf3-20acfcdeecac/playlist.m3u8
 #EXTINF:-1 group-title="国际",The First
@@ -191,11 +171,3 @@ https://54045f0c40fd442c8b06df076aaf1e85.mediatailor.eu-west-1.amazonaws.com/v1/
 https://9be783d652cd4b099cf63e1dc134c4a3.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6181/master.m3u8
 #EXTINF:-1 group-title="国际",Rakuten Drama
 https://fee09fd665814f51b939b6d106cf5f66.mediatailor.eu-west-1.amazonaws.com/v1/master/0547f18649bd788bec7b67b746e47670f558b6b2/production-LiveChannel-6093/master.m3u8
-#EXTINF:-1 group-title="国际",Sky Sports F1
-https://7pal.short.gy/ssportsf1
-#EXTINF:-1 group-title="国际",Sky Sports Tennis
-https://7pal.short.gy/ssportstn
-#EXTINF:-1 group-title="国际",MLB Network
-https://7pal.short.gy/mlbnw
-#EXTINF:-1 group-title="国际",NHL Network
-https://7pal.short.gy/nhlnw
