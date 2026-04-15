@@ -39,8 +39,6 @@ https://vip.ffzy-online.com/20221015/719_80ff87c2/index.m3u8
 https://vip.ffzy-online.com/20221015/722_e32c42bc/index.m3u8
 #EXTINF:-1 tvg-name="浙江教科影视" group-title="电影频道", 浙江教科影视
 https://ali-m-l.cztv.com/channels/lantian/channel004/1080p.m3u8
-#EXTINF:-1 tvg-name="经典电影" group-title="电影频道", 经典电影
-https://yylunbo.ottiptv.cc/yy/1414812324
 #EXTINF:-1 tvg-name="美亚电影" group-title="电影频道", 美亚电影
 https://live.tvfix.org/live/mydy/index.m3u8
 #EXTINF:-1 tvg-name="让子弹飞" group-title="电影频道", 让子弹飞
@@ -57,6 +55,10 @@ https://tencentplay.gztv.com/live/nanguodushi.m3u8?txSecret=550af55c0ea34ce49274
 https://ali-m-l.cztv.com/channels/lantian/channel008/1080p.m3u8
 #EXTINF:-1 tvg-name="七龙珠" group-title="儿童频道", 七龙珠
 https://live.metshop.top/huya/11601966
+#EXTINF:-1 tvg-name="中华小当家" group-title="儿童频道", 中华小当家
+https://live.iill.top/huya/11342413
+#EXTINF:-1 tvg-name="海绵宝宝" group-title="儿童频道", 海绵宝宝
+https://live.metshop.top/douyu/3949681
 #EXTINF:-1 tvg-name="猫和老鼠" group-title="儿童频道", 猫和老鼠
 https://live.metshop.top/huya/11352879
 #EXTINF:-1 tvg-name="黑龙江少儿" group-title="儿童频道", 黑龙江少儿
@@ -133,8 +135,6 @@ https://tntgjhjb.live.sxmty.com/live/hls/3a4585ac11ec4e1bb07b419101b370c3/baf63e
 https://m3u8.channel.dzsm.com/nmip-media/channellive/channel101257/playlist.m3u8
 #EXTINF:-1 tvg-name="广元综合" group-title="地方频道", 广元综合
 https://m3u8.channel.dzsm.com/nmip-media/channellive/channel100999/playlist.m3u8
-#EXTINF:-1 tvg-name="广德生活" group-title="地方频道", 广德生活
-https://live.gdtv.ah.cn/live/newsTV.m3u8
 #EXTINF:-1 tvg-name="广西国际" group-title="地方频道", 广西国际
 https://hlscdn.liangtv.cn/live/0234c48e0bc24fe1b41b9999a253e581/1075ee38e04f490690f6a36a16e09c79.m3u8
 #EXTINF:-1 tvg-name="广西新闻" group-title="地方频道", 广西新闻
@@ -286,7 +286,7 @@ https://epg.pw/stream/866a097a0907c9832440f8df38272dd555abf05200dfbafcc137e214c9
 #EXTINF:-1 tvg-name="JJ斗地主" group-title="体育频道", JJ斗地主
 https://live.iill.top/douyin/685317364746
 #EXTINF:-1 tvg-name="漫画解说" group-title="解说频道", 漫画解说
-https://yylunbo.ottiptv.cc/yy/1382735568
+https://www.goodiptv.club/douyu/5907076
 #EXTINF:-1 tvg-name="音乐现场" group-title="音乐频道", 音乐现场
 https://satellitepull.cnr.cn/live/wx32nmgyygb/playlist.m3u8
 #EXTINF:-1 tvg-name="1987年春晚" group-title="春晚频道", 1987年春晚
