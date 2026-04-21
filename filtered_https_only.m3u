@@ -57,6 +57,8 @@ https://stream.ads.ottera.tv/playlist.m3u8?network_id=743
 https://tencentplay.gztv.com/live/nanguodushi.m3u8?txSecret=550af55c0ea34ce492748481415b6dfa&txTime=1903e7b17de
 #EXTINF:-1 tvg-name="浙江少儿" group-title="儿童频道", 浙江少儿
 https://ali-m-l.cztv.com/channels/lantian/channel008/1080p.m3u8
+#EXTINF:-1 tvg-name="七龙珠" group-title="儿童频道", 七龙珠
+https://live.metshop.top/huya/11601966
 #EXTINF:-1 tvg-name="中华小当家" group-title="儿童频道", 中华小当家
 https://live.metshop.top/huya/11342413
 #EXTINF:-1 tvg-name="海绵宝宝" group-title="儿童频道", 海绵宝宝
@@ -69,8 +71,6 @@ https://ls.qingting.fm/live/4972/64k.m3u8
 https://srs.iyb983.cn/video/CYS/index.m3u8
 #EXTINF:-1 tvg-name="安多卫视" group-title="地方频道", 安多卫视
 https://liveout.xntv.tv/a65jur/96iln2.m3u8
-#EXTINF:-1 tvg-name="广东体育" group-title="地方频道", 广东体育
-https://epg.pw/stream/7b470f9fc5c305db0c8622117b7b25ca00eb35ba3e93e865cf0ff9df5c736681.m3u8
 #EXTINF:-1 tvg-name="上海新闻综合" group-title="地方频道", 上海新闻综合
 https://mgtv.ottiptv.cc/migu/651632657.m3u8?migutoken=348c9164063c2b1df215dd2fa7cd92cb119d8a335ae0edfb5d615a6c714e71b669eee2f5ff1730afa92af7ca41d0aa96e3a280d7e5f2069eb8a3b852f3ebc270147489d7c8bfb08a7c4b9c4d80
 #EXTINF:-1 tvg-name="上海第一财经" group-title="地方频道", 上海第一财经
@@ -117,6 +117,8 @@ https://satellitepull.cnr.cn/live/wxjlxcgb/playlist.m3u8
 https://m3u8channel-bx.yunxya.com/nmip-media/channellive/channel104666/playlist.m3u8
 #EXTINF:-1 tvg-name="哈密一套" group-title="地方频道", 哈密一套
 https://tvpull.hmgbtv.com/hmtv/channel9cd66b3d5d258b2b.flv
+#EXTINF:-1 tvg-name="哈密三套" group-title="地方频道", 哈密三套
+https://tvpull.hmgbtv.com/hmtv/channelfb0e5c505477aa44/playlist.m3u8
 #EXTINF:-1 tvg-name="哈密二套" group-title="地方频道", 哈密二套
 https://tvpull.hmgbtv.com/hmtv/channel108259412c6a6711/playlist.m3u8
 #EXTINF:-1 tvg-name="哈尔滨娱乐" group-title="地方频道", 哈尔滨娱乐
@@ -131,8 +133,6 @@ https://ls.qingting.fm/live/1841/64k.m3u8
 https://www.ahtv.cn/folder9000/folder20193?channelIndex=6
 #EXTINF:-1 tvg-name="平泉综合" group-title="地方频道", 平泉综合
 https://jwcdnqx.hebyun.com.cn/live/pqzh/1500k/tzwj_video.m3u8
-#EXTINF:-1 tvg-name="平遥新闻综合" group-title="地方频道", 平遥新闻综合
-https://tntgjhjb.live.sxmty.com/live/hls/3a4585ac11ec4e1bb07b419101b370c3/baf63e2b313440c2a25d7859f9b73b05-1.m3u8?zshanxd
 #EXTINF:-1 tvg-name="广元公共" group-title="地方频道", 广元公共
 https://m3u8.channel.dzsm.com/nmip-media/channellive/channel101257/playlist.m3u8
 #EXTINF:-1 tvg-name="广元综合" group-title="地方频道", 广元综合
@@ -165,6 +165,8 @@ https://l.cztvcloud.com/channels/lantian/SXputuo1/720p.m3u8
 https://play.kankanlive.com/live/1624439143745981.m3u8?zgand
 #EXTINF:-1 tvg-name="朝天综合" group-title="地方频道", 朝天综合
 https://m3u8.channel.dzsm.com/nmip-media/channellive/channel104601/playlist.m3u8
+#EXTINF:-1 tvg-name="梨园" group-title="地方频道", 梨园
+https://dxtx.hntv.tv/live/lypd.m3u8?txSecret=10c771842a0be59e8b575d765173ec96&txTime=7B923E0A&wsSecret=41543190cdf375f1c73207222bb96542&wsTime=1769313549
 #EXTINF:-1 tvg-name="武威新闻" group-title="地方频道", 武威新闻
 https://play.kankanlive.com/live/1693539781636986.m3u8
 #EXTINF:-1 tvg-name="武汉一台新闻综合" group-title="地方频道", 武汉一台新闻综合
@@ -281,6 +283,8 @@ https://hls.cntv.lxdns.com/asp/hls/2000/0303000a/3/default/f0a47e155d32450daa1d3
 https://newcntv.qcloudcdn.com/asp/hls/2000/0303000a/3/default/d2454bbb542d4613a9db478dab2addfd/2000.m3u8
 #EXTINF:-1 tvg-name="精品体育" group-title="体育频道", 精品体育
 https://epg.pw/stream/866a097a0907c9832440f8df38272dd555abf05200dfbafcc137e214c9b30ca7.m3u8
+#EXTINF:-1 tvg-name="JJ斗地主" group-title="体育频道", JJ斗地主
+https://live.iill.top/douyin/685317364746
 #EXTINF:-1 tvg-name="漫画解说" group-title="解说频道", 漫画解说
 https://www.goodiptv.club/douyu/5907076
 #EXTINF:-1 tvg-name="音乐现场" group-title="音乐频道", 音乐现场
@@ -347,16 +351,12 @@ https://gcalic.v.myalicdn.com/gc/zjwzlyhb_1/index.m3u8
 https://gcalic.v.myalicdn.com/gc/zjwzbblh_1/index.m3u8
 #EXTINF:-1 tvg-name="乌镇龙形田" group-title="直播中国", 乌镇龙形田
 https://gcalic.v.myalicdn.com/gc/zjwzlxt_1/index.m3u8
-#EXTINF:-1 tvg-name="乐山大佛全景" group-title="直播中国", 乐山大佛全景
-https://gcalic.v.myalicdn.com/gc/lsdfgfl_1/index.m3u8
 #EXTINF:-1 tvg-name="云南丽江冰川" group-title="直播中国", 云南丽江冰川
 https://gcalic.v.myalicdn.com/gc/hkylxs05_1/index.m3u8
 #EXTINF:-1 tvg-name="云南丽江印象实景" group-title="直播中国", 云南丽江印象实景
 https://gcalic.v.myalicdn.com/gc/hkylxs01_1/index.m3u8
 #EXTINF:-1 tvg-name="云南丽江玉龙雪山" group-title="直播中国", 云南丽江玉龙雪山
 https://gcalic.v.myalicdn.com/gc/ylxs11_1/index.m3u8
-#EXTINF:-1 tvg-name="云南丽江玉龙雪山草甸" group-title="直播中国", 云南丽江玉龙雪山草甸
-https://gcalic.v.myalicdn.com/gc/hkylxs06_1/index.m3u8
 #EXTINF:-1 tvg-name="云南丽江蓝月谷" group-title="直播中国", 云南丽江蓝月谷
 https://gcalic.v.myalicdn.com/gc/ylxs12_1/index.m3u8
 #EXTINF:-1 tvg-name="云南大理崇圣寺三塔中景" group-title="直播中国", 云南大理崇圣寺三塔中景
@@ -367,12 +367,8 @@ https://gcalic.v.myalicdn.com/gc/dlst01_1/index.m3u8
 https://gcalic.v.myalicdn.com/gc/hkylxs03_1/index.m3u8
 #EXTINF:-1 tvg-name="五彩池" group-title="直播中国", 五彩池
 https://gcalic.v.myalicdn.com/gc/hlwcc_1/index.m3u8
-#EXTINF:-1 tvg-name="八里沟风景区天界山玻璃栈道" group-title="直播中国", 八里沟风景区天界山玻璃栈道
-https://gcalic.v.myalicdn.com/gc/blg03_1/index.m3u8
 #EXTINF:-1 tvg-name="八里沟风景区桃花湾瀑布" group-title="直播中国", 八里沟风景区桃花湾瀑布
 https://gcalic.v.myalicdn.com/gc/blg05_1/index.m3u8
-#EXTINF:-1 tvg-name="六盘山红军长征景区" group-title="直播中国", 六盘山红军长征景区
-https://gcalic.v.myalicdn.com/gc/lpsgmjng01_1/index.m3u8
 #EXTINF:-1 tvg-name="南京玄武湖公园" group-title="直播中国", 南京玄武湖公园
 https://gcalic.v.myalicdn.com/gc/xwh01_1/index.m3u8
 #EXTINF:-1 tvg-name="厦门鼓浪屿" group-title="直播中国", 厦门鼓浪屿
@@ -387,16 +383,12 @@ https://gcalic.v.myalicdn.com/gc/emspxps_1/index.m3u8
 https://gcalic.v.myalicdn.com/gc/emswfs_1/index.m3u8
 #EXTINF:-1 tvg-name="四川峨眉山远眺贡嘎雪山" group-title="直播中国", 四川峨眉山远眺贡嘎雪山
 https://gcalic.v.myalicdn.com/gc/emsyh_1/index.m3u8
-#EXTINF:-1 tvg-name="天涯石" group-title="直播中国", 天涯石
-https://gcalic.v.myalicdn.com/gc/tyhjtys_1/index.m3u8
 #EXTINF:-1 tvg-name="安徽池州九华山风景区九华山" group-title="直播中国", 安徽池州九华山风景区九华山
 https://gcalic.v.myalicdn.com/gc/jhs05_1/index.m3u8
 #EXTINF:-1 tvg-name="安徽黟县芦村远眺" group-title="直播中国", 安徽黟县芦村远眺
 https://gcalic.v.myalicdn.com/gc/yxlcyt_1/index.m3u8
 #EXTINF:-1 tvg-name="安徽黟县西递牌坊" group-title="直播中国", 安徽黟县西递牌坊
 https://gcalic.v.myalicdn.com/gc/yxxdpf_1/index.m3u8
-#EXTINF:-1 tvg-name="广西桂林漓江景区" group-title="直播中国", 广西桂林漓江景区
-https://gcalic.v.myalicdn.com/gc/gllj01_1/index.m3u8
 #EXTINF:-1 tvg-name="广西玉林大容山莲花山顶" group-title="直播中国", 广西玉林大容山莲花山顶
 https://gcalic.v.myalicdn.com/gc/drs01_1/index.m3u8
 #EXTINF:-1 tvg-name="张掖七彩丹霞" group-title="直播中国", 张掖七彩丹霞
@@ -405,10 +397,6 @@ https://gcalic.v.myalicdn.com/gc/zyqcdx01_1/index.m3u8
 https://gcalic.v.myalicdn.com/gc/hsxksqj_1/index.m3u8
 #EXTINF:-1 tvg-name="普陀山" group-title="直播中国", 普陀山
 https://gcalic.v.myalicdn.com/gc/pts01_1/index.m3u8
-#EXTINF:-1 tvg-name="月牙泉" group-title="直播中国", 月牙泉
-https://gcalic.v.myalicdn.com/gc/dhyyqsm_1/index.m3u8
-#EXTINF:-1 tvg-name="望乡台" group-title="直播中国", 望乡台
-https://gcalic.v.myalicdn.com/gc/hlwxt_1/index.m3u8
 #EXTINF:-1 tvg-name="江苏南京牛首山" group-title="直播中国", 江苏南京牛首山
 https://gcalic.v.myalicdn.com/gc/nss01_1/index.m3u8
 #EXTINF:-1 tvg-name="江苏徐州云龙湖风景区云龙山观景台西" group-title="直播中国", 江苏徐州云龙湖风景区云龙山观景台西
@@ -425,8 +413,6 @@ https://gcalic.v.myalicdn.com/gc/taishan03_1/index.m3u8
 https://gcalic.v.myalicdn.com/gc/hkts09_1/index.m3u8
 #EXTINF:-1 tvg-name="泰山望人松" group-title="直播中国", 泰山望人松
 https://gcalic.v.myalicdn.com/gc/taishan02_1/index.m3u8
-#EXTINF:-1 tvg-name="泰山玉皇顶" group-title="直播中国", 泰山玉皇顶
-https://gcalic.v.myalicdn.com/gc/taishan06_1/index.m3u8
 #EXTINF:-1 tvg-name="泰山白云亭悬崖" group-title="直播中国", 泰山白云亭悬崖
 https://gcalic.v.myalicdn.com/gc/hkts02_1/index.m3u8
 #EXTINF:-1 tvg-name="泰山碧霞祠" group-title="直播中国", 泰山碧霞祠
@@ -455,8 +441,6 @@ https://gcalic.v.myalicdn.com/gc/djyqyl1_1/index.m3u8
 https://gcalic.v.myalicdn.com/gc/zh02_1/index.m3u8
 #EXTINF:-1 tvg-name="雪乡大石碑" group-title="直播中国", 雪乡大石碑
 https://gcalic.v.myalicdn.com/gc/mdjxxdsb_1/index.m3u8
-#EXTINF:-1 tvg-name="雪乡梦幻家园" group-title="直播中国", 雪乡梦幻家园
-https://gcalic.v.myalicdn.com/gc/mdjxxmhjyxj_1/index.m3u8
 #EXTINF:-1 tvg-name="青岛崂山八水河" group-title="直播中国", 青岛崂山八水河
 https://gcalic.v.myalicdn.com/gc/qdls02_1/index.m3u8
 #EXTINF:-1 tvg-name="青岛崂山双福" group-title="直播中国", 青岛崂山双福
@@ -465,20 +449,14 @@ https://gcalic.v.myalicdn.com/gc/qdls03_1/index.m3u8
 https://gcalic.v.myalicdn.com/gc/dhyyqst_1/index.m3u8
 #EXTINF:-1 tvg-name="黄山" group-title="直播中国", 黄山
 https://gcalic.v.myalicdn.com/gc/ahhs01_1/index.m3u8
-#EXTINF:-1 tvg-name="黄山始信新道" group-title="直播中国", 黄山始信新道
-https://gcalic.v.myalicdn.com/gc/hsyg_1/index.m3u8
 #EXTINF:-1 tvg-name="黄山排云亭" group-title="直播中国", 黄山排云亭
 https://gcalic.v.myalicdn.com/gc/hspyt_1/index.m3u8
 #EXTINF:-1 tvg-name="黄山飞来石" group-title="直播中国", 黄山飞来石
 https://gcalic.v.myalicdn.com/gc/hsptgy_1/index.m3u8
-#EXTINF:-1 tvg-name="黄果树六角亭瀑布" group-title="直播中国", 黄果树六角亭瀑布
-https://gcalic.v.myalicdn.com/gc/hgsspzxdpb_1/index.m3u8
 #EXTINF:-1 tvg-name="黄花城水长城01" group-title="直播中国", 黄花城水长城01
 https://gcalic.v.myalicdn.com/gc/wgw01_1/index.m3u8
 #EXTINF:-1 tvg-name="黄花城水长城03" group-title="直播中国", 黄花城水长城03
 https://gcalic.v.myalicdn.com/gc/wgw03_1/index.m3u8
-#EXTINF:-1 tvg-name="黄龙" group-title="直播中国", 黄龙
-https://gcalic.v.myalicdn.com/gc/hlzycc_1/index.m3u8
 #EXTINF:-1 group-title="4K频道",苏州4K
 https://live-auth.51kandianshi.com/szgd/csztv4k_hd.m3u8
 #EXTINF:-1 group-title="4K频道",河北4K
