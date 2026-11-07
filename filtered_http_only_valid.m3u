@@ -67,8 +67,6 @@ http://www.guzhenm.com:7001/hls/hd-live.m3u8?%E5%85%B3%E6%B3%A8%E5%BE%AE%E4%BF%A
 http://live.daningtv.com/aac_dngb/playlist.m3u8
 #EXTINF:-1 tvg-name="安徽导视" group-title="地方频道", 安徽导视
 http://dspdhls.appcoo.com:8888/live/dspd/index.m3u8
-#EXTINF:-1 tvg-name="定襄综合" group-title="地方频道", 定襄综合
-http://lbyzztfe.live.sxmty.com/live/hls/645ff4c60e0a49f0a203abbd73dd8be9/0720e665f10f48e98c9639f4f492fb4a-1.m3u8?zshanxd
 #EXTINF:-1 tvg-name="山东新闻" group-title="地方频道", 山东新闻
 http://ls.qingting.fm/live/60180.m3u8
 #EXTINF:-1 tvg-name="山东生活" group-title="地方频道", 山东生活
@@ -147,10 +145,14 @@ http://ali-m-l.cztv.com/channels/lantian/channel004/1080p.m3u8
 http://ali-m-l.cztv.com/channels/lantian/channel04/720p.m3u8
 #EXTINF:-1 tvg-name="浙江数码时代" group-title="地方频道", 浙江数码时代
 http://ali-m-l.cztv.com/channels/lantian/channel12/720p.m3u8
+#EXTINF:-1 tvg-name="浙江新闻" group-title="地方频道", 浙江新闻
+http://ali-vl.cztv.com/channels/lantian/channel007/360p.m3u8
 #EXTINF:-1 tvg-name="浙江民生" group-title="地方频道", 浙江民生
 http://ali-m-l.cztv.com/channels/lantian/channel006/1080p.m3u8
 #EXTINF:-1 tvg-name="浙江生活" group-title="地方频道", 浙江生活
 http://ls.qingting.fm/live/1099.m3u8
+#EXTINF:-1 tvg-name="浙江留学" group-title="地方频道", 浙江留学
+http://ali-vl.cztv.com/channels/lantian/channel009/360p.m3u8
 #EXTINF:-1 tvg-name="浙江经济" group-title="地方频道", 浙江经济
 http://ali-m-l.cztv.com/channels/lantian/channel003/1080p.m3u8
 #EXTINF:-1 tvg-name="浙江经济生活" group-title="地方频道", 浙江经济生活
@@ -251,100 +253,70 @@ http://english-livetx.cgtn.com/hls/yypdyyctzb_hd.m3u8
 http://espanol-liveali.cgtn.com/hls/LSveOGBaBw41Ea7ukkVAUdKQ220802LSTexu6xAuFH8VZNBLE1ZNEa220802cd.m3u8
 #EXTINF:-1 tvg-name="CCTV1" group-title="咪咕央视",CCTV1
 http://t.061899.xyz/tl/tl.php?id=cctv1
-#EXTINF:-1 tvg-name="CCTV2" group-title="咪咕央视",CCTV2
-http://t.061899.xyz/tl/tl.php?id=cctv2
 #EXTINF:-1 tvg-name="CCTV3" group-title="咪咕央视",CCTV3
 http://t.061899.xyz/tl/tl.php?id=cctv3
-#EXTINF:-1 tvg-name="CCTV4" group-title="咪咕央视",CCTV4
-http://t.061899.xyz/tl/tl.php?id=cctv4
+#EXTINF:-1 tvg-name="CCTV4" group-title="咪咕央视",CCTV4美洲
+http://t.061899.xyz/tl/tl.php?id=cctv4m
 #EXTINF:-1 tvg-name="CCTV4" group-title="咪咕央视",CCTV4欧洲
 http://t.061899.xyz/tl/tl.php?id=cctv4o
-#EXTINF:-1 tvg-name="CCTV5" group-title="咪咕央视",CCTV5
-http://t.061899.xyz/tl/tl.php?id=cctv5
-#EXTINF:-1 tvg-name="CCTV5+" group-title="咪咕央视",CCTV5+
-http://t.061899.xyz/tl/tl.php?id=cctv5p
-#EXTINF:-1 tvg-name="CCTV6" group-title="咪咕央视",CCTV6
-http://t.061899.xyz/tl/tl.php?id=cctv6
-#EXTINF:-1 tvg-name="CCTV7" group-title="咪咕央视",CCTV7
-http://t.061899.xyz/tl/tl.php?id=cctv7
+#EXTINF:-1 tvg-name="CCTV8" group-title="咪咕央视",CCTV8
+http://t.061899.xyz/tl/tl.php?id=cctv8
 #EXTINF:-1 tvg-name="CCTV10" group-title="咪咕央视",CCTV10
 http://t.061899.xyz/tl/tl.php?id=cctv10
 #EXTINF:-1 tvg-name="CCTV12" group-title="咪咕央视",CCTV12
 http://t.061899.xyz/tl/tl.php?id=cctv12
-#EXTINF:-1 tvg-name="CCTV13" group-title="咪咕央视",CCTV13
-http://t.061899.xyz/tl/tl.php?id=cctv13
 #EXTINF:-1 tvg-name="CCTV14" group-title="咪咕央视",CCTV14
 http://t.061899.xyz/tl/tl.php?id=cctv14
-#EXTINF:-1 tvg-name="CCTV16" group-title="咪咕央视",CCTV16
-http://t.061899.xyz/tl/tl.php?id=cctv16
 #EXTINF:-1 tvg-name="CCTV17" group-title="咪咕央视",CCTV17
 http://t.061899.xyz/tl/tl.php?id=cctv17
-#EXTINF:-1 tvg-name="CCTV老故事" group-title="咪咕央视",CCTV老故事
-http://t.061899.xyz/tl/tl.php?id=lgs
 #EXTINF:-1 tvg-name="CCTV中学生" group-title="咪咕央视",CCTV中学生
 http://t.061899.xyz/tl/tl.php?id=zxs
-#EXTINF:-1 tvg-name="CGTN" group-title="咪咕央视",CGTN
-http://t.061899.xyz/tl/tl.php?id=cgtn
-#EXTINF:-1 tvg-name="吉林卫视" group-title="咪咕央视",吉林卫视
-http://t.061899.xyz/tl/tl.php?id=jlws
+#EXTINF:-1 tvg-name="东方卫视" group-title="咪咕央视",东方卫视
+http://t.061899.xyz/tl/tl.php?id=dfws
 #EXTINF:-1 tvg-name="内蒙古卫视" group-title="咪咕央视",内蒙古卫视
 http://t.061899.xyz/tl/tl.php?id=nmws
-#EXTINF:-1 tvg-name="宁夏卫视" group-title="咪咕央视",宁夏卫视
-http://t.061899.xyz/tl/tl.php?id=nxws
-#EXTINF:-1 tvg-name="甘肃卫视" group-title="咪咕央视",甘肃卫视
-http://t.061899.xyz/tl/tl.php?id=gsws
 #EXTINF:-1 tvg-name="青海卫视" group-title="咪咕央视",青海卫视
 http://t.061899.xyz/tl/tl.php?id=qhws
-#EXTINF:-1 tvg-name="陕西卫视" group-title="咪咕央视",陕西卫视
-http://t.061899.xyz/tl/tl.php?id=sxws
 #EXTINF:-1 tvg-name="山东卫视" group-title="咪咕央视",山东卫视
 http://t.061899.xyz/tl/tl.php?id=sdws
 #EXTINF:-1 tvg-name="河南卫视" group-title="咪咕央视",河南卫视
 http://t.061899.xyz/tl/tl.php?id=hnws
-#EXTINF:-1 tvg-name="湖北卫视" group-title="咪咕央视",湖北卫视
-http://t.061899.xyz/tl/tl.php?id=hubws
 #EXTINF:-1 tvg-name="湖南卫视" group-title="咪咕央视",湖南卫视
 http://t.061899.xyz/tl/tl.php?id=hunws
 #EXTINF:-1 tvg-name="江西卫视" group-title="咪咕央视",江西卫视
 http://t.061899.xyz/tl/tl.php?id=jxws
 #EXTINF:-1 tvg-name="江苏卫视" group-title="咪咕央视",江苏卫视
 http://t.061899.xyz/tl/tl.php?id=jsws
-#EXTINF:-1 tvg-name="东南卫视" group-title="咪咕央视",东南卫视
-http://t.061899.xyz/tl/tl.php?id=dnws
 #EXTINF:-1 tvg-name="海峡卫视" group-title="咪咕央视",海峡卫视
 http://t.061899.xyz/tl/tl.php?id=hxws
 #EXTINF:-1 tvg-name="广东卫视" group-title="咪咕央视",广东卫视
 http://t.061899.xyz/tl/tl.php?id=gdws
 #EXTINF:-1 tvg-name="大湾区卫视" group-title="咪咕央视",大湾区卫视
 http://t.061899.xyz/tl/tl.php?id=dwqws
-#EXTINF:-1 tvg-name="云南卫视" group-title="咪咕央视",云南卫视
-http://t.061899.xyz/tl/tl.php?id=ynws
-#EXTINF:-1 tvg-name="新疆卫视" group-title="咪咕央视",新疆卫视
-http://t.061899.xyz/tl/tl.php?id=xjws
-#EXTINF:-1 tvg-name="海南卫视" group-title="咪咕央视",海南卫视
-http://t.061899.xyz/tl/tl.php?id=hinws
-#EXTINF:-1 tvg-name="四海钓鱼" group-title="咪咕央视",四海钓鱼
-http://t.061899.xyz/tl/tl.php?id=shdy
+#EXTINF:-1 tvg-name="广西卫视" group-title="咪咕央视",广西卫视
+http://t.061899.xyz/tl/tl.php?id=gxws
+#EXTINF:-1 tvg-name="贵州卫视" group-title="咪咕央视",贵州卫视
+http://t.061899.xyz/tl/tl.php?id=gzws
+#EXTINF:-1 tvg-name="西藏卫视" group-title="咪咕央视",西藏卫视
+http://t.061899.xyz/tl/tl.php?id=xzws
 #EXTINF:-1 tvg-name="CHC动作电影" group-title="咪咕央视",CHC动作电影
 http://t.061899.xyz/tl/tl.php?id=chcdzdy
 #EXTINF:-1 tvg-name="CHC家庭影院" group-title="咪咕央视",CHC家庭影院
 http://t.061899.xyz/tl/tl.php?id=chcjtdy
 #EXTINF:-1 tvg-name="东方影视" group-title="咪咕央视",东方影视
 http://t.061899.xyz/tl/tl.php?id=dfys
-#EXTINF:-1 tvg-name="上海新闻综合" group-title="咪咕央视",上海新闻综合
-http://t.061899.xyz/tl/tl.php?id=shxwzh
-#EXTINF:-1 tvg-name="上海第一财经" group-title="咪咕央视",上海第一财经
-http://t.061899.xyz/tl/tl.php?id=dycj
+#EXTINF:-1 tvg-name="上视纪实人文" group-title="咪咕央视",上视纪实人文
+http://t.061899.xyz/tl/tl.php?id=shjsrw
 #EXTINF:-1 tvg-name="上海外语" group-title="咪咕央视",上海外语
 http://t.061899.xyz/tl/tl.php?id=shics
-#EXTINF:-1 tvg-name="劲爆体育" group-title="咪咕央视",劲爆体育
-http://t.061899.xyz/tl/tl.php?id=jbty
-#EXTINF:-1 tvg-name="乐游" group-title="咪咕央视",乐游
-http://t.061899.xyz/tl/tl.php?id=ly
+#EXTINF:-1 tvg-name="法治天地" group-title="咪咕央视",法治天地
+http://t.061899.xyz/tl/tl.php?id=fztd
+#EXTINF:-1 tvg-name="魅力足球" group-title="咪咕央视",魅力足球
+http://t.061899.xyz/tl/tl.php?id=mlzq
+#EXTINF:-1 tvg-name="欢笑剧场" group-title="咪咕央视",欢笑剧场
+http://t.061899.xyz/tl/tl.php?id=hxjc
 #EXTINF:-1 tvg-name="游戏风云" group-title="咪咕央视",游戏风云
 http://t.061899.xyz/tl/tl.php?id=yxfy
-#EXTINF:-1 tvg-name="优漫卡通" group-title="咪咕央视",优漫卡通
-http://t.061899.xyz/tl/tl.php?id=ymkt
 #EXTINF:-1 tvg-name="东方卫视" http-user-agent="AptvPlayer-UA" group-title="卫视频道",东方卫视
 http://bp-resource-dfl.bestv.cn/155/3/video.m3u8
 #EXTINF:-1 tvg-name="厦门卫视" group-title="卫视频道",厦门卫视
@@ -415,8 +387,6 @@ http://php.jdshipin.com:8880/TVOD/iptv.php?id=asam
 http://php.jdshipin.com:8880/TVOD/iptv.php?id=fct3
 #EXTINF:-1 tvg-name="明珠台" group-title="港澳台频道",TVB明珠台
 http://cdn9.163189.xyz/smt1.1.php?id=pearl_twn
-#EXTINF:-1 tvg-name="千禧经典" group-title="港澳台频道",千禧经典
-http://cdn9.163189.xyz/smt3.1.1.php?id=Tvbclassic
 #EXTINF:-1 tvg-name="环球电视" group-title="港澳台频道",环球电视
 http://utv1.hqtvzb.com:9999/hls/world.m3u8
 #EXTINF:-1 tvg-name="美亚C+" group-title="港澳台频道",美亚C+
