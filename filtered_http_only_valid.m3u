@@ -109,8 +109,6 @@ http://ls.qingting.fm/live/1794199.m3u8
 http://ls.qingting.fm/live/267.m3u8
 #EXTINF:-1 tvg-name="兰溪新闻综合" group-title="地方频道", 兰溪新闻综合
 http://l.cztvcloud.com/channels/lantian/SXlanxi1/720p.m3u8
-#EXTINF:-1 tvg-name="兵团五师双河新闻综合" group-title="地方频道", 兵团五师双河新闻综合
-http://liveout.btzx.com.cn/62ds9e/4nxdih.m3u8?fbl=
 #EXTINF:-1 tvg-name="南京教科" group-title="地方频道", 南京教科
 http://nklive.nbs.cn/hls/75b3c462-b831-4de7-a34b-5d3221db2069/index.m3u8
 #EXTINF:-1 tvg-name="南京新闻综合" group-title="地方频道", 南京新闻综合
@@ -145,8 +143,6 @@ http://www.guzhenm.com:7001/hls/hd-live.m3u8
 http://live.daningtv.com/aac_dngb/playlist.m3u8
 #EXTINF:-1 tvg-name="安徽导视" group-title="地方频道", 安徽导视
 http://dspdhls.appcoo.com:8888/live/dspd/index.m3u8
-#EXTINF:-1 tvg-name="定襄综合" group-title="地方频道", 定襄综合
-http://lbyzztfe.live.sxmty.com/live/hls/645ff4c60e0a49f0a203abbd73dd8be9/0720e665f10f48e98c9639f4f492fb4a-1.m3u8?zshanxd
 #EXTINF:-1 tvg-name="山东新闻" group-title="地方频道", 山东新闻
 http://ls.qingting.fm/live/60180.m3u8
 #EXTINF:-1 tvg-name="山东生活" group-title="地方频道", 山东生活
@@ -191,8 +187,6 @@ http://live.xysrmt.cn/shpd/sd/live.m3u8?zjiangsd
 http://stream.jinjiang.tv/1/sd/live.m3u8?zfud
 #EXTINF:-1 tvg-name="来宾综合" group-title="地方频道", 来宾综合
 http://zb.gxlbamc.com:1935/live/lbzh.stream/playlist.m3u8
-#EXTINF:-1 tvg-name="松潘新闻综合" group-title="地方频道", 松潘新闻综合
-http://live.spccmc.com:90/live/spxwzh.m3u8
 #EXTINF:-1 tvg-name="松阳综合" group-title="地方频道", 松阳综合
 http://l.cztvcloud.com/channels/lantian/SXsongyang1/720p.m3u8
 #EXTINF:-1 tvg-name="柳河综合" group-title="地方频道", 柳河综合
@@ -392,13 +386,15 @@ http://r.jdshipin.com/qClQf
 #EXTINF:-1 tvg-name="翡翠台" group-title="港澳代理",翡翠台
 http://r.jdshipin.com/qrfbg
 #EXTINF:-1 tvg-name="翡翠台" group-title="港澳代理",翡翠台
-http://r.jdshipin.com/n90gt
+http://r.jdshipin.com/62WM7
 #EXTINF:-1 tvg-name="翡翠台" group-title="港澳代理",翡翠台
-http://r.jdshipin.com/GeWKr
+http://r.jdshipin.com/n90gt
 #EXTINF:-1 tvg-name="明珠台" group-title="港澳代理",明珠台
 http://r.jdshipin.com/ZQ4kN
 #EXTINF:-1 tvg-name="明珠台" group-title="港澳代理",明珠台
 http://r.jdshipin.com/jUx8K
+#EXTINF:-1 tvg-name="TVB Plus" group-title="港澳代理",TVB Plus
+http://r.jdshipin.com/Nr5jq
 #EXTINF:-1 tvg-name="TVB Plus" group-title="港澳代理",TVB Plus
 http://r.jdshipin.com/ndGgS
 #EXTINF:-1 tvg-name="无线新闻" group-title="港澳代理",无线新闻
@@ -417,10 +413,14 @@ http://r.jdshipin.com/TcKr2
 http://r.jdshipin.com/sFw4S
 #EXTINF:-1 tvg-name="广东珠江" group-title="港澳代理",广东珠江
 http://r.jdshipin.com/sE5vO
+#EXTINF:-1 tvg-name="广东体育" group-title="港澳代理",广东体育
+http://r.jdshipin.com/LiYdg
 #EXTINF:-1 tvg-name="广州综合" group-title="港澳代理",广州综合
 http://r.jdshipin.com/iR6Gq
 #EXTINF:-1 tvg-name="广州南国都市" group-title="港澳代理",南国都市
 http://r.jdshipin.com/nWaZO
+#EXTINF:-1 tvg-name="广州综合" group-title="港澳代理",广州综合
+http://r.jdshipin.com/snhya
 #EXTINF:-1 tvg-name="澳门卫视" group-title="港澳台频道",澳门卫视
 http://php.jdshipin.com:8880/TVOD/iptv.php?id=as
 #EXTINF:-1 tvg-name="澳视澳门" group-title="港澳台频道",澳视澳门
@@ -455,10 +455,6 @@ http://php.jdshipin.com:8880/TVOD/iptv.php?id=j1
 http://php.jdshipin.com/TVOD/iptv.php?id=j2
 #EXTINF:-1 tvg-name="明珠台" group-title="港澳台频道",明珠台
 http://php.jdshipin.com/TVOD/iptv.php?id=mzt2
-#EXTINF:-1 tvg-name="VIUTV" group-title="港澳台频道",VIUTV
-http://php.jdshipin.com/TVOD/iptv.php?id=viutv
-#EXTINF:-1 tvg-name="VIUTV" group-title="港澳台频道",VIUTV
-http://php.jdshipin.com/TVOD/iptv.php?id=viutv2
 #EXTINF:-1 tvg-name="RTHK31" group-title="港澳台频道",RTHK31
 http://php.jdshipin.com:8880/TVOD/iptv.php?id=rthk31
 #EXTINF:-1 tvg-name="RTHK32" group-title="港澳台频道",RTHK32
@@ -469,10 +465,10 @@ http://php.jdshipin.com/TVOD/iptv.php?id=hoytv
 http://php.jdshipin.com/TVOD/iptv.php?id=aod
 #EXTINF:-1 tvg-name="华丽翡翠台" group-title="港澳台频道",华丽翡翠台
 http://php.jdshipin.com/TVOD/iptv.php?id=huali2
-#EXTINF:-1 tvg-name="亚洲武侠" group-title="港澳台频道",亚洲武侠
-http://php.jdshipin.com/TVOD/iptv.php?id=yzwx
 #EXTINF:-1 tvg-name="TVB娱乐新闻台" group-title="港澳台频道",TVB娱乐新闻台
 http://php.jdshipin.com/TVOD/iptv.php?id=tvbylxw
+#EXTINF:-1 tvg-name="无线新闻台" group-title="港澳台频道",无线新闻台
+http://php.jdshipin.com/TVOD/iptv.php?id=wxxw
 #EXTINF:-1 tvg-name="TVB星河" group-title="港澳台频道",TVB星河
 http://php.jdshipin.com/TVOD/iptv.php?id=xinghe
 #EXTINF:-1 tvg-name="NOW NEWS" group-title="港澳台频道",NOW NEWS
@@ -501,6 +497,8 @@ http://www.goodiptv.club/douyu/6863367
 http://www.goodiptv.club/douyu/5522351
 #EXTINF:-1 group-title="斗鱼影视",贝爷求生
 http://www.goodiptv.club/douyu/9661369
+#EXTINF:-1 group-title="埋堆堆频道",神雕侠侣
+http://live.ottiptv.cc/yy/1351762426
 #EXTINF:-1 group-title="☘️四川频道",叙州新闻综合
 http://pili-live-hls.ybcxjd.com/jdh-live/2108111201035597.m3u8?zsicd
 #EXTINF:-1 group-title="☘️四川频道",广安公共
